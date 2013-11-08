@@ -72,14 +72,11 @@ build_scheme ()
     if [ "$awkstatus" -eq "3" ]
     then
         sdkflag="-sdk iphonesimulator"
-        run_xcodebuild $sdkflag -scheme "$scheme" test | parse_build
-
-        awkstatus=$?
-        xcstatus=${PIPESTATUS[0]}
     fi
 
-    # If this scheme doesn't support the `test` action, try again with `build`.
-    if [ "$awkstatus" -eq "2" ]
+    # If this scheme doesn't support the `test` action, or we changed to the iOS
+    # SDK, try again with `build`.
+    if [ "$awkstatus" -ge "2" ]
     then
         run_xcodebuild $sdkflag -scheme "$scheme" build | parse_build
 
