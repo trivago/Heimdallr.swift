@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SCRIPT_DIR=$(dirname "$0")
+export SCRIPT_DIR=$(dirname "$0")
 
 ##
 ## Configuration Variables
@@ -10,6 +10,8 @@ config ()
 {
     # A whitespace-separated list of executables that must be present and locatable.
     : ${REQUIRED_TOOLS="xctool"}
+    
+    export REQUIRED_TOOLS
 }
 
 ##
