@@ -64,11 +64,18 @@ main ()
 
     echo "*** The following schemes will be built:"
     echo "$SCHEMES" | xargs -n 1 echo "  "
+    echo
 
-    echo "$SCHEMES" | xargs -n 1 | while read scheme
-    do
-        build_scheme "$scheme"
-    done
+    echo "$SCHEMES" | xargs -n 1 | (
+        local status=0
+
+        while read scheme
+        do
+            build_scheme "$scheme" || status=1
+        done
+
+        exit $status
+    )
 }
 
 find_pattern ()
@@ -99,10 +106,11 @@ build_scheme ()
 {
     local scheme=$1
 
-    echo -e "\n*** Cleaning $scheme..."
+    echo "*** Cleaning $scheme..."
     run_xctool -scheme "$scheme" clean >/dev/null || exit $?
 
-    echo -e "*** Building and testing $scheme...\n"
+    echo "*** Building and testing $scheme..."
+    echo
 
     # Determine whether this target needs to be built and tested using the iOS
     # simulator SDK.
