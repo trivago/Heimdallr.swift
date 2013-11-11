@@ -76,7 +76,7 @@ To merge in upstream changes later:
 
 ```
 $ git fetch -p objc-build-scripts
-$ git merge -Xsubtree=script objc-build-scripts/master
+$ git merge --ff --squash -Xsubtree=script objc-build-scripts/master
 ```
 
 [xctool]: https://github.com/facebook/xctool
