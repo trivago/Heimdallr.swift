@@ -21,7 +21,7 @@ script/
     cibuild
 ```
 
-### `bootstrap`
+### bootstrap
 
 This script is responsible for bootstrapping (initializing) your project after
 it's been checked out. Here, you should install or clone any dependencies that
@@ -36,7 +36,7 @@ environment variable before running `script/bootstrap`, or edit it within the
 script directly. Note that no installation is performed automatically, though
 this can always be added within your specific project.
 
-### `cibuild`
+### cibuild
 
 This script is responsible for building the project, as you would want it built
 for continuous integration. This is preferable to putting the logic on the CI
