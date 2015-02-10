@@ -8,6 +8,7 @@
 
 import KeychainAccess
 
+@objc
 public class OAuthAccessTokenKeychainStorage: OAuthAccessTokenStorage {
     
     let keychain: Keychain
