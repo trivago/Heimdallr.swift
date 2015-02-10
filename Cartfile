@@ -1,1 +1,2 @@
 github "LlamaKit/LlamaKit" ~> 0.5
+github "kishikawakatsumi/KeychainAccess" ~> 1.1

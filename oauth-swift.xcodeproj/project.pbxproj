@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22BC44651A8A442500AB0A14 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BC44641A8A442500AB0A14 /* KeychainAccess.framework */; };
+		22BC44661A8A445D00AB0A14 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BC44641A8A442500AB0A14 /* KeychainAccess.framework */; };
 		DC545DC81A89F0F10051A575 /* oauth-swift.h in Headers */ = {isa = PBXBuildFile; fileRef = DC545DC71A89F0F10051A575 /* oauth-swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC545DCE1A89F0F10051A575 /* oauth_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC545DC21A89F0F10051A575 /* oauth_swift.framework */; };
 		DC545DDF1A89F1AC0051A575 /* NSURLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC545DDE1A89F1AC0051A575 /* NSURLExtensions.swift */; };
@@ -37,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		22BC44641A8A442500AB0A14 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
 		DC545DC21A89F0F10051A575 /* oauth_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = oauth_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC545DC61A89F0F10051A575 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC545DC71A89F0F10051A575 /* oauth-swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "oauth-swift.h"; sourceTree = "<group>"; };
@@ -63,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22BC44651A8A442500AB0A14 /* KeychainAccess.framework in Frameworks */,
 				DC545DE21A89F5080051A575 /* LlamaKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -75,6 +79,7 @@
 				DC545DE61A89F9E40051A575 /* Nimble.framework in Frameworks */,
 				DCA5B9931A8A300100667D32 /* AeroGearHttpStub.framework in Frameworks */,
 				DCA5B9961A8A331600667D32 /* LlamaKit.framework in Frameworks */,
+				22BC44661A8A445D00AB0A14 /* KeychainAccess.framework in Frameworks */,
 				DC545DCE1A89F0F10051A575 /* oauth_swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -85,6 +90,7 @@
 		DC545DB81A89F0F10051A575 = {
 			isa = PBXGroup;
 			children = (
+				22BC44641A8A442500AB0A14 /* KeychainAccess.framework */,
 				DC545DE41A89F9E30051A575 /* Nimble.framework */,
 				DC545DE51A89F9E30051A575 /* Quick.framework */,
 				DCA5B9921A8A300100667D32 /* AeroGearHttpStub.framework */,
@@ -263,6 +269,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/LlamaKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/KeychainAccess.framework",
 			);
 			outputPaths = (
 			);
@@ -280,6 +287,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/AeroGearHttpStub.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/LlamaKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/KeychainAccess.framework",
 			);
 			outputPaths = (
 			);
