@@ -14,8 +14,16 @@
 		DC545DE61A89F9E40051A575 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC545DE41A89F9E30051A575 /* Nimble.framework */; };
 		DC545DE71A89F9E40051A575 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC545DE51A89F9E30051A575 /* Quick.framework */; };
 		DC545DE91A89F9F70051A575 /* NSURLExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC545DE81A89F9F70051A575 /* NSURLExtensionsSpec.swift */; };
+		DC545DEB1A89FFDA0051A575 /* OAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC545DEA1A89FFDA0051A575 /* OAuthManager.swift */; };
 		DCA5B98D1A8A12E700667D32 /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA5B98C1A8A12E700667D32 /* NSDateExtensions.swift */; };
 		DCA5B98F1A8A296300667D32 /* NSDateExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA5B98E1A8A296300667D32 /* NSDateExtensionsSpec.swift */; };
+		DCA5B9911A8A2B9700667D32 /* OAuthManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA5B9901A8A2B9700667D32 /* OAuthManagerSpec.swift */; };
+		DCA5B9931A8A300100667D32 /* AeroGearHttpStub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA5B9921A8A300100667D32 /* AeroGearHttpStub.framework */; };
+		DCA5B9951A8A317900667D32 /* authorize-valid.json in Resources */ = {isa = PBXBuildFile; fileRef = DCA5B9941A8A317900667D32 /* authorize-valid.json */; };
+		DCA5B9961A8A331600667D32 /* LlamaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC545DE11A89F5080051A575 /* LlamaKit.framework */; };
+		DCA5B99A1A8A385B00667D32 /* authorize-invalid-token.json in Resources */ = {isa = PBXBuildFile; fileRef = DCA5B9971A8A385B00667D32 /* authorize-invalid-token.json */; };
+		DCA5B99B1A8A385B00667D32 /* authorize-invalid-type.json in Resources */ = {isa = PBXBuildFile; fileRef = DCA5B9981A8A385B00667D32 /* authorize-invalid-type.json */; };
+		DCA5B99C1A8A385B00667D32 /* authorize-invalid.json in Resources */ = {isa = PBXBuildFile; fileRef = DCA5B9991A8A385B00667D32 /* authorize-invalid.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +47,15 @@
 		DC545DE41A89F9E30051A575 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		DC545DE51A89F9E30051A575 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		DC545DE81A89F9F70051A575 /* NSURLExtensionsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLExtensionsSpec.swift; sourceTree = "<group>"; };
+		DC545DEA1A89FFDA0051A575 /* OAuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthManager.swift; sourceTree = "<group>"; };
 		DCA5B98C1A8A12E700667D32 /* NSDateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtensions.swift; sourceTree = "<group>"; };
 		DCA5B98E1A8A296300667D32 /* NSDateExtensionsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtensionsSpec.swift; sourceTree = "<group>"; };
+		DCA5B9901A8A2B9700667D32 /* OAuthManagerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthManagerSpec.swift; sourceTree = "<group>"; };
+		DCA5B9921A8A300100667D32 /* AeroGearHttpStub.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AeroGearHttpStub.framework; path = Carthage/Build/iOS/AeroGearHttpStub.framework; sourceTree = "<group>"; };
+		DCA5B9941A8A317900667D32 /* authorize-valid.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "authorize-valid.json"; sourceTree = "<group>"; };
+		DCA5B9971A8A385B00667D32 /* authorize-invalid-token.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "authorize-invalid-token.json"; sourceTree = "<group>"; };
+		DCA5B9981A8A385B00667D32 /* authorize-invalid-type.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "authorize-invalid-type.json"; sourceTree = "<group>"; };
+		DCA5B9991A8A385B00667D32 /* authorize-invalid.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "authorize-invalid.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +73,8 @@
 			files = (
 				DC545DE71A89F9E40051A575 /* Quick.framework in Frameworks */,
 				DC545DE61A89F9E40051A575 /* Nimble.framework in Frameworks */,
+				DCA5B9931A8A300100667D32 /* AeroGearHttpStub.framework in Frameworks */,
+				DCA5B9961A8A331600667D32 /* LlamaKit.framework in Frameworks */,
 				DC545DCE1A89F0F10051A575 /* oauth_swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,6 +87,7 @@
 			children = (
 				DC545DE41A89F9E30051A575 /* Nimble.framework */,
 				DC545DE51A89F9E30051A575 /* Quick.framework */,
+				DCA5B9921A8A300100667D32 /* AeroGearHttpStub.framework */,
 				DC545DE11A89F5080051A575 /* LlamaKit.framework */,
 				DC545DC41A89F0F10051A575 /* oauth-swift */,
 				DC545DD11A89F0F10051A575 /* oauth-swiftTests */,
@@ -90,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				DC545DC71A89F0F10051A575 /* oauth-swift.h */,
+				DC545DEA1A89FFDA0051A575 /* OAuthManager.swift */,
 				DCA5B98C1A8A12E700667D32 /* NSDateExtensions.swift */,
 				DC545DDE1A89F1AC0051A575 /* NSURLExtensions.swift */,
 				DC545DC51A89F0F10051A575 /* Supporting Files */,
@@ -108,6 +127,11 @@
 		DC545DD11A89F0F10051A575 /* oauth-swiftTests */ = {
 			isa = PBXGroup;
 			children = (
+				DCA5B9971A8A385B00667D32 /* authorize-invalid-token.json */,
+				DCA5B9981A8A385B00667D32 /* authorize-invalid-type.json */,
+				DCA5B9991A8A385B00667D32 /* authorize-invalid.json */,
+				DCA5B9941A8A317900667D32 /* authorize-valid.json */,
+				DCA5B9901A8A2B9700667D32 /* OAuthManagerSpec.swift */,
 				DCA5B98E1A8A296300667D32 /* NSDateExtensionsSpec.swift */,
 				DC545DE81A89F9F70051A575 /* NSURLExtensionsSpec.swift */,
 				DC545DD21A89F0F10051A575 /* Supporting Files */,
@@ -222,6 +246,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCA5B9951A8A317900667D32 /* authorize-valid.json in Resources */,
+				DCA5B99C1A8A385B00667D32 /* authorize-invalid.json in Resources */,
+				DCA5B99B1A8A385B00667D32 /* authorize-invalid-type.json in Resources */,
+				DCA5B99A1A8A385B00667D32 /* authorize-invalid-token.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +278,8 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/AeroGearHttpStub.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/LlamaKit.framework",
 			);
 			outputPaths = (
 			);
@@ -265,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC545DDF1A89F1AC0051A575 /* NSURLExtensions.swift in Sources */,
+				DC545DEB1A89FFDA0051A575 /* OAuthManager.swift in Sources */,
 				DCA5B98D1A8A12E700667D32 /* NSDateExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCA5B9911A8A2B9700667D32 /* OAuthManagerSpec.swift in Sources */,
 				DC545DE91A89F9F70051A575 /* NSURLExtensionsSpec.swift in Sources */,
 				DCA5B98F1A8A296300667D32 /* NSDateExtensionsSpec.swift in Sources */,
 			);
