@@ -14,23 +14,31 @@ import LlamaKit
 import oauth_swift
 
 class OAuthManagerSpec: QuickSpec {
-    let location = StubResponse.Location.Bundle(NSBundle(forClass: OAuthManagerSpec.self))
+    let bundle = NSBundle(forClass: OAuthManagerSpec.self)
 
     override func spec() {
         var manager: OAuthManager!
 
         beforeEach {
-            manager = OAuthManager(tokenURL: NSURL(string: "http://example.com")!, clientID: "example")
+            manager = OAuthManager(tokenURL: NSURL(string: "http://rheinfabrik.de")!, clientID: "spec")
         }
 
         describe("-authorize") {
+            var result: Result<Void, NSError>?
+
+            afterEach {
+                result = nil
+            }
+
             context("with a valid response") {
                 beforeEach {
-                    StubsManager.stubRequestsPassingTest({ request in
-                        return true
-                    }, withStubResponse: { request in
-                        return StubResponse(filename: "authorize-valid.json", location: self.location, statusCode: 200, headers: ["Content-Type" : "application/json"])
-                    }); return
+                    StubsManager.stubRequestsPassingTest({ _ in true }) { request in
+                        return StubResponse(filename: "authorize-valid.json", bundle: self.bundle)
+                    }
+
+                    waitUntil { done in
+                        manager.authorize("username", password: "password") { result = $0; done() }
+                    }
                 }
 
                 afterEach {
@@ -38,31 +46,23 @@ class OAuthManagerSpec: QuickSpec {
                 }
 
                 it("succeeds") {
-                    waitUntil { done in
-                        manager.authorize("username", password: "password") { result in
-                            expect(result.isSuccess).to(beTrue())
-                            done()
-                        }
-                    }
+                    expect(result?.isSuccess).to(beTrue())
                 }
 
                 it("sets the access token") {
-                    waitUntil { done in
-                        manager.authorize("username", password: "password") { result in
-                            expect(manager.hasAccessToken).to(beTrue())
-                            done()
-                        }
-                    }
+                    expect(manager.hasAccessToken).to(beTrue())
                 }
             }
 
             context("with an invalid response") {
                 beforeEach {
-                    StubsManager.stubRequestsPassingTest({ request in
-                        return true
-                    }, withStubResponse: { request in
-                        return StubResponse(filename: "authorize-invalid.json", location: self.location, statusCode: 200, headers: ["Content-Type" : "application/json"])
-                    }); return
+                    StubsManager.stubRequestsPassingTest({ _ in true }) { request in
+                        return StubResponse(filename: "authorize-invalid.json", bundle: self.bundle)
+                    }
+
+                    waitUntil { done in
+                        manager.authorize("username", password: "password") { result = $0; done() }
+                    }
                 }
 
                 afterEach {
@@ -70,32 +70,27 @@ class OAuthManagerSpec: QuickSpec {
                 }
 
                 it("fails") {
-                    waitUntil { done in
-                        manager.authorize("username", password: "password") { result in
-                            expect(result.isSuccess).to(beFalse())
-                            expect(result.error?.code).to(equal(OAuthManagerErrorInvalidData))
-                            done()
-                        }
-                    }
+                    expect(result?.isSuccess).to(beFalse())
+                }
+
+                it("fails with the correct error code") {
+                    expect(result?.error?.code).to(equal(OAuthManagerErrorInvalidData))
                 }
 
                 it("does not set the access token") {
-                    waitUntil { done in
-                        manager.authorize("username", password: "password") { result in
-                            expect(manager.hasAccessToken).to(beFalse())
-                            done()
-                        }
-                    }
+                    expect(manager.hasAccessToken).to(beFalse())
                 }
             }
 
             context("with an invalid response missing a token") {
                 beforeEach {
-                    StubsManager.stubRequestsPassingTest({ request in
-                        return true
-                        }, withStubResponse: { request in
-                            return StubResponse(filename: "authorize-invalid-token.json", location: self.location, statusCode: 200, headers: ["Content-Type" : "application/json"])
-                    }); return
+                    StubsManager.stubRequestsPassingTest({ _ in true }) { request in
+                        return StubResponse(filename: "authorize-invalid-token.json", bundle: self.bundle)
+                    }
+
+                    waitUntil { done in
+                        manager.authorize("username", password: "password") { result = $0; done() }
+                    }
                 }
 
                 afterEach {
@@ -103,32 +98,27 @@ class OAuthManagerSpec: QuickSpec {
                 }
 
                 it("fails") {
-                    waitUntil { done in
-                        manager.authorize("username", password: "password") { result in
-                            expect(result.isSuccess).to(beFalse())
-                            expect(result.error?.code).to(equal(OAuthManagerErrorInvalidData))
-                            done()
-                        }
-                    }
+                    expect(result?.isSuccess).to(beFalse())
+                }
+
+                it("fails with the correct error code") {
+                    expect(result?.error?.code).to(equal(OAuthManagerErrorInvalidData))
                 }
 
                 it("does not set the access token") {
-                    waitUntil { done in
-                        manager.authorize("username", password: "password") { result in
-                            expect(manager.hasAccessToken).to(beFalse())
-                            done()
-                        }
-                    }
+                    expect(manager.hasAccessToken).to(beFalse())
                 }
             }
 
             context("with an invalid response missing a type") {
                 beforeEach {
-                    StubsManager.stubRequestsPassingTest({ request in
-                        return true
-                        }, withStubResponse: { request in
-                            return StubResponse(filename: "authorize-invalid-type.json", location: self.location, statusCode: 200, headers: ["Content-Type" : "application/json"])
-                    }); return
+                    StubsManager.stubRequestsPassingTest({ _ in true }) { request in
+                        return StubResponse(filename: "authorize-invalid-type.json", bundle: self.bundle)
+                    }
+
+                    waitUntil { done in
+                        manager.authorize("username", password: "password") { result = $0; done() }
+                    }
                 }
 
                 afterEach {
@@ -136,22 +126,116 @@ class OAuthManagerSpec: QuickSpec {
                 }
 
                 it("fails") {
-                    waitUntil { done in
-                        manager.authorize("username", password: "password") { result in
-                            expect(result.isSuccess).to(beFalse())
-                            expect(result.error?.code).to(equal(OAuthManagerErrorInvalidData))
-                            done()
-                        }
-                    }
+                    expect(result?.isSuccess).to(beFalse())
+                }
+
+                it("fails with the correct error code") {
+                    expect(result?.error?.code).to(equal(OAuthManagerErrorInvalidData))
                 }
 
                 it("does not set the access token") {
+                    expect(manager.hasAccessToken).to(beFalse())
+                }
+            }
+        }
+
+        describe("-requestByAddingAuthorizationToRequest") {
+            var request = NSURLRequest(URL: NSURL(string: "http://rheinfabrik.de")!)
+            var result: Result<NSURLRequest, NSError>?
+
+            afterEach {
+                result = nil
+            }
+
+            context("when not authorized") {
+                beforeEach {
                     waitUntil { done in
-                        manager.authorize("username", password: "password") { result in
-                            expect(manager.hasAccessToken).to(beFalse())
-                            done()
-                        }
+                        manager.requestByAddingAuthorizationToRequest(request) { result = $0; done() }
                     }
+                }
+
+                it("fails") {
+                    expect(result?.isSuccess).to(beFalse())
+                }
+
+                it("fails with the correct error code") {
+                    expect(result?.error?.code).to(equal(OAuthManagerErrorNotAuthorized))
+                }
+            }
+
+            context("when authorized with a still valid access token") {
+                beforeEach {
+                    StubsManager.stubRequestsPassingTest({ _ in true }) { request in
+                        return StubResponse(filename: "request-valid.json", bundle: self.bundle)
+                    }
+
+                    waitUntil { done in
+                        manager.authorize("username", password: "password") { _ in done() }
+                    }
+
+                    waitUntil { done in
+                        manager.requestByAddingAuthorizationToRequest(request) { result = $0; done() }
+                    }
+                }
+
+                it("succeeds") {
+                    expect(result?.isSuccess).to(beTrue())
+                }
+
+                it("adds the correct authorization header to the request") {
+                    expect(result?.value?.valueForHTTPHeaderField("Authorization")).to(equal("bearer MTQzM2U3YTI3YmQyOWQ5YzQ0NjY4YTZkYjM0MjczYmZhNWI1M2YxM2Y1MjgwYTg3NDk3ZDc4ZGUzM2YxZmJjZQ"))
+                }
+            }
+
+            context("when authorized with an expired access token and no refresh token") {
+                beforeEach {
+                    StubsManager.stubRequestsPassingTest({ _ in true }) { request in
+                        return StubResponse(filename: "request-invalid-norefresh.json", bundle: self.bundle)
+                    }
+
+                    waitUntil { done in
+                        manager.authorize("username", password: "password") { _ in done() }
+                    }
+
+                    waitUntil { done in
+                        manager.requestByAddingAuthorizationToRequest(request) { result = $0; done() }
+                    }
+                }
+
+                it("fails") {
+                    expect(result?.isSuccess).to(beFalse())
+                }
+
+                it("fails with the correct error code") {
+                    expect(result?.error?.code).to(equal(OAuthManagerErrorNotAuthorized))
+                }
+            }
+
+            context("when authorized with an expired access token and a valid refresh token") {
+                beforeEach {
+                    StubsManager.stubRequestsPassingTest({ _ in !manager.hasAccessToken }) { request in
+                        return StubResponse(filename: "request-invalid.json", bundle: self.bundle)
+                    }
+
+                    waitUntil { done in
+                        manager.authorize("username", password: "password") { _ in done() }
+                    }
+
+                    StubsManager.stubRequestsPassingTest({ _ in true }) { request in
+                        return StubResponse(filename: "request-valid.json", bundle: self.bundle)
+                    }
+
+                    waitUntil { done in
+                        manager.requestByAddingAuthorizationToRequest(request) { result = $0; done() }
+                    }
+                }
+
+                it("succeeds") {
+                    expect(result?.isSuccess).to(beTrue())
+                }
+
+                it("adds the correct authorization header to the request") {
+                    expect(result?.value?.valueForHTTPHeaderField("Authorization")).to(equal("bearer MTQzM2U3YTI3YmQyOWQ5YzQ0NjY4YTZkYjM0MjczYmZhNWI1M2YxM2Y1MjgwYTg3NDk3ZDc4ZGUzM2YxZmJjZQ"))
                 }
             }
         }
