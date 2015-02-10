@@ -24,6 +24,9 @@
 		DCA5B99A1A8A385B00667D32 /* authorize-invalid-token.json in Resources */ = {isa = PBXBuildFile; fileRef = DCA5B9971A8A385B00667D32 /* authorize-invalid-token.json */; };
 		DCA5B99B1A8A385B00667D32 /* authorize-invalid-type.json in Resources */ = {isa = PBXBuildFile; fileRef = DCA5B9981A8A385B00667D32 /* authorize-invalid-type.json */; };
 		DCA5B99C1A8A385B00667D32 /* authorize-invalid.json in Resources */ = {isa = PBXBuildFile; fileRef = DCA5B9991A8A385B00667D32 /* authorize-invalid.json */; };
+		DCA5B99F1A8A455700667D32 /* request-invalid-norefresh.json in Resources */ = {isa = PBXBuildFile; fileRef = DCA5B99D1A8A455700667D32 /* request-invalid-norefresh.json */; };
+		DCA5B9A01A8A455700667D32 /* request-valid.json in Resources */ = {isa = PBXBuildFile; fileRef = DCA5B99E1A8A455700667D32 /* request-valid.json */; };
+		DCA5B9A21A8A4A8C00667D32 /* request-invalid.json in Resources */ = {isa = PBXBuildFile; fileRef = DCA5B9A11A8A4A8C00667D32 /* request-invalid.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,9 @@
 		DCA5B9971A8A385B00667D32 /* authorize-invalid-token.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "authorize-invalid-token.json"; sourceTree = "<group>"; };
 		DCA5B9981A8A385B00667D32 /* authorize-invalid-type.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "authorize-invalid-type.json"; sourceTree = "<group>"; };
 		DCA5B9991A8A385B00667D32 /* authorize-invalid.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "authorize-invalid.json"; sourceTree = "<group>"; };
+		DCA5B99D1A8A455700667D32 /* request-invalid-norefresh.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "request-invalid-norefresh.json"; sourceTree = "<group>"; };
+		DCA5B99E1A8A455700667D32 /* request-valid.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "request-valid.json"; sourceTree = "<group>"; };
+		DCA5B9A11A8A4A8C00667D32 /* request-invalid.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "request-invalid.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,13 +133,10 @@
 		DC545DD11A89F0F10051A575 /* oauth-swiftTests */ = {
 			isa = PBXGroup;
 			children = (
-				DCA5B9971A8A385B00667D32 /* authorize-invalid-token.json */,
-				DCA5B9981A8A385B00667D32 /* authorize-invalid-type.json */,
-				DCA5B9991A8A385B00667D32 /* authorize-invalid.json */,
-				DCA5B9941A8A317900667D32 /* authorize-valid.json */,
 				DCA5B9901A8A2B9700667D32 /* OAuthManagerSpec.swift */,
 				DCA5B98E1A8A296300667D32 /* NSDateExtensionsSpec.swift */,
 				DC545DE81A89F9F70051A575 /* NSURLExtensionsSpec.swift */,
+				DCA5B9A31A8A4C0500667D32 /* Stub Responses */,
 				DC545DD21A89F0F10051A575 /* Supporting Files */,
 			);
 			path = "oauth-swiftTests";
@@ -145,6 +148,20 @@
 				DC545DD31A89F0F10051A575 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DCA5B9A31A8A4C0500667D32 /* Stub Responses */ = {
+			isa = PBXGroup;
+			children = (
+				DCA5B9971A8A385B00667D32 /* authorize-invalid-token.json */,
+				DCA5B9981A8A385B00667D32 /* authorize-invalid-type.json */,
+				DCA5B9991A8A385B00667D32 /* authorize-invalid.json */,
+				DCA5B9941A8A317900667D32 /* authorize-valid.json */,
+				DCA5B99D1A8A455700667D32 /* request-invalid-norefresh.json */,
+				DCA5B9A11A8A4A8C00667D32 /* request-invalid.json */,
+				DCA5B99E1A8A455700667D32 /* request-valid.json */,
+			);
+			name = "Stub Responses";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,8 +264,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCA5B9951A8A317900667D32 /* authorize-valid.json in Resources */,
+				DCA5B99F1A8A455700667D32 /* request-invalid-norefresh.json in Resources */,
 				DCA5B99C1A8A385B00667D32 /* authorize-invalid.json in Resources */,
 				DCA5B99B1A8A385B00667D32 /* authorize-invalid-type.json in Resources */,
+				DCA5B9A01A8A455700667D32 /* request-valid.json in Resources */,
+				DCA5B9A21A8A4A8C00667D32 /* request-invalid.json in Resources */,
 				DCA5B99A1A8A385B00667D32 /* authorize-invalid-token.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

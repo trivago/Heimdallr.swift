@@ -138,5 +138,106 @@ class OAuthManagerSpec: QuickSpec {
                 }
             }
         }
+
+        describe("-requestByAddingAuthorizationToRequest") {
+            var request = NSURLRequest(URL: NSURL(string: "http://rheinfabrik.de")!)
+            var result: Result<NSURLRequest, NSError>?
+
+            afterEach {
+                result = nil
+            }
+
+            context("when not authorized") {
+                beforeEach {
+                    waitUntil { done in
+                        manager.requestByAddingAuthorizationToRequest(request) { result = $0; done() }
+                    }
+                }
+
+                it("fails") {
+                    expect(result?.isSuccess).to(beFalse())
+                }
+
+                it("fails with the correct error code") {
+                    expect(result?.error?.code).to(equal(OAuthManagerErrorNotAuthorized))
+                }
+            }
+
+            context("when authorized with a still valid access token") {
+                beforeEach {
+                    StubsManager.stubRequestsPassingTest({ _ in true }) { request in
+                        return StubResponse(filename: "request-valid.json", location: self.location, statusCode: 200, headers: ["Content-Type" : "application/json"])
+                    }
+
+                    waitUntil { done in
+                        manager.authorize("username", password: "password") { _ in done() }
+                    }
+
+                    waitUntil { done in
+                        manager.requestByAddingAuthorizationToRequest(request) { result = $0; done() }
+                    }
+                }
+
+                it("succeed") {
+                    expect(result?.isSuccess).to(beTrue())
+                }
+
+                it("add the correct authorization header to the request") {
+                    expect(result?.value?.valueForHTTPHeaderField("Authorization")).to(equal("bearer MTQzM2U3YTI3YmQyOWQ5YzQ0NjY4YTZkYjM0MjczYmZhNWI1M2YxM2Y1MjgwYTg3NDk3ZDc4ZGUzM2YxZmJjZQ"))
+                }
+            }
+
+            context("when authorized with an expired access token and no refresh token") {
+                beforeEach {
+                    StubsManager.stubRequestsPassingTest({ _ in true }) { request in
+                        return StubResponse(filename: "request-invalid-norefresh.json", location: self.location, statusCode: 200, headers: ["Content-Type" : "application/json"])
+                    }
+
+                    waitUntil { done in
+                        manager.authorize("username", password: "password") { _ in done() }
+                    }
+
+                    waitUntil { done in
+                        manager.requestByAddingAuthorizationToRequest(request) { result = $0; done() }
+                    }
+                }
+
+                it("fails") {
+                    expect(result?.isSuccess).to(beFalse())
+                }
+
+                it("fails with the correct error code") {
+                    expect(result?.error?.code).to(equal(OAuthManagerErrorNotAuthorized))
+                }
+            }
+
+            context("when authorized with an expired access token and a valid refresh token") {
+                beforeEach {
+                    StubsManager.stubRequestsPassingTest({ _ in !manager.hasAccessToken }) { request in
+                        return StubResponse(filename: "request-invalid.json", location: self.location, statusCode: 200, headers: ["Content-Type" : "application/json"])
+                    }
+
+                    waitUntil { done in
+                        manager.authorize("username", password: "password") { _ in done() }
+                    }
+
+                    StubsManager.stubRequestsPassingTest({ _ in true }) { request in
+                        return StubResponse(filename: "request-valid.json", location: self.location, statusCode: 200, headers: ["Content-Type" : "application/json"])
+                    }
+
+                    waitUntil { done in
+                        manager.requestByAddingAuthorizationToRequest(request) { result = $0; done() }
+                    }
+                }
+
+                it("succeed") {
+                    expect(result?.isSuccess).to(beTrue())
+                }
+
+                it("add the correct authorization header to the request") {
+                    expect(result?.value?.valueForHTTPHeaderField("Authorization")).to(equal("bearer MTQzM2U3YTI3YmQyOWQ5YzQ0NjY4YTZkYjM0MjczYmZhNWI1M2YxM2Y1MjgwYTg3NDk3ZDc4ZGUzM2YxZmJjZQ"))
+                }
+            }
+        }
     }
 }
