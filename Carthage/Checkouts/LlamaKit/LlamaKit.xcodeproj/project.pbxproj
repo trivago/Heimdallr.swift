@@ -1,0 +1,649 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D0297D2919D679B3009986A9 /* LlamaKit.h in Headers */ = {isa = PBXBuildFile; fileRef = FB2F8D8619BF637B00E4C49E /* LlamaKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D0297D2A19D679B8009986A9 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2F8D9A19BF661000E4C49E /* Result.swift */; };
+		D0297D2B19D679C0009986A9 /* ResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2F8D9019BF637B00E4C49E /* ResultTests.swift */; };
+		D0297D2D19D67A56009986A9 /* LlamaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0297D1019D67999009986A9 /* LlamaKit.framework */; };
+		D0297D2E19D67AAE009986A9 /* LlamaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB2F8D8119BF637B00E4C49E /* LlamaKit.framework */; };
+		FB2F8D8719BF637B00E4C49E /* LlamaKit.h in Headers */ = {isa = PBXBuildFile; fileRef = FB2F8D8619BF637B00E4C49E /* LlamaKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FB2F8D9119BF637B00E4C49E /* ResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2F8D9019BF637B00E4C49E /* ResultTests.swift */; };
+		FB2F8D9B19BF661000E4C49E /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2F8D9A19BF661000E4C49E /* Result.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D0297D1C19D67999009986A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB2F8D7819BF637B00E4C49E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D0297D0F19D67999009986A9;
+			remoteInfo = LlamaKit;
+		};
+		D0297D2F19D67ABF009986A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB2F8D7819BF637B00E4C49E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB2F8D8019BF637B00E4C49E;
+			remoteInfo = "LlamaKit-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D0297D1019D67999009986A9 /* LlamaKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LlamaKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0297D1A19D67999009986A9 /* LlamaKit-MacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "LlamaKit-MacTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB2F8D8119BF637B00E4C49E /* LlamaKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LlamaKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB2F8D8519BF637B00E4C49E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB2F8D8619BF637B00E4C49E /* LlamaKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LlamaKit.h; sourceTree = "<group>"; };
+		FB2F8D8C19BF637B00E4C49E /* LlamaKit-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "LlamaKit-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB2F8D8F19BF637B00E4C49E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB2F8D9019BF637B00E4C49E /* ResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTests.swift; sourceTree = "<group>"; };
+		FB2F8D9A19BF661000E4C49E /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		FB7C6F3D19D61C230087DA98 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D0297D0C19D67999009986A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0297D1719D67999009986A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0297D2D19D67A56009986A9 /* LlamaKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB2F8D7D19BF637B00E4C49E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB2F8D8919BF637B00E4C49E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0297D2E19D67AAE009986A9 /* LlamaKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FB2F8D7719BF637B00E4C49E = {
+			isa = PBXGroup;
+			children = (
+				FB2F8D8319BF637B00E4C49E /* LlamaKit */,
+				FB2F8D8D19BF637B00E4C49E /* LlamaKitTests */,
+				FB2F8D8219BF637B00E4C49E /* Products */,
+			);
+			indentWidth = 2;
+			sourceTree = "<group>";
+			tabWidth = 2;
+			usesTabs = 0;
+		};
+		FB2F8D8219BF637B00E4C49E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FB2F8D8119BF637B00E4C49E /* LlamaKit.framework */,
+				FB2F8D8C19BF637B00E4C49E /* LlamaKit-iOSTests.xctest */,
+				D0297D1019D67999009986A9 /* LlamaKit.framework */,
+				D0297D1A19D67999009986A9 /* LlamaKit-MacTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FB2F8D8319BF637B00E4C49E /* LlamaKit */ = {
+			isa = PBXGroup;
+			children = (
+				FB2F8D8619BF637B00E4C49E /* LlamaKit.h */,
+				FB2F8D9A19BF661000E4C49E /* Result.swift */,
+				FB2F8D8419BF637B00E4C49E /* Supporting Files */,
+			);
+			path = LlamaKit;
+			sourceTree = "<group>";
+		};
+		FB2F8D8419BF637B00E4C49E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FB7C6F3D19D61C230087DA98 /* README.md */,
+				FB2F8D8519BF637B00E4C49E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FB2F8D8D19BF637B00E4C49E /* LlamaKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				FB2F8D9019BF637B00E4C49E /* ResultTests.swift */,
+				FB2F8D8E19BF637B00E4C49E /* Supporting Files */,
+			);
+			path = LlamaKitTests;
+			sourceTree = "<group>";
+		};
+		FB2F8D8E19BF637B00E4C49E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FB2F8D8F19BF637B00E4C49E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D0297D0D19D67999009986A9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0297D2919D679B3009986A9 /* LlamaKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB2F8D7E19BF637B00E4C49E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB2F8D8719BF637B00E4C49E /* LlamaKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D0297D0F19D67999009986A9 /* LlamaKit-Mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0297D2719D67999009986A9 /* Build configuration list for PBXNativeTarget "LlamaKit-Mac" */;
+			buildPhases = (
+				D0297D0B19D67999009986A9 /* Sources */,
+				D0297D0C19D67999009986A9 /* Frameworks */,
+				D0297D0D19D67999009986A9 /* Headers */,
+				D0297D0E19D67999009986A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "LlamaKit-Mac";
+			productName = LlamaKit;
+			productReference = D0297D1019D67999009986A9 /* LlamaKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D0297D1919D67999009986A9 /* LlamaKit-MacTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0297D2819D67999009986A9 /* Build configuration list for PBXNativeTarget "LlamaKit-MacTests" */;
+			buildPhases = (
+				D0297D1619D67999009986A9 /* Sources */,
+				D0297D1719D67999009986A9 /* Frameworks */,
+				D0297D1819D67999009986A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D0297D1D19D67999009986A9 /* PBXTargetDependency */,
+			);
+			name = "LlamaKit-MacTests";
+			productName = LlamaKitTests;
+			productReference = D0297D1A19D67999009986A9 /* LlamaKit-MacTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FB2F8D8019BF637B00E4C49E /* LlamaKit-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB2F8D9419BF637B00E4C49E /* Build configuration list for PBXNativeTarget "LlamaKit-iOS" */;
+			buildPhases = (
+				FB2F8D7C19BF637B00E4C49E /* Sources */,
+				FB2F8D7D19BF637B00E4C49E /* Frameworks */,
+				FB2F8D7E19BF637B00E4C49E /* Headers */,
+				FB2F8D7F19BF637B00E4C49E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "LlamaKit-iOS";
+			productName = LlamaKit;
+			productReference = FB2F8D8119BF637B00E4C49E /* LlamaKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FB2F8D8B19BF637B00E4C49E /* LlamaKit-iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB2F8D9719BF637B00E4C49E /* Build configuration list for PBXNativeTarget "LlamaKit-iOSTests" */;
+			buildPhases = (
+				FB2F8D8819BF637B00E4C49E /* Sources */,
+				FB2F8D8919BF637B00E4C49E /* Frameworks */,
+				FB2F8D8A19BF637B00E4C49E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D0297D3019D67ABF009986A9 /* PBXTargetDependency */,
+			);
+			name = "LlamaKit-iOSTests";
+			productName = LlamaKitTests;
+			productReference = FB2F8D8C19BF637B00E4C49E /* LlamaKit-iOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FB2F8D7819BF637B00E4C49E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Rob Napier";
+				TargetAttributes = {
+					D0297D0F19D67999009986A9 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					D0297D1919D67999009986A9 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					FB2F8D8019BF637B00E4C49E = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					FB2F8D8B19BF637B00E4C49E = {
+						CreatedOnToolsVersion = 6.0;
+					};
+				};
+			};
+			buildConfigurationList = FB2F8D7B19BF637B00E4C49E /* Build configuration list for PBXProject "LlamaKit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FB2F8D7719BF637B00E4C49E;
+			productRefGroup = FB2F8D8219BF637B00E4C49E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FB2F8D8019BF637B00E4C49E /* LlamaKit-iOS */,
+				FB2F8D8B19BF637B00E4C49E /* LlamaKit-iOSTests */,
+				D0297D0F19D67999009986A9 /* LlamaKit-Mac */,
+				D0297D1919D67999009986A9 /* LlamaKit-MacTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D0297D0E19D67999009986A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0297D1819D67999009986A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB2F8D7F19BF637B00E4C49E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB2F8D8A19BF637B00E4C49E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D0297D0B19D67999009986A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0297D2A19D679B8009986A9 /* Result.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0297D1619D67999009986A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0297D2B19D679C0009986A9 /* ResultTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB2F8D7C19BF637B00E4C49E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB2F8D9B19BF661000E4C49E /* Result.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB2F8D8819BF637B00E4C49E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB2F8D9119BF637B00E4C49E /* ResultTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D0297D1D19D67999009986A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D0297D0F19D67999009986A9 /* LlamaKit-Mac */;
+			targetProxy = D0297D1C19D67999009986A9 /* PBXContainerItemProxy */;
+		};
+		D0297D3019D67ABF009986A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB2F8D8019BF637B00E4C49E /* LlamaKit-iOS */;
+			targetProxy = D0297D2F19D67ABF009986A9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D0297D2319D67999009986A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = LlamaKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		D0297D2419D67999009986A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = LlamaKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		D0297D2519D67999009986A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = LlamaKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		D0297D2619D67999009986A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = LlamaKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		FB2F8D9219BF637B00E4C49E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FB2F8D9319BF637B00E4C49E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FB2F8D9519BF637B00E4C49E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = LlamaKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FB2F8D9619BF637B00E4C49E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = LlamaKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		FB2F8D9819BF637B00E4C49E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = LlamaKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FB2F8D9919BF637B00E4C49E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = LlamaKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D0297D2719D67999009986A9 /* Build configuration list for PBXNativeTarget "LlamaKit-Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0297D2319D67999009986A9 /* Debug */,
+				D0297D2419D67999009986A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D0297D2819D67999009986A9 /* Build configuration list for PBXNativeTarget "LlamaKit-MacTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0297D2519D67999009986A9 /* Debug */,
+				D0297D2619D67999009986A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB2F8D7B19BF637B00E4C49E /* Build configuration list for PBXProject "LlamaKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB2F8D9219BF637B00E4C49E /* Debug */,
+				FB2F8D9319BF637B00E4C49E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB2F8D9419BF637B00E4C49E /* Build configuration list for PBXNativeTarget "LlamaKit-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB2F8D9519BF637B00E4C49E /* Debug */,
+				FB2F8D9619BF637B00E4C49E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB2F8D9719BF637B00E4C49E /* Build configuration list for PBXNativeTarget "LlamaKit-iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB2F8D9819BF637B00E4C49E /* Debug */,
+				FB2F8D9919BF637B00E4C49E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FB2F8D7819BF637B00E4C49E /* Project object */;
+}
