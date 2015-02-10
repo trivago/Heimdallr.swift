@@ -82,9 +82,9 @@ public class OAuthAccessToken {
     }
 }
 
-// TODO
 public protocol OAuthAccessTokenStorage {
-
+    func storeAccessToken(accessToken: OAuthAccessToken) -> Void
+    func retrieveAccessToken() -> OAuthAccessToken?
 }
 
 @objc
