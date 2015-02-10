@@ -39,9 +39,8 @@ class OAuthManagerSpec: QuickSpec {
         var storage: MockStorage!
 
         beforeEach {
-            manager = OAuthManager(tokenURL: NSURL(string: "http://rheinfabrik.de")!, clientID: "spec")
             storage = MockStorage()
-            manager.tokenStorage = storage
+            manager = OAuthManager(tokenURL: NSURL(string: "http://rheinfabrik.de")!, clientID: "spec", tokenStorage: storage)
         }
         
         describe("-init") {

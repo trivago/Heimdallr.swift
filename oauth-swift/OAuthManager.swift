@@ -91,8 +91,7 @@ public protocol OAuthAccessTokenStorage {
 public class OAuthManager {
     private let tokenURL: NSURL
     private let clientID: String
-    public var tokenStorage: OAuthAccessTokenStorage
-
+    private let tokenStorage: OAuthAccessTokenStorage
     private var accessToken: OAuthAccessToken? {
         get {
             return tokenStorage.retrieveAccessToken()
