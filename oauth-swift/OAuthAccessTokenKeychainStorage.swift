@@ -11,10 +11,10 @@ import KeychainAccess
 @objc
 public class OAuthAccessTokenKeychainStorage: OAuthAccessTokenStorage {
     
-    let keychain: Keychain
+    private let keychain: Keychain
     
-    public init() {
-        keychain = Keychain(service: "de.rheinfabrik.oauth-manager")
+    public init(service: String = "de.rheinfabrik.oauth-manager") {
+        keychain = Keychain(service: service)
     }
     
     public func storeAccessToken(accessToken: OAuthAccessToken){

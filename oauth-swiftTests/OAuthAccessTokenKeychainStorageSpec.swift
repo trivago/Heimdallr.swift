@@ -15,10 +15,10 @@ class OAuthAccessTokenKeychainStoreSpec: QuickSpec {
     override func spec() {
         
         var storage: OAuthAccessTokenKeychainStorage!
-        let keychain = Keychain(service: "de.rheinfabrik.oauth-manager")
+        let keychain = Keychain(service: "de.rheinfabrik.oauth-manager.unit-tests")
         
         beforeEach {
-            storage = OAuthAccessTokenKeychainStorage()
+            storage = OAuthAccessTokenKeychainStorage(service: "de.rheinfabrik.oauth-manager.unit-tests")
         }
         
         describe("-storeAccessToken") {
