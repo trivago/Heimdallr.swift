@@ -17,7 +17,7 @@ public class OAuthAccessTokenKeychainStorage: OAuthAccessTokenStorage {
         keychain = Keychain(service: service)
     }
     
-    public func storeAccessToken(accessToken: OAuthAccessToken){
+    public func storeAccessToken(accessToken: OAuthAccessToken) {
         keychain["access_token"] = accessToken.token
         keychain["token_type"] = accessToken.type
         if let expirationDate = accessToken.expiresAt {
