@@ -14,6 +14,8 @@
 		DC545DE61A89F9E40051A575 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC545DE41A89F9E30051A575 /* Nimble.framework */; };
 		DC545DE71A89F9E40051A575 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC545DE51A89F9E30051A575 /* Quick.framework */; };
 		DC545DE91A89F9F70051A575 /* NSURLExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC545DE81A89F9F70051A575 /* NSURLExtensionsSpec.swift */; };
+		DCA5B98D1A8A12E700667D32 /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA5B98C1A8A12E700667D32 /* NSDateExtensions.swift */; };
+		DCA5B98F1A8A296300667D32 /* NSDateExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA5B98E1A8A296300667D32 /* NSDateExtensionsSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +39,8 @@
 		DC545DE41A89F9E30051A575 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		DC545DE51A89F9E30051A575 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		DC545DE81A89F9F70051A575 /* NSURLExtensionsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLExtensionsSpec.swift; sourceTree = "<group>"; };
+		DCA5B98C1A8A12E700667D32 /* NSDateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtensions.swift; sourceTree = "<group>"; };
+		DCA5B98E1A8A296300667D32 /* NSDateExtensionsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtensionsSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				DC545DC71A89F0F10051A575 /* oauth-swift.h */,
+				DCA5B98C1A8A12E700667D32 /* NSDateExtensions.swift */,
 				DC545DDE1A89F1AC0051A575 /* NSURLExtensions.swift */,
 				DC545DC51A89F0F10051A575 /* Supporting Files */,
 			);
@@ -103,6 +108,7 @@
 		DC545DD11A89F0F10051A575 /* oauth-swiftTests */ = {
 			isa = PBXGroup;
 			children = (
+				DCA5B98E1A8A296300667D32 /* NSDateExtensionsSpec.swift */,
 				DC545DE81A89F9F70051A575 /* NSURLExtensionsSpec.swift */,
 				DC545DD21A89F0F10051A575 /* Supporting Files */,
 			);
@@ -259,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC545DDF1A89F1AC0051A575 /* NSURLExtensions.swift in Sources */,
+				DCA5B98D1A8A12E700667D32 /* NSDateExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC545DE91A89F9F70051A575 /* NSURLExtensionsSpec.swift in Sources */,
+				DCA5B98F1A8A296300667D32 /* NSDateExtensionsSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
