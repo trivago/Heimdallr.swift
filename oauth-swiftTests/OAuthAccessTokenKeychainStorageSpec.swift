@@ -43,7 +43,7 @@ class OAuthAccessTokenKeychainStoreSpec: QuickSpec {
             }
             
             it("saves the access token expiration date to the keychain if present") {
-                expect(keychain["expires_at"]).to(equal(expirationDate.timeIntervalSince1970.toString()))
+                expect(keychain["expires_at"]).to(equal(expirationDate.timeIntervalSince1970.description))
             }
             
             it("saves the access token refresh token to the keychain if present") {
