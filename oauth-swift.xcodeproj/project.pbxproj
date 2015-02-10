@@ -27,6 +27,7 @@
 		DCA5B99F1A8A455700667D32 /* request-invalid-norefresh.json in Resources */ = {isa = PBXBuildFile; fileRef = DCA5B99D1A8A455700667D32 /* request-invalid-norefresh.json */; };
 		DCA5B9A01A8A455700667D32 /* request-valid.json in Resources */ = {isa = PBXBuildFile; fileRef = DCA5B99E1A8A455700667D32 /* request-valid.json */; };
 		DCA5B9A21A8A4A8C00667D32 /* request-invalid.json in Resources */ = {isa = PBXBuildFile; fileRef = DCA5B9A11A8A4A8C00667D32 /* request-invalid.json */; };
+		DCA5B9A51A8A565C00667D32 /* StubResponseExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA5B9A41A8A565C00667D32 /* StubResponseExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		DCA5B99D1A8A455700667D32 /* request-invalid-norefresh.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "request-invalid-norefresh.json"; sourceTree = "<group>"; };
 		DCA5B99E1A8A455700667D32 /* request-valid.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "request-valid.json"; sourceTree = "<group>"; };
 		DCA5B9A11A8A4A8C00667D32 /* request-invalid.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "request-invalid.json"; sourceTree = "<group>"; };
+		DCA5B9A41A8A565C00667D32 /* StubResponseExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StubResponseExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 		DC545DD11A89F0F10051A575 /* oauth-swiftTests */ = {
 			isa = PBXGroup;
 			children = (
+				DCA5B9A41A8A565C00667D32 /* StubResponseExtensions.swift */,
 				DCA5B9901A8A2B9700667D32 /* OAuthManagerSpec.swift */,
 				DCA5B98E1A8A296300667D32 /* NSDateExtensionsSpec.swift */,
 				DC545DE81A89F9F70051A575 /* NSURLExtensionsSpec.swift */,
@@ -324,6 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCA5B9A51A8A565C00667D32 /* StubResponseExtensions.swift in Sources */,
 				DCA5B9911A8A2B9700667D32 /* OAuthManagerSpec.swift in Sources */,
 				DC545DE91A89F9F70051A575 /* NSURLExtensionsSpec.swift in Sources */,
 				DCA5B98F1A8A296300667D32 /* NSDateExtensionsSpec.swift in Sources */,

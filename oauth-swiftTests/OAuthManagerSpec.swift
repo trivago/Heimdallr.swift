@@ -14,7 +14,7 @@ import LlamaKit
 import oauth_swift
 
 class OAuthManagerSpec: QuickSpec {
-    let location = StubResponse.Location.Bundle(NSBundle(forClass: OAuthManagerSpec.self))
+    let bundle = NSBundle(forClass: OAuthManagerSpec.self)
 
     override func spec() {
         var manager: OAuthManager!
@@ -33,7 +33,7 @@ class OAuthManagerSpec: QuickSpec {
             context("with a valid response") {
                 beforeEach {
                     StubsManager.stubRequestsPassingTest({ _ in true }) { request in
-                        return StubResponse(filename: "authorize-valid.json", location: self.location, statusCode: 200, headers: ["Content-Type" : "application/json"])
+                        return StubResponse(filename: "authorize-valid.json", bundle: self.bundle)
                     }
 
                     waitUntil { done in
@@ -57,7 +57,7 @@ class OAuthManagerSpec: QuickSpec {
             context("with an invalid response") {
                 beforeEach {
                     StubsManager.stubRequestsPassingTest({ _ in true }) { request in
-                        return StubResponse(filename: "authorize-invalid.json", location: self.location, statusCode: 200, headers: ["Content-Type" : "application/json"])
+                        return StubResponse(filename: "authorize-invalid.json", bundle: self.bundle)
                     }
 
                     waitUntil { done in
@@ -85,7 +85,7 @@ class OAuthManagerSpec: QuickSpec {
             context("with an invalid response missing a token") {
                 beforeEach {
                     StubsManager.stubRequestsPassingTest({ _ in true }) { request in
-                        return StubResponse(filename: "authorize-invalid-token.json", location: self.location, statusCode: 200, headers: ["Content-Type" : "application/json"])
+                        return StubResponse(filename: "authorize-invalid-token.json", bundle: self.bundle)
                     }
 
                     waitUntil { done in
@@ -113,7 +113,7 @@ class OAuthManagerSpec: QuickSpec {
             context("with an invalid response missing a type") {
                 beforeEach {
                     StubsManager.stubRequestsPassingTest({ _ in true }) { request in
-                        return StubResponse(filename: "authorize-invalid-type.json", location: self.location, statusCode: 200, headers: ["Content-Type" : "application/json"])
+                        return StubResponse(filename: "authorize-invalid-type.json", bundle: self.bundle)
                     }
 
                     waitUntil { done in
@@ -166,7 +166,7 @@ class OAuthManagerSpec: QuickSpec {
             context("when authorized with a still valid access token") {
                 beforeEach {
                     StubsManager.stubRequestsPassingTest({ _ in true }) { request in
-                        return StubResponse(filename: "request-valid.json", location: self.location, statusCode: 200, headers: ["Content-Type" : "application/json"])
+                        return StubResponse(filename: "request-valid.json", bundle: self.bundle)
                     }
 
                     waitUntil { done in
@@ -190,7 +190,7 @@ class OAuthManagerSpec: QuickSpec {
             context("when authorized with an expired access token and no refresh token") {
                 beforeEach {
                     StubsManager.stubRequestsPassingTest({ _ in true }) { request in
-                        return StubResponse(filename: "request-invalid-norefresh.json", location: self.location, statusCode: 200, headers: ["Content-Type" : "application/json"])
+                        return StubResponse(filename: "request-invalid-norefresh.json", bundle: self.bundle)
                     }
 
                     waitUntil { done in
@@ -214,7 +214,7 @@ class OAuthManagerSpec: QuickSpec {
             context("when authorized with an expired access token and a valid refresh token") {
                 beforeEach {
                     StubsManager.stubRequestsPassingTest({ _ in !manager.hasAccessToken }) { request in
-                        return StubResponse(filename: "request-invalid.json", location: self.location, statusCode: 200, headers: ["Content-Type" : "application/json"])
+                        return StubResponse(filename: "request-invalid.json", bundle: self.bundle)
                     }
 
                     waitUntil { done in
@@ -222,7 +222,7 @@ class OAuthManagerSpec: QuickSpec {
                     }
 
                     StubsManager.stubRequestsPassingTest({ _ in true }) { request in
-                        return StubResponse(filename: "request-valid.json", location: self.location, statusCode: 200, headers: ["Content-Type" : "application/json"])
+                        return StubResponse(filename: "request-valid.json", bundle: self.bundle)
                     }
 
                     waitUntil { done in
