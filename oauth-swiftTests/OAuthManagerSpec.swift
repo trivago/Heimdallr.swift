@@ -178,11 +178,11 @@ class OAuthManagerSpec: QuickSpec {
                     }
                 }
 
-                it("succeed") {
+                it("succeeds") {
                     expect(result?.isSuccess).to(beTrue())
                 }
 
-                it("add the correct authorization header to the request") {
+                it("adds the correct authorization header to the request") {
                     expect(result?.value?.valueForHTTPHeaderField("Authorization")).to(equal("bearer MTQzM2U3YTI3YmQyOWQ5YzQ0NjY4YTZkYjM0MjczYmZhNWI1M2YxM2Y1MjgwYTg3NDk3ZDc4ZGUzM2YxZmJjZQ"))
                 }
             }
@@ -230,11 +230,11 @@ class OAuthManagerSpec: QuickSpec {
                     }
                 }
 
-                it("succeed") {
+                it("succeeds") {
                     expect(result?.isSuccess).to(beTrue())
                 }
 
-                it("add the correct authorization header to the request") {
+                it("adds the correct authorization header to the request") {
                     expect(result?.value?.valueForHTTPHeaderField("Authorization")).to(equal("bearer MTQzM2U3YTI3YmQyOWQ5YzQ0NjY4YTZkYjM0MjczYmZhNWI1M2YxM2Y1MjgwYTg3NDk3ZDc4ZGUzM2YxZmJjZQ"))
                 }
             }
