@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22BC44611A8A3FBA00AB0A14 /* OAuthAccessTokenKeychainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BC44601A8A3FBA00AB0A14 /* OAuthAccessTokenKeychainStorage.swift */; };
+		22BC44631A8A402300AB0A14 /* OAuthAccessTokenKeychainStorageSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BC44621A8A402300AB0A14 /* OAuthAccessTokenKeychainStorageSpec.swift */; };
+		22BC44651A8A442500AB0A14 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BC44641A8A442500AB0A14 /* KeychainAccess.framework */; };
+		22BC44661A8A445D00AB0A14 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BC44641A8A442500AB0A14 /* KeychainAccess.framework */; };
+		22BC446C1A8B858D00AB0A14 /* OAutchAccessTokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BC446B1A8B858D00AB0A14 /* OAutchAccessTokenStorage.swift */; };
 		DC545DC81A89F0F10051A575 /* oauth-swift.h in Headers */ = {isa = PBXBuildFile; fileRef = DC545DC71A89F0F10051A575 /* oauth-swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC545DCE1A89F0F10051A575 /* oauth_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC545DC21A89F0F10051A575 /* oauth_swift.framework */; };
 		DC545DDF1A89F1AC0051A575 /* NSURLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC545DDE1A89F1AC0051A575 /* NSURLExtensions.swift */; };
@@ -41,6 +46,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		22BC44601A8A3FBA00AB0A14 /* OAuthAccessTokenKeychainStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenKeychainStorage.swift; sourceTree = "<group>"; };
+		22BC44621A8A402300AB0A14 /* OAuthAccessTokenKeychainStorageSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenKeychainStorageSpec.swift; sourceTree = "<group>"; };
+		22BC44641A8A442500AB0A14 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
+		22BC446B1A8B858D00AB0A14 /* OAutchAccessTokenStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAutchAccessTokenStorage.swift; sourceTree = "<group>"; };
 		DC545DC21A89F0F10051A575 /* oauth_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = oauth_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC545DC61A89F0F10051A575 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC545DC71A89F0F10051A575 /* oauth-swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "oauth-swift.h"; sourceTree = "<group>"; };
@@ -71,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22BC44651A8A442500AB0A14 /* KeychainAccess.framework in Frameworks */,
 				DC545DE21A89F5080051A575 /* LlamaKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,6 +93,7 @@
 				DC545DE61A89F9E40051A575 /* Nimble.framework in Frameworks */,
 				DCA5B9931A8A300100667D32 /* AeroGearHttpStub.framework in Frameworks */,
 				DCA5B9961A8A331600667D32 /* LlamaKit.framework in Frameworks */,
+				22BC44661A8A445D00AB0A14 /* KeychainAccess.framework in Frameworks */,
 				DC545DCE1A89F0F10051A575 /* oauth_swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -93,6 +104,7 @@
 		DC545DB81A89F0F10051A575 = {
 			isa = PBXGroup;
 			children = (
+				22BC44641A8A442500AB0A14 /* KeychainAccess.framework */,
 				DC545DE41A89F9E30051A575 /* Nimble.framework */,
 				DC545DE51A89F9E30051A575 /* Quick.framework */,
 				DCA5B9921A8A300100667D32 /* AeroGearHttpStub.framework */,
@@ -115,10 +127,12 @@
 		DC545DC41A89F0F10051A575 /* oauth-swift */ = {
 			isa = PBXGroup;
 			children = (
-				DC545DC71A89F0F10051A575 /* oauth-swift.h */,
-				DC545DEA1A89FFDA0051A575 /* OAuthManager.swift */,
 				DCA5B98C1A8A12E700667D32 /* NSDateExtensions.swift */,
 				DC545DDE1A89F1AC0051A575 /* NSURLExtensions.swift */,
+				22BC446B1A8B858D00AB0A14 /* OAutchAccessTokenStorage.swift */,
+				DC545DC71A89F0F10051A575 /* oauth-swift.h */,
+				22BC44601A8A3FBA00AB0A14 /* OAuthAccessTokenKeychainStorage.swift */,
+				DC545DEA1A89FFDA0051A575 /* OAuthManager.swift */,
 				DC545DC51A89F0F10051A575 /* Supporting Files */,
 			);
 			path = "oauth-swift";
@@ -135,11 +149,12 @@
 		DC545DD11A89F0F10051A575 /* oauth-swiftTests */ = {
 			isa = PBXGroup;
 			children = (
-				DCA5B9A41A8A565C00667D32 /* StubResponseExtensions.swift */,
-				DCA5B9901A8A2B9700667D32 /* OAuthManagerSpec.swift */,
 				DCA5B98E1A8A296300667D32 /* NSDateExtensionsSpec.swift */,
 				DC545DE81A89F9F70051A575 /* NSURLExtensionsSpec.swift */,
+				22BC44621A8A402300AB0A14 /* OAuthAccessTokenKeychainStorageSpec.swift */,
+				DCA5B9901A8A2B9700667D32 /* OAuthManagerSpec.swift */,
 				DCA5B9A31A8A4C0500667D32 /* Stub Responses */,
+				DCA5B9A41A8A565C00667D32 /* StubResponseExtensions.swift */,
 				DC545DD21A89F0F10051A575 /* Supporting Files */,
 			);
 			path = "oauth-swiftTests";
@@ -286,6 +301,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/LlamaKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/KeychainAccess.framework",
 			);
 			outputPaths = (
 			);
@@ -303,6 +319,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/AeroGearHttpStub.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/LlamaKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/KeychainAccess.framework",
 			);
 			outputPaths = (
 			);
@@ -318,8 +335,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC545DDF1A89F1AC0051A575 /* NSURLExtensions.swift in Sources */,
+				22BC44611A8A3FBA00AB0A14 /* OAuthAccessTokenKeychainStorage.swift in Sources */,
 				DC545DEB1A89FFDA0051A575 /* OAuthManager.swift in Sources */,
 				DCA5B98D1A8A12E700667D32 /* NSDateExtensions.swift in Sources */,
+				22BC446C1A8B858D00AB0A14 /* OAutchAccessTokenStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCA5B9A51A8A565C00667D32 /* StubResponseExtensions.swift in Sources */,
+				22BC44631A8A402300AB0A14 /* OAuthAccessTokenKeychainStorageSpec.swift in Sources */,
 				DCA5B9911A8A2B9700667D32 /* OAuthManagerSpec.swift in Sources */,
 				DC545DE91A89F9F70051A575 /* NSURLExtensionsSpec.swift in Sources */,
 				DCA5B98F1A8A296300667D32 /* NSDateExtensionsSpec.swift in Sources */,

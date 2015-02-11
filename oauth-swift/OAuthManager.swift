@@ -82,25 +82,28 @@ public class OAuthAccessToken {
     }
 }
 
-// TODO
-public protocol OAuthAccessTokenStorage {
-
-}
-
 @objc
 public class OAuthManager {
     private let tokenURL: NSURL
     private let clientID: String
-
-    private var accessToken: OAuthAccessToken?
+    private let tokenStorage: OAuthAccessTokenStorage
+    private var accessToken: OAuthAccessToken? {
+        get {
+            return tokenStorage.retrieveAccessToken()
+        }
+        set {
+            tokenStorage.storeAccessToken(newValue)
+        }
+    }
 
     public var hasAccessToken: Bool {
         return accessToken != nil
     }
-
-    public init(tokenURL: NSURL, clientID: String) {
+    
+    public init(tokenURL: NSURL, clientID: String, tokenStorage: OAuthAccessTokenStorage = OAuthAccessTokenKeychainStorage()) {
         self.tokenURL = tokenURL
         self.clientID = clientID
+        self.tokenStorage = tokenStorage
     }
 
     public func authorize(username: String, password: String, completion: Result<Void, NSError> -> ()) {
