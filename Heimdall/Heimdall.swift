@@ -1,5 +1,5 @@
 //
-//  OAuthManager.swift
+//  Heimdall.swift
 //  Heimdall
 //
 //  Created by Felix Jendrusch on 2/10/15.
@@ -83,7 +83,7 @@ public class OAuthAccessToken {
 }
 
 @objc
-public class OAuthManager {
+public class Heimdall {
     private let tokenURL: NSURL
     private let clientID: String
     private let tokenStorage: OAuthAccessTokenStorage

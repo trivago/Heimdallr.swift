@@ -30,16 +30,16 @@ public class MockStorage: OAuthAccessTokenStorage {
     
 }
 
-class OAuthManagerSpec: QuickSpec {
-    let bundle = NSBundle(forClass: OAuthManagerSpec.self)
+class HeimdallSpec: QuickSpec {
+    let bundle = NSBundle(forClass: HeimdallSpec.self)
 
     override func spec() {
-        var manager: OAuthManager!
+        var manager: Heimdall!
         var storage: MockStorage!
 
         beforeEach {
             storage = MockStorage()
-            manager = OAuthManager(tokenURL: NSURL(string: "http://rheinfabrik.de")!, clientID: "spec", tokenStorage: storage)
+            manager = Heimdall(tokenURL: NSURL(string: "http://rheinfabrik.de")!, clientID: "spec", tokenStorage: storage)
         }
         
         describe("-init") {
