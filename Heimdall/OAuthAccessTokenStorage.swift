@@ -1,5 +1,5 @@
 //
-//  OAutchAccessTokenStorage.swift
+//  OAuthAccessTokenStorage.swift
 //  Heimdall
 //
 //  Created by Tim Brückmann on 11.02.15.
