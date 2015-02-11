@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DC545DC11A89F0F10051A575"
-               BuildableName = "oauth_swift.framework"
+               BuildableName = "Heimdall.framework"
                BlueprintName = "Heimdall"
                ReferencedContainer = "container:Heimdall.xcodeproj">
             </BuildableReference>
@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DC545DC11A89F0F10051A575"
-            BuildableName = "oauth_swift.framework"
+            BuildableName = "Heimdall.framework"
             BlueprintName = "Heimdall"
             ReferencedContainer = "container:Heimdall.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DC545DC11A89F0F10051A575"
-            BuildableName = "oauth_swift.framework"
+            BuildableName = "Heimdall.framework"
             BlueprintName = "Heimdall"
             ReferencedContainer = "container:Heimdall.xcodeproj">
          </BuildableReference>
@@ -94,7 +94,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DC545DC11A89F0F10051A575"
-            BuildableName = "oauth_swift.framework"
+            BuildableName = "Heimdall.framework"
             BlueprintName = "Heimdall"
             ReferencedContainer = "container:Heimdall.xcodeproj">
          </BuildableReference>
