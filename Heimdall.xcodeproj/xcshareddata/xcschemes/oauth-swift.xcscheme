@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DC545DC11A89F0F10051A575"
-               BuildableName = "oauth_swift.framework"
-               BlueprintName = "oauth-swift"
-               ReferencedContainer = "container:oauth-swift.xcodeproj">
+               BuildableName = "Heimdall.framework"
+               BlueprintName = "Heimdall"
+               ReferencedContainer = "container:Heimdall.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DC545DCC1A89F0F10051A575"
-               BuildableName = "oauth-swiftTests.xctest"
-               BlueprintName = "oauth-swiftTests"
-               ReferencedContainer = "container:oauth-swift.xcodeproj">
+               BuildableName = "HeimdallTests.xctest"
+               BlueprintName = "HeimdallTests"
+               ReferencedContainer = "container:Heimdall.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DC545DCC1A89F0F10051A575"
-               BuildableName = "oauth-swiftTests.xctest"
-               BlueprintName = "oauth-swiftTests"
-               ReferencedContainer = "container:oauth-swift.xcodeproj">
+               BuildableName = "HeimdallTests.xctest"
+               BlueprintName = "HeimdallTests"
+               ReferencedContainer = "container:Heimdall.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DC545DC11A89F0F10051A575"
-            BuildableName = "oauth_swift.framework"
-            BlueprintName = "oauth-swift"
-            ReferencedContainer = "container:oauth-swift.xcodeproj">
+            BuildableName = "Heimdall.framework"
+            BlueprintName = "Heimdall"
+            ReferencedContainer = "container:Heimdall.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DC545DC11A89F0F10051A575"
-            BuildableName = "oauth_swift.framework"
-            BlueprintName = "oauth-swift"
-            ReferencedContainer = "container:oauth-swift.xcodeproj">
+            BuildableName = "Heimdall.framework"
+            BlueprintName = "Heimdall"
+            ReferencedContainer = "container:Heimdall.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DC545DC11A89F0F10051A575"
-            BuildableName = "oauth_swift.framework"
-            BlueprintName = "oauth-swift"
-            ReferencedContainer = "container:oauth-swift.xcodeproj">
+            BuildableName = "Heimdall.framework"
+            BlueprintName = "Heimdall"
+            ReferencedContainer = "container:Heimdall.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

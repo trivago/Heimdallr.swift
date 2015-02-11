@@ -1,17 +1,16 @@
 //
 //  OAuthManagerSpec.swift
-//  oauth-swift
+//  Heimdall
 //
 //  Created by Felix Jendrusch on 2/10/15.
 //  Copyright (c) 2015 B264 GmbH. All rights reserved.
 //
 
-import Quick
-import Nimble
 import AeroGearHttpStub
-
+import Heimdall
 import LlamaKit
-import oauth_swift
+import Nimble
+import Quick
 
 public class MockStorage: OAuthAccessTokenStorage {
     
@@ -31,16 +30,16 @@ public class MockStorage: OAuthAccessTokenStorage {
     
 }
 
-class OAuthManagerSpec: QuickSpec {
-    let bundle = NSBundle(forClass: OAuthManagerSpec.self)
+class HeimdallSpec: QuickSpec {
+    let bundle = NSBundle(forClass: HeimdallSpec.self)
 
     override func spec() {
-        var manager: OAuthManager!
+        var manager: Heimdall!
         var storage: MockStorage!
 
         beforeEach {
             storage = MockStorage()
-            manager = OAuthManager(tokenURL: NSURL(string: "http://rheinfabrik.de")!, clientID: "spec", tokenStorage: storage)
+            manager = Heimdall(tokenURL: NSURL(string: "http://rheinfabrik.de")!, clientID: "spec", tokenStorage: storage)
         }
         
         describe("-init") {
