@@ -30,8 +30,8 @@ public class OAuthAccessTokenKeychainStorage: OAuthAccessTokenStorage {
         let refreshToken = keychain["refresh_token"]
         
         var expirationDate: NSDate?
-        if let expiresAt = keychain["expires_at"] {
-            expirationDate = NSDate(timeIntervalSince1970: (expiresAt as NSString).doubleValue)
+        if let expiresAt = keychain["expires_at"] as NSString? {
+            expirationDate = NSDate(timeIntervalSince1970: expiresAt.doubleValue)
         }
         
         if let token = token {
