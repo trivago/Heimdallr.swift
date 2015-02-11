@@ -1,5 +1,5 @@
 //
-//  OAuthAccessTokenKeychainStorageSpec.swift
+//  HeimdallAccessTokenKeychainStorageSpec.swift
 //  Heimdall
 //
 //  Created by Tim Brückmann on 10.02.15.
@@ -11,22 +11,22 @@ import KeychainAccess
 import Nimble
 import Quick
 
-class OAuthAccessTokenKeychainStoreSpec: QuickSpec {
+class HeimdallAccessTokenKeychainStoreSpec: QuickSpec {
     override func spec() {
         
-        var storage: OAuthAccessTokenKeychainStorage!
-        let keychain = Keychain(service: "de.rheinfabrik.oauth-manager.unit-tests")
+        var storage: AccessTokenKeychainStorage!
+        let keychain = Keychain(service: "de.rheinfabrik.heimdall.oauth.unit-tests")
         
         beforeEach {
-            storage = OAuthAccessTokenKeychainStorage(service: "de.rheinfabrik.oauth-manager.unit-tests")
+            storage = AccessTokenKeychainStorage(service: "de.rheinfabrik.heimdall.oauth.unit-tests")
         }
         
         describe("-storeAccessToken") {
-            
+
             let expirationDate = NSDate().dateByAddingTimeInterval(3600)
-            let token = OAuthAccessToken(
-                token: "01234567-89ab-cdef-0123-456789abcdef",
-                type: "bearer",
+            let token = AccessToken(
+                accessToken: "01234567-89ab-cdef-0123-456789abcdef",
+                tokenType: "bearer",
                 expiresAt: expirationDate,
                 refreshToken: "127386523686")
             
@@ -54,9 +54,9 @@ class OAuthAccessTokenKeychainStoreSpec: QuickSpec {
                 
                 it("clears the expiration date from the keychain") {
                     keychain["expires_at"] = "foobar"
-                    let tokenWithoutExpirationDate = OAuthAccessToken(
-                        token: "01234567-89ab-cdef-0123-456789abcdef",
-                        type: "bearer",
+                    let tokenWithoutExpirationDate = AccessToken(
+                        accessToken: "01234567-89ab-cdef-0123-456789abcdef",
+                        tokenType: "bearer",
                         expiresAt: nil,
                         refreshToken: "127386523686")
                     storage.storeAccessToken(tokenWithoutExpirationDate)
@@ -69,9 +69,9 @@ class OAuthAccessTokenKeychainStoreSpec: QuickSpec {
                 
                 it("clears the refresh token date from the keychain") {
                     keychain["refresh_token"] = "foobar"
-                    let tokenWithoutRefreshToken = OAuthAccessToken(
-                        token: "01234567-89ab-cdef-0123-456789abcdef",
-                        type: "bearer",
+                    let tokenWithoutRefreshToken = AccessToken(
+                        accessToken: "01234567-89ab-cdef-0123-456789abcdef",
+                        tokenType: "bearer",
                         expiresAt: expirationDate,
                         refreshToken: nil)
                     storage.storeAccessToken(tokenWithoutRefreshToken)
@@ -109,8 +109,8 @@ class OAuthAccessTokenKeychainStoreSpec: QuickSpec {
                 it("retrieves and returns the access token from the keychain") {
                     let token = storage.retrieveAccessToken()
                     expect(token).toNot(beNil())
-                    expect(token?.token).to(equal("01234567-89ab-cdef-0123-456789abcdef"))
-                    expect(token?.type).to(equal("bearer"))
+                    expect(token?.accessToken).to(equal("01234567-89ab-cdef-0123-456789abcdef"))
+                    expect(token?.tokenType).to(equal("bearer"))
                     expect(token?.expiresAt).to(equal(NSDate(timeIntervalSince1970: 1423578534)))
                     expect(token?.refreshToken).to(equal("127386523686"))
                 }
