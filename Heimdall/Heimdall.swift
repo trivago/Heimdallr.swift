@@ -13,7 +13,7 @@ public let HeimdallErrorNoData = 1
 public let HeimdallErrorInvalidData = 2
 public let HeimdallErrorNotAuthorized = 3
 
-public enum AuthorizationGrant {
+private enum AuthorizationGrant {
     case ResourceOwnerPasswordCredentials(username: String, password: String)
     case Refresh(refreshToken: String)
 
@@ -144,7 +144,7 @@ public class Heimdall {
         }
     }
 
-    public func authorize(grant: AuthorizationGrant, completion: Result<AccessToken, NSError> -> ()) {
+    private func authorize(grant: AuthorizationGrant, completion: Result<AccessToken, NSError> -> ()) {
         let request = NSMutableURLRequest(URL: tokenURL)
 
         var parameters = grant.parameters
