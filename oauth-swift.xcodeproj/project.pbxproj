@@ -11,6 +11,7 @@
 		22BC44631A8A402300AB0A14 /* OAuthAccessTokenKeychainStorageSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BC44621A8A402300AB0A14 /* OAuthAccessTokenKeychainStorageSpec.swift */; };
 		22BC44651A8A442500AB0A14 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BC44641A8A442500AB0A14 /* KeychainAccess.framework */; };
 		22BC44661A8A445D00AB0A14 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BC44641A8A442500AB0A14 /* KeychainAccess.framework */; };
+		22BC446C1A8B858D00AB0A14 /* OAutchAccessTokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BC446B1A8B858D00AB0A14 /* OAutchAccessTokenStorage.swift */; };
 		DC545DC81A89F0F10051A575 /* oauth-swift.h in Headers */ = {isa = PBXBuildFile; fileRef = DC545DC71A89F0F10051A575 /* oauth-swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC545DCE1A89F0F10051A575 /* oauth_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC545DC21A89F0F10051A575 /* oauth_swift.framework */; };
 		DC545DDF1A89F1AC0051A575 /* NSURLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC545DDE1A89F1AC0051A575 /* NSURLExtensions.swift */; };
@@ -48,6 +49,7 @@
 		22BC44601A8A3FBA00AB0A14 /* OAuthAccessTokenKeychainStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenKeychainStorage.swift; sourceTree = "<group>"; };
 		22BC44621A8A402300AB0A14 /* OAuthAccessTokenKeychainStorageSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenKeychainStorageSpec.swift; sourceTree = "<group>"; };
 		22BC44641A8A442500AB0A14 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
+		22BC446B1A8B858D00AB0A14 /* OAutchAccessTokenStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAutchAccessTokenStorage.swift; sourceTree = "<group>"; };
 		DC545DC21A89F0F10051A575 /* oauth_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = oauth_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC545DC61A89F0F10051A575 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC545DC71A89F0F10051A575 /* oauth-swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "oauth-swift.h"; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 			children = (
 				DCA5B98C1A8A12E700667D32 /* NSDateExtensions.swift */,
 				DC545DDE1A89F1AC0051A575 /* NSURLExtensions.swift */,
+				22BC446B1A8B858D00AB0A14 /* OAutchAccessTokenStorage.swift */,
 				DC545DC71A89F0F10051A575 /* oauth-swift.h */,
 				22BC44601A8A3FBA00AB0A14 /* OAuthAccessTokenKeychainStorage.swift */,
 				DC545DEA1A89FFDA0051A575 /* OAuthManager.swift */,
@@ -335,6 +338,7 @@
 				22BC44611A8A3FBA00AB0A14 /* OAuthAccessTokenKeychainStorage.swift in Sources */,
 				DC545DEB1A89FFDA0051A575 /* OAuthManager.swift in Sources */,
 				DCA5B98D1A8A12E700667D32 /* NSDateExtensions.swift in Sources */,
+				22BC446C1A8B858D00AB0A14 /* OAutchAccessTokenStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -82,11 +82,6 @@ public class OAuthAccessToken {
     }
 }
 
-public protocol OAuthAccessTokenStorage {
-    func storeAccessToken(accessToken: OAuthAccessToken?)
-    func retrieveAccessToken() -> OAuthAccessToken?
-}
-
 @objc
 public class OAuthManager {
     private let tokenURL: NSURL
