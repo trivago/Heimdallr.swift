@@ -1,6 +1,6 @@
 //
 //  OAuthAccessTokenKeychainStorage.swift
-//  oauth-swift
+//  Heimdall
 //
 //  Created by Tim Brückmann on 10.02.15.
 //  Copyright (c) 2015 B264 GmbH. All rights reserved.

@@ -12,8 +12,8 @@
 		22BC44651A8A442500AB0A14 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BC44641A8A442500AB0A14 /* KeychainAccess.framework */; };
 		22BC44661A8A445D00AB0A14 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BC44641A8A442500AB0A14 /* KeychainAccess.framework */; };
 		22BC446C1A8B858D00AB0A14 /* OAutchAccessTokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BC446B1A8B858D00AB0A14 /* OAutchAccessTokenStorage.swift */; };
-		DC545DC81A89F0F10051A575 /* oauth-swift.h in Headers */ = {isa = PBXBuildFile; fileRef = DC545DC71A89F0F10051A575 /* oauth-swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DC545DCE1A89F0F10051A575 /* oauth_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC545DC21A89F0F10051A575 /* oauth_swift.framework */; };
+		DC545DC81A89F0F10051A575 /* Heimdall.h in Headers */ = {isa = PBXBuildFile; fileRef = DC545DC71A89F0F10051A575 /* Heimdall.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC545DCE1A89F0F10051A575 /* Heimdall.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC545DC21A89F0F10051A575 /* Heimdall.framework */; };
 		DC545DDF1A89F1AC0051A575 /* NSURLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC545DDE1A89F1AC0051A575 /* NSURLExtensions.swift */; };
 		DC545DE21A89F5080051A575 /* LlamaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC545DE11A89F5080051A575 /* LlamaKit.framework */; };
 		DC545DE61A89F9E40051A575 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC545DE41A89F9E30051A575 /* Nimble.framework */; };
@@ -50,10 +50,10 @@
 		22BC44621A8A402300AB0A14 /* OAuthAccessTokenKeychainStorageSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenKeychainStorageSpec.swift; sourceTree = "<group>"; };
 		22BC44641A8A442500AB0A14 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
 		22BC446B1A8B858D00AB0A14 /* OAutchAccessTokenStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAutchAccessTokenStorage.swift; sourceTree = "<group>"; };
-		DC545DC21A89F0F10051A575 /* oauth_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = oauth_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC545DC21A89F0F10051A575 /* Heimdall.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Heimdall.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC545DC61A89F0F10051A575 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DC545DC71A89F0F10051A575 /* oauth-swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "oauth-swift.h"; sourceTree = "<group>"; };
-		DC545DCD1A89F0F10051A575 /* oauth-swiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "oauth-swiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC545DC71A89F0F10051A575 /* Heimdall.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heimdall.h; sourceTree = "<group>"; };
+		DC545DCD1A89F0F10051A575 /* HeimdallTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeimdallTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC545DD31A89F0F10051A575 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC545DDE1A89F1AC0051A575 /* NSURLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLExtensions.swift; sourceTree = "<group>"; };
 		DC545DE11A89F5080051A575 /* LlamaKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LlamaKit.framework; path = Carthage/Build/iOS/LlamaKit.framework; sourceTree = "<group>"; };
@@ -94,7 +94,7 @@
 				DCA5B9931A8A300100667D32 /* AeroGearHttpStub.framework in Frameworks */,
 				DCA5B9961A8A331600667D32 /* LlamaKit.framework in Frameworks */,
 				22BC44661A8A445D00AB0A14 /* KeychainAccess.framework in Frameworks */,
-				DC545DCE1A89F0F10051A575 /* oauth_swift.framework in Frameworks */,
+				DC545DCE1A89F0F10051A575 /* Heimdall.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,8 +109,8 @@
 				DC545DE51A89F9E30051A575 /* Quick.framework */,
 				DCA5B9921A8A300100667D32 /* AeroGearHttpStub.framework */,
 				DC545DE11A89F5080051A575 /* LlamaKit.framework */,
-				DC545DC41A89F0F10051A575 /* oauth-swift */,
-				DC545DD11A89F0F10051A575 /* oauth-swiftTests */,
+				DC545DC41A89F0F10051A575 /* Heimdall */,
+				DC545DD11A89F0F10051A575 /* HeimdallTests */,
 				DC545DC31A89F0F10051A575 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -118,24 +118,24 @@
 		DC545DC31A89F0F10051A575 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DC545DC21A89F0F10051A575 /* oauth_swift.framework */,
-				DC545DCD1A89F0F10051A575 /* oauth-swiftTests.xctest */,
+				DC545DC21A89F0F10051A575 /* Heimdall.framework */,
+				DC545DCD1A89F0F10051A575 /* HeimdallTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DC545DC41A89F0F10051A575 /* oauth-swift */ = {
+		DC545DC41A89F0F10051A575 /* Heimdall */ = {
 			isa = PBXGroup;
 			children = (
 				DCA5B98C1A8A12E700667D32 /* NSDateExtensions.swift */,
 				DC545DDE1A89F1AC0051A575 /* NSURLExtensions.swift */,
 				22BC446B1A8B858D00AB0A14 /* OAutchAccessTokenStorage.swift */,
-				DC545DC71A89F0F10051A575 /* oauth-swift.h */,
+				DC545DC71A89F0F10051A575 /* Heimdall.h */,
 				22BC44601A8A3FBA00AB0A14 /* OAuthAccessTokenKeychainStorage.swift */,
 				DC545DEA1A89FFDA0051A575 /* OAuthManager.swift */,
 				DC545DC51A89F0F10051A575 /* Supporting Files */,
 			);
-			path = "oauth-swift";
+			path = Heimdall;
 			sourceTree = "<group>";
 		};
 		DC545DC51A89F0F10051A575 /* Supporting Files */ = {
@@ -146,7 +146,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		DC545DD11A89F0F10051A575 /* oauth-swiftTests */ = {
+		DC545DD11A89F0F10051A575 /* HeimdallTests */ = {
 			isa = PBXGroup;
 			children = (
 				DCA5B98E1A8A296300667D32 /* NSDateExtensionsSpec.swift */,
@@ -157,7 +157,7 @@
 				DCA5B9A41A8A565C00667D32 /* StubResponseExtensions.swift */,
 				DC545DD21A89F0F10051A575 /* Supporting Files */,
 			);
-			path = "oauth-swiftTests";
+			path = HeimdallTests;
 			sourceTree = "<group>";
 		};
 		DC545DD21A89F0F10051A575 /* Supporting Files */ = {
@@ -189,16 +189,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC545DC81A89F0F10051A575 /* oauth-swift.h in Headers */,
+				DC545DC81A89F0F10051A575 /* Heimdall.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		DC545DC11A89F0F10051A575 /* oauth-swift */ = {
+		DC545DC11A89F0F10051A575 /* Heimdall */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DC545DD81A89F0F10051A575 /* Build configuration list for PBXNativeTarget "oauth-swift" */;
+			buildConfigurationList = DC545DD81A89F0F10051A575 /* Build configuration list for PBXNativeTarget "Heimdall" */;
 			buildPhases = (
 				DC545DBD1A89F0F10051A575 /* Sources */,
 				DC545DBE1A89F0F10051A575 /* Frameworks */,
@@ -210,14 +210,14 @@
 			);
 			dependencies = (
 			);
-			name = "oauth-swift";
+			name = Heimdall;
 			productName = "oauth-swift";
-			productReference = DC545DC21A89F0F10051A575 /* oauth_swift.framework */;
+			productReference = DC545DC21A89F0F10051A575 /* Heimdall.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		DC545DCC1A89F0F10051A575 /* oauth-swiftTests */ = {
+		DC545DCC1A89F0F10051A575 /* HeimdallTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DC545DDB1A89F0F10051A575 /* Build configuration list for PBXNativeTarget "oauth-swiftTests" */;
+			buildConfigurationList = DC545DDB1A89F0F10051A575 /* Build configuration list for PBXNativeTarget "HeimdallTests" */;
 			buildPhases = (
 				DC545DC91A89F0F10051A575 /* Sources */,
 				DC545DCA1A89F0F10051A575 /* Frameworks */,
@@ -229,9 +229,9 @@
 			dependencies = (
 				DC545DD01A89F0F10051A575 /* PBXTargetDependency */,
 			);
-			name = "oauth-swiftTests";
+			name = HeimdallTests;
 			productName = "oauth-swiftTests";
-			productReference = DC545DCD1A89F0F10051A575 /* oauth-swiftTests.xctest */;
+			productReference = DC545DCD1A89F0F10051A575 /* HeimdallTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -251,7 +251,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DC545DBC1A89F0F10051A575 /* Build configuration list for PBXProject "oauth-swift" */;
+			buildConfigurationList = DC545DBC1A89F0F10051A575 /* Build configuration list for PBXProject "Heimdall" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -263,8 +263,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DC545DC11A89F0F10051A575 /* oauth-swift */,
-				DC545DCC1A89F0F10051A575 /* oauth-swiftTests */,
+				DC545DC11A89F0F10051A575 /* Heimdall */,
+				DC545DCC1A89F0F10051A575 /* HeimdallTests */,
 			);
 		};
 /* End PBXProject section */
@@ -359,7 +359,7 @@
 /* Begin PBXTargetDependency section */
 		DC545DD01A89F0F10051A575 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DC545DC11A89F0F10051A575 /* oauth-swift */;
+			target = DC545DC11A89F0F10051A575 /* Heimdall */;
 			targetProxy = DC545DCF1A89F0F10051A575 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -462,10 +462,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "oauth-swift/Info.plist";
+				INFOPLIST_FILE = Heimdall/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = oauth_swift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -483,10 +483,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "oauth-swift/Info.plist";
+				INFOPLIST_FILE = Heimdall/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = oauth_swift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -503,9 +503,9 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "oauth-swiftTests/Info.plist";
+				INFOPLIST_FILE = HeimdallTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = HeimdallTests;
 			};
 			name = Debug;
 		};
@@ -517,16 +517,16 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "oauth-swiftTests/Info.plist";
+				INFOPLIST_FILE = HeimdallTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = HeimdallTests;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DC545DBC1A89F0F10051A575 /* Build configuration list for PBXProject "oauth-swift" */ = {
+		DC545DBC1A89F0F10051A575 /* Build configuration list for PBXProject "Heimdall" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DC545DD61A89F0F10051A575 /* Debug */,
@@ -535,7 +535,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DC545DD81A89F0F10051A575 /* Build configuration list for PBXNativeTarget "oauth-swift" */ = {
+		DC545DD81A89F0F10051A575 /* Build configuration list for PBXNativeTarget "Heimdall" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DC545DD91A89F0F10051A575 /* Debug */,
@@ -544,7 +544,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DC545DDB1A89F0F10051A575 /* Build configuration list for PBXNativeTarget "oauth-swiftTests" */ = {
+		DC545DDB1A89F0F10051A575 /* Build configuration list for PBXNativeTarget "HeimdallTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DC545DDC1A89F0F10051A575 /* Debug */,
