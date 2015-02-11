@@ -50,6 +50,49 @@ class OAuthAccessTokenKeychainStoreSpec: QuickSpec {
                 expect(keychain["refresh_token"]).to(equal("127386523686"))
             }
             
+            context("when the access token does not have an expiration date") {
+                
+                it("clears the expiration date from the keychain") {
+                    keychain["expires_at"] = "foobar"
+                    let tokenWithoutExpirationDate = OAuthAccessToken(
+                        token: "01234567-89ab-cdef-0123-456789abcdef",
+                        type: "bearer",
+                        expiresAt: nil,
+                        refreshToken: "127386523686")
+                    storage.storeAccessToken(tokenWithoutExpirationDate)
+                    expect(keychain["expires_at"]).to(beNil())
+                }
+                
+            }
+            
+            context("when the access token does not have a refresh token") {
+                
+                it("clears the refresh token date from the keychain") {
+                    keychain["refresh_token"] = "foobar"
+                    let tokenWithoutRefreshToken = OAuthAccessToken(
+                        token: "01234567-89ab-cdef-0123-456789abcdef",
+                        type: "bearer",
+                        expiresAt: expirationDate,
+                        refreshToken: nil)
+                    storage.storeAccessToken(tokenWithoutRefreshToken)
+                    expect(keychain["refresh_token"]).to(beNil())
+                }
+                
+            }
+            
+            context("when the access token is nil") {
+                
+                it("clears the keychain") {
+                    storage.storeAccessToken(nil)
+                    
+                    expect(keychain["access_token"]).to(beNil())
+                    expect(keychain["token_type"]).to(beNil())
+                    expect(keychain["expires_at"]).to(beNil())
+                    expect(keychain["refresh_token"]).to(beNil())
+                }
+                
+            }
+            
         }
         
         describe("-retrieveAccessToken") {

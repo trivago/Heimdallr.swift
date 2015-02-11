@@ -17,15 +17,11 @@ public class OAuthAccessTokenKeychainStorage: OAuthAccessTokenStorage {
         keychain = Keychain(service: service)
     }
     
-    public func storeAccessToken(accessToken: OAuthAccessToken) {
-        keychain["access_token"] = accessToken.token
-        keychain["token_type"] = accessToken.type
-        if let expirationDate = accessToken.expiresAt {
-            keychain["expires_at"] = expirationDate.timeIntervalSince1970.description
-        }
-        if let refreshToken = accessToken.refreshToken {
-            keychain["refresh_token"] = refreshToken
-        }
+    public func storeAccessToken(accessToken: OAuthAccessToken?) {
+        keychain["access_token"] = accessToken?.token
+        keychain["token_type"] = accessToken?.type
+        keychain["expires_at"] = accessToken?.expiresAt?.timeIntervalSince1970.description
+        keychain["refresh_token"] = accessToken?.refreshToken
     }
     
     public func retrieveAccessToken() -> OAuthAccessToken? {

@@ -83,7 +83,7 @@ public class OAuthAccessToken {
 }
 
 public protocol OAuthAccessTokenStorage {
-    func storeAccessToken(accessToken: OAuthAccessToken) -> Void
+    func storeAccessToken(accessToken: OAuthAccessToken?)
     func retrieveAccessToken() -> OAuthAccessToken?
 }
 
@@ -97,9 +97,7 @@ public class OAuthManager {
             return tokenStorage.retrieveAccessToken()
         }
         set {
-            if let token = newValue {
-                tokenStorage.storeAccessToken(token)
-            }
+            tokenStorage.storeAccessToken(newValue)
         }
     }
 

@@ -20,7 +20,7 @@ public class MockStorage: OAuthAccessTokenStorage {
     
     private var storedAccessToken: OAuthAccessToken? = nil
     
-    public func storeAccessToken(accessToken: OAuthAccessToken){
+    public func storeAccessToken(accessToken: OAuthAccessToken?){
         storeAccessTokenCalled = true
         storedAccessToken = accessToken
     }
