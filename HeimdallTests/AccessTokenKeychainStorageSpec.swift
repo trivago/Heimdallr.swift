@@ -1,5 +1,5 @@
 //
-//  OAuthAccessTokenKeychainStorageSpec.swift
+//  HeimdallAccessTokenKeychainStorageSpec.swift
 //  Heimdall
 //
 //  Created by Tim Brückmann on 10.02.15.
@@ -11,20 +11,20 @@ import KeychainAccess
 import Nimble
 import Quick
 
-class OAuthAccessTokenKeychainStoreSpec: QuickSpec {
+class HeimdallAccessTokenKeychainStoreSpec: QuickSpec {
     override func spec() {
         
-        var storage: OAuthAccessTokenKeychainStorage!
+        var storage: AccessTokenKeychainStorage!
         let keychain = Keychain(service: "de.rheinfabrik.oauth-manager.unit-tests")
         
         beforeEach {
-            storage = OAuthAccessTokenKeychainStorage(service: "de.rheinfabrik.oauth-manager.unit-tests")
+            storage = AccessTokenKeychainStorage(service: "de.rheinfabrik.oauth-manager.unit-tests")
         }
         
         describe("-storeAccessToken") {
             
             let expirationDate = NSDate().dateByAddingTimeInterval(3600)
-            let token = OAuthAccessToken(
+            let token = AccessToken(
                 token: "01234567-89ab-cdef-0123-456789abcdef",
                 type: "bearer",
                 expiresAt: expirationDate,
@@ -54,7 +54,7 @@ class OAuthAccessTokenKeychainStoreSpec: QuickSpec {
                 
                 it("clears the expiration date from the keychain") {
                     keychain["expires_at"] = "foobar"
-                    let tokenWithoutExpirationDate = OAuthAccessToken(
+                    let tokenWithoutExpirationDate = AccessToken(
                         token: "01234567-89ab-cdef-0123-456789abcdef",
                         type: "bearer",
                         expiresAt: nil,
@@ -69,7 +69,7 @@ class OAuthAccessTokenKeychainStoreSpec: QuickSpec {
                 
                 it("clears the refresh token date from the keychain") {
                     keychain["refresh_token"] = "foobar"
-                    let tokenWithoutRefreshToken = OAuthAccessToken(
+                    let tokenWithoutRefreshToken = AccessToken(
                         token: "01234567-89ab-cdef-0123-456789abcdef",
                         type: "bearer",
                         expiresAt: expirationDate,

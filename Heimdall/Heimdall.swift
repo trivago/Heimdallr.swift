@@ -8,18 +8,18 @@
 
 import LlamaKit
 
-public let OAuthManagerErrorDomain = "OAuthManagerErrorDomain"
-public let OAuthManagerErrorNoData = 1
-public let OAuthManagerErrorInvalidData = 2
-public let OAuthManagerErrorNotAuthorized = 3
+public let HeimdallErrorDomain = "OAuthManagerErrorDomain"
+public let HeimdallErrorNoData = 1
+public let HeimdallErrorInvalidData = 2
+public let HeimdallErrorNotAuthorized = 3
 
-private enum OAuthGrantType: String {
+private enum GrantType: String {
     case Password = "password"
     case RefreshToken = "refresh_token"
 }
 
 @objc
-public class OAuthAccessToken {
+public class AccessToken {
     public let token: String
     public let type: String
     public let expiresAt: NSDate?
@@ -36,7 +36,7 @@ public class OAuthAccessToken {
         self.refreshToken = refreshToken
     }
 
-    private class func fromData(data: NSData) -> Result<OAuthAccessToken, NSError> {
+    private class func fromData(data: NSData) -> Result<AccessToken, NSError> {
         var error: NSError?
 
         if let dictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: &error) as? [String: AnyObject] {
@@ -47,12 +47,12 @@ public class OAuthAccessToken {
                 NSLocalizedFailureReasonErrorKey: String(format: NSLocalizedString("Expected valid JSON, got: %@.", comment: ""), NSString(data: data, encoding: NSUTF8StringEncoding) ?? "nil")
             ]
 
-            let error = NSError(domain: OAuthManagerErrorDomain, code: OAuthManagerErrorInvalidData, userInfo: userInfo)
+            let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorInvalidData, userInfo: userInfo)
             return failure(error)
         }
     }
 
-    private class func fromDictionary(dictionary: [String: AnyObject]) -> Result<OAuthAccessToken, NSError> {
+    private class func fromDictionary(dictionary: [String: AnyObject]) -> Result<AccessToken, NSError> {
         let token: AnyObject? = dictionary["access_token"]
         let type: AnyObject? = dictionary["token_type"]
         let expiresAt = map(dictionary["expires_in"] as? NSTimeInterval) { NSDate(timeIntervalSinceNow: $0) }
@@ -67,7 +67,7 @@ public class OAuthAccessToken {
                     NSLocalizedFailureReasonErrorKey: String(format: NSLocalizedString("Expected valid token type, got: %@.", comment: ""), type?.description ?? "nil")
                 ]
 
-                let error = NSError(domain: OAuthManagerErrorDomain, code: OAuthManagerErrorInvalidData, userInfo: userInfo)
+                let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorInvalidData, userInfo: userInfo)
                 return failure(error)
             }
         } else {
@@ -76,7 +76,7 @@ public class OAuthAccessToken {
                 NSLocalizedFailureReasonErrorKey: String(format: NSLocalizedString("Expected valid access token, got: %@.", comment: ""), token?.description ?? "nil")
             ]
 
-            let error = NSError(domain: OAuthManagerErrorDomain, code: OAuthManagerErrorInvalidData, userInfo: userInfo)
+            let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorInvalidData, userInfo: userInfo)
             return failure(error)
         }
     }
@@ -86,8 +86,8 @@ public class OAuthAccessToken {
 public class Heimdall {
     private let tokenURL: NSURL
     private let clientID: String
-    private let tokenStorage: OAuthAccessTokenStorage
-    private var accessToken: OAuthAccessToken? {
+    private let tokenStorage: AccessTokenStorage
+    private var accessToken: AccessToken? {
         get {
             return tokenStorage.retrieveAccessToken()
         }
@@ -100,7 +100,7 @@ public class Heimdall {
         return accessToken != nil
     }
     
-    public init(tokenURL: NSURL, clientID: String, tokenStorage: OAuthAccessTokenStorage = OAuthAccessTokenKeychainStorage()) {
+    public init(tokenURL: NSURL, clientID: String, tokenStorage: AccessTokenStorage = AccessTokenKeychainStorage()) {
         self.tokenURL = tokenURL
         self.clientID = clientID
         self.tokenStorage = tokenStorage
@@ -108,7 +108,7 @@ public class Heimdall {
 
     public func authorize(username: String, password: String, completion: Result<Void, NSError> -> ()) {
         let queryParameters = [
-            "grant_type": OAuthGrantType.Password.rawValue,
+            "grant_type": GrantType.Password.rawValue,
             "client_id": clientID,
             "username": username,
             "password": password
@@ -122,7 +122,7 @@ public class Heimdall {
             if let error = error {
                 completion(failure(error))
             } else if let data = data {
-                switch OAuthAccessToken.fromData(data) {
+                switch AccessToken.fromData(data) {
                 case .Success(let value):
                     self.accessToken = value.unbox
                     completion(success())
@@ -135,7 +135,7 @@ public class Heimdall {
                     NSLocalizedFailureReasonErrorKey: NSLocalizedString("Expected data, got: nil.", comment: "")
                 ]
 
-                let error = NSError(domain: OAuthManagerErrorDomain, code: OAuthManagerErrorNoData, userInfo: userInfo)
+                let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorNoData, userInfo: userInfo)
                 completion(failure(error))
             }
         }
@@ -143,10 +143,10 @@ public class Heimdall {
         task.resume()
     }
 
-    private func refreshAccessToken(accessToken: OAuthAccessToken, completion: Result<OAuthAccessToken, NSError> -> ()) {
+    private func refreshAccessToken(accessToken: AccessToken, completion: Result<AccessToken, NSError> -> ()) {
         if let refreshToken = accessToken.refreshToken {
             let queryParameters = [
-                "grant_type": OAuthGrantType.RefreshToken.rawValue,
+                "grant_type": GrantType.RefreshToken.rawValue,
                 "refresh_token": refreshToken
             ]
 
@@ -158,7 +158,7 @@ public class Heimdall {
                 if let error = error {
                     completion(failure(error))
                 } else if let data = data {
-                    switch OAuthAccessToken.fromData(data) {
+                    switch AccessToken.fromData(data) {
                     case .Success(let value):
                         self.accessToken = value.unbox
                         completion(success(value.unbox))
@@ -171,7 +171,7 @@ public class Heimdall {
                         NSLocalizedFailureReasonErrorKey: NSLocalizedString("Expected data, got: nil.", comment: "")
                     ]
 
-                    let error = NSError(domain: OAuthManagerErrorDomain, code: OAuthManagerErrorNoData, userInfo: userInfo)
+                    let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorNoData, userInfo: userInfo)
                     completion(failure(error))
                 }
             }
@@ -183,12 +183,12 @@ public class Heimdall {
                 NSLocalizedFailureReasonErrorKey: NSLocalizedString("No refresh token available.", comment: "")
             ]
 
-            let error = NSError(domain: OAuthManagerErrorDomain, code: OAuthManagerErrorNotAuthorized, userInfo: userInfo)
+            let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorNotAuthorized, userInfo: userInfo)
             completion(failure(error))
         }
     }
 
-    private func requestByAddingAuthorizationHeaderToRequest(request: NSURLRequest, accessToken: OAuthAccessToken) -> NSURLRequest {
+    private func requestByAddingAuthorizationHeaderToRequest(request: NSURLRequest, accessToken: AccessToken) -> NSURLRequest {
         var mutableRequest = request.mutableCopy() as NSMutableURLRequest
         mutableRequest.setValue(accessToken.authorizationString, forHTTPHeaderField: "Authorization")
         return mutableRequest
@@ -212,7 +212,7 @@ public class Heimdall {
                 NSLocalizedFailureReasonErrorKey: NSLocalizedString("Not authorized.", comment: "")
             ]
 
-            let error = NSError(domain: OAuthManagerErrorDomain, code: OAuthManagerErrorNotAuthorized, userInfo: userInfo)
+            let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorNotAuthorized, userInfo: userInfo)
             completion(failure(error))
         }
     }

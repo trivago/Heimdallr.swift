@@ -1,5 +1,5 @@
 //
-//  OAuthAccessTokenKeychainStorage.swift
+//  AccessTokenKeychainStorage.swift
 //  Heimdall
 //
 //  Created by Tim Brückmann on 10.02.15.
@@ -9,7 +9,7 @@
 import KeychainAccess
 
 @objc
-public class OAuthAccessTokenKeychainStorage: OAuthAccessTokenStorage {
+public class AccessTokenKeychainStorage: AccessTokenStorage {
     
     private let keychain: Keychain
     
@@ -17,14 +17,14 @@ public class OAuthAccessTokenKeychainStorage: OAuthAccessTokenStorage {
         keychain = Keychain(service: service)
     }
     
-    public func storeAccessToken(accessToken: OAuthAccessToken?) {
+    public func storeAccessToken(accessToken: AccessToken?) {
         keychain["access_token"] = accessToken?.token
         keychain["token_type"] = accessToken?.type
         keychain["expires_at"] = accessToken?.expiresAt?.timeIntervalSince1970.description
         keychain["refresh_token"] = accessToken?.refreshToken
     }
     
-    public func retrieveAccessToken() -> OAuthAccessToken? {
+    public func retrieveAccessToken() -> AccessToken? {
         let token = keychain["access_token"]
         let type = keychain["token_type"]
         let refreshToken = keychain["refresh_token"]
@@ -36,7 +36,7 @@ public class OAuthAccessTokenKeychainStorage: OAuthAccessTokenStorage {
         
         if let token = token {
             if let type = type {
-                let accessToken = OAuthAccessToken(
+                let accessToken = AccessToken(
                     token: token,
                     type: type,
                     expiresAt: expirationDate,

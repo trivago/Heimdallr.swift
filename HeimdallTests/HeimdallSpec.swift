@@ -1,5 +1,5 @@
 //
-//  OAuthManagerSpec.swift
+//  HeimdallSpec.swift
 //  Heimdall
 //
 //  Created by Felix Jendrusch on 2/10/15.
@@ -12,19 +12,19 @@ import LlamaKit
 import Nimble
 import Quick
 
-public class MockStorage: OAuthAccessTokenStorage {
+public class MockStorage: AccessTokenStorage {
     
     public var storeAccessTokenCalled: Bool = false
-    public var mockedAccessToken: OAuthAccessToken? = nil
+    public var mockedAccessToken: AccessToken? = nil
     
-    private var storedAccessToken: OAuthAccessToken? = nil
+    private var storedAccessToken: AccessToken? = nil
     
-    public func storeAccessToken(accessToken: OAuthAccessToken?){
+    public func storeAccessToken(accessToken: AccessToken?){
         storeAccessTokenCalled = true
         storedAccessToken = accessToken
     }
     
-    public func retrieveAccessToken() -> OAuthAccessToken? {
+    public func retrieveAccessToken() -> AccessToken? {
         return mockedAccessToken ?? storedAccessToken
     }
     
@@ -47,7 +47,7 @@ class HeimdallSpec: QuickSpec {
             context("when a token is saved in the storage") {
                 
                 it("loads the token from the token storage") {
-                    storage.mockedAccessToken = OAuthAccessToken(token: "foo", type: "bar", expiresAt: nil, refreshToken: nil)
+                    storage.mockedAccessToken = AccessToken(token: "foo", type: "bar", expiresAt: nil, refreshToken: nil)
                     expect(manager.hasAccessToken).to(beTrue())
                 }
                 
@@ -111,7 +111,7 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("fails with the correct error code") {
-                    expect(result?.error?.code).to(equal(OAuthManagerErrorInvalidData))
+                    expect(result?.error?.code).to(equal(HeimdallErrorInvalidData))
                 }
 
                 it("does not set the access token") {
@@ -139,7 +139,7 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("fails with the correct error code") {
-                    expect(result?.error?.code).to(equal(OAuthManagerErrorInvalidData))
+                    expect(result?.error?.code).to(equal(HeimdallErrorInvalidData))
                 }
 
                 it("does not set the access token") {
@@ -167,7 +167,7 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("fails with the correct error code") {
-                    expect(result?.error?.code).to(equal(OAuthManagerErrorInvalidData))
+                    expect(result?.error?.code).to(equal(HeimdallErrorInvalidData))
                 }
 
                 it("does not set the access token") {
@@ -196,7 +196,7 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("fails with the correct error code") {
-                    expect(result?.error?.code).to(equal(OAuthManagerErrorNotAuthorized))
+                    expect(result?.error?.code).to(equal(HeimdallErrorNotAuthorized))
                 }
             }
 
@@ -244,7 +244,7 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("fails with the correct error code") {
-                    expect(result?.error?.code).to(equal(OAuthManagerErrorNotAuthorized))
+                    expect(result?.error?.code).to(equal(HeimdallErrorNotAuthorized))
                 }
             }
 

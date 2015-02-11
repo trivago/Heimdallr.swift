@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		22BC44611A8A3FBA00AB0A14 /* OAuthAccessTokenKeychainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BC44601A8A3FBA00AB0A14 /* OAuthAccessTokenKeychainStorage.swift */; };
-		22BC44631A8A402300AB0A14 /* OAuthAccessTokenKeychainStorageSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BC44621A8A402300AB0A14 /* OAuthAccessTokenKeychainStorageSpec.swift */; };
+		22BC44611A8A3FBA00AB0A14 /* AccessTokenKeychainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BC44601A8A3FBA00AB0A14 /* AccessTokenKeychainStorage.swift */; };
+		22BC44631A8A402300AB0A14 /* AccessTokenKeychainStorageSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BC44621A8A402300AB0A14 /* AccessTokenKeychainStorageSpec.swift */; };
 		22BC44651A8A442500AB0A14 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BC44641A8A442500AB0A14 /* KeychainAccess.framework */; };
 		22BC44661A8A445D00AB0A14 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BC44641A8A442500AB0A14 /* KeychainAccess.framework */; };
-		22BC446C1A8B858D00AB0A14 /* OAuthAccessTokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BC446B1A8B858D00AB0A14 /* OAuthAccessTokenStorage.swift */; };
+		22BC446C1A8B858D00AB0A14 /* AccessTokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BC446B1A8B858D00AB0A14 /* AccessTokenStorage.swift */; };
 		DC545DC81A89F0F10051A575 /* Heimdall.h in Headers */ = {isa = PBXBuildFile; fileRef = DC545DC71A89F0F10051A575 /* Heimdall.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC545DCE1A89F0F10051A575 /* Heimdall.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC545DC21A89F0F10051A575 /* Heimdall.framework */; };
 		DC545DDF1A89F1AC0051A575 /* NSURLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC545DDE1A89F1AC0051A575 /* NSURLExtensions.swift */; };
@@ -46,10 +46,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		22BC44601A8A3FBA00AB0A14 /* OAuthAccessTokenKeychainStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenKeychainStorage.swift; sourceTree = "<group>"; };
-		22BC44621A8A402300AB0A14 /* OAuthAccessTokenKeychainStorageSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenKeychainStorageSpec.swift; sourceTree = "<group>"; };
+		22BC44601A8A3FBA00AB0A14 /* AccessTokenKeychainStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessTokenKeychainStorage.swift; sourceTree = "<group>"; };
+		22BC44621A8A402300AB0A14 /* AccessTokenKeychainStorageSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessTokenKeychainStorageSpec.swift; sourceTree = "<group>"; };
 		22BC44641A8A442500AB0A14 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
-		22BC446B1A8B858D00AB0A14 /* OAuthAccessTokenStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenStorage.swift; sourceTree = "<group>"; };
+		22BC446B1A8B858D00AB0A14 /* AccessTokenStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessTokenStorage.swift; sourceTree = "<group>"; };
 		DC545DC21A89F0F10051A575 /* Heimdall.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Heimdall.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC545DC61A89F0F10051A575 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC545DC71A89F0F10051A575 /* Heimdall.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heimdall.h; sourceTree = "<group>"; };
@@ -131,8 +131,8 @@
 				DC545DEA1A89FFDA0051A575 /* Heimdall.swift */,
 				DCA5B98C1A8A12E700667D32 /* NSDateExtensions.swift */,
 				DC545DDE1A89F1AC0051A575 /* NSURLExtensions.swift */,
-				22BC446B1A8B858D00AB0A14 /* OAuthAccessTokenStorage.swift */,
-				22BC44601A8A3FBA00AB0A14 /* OAuthAccessTokenKeychainStorage.swift */,
+				22BC446B1A8B858D00AB0A14 /* AccessTokenStorage.swift */,
+				22BC44601A8A3FBA00AB0A14 /* AccessTokenKeychainStorage.swift */,
 				DC545DC51A89F0F10051A575 /* Supporting Files */,
 			);
 			path = Heimdall;
@@ -152,7 +152,7 @@
 				DCA5B9901A8A2B9700667D32 /* HeimdallSpec.swift */,
 				DCA5B98E1A8A296300667D32 /* NSDateExtensionsSpec.swift */,
 				DC545DE81A89F9F70051A575 /* NSURLExtensionsSpec.swift */,
-				22BC44621A8A402300AB0A14 /* OAuthAccessTokenKeychainStorageSpec.swift */,
+				22BC44621A8A402300AB0A14 /* AccessTokenKeychainStorageSpec.swift */,
 				DCD72CAD1A8B9ED90024BAC1 /* Extensions */,
 				DCA5B9A31A8A4C0500667D32 /* Stub Responses */,
 				DC545DD21A89F0F10051A575 /* Supporting Files */,
@@ -343,10 +343,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC545DDF1A89F1AC0051A575 /* NSURLExtensions.swift in Sources */,
-				22BC44611A8A3FBA00AB0A14 /* OAuthAccessTokenKeychainStorage.swift in Sources */,
+				22BC44611A8A3FBA00AB0A14 /* AccessTokenKeychainStorage.swift in Sources */,
 				DC545DEB1A89FFDA0051A575 /* Heimdall.swift in Sources */,
 				DCA5B98D1A8A12E700667D32 /* NSDateExtensions.swift in Sources */,
-				22BC446C1A8B858D00AB0A14 /* OAuthAccessTokenStorage.swift in Sources */,
+				22BC446C1A8B858D00AB0A14 /* AccessTokenStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,7 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCA5B9A51A8A565C00667D32 /* StubResponseExtensions.swift in Sources */,
-				22BC44631A8A402300AB0A14 /* OAuthAccessTokenKeychainStorageSpec.swift in Sources */,
+				22BC44631A8A402300AB0A14 /* AccessTokenKeychainStorageSpec.swift in Sources */,
 				DCA5B9911A8A2B9700667D32 /* HeimdallSpec.swift in Sources */,
 				DC545DE91A89F9F70051A575 /* NSURLExtensionsSpec.swift in Sources */,
 				DCA5B98F1A8A296300667D32 /* NSDateExtensionsSpec.swift in Sources */,
