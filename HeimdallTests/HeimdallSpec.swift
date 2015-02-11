@@ -39,22 +39,18 @@ class HeimdallSpec: QuickSpec {
 
         beforeEach {
             storage = MockStorage()
-            manager = Heimdall(tokenURL: NSURL(string: "http://rheinfabrik.de")!, clientID: "spec", tokenStorage: storage)
+            manager = Heimdall(tokenURL: NSURL(string: "http://rheinfabrik.de")!, accessTokenStorage: storage)
         }
         
         describe("-init") {
-            
             context("when a token is saved in the storage") {
-                
                 it("loads the token from the token storage") {
-                    storage.mockedAccessToken = AccessToken(token: "foo", type: "bar", expiresAt: nil, refreshToken: nil)
+                    storage.mockedAccessToken = AccessToken(accessToken: "foo", tokenType: "bar", expiresAt: nil, refreshToken: nil)
                     expect(manager.hasAccessToken).to(beTrue())
                 }
-                
             }
-            
         }
-        
+
         describe("-authorize") {
             var result: Result<Void, NSError>?
 
