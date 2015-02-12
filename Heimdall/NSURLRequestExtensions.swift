@@ -12,7 +12,7 @@ public enum HTTPAuthentication: Equatable {
     case BasicAuthentication(username: String, password: String)
     case Unknown(value: String)
 
-    public func toHTTPAuthorization() -> String? {
+    private func toHTTPAuthorization() -> String? {
         switch self {
         case .BasicAuthentication(let username, let password):
             if let credentials = "\(username):\(password)"
@@ -27,7 +27,7 @@ public enum HTTPAuthentication: Equatable {
         }
     }
 
-    public static func fromHTTPAuthorization(value: String) -> HTTPAuthentication {
+    private static func fromHTTPAuthorization(value: String) -> HTTPAuthentication {
         if value.hasPrefix("Basic ") {
             let credentials = value.substringFromIndex(advance(value.startIndex, 6))
             if let data = NSData(base64EncodedString: credentials, options: NSDataBase64DecodingOptions(0)) {
