@@ -39,6 +39,14 @@ extension AccessToken: JSONDecodable {
         return AccessToken(accessToken: accessToken, tokenType: tokenType, expiresAt: expiresAt, refreshToken: refreshToken)
     }
 
+    public class func decode(json: JSONValue) -> AccessToken? {
+        return AccessToken.create
+            <^> json <| "access_token"
+            <*> json <| "token_type"
+            <*> json <|? "expires_in"
+            <*> json <|? "refresh_token"
+    }
+
     public class func decode(data: NSData) -> AccessToken? {
         var error: NSError?
 
@@ -47,13 +55,5 @@ extension AccessToken: JSONDecodable {
         } else {
             return nil
         }
-    }
-
-    public class func decode(json: JSONValue) -> AccessToken? {
-        return AccessToken.create
-            <^> json <| "access_token"
-            <*> json <| "token_type"
-            <*> json <|? "expires_in"
-            <*> json <|? "refresh_token"
     }
 }
