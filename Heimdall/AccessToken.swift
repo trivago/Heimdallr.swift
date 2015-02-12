@@ -28,7 +28,10 @@ public class AccessToken {
 extension AccessToken: Equatable {}
 
 public func == (lhs: AccessToken, rhs: AccessToken) -> Bool {
-    return lhs.accessToken == rhs.accessToken && lhs.tokenType == rhs.tokenType && lhs.expiresAt == rhs.expiresAt && lhs.refreshToken == rhs.refreshToken
+    return lhs.accessToken == rhs.accessToken
+        && lhs.tokenType == rhs.tokenType
+        && lhs.expiresAt == rhs.expiresAt
+        && lhs.refreshToken == rhs.refreshToken
 }
 
 extension AccessToken: JSONDecodable {
