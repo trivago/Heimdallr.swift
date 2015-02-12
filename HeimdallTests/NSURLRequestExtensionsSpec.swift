@@ -6,10 +6,9 @@
 //  Copyright (c) 2015 B264 GmbH. All rights reserved.
 //
 
-import Quick
-import Nimble
-
 import Heimdall
+import Nimble
+import Quick
 
 class HTTPAuthenticationSpec: QuickSpec {
     override func spec() {
