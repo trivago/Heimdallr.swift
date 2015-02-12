@@ -65,7 +65,7 @@ public extension NSURLRequest {
     }
 }
 
-extension NSMutableURLRequest {
+public extension NSMutableURLRequest {
     // Declarations in extensions cannot override yet.
     public func setHTTPAuthorization(authentication: HTTPAuthentication?) {
         self.setValue(authentication?.toHTTPAuthorization(), forHTTPHeaderField: "Authorization")
