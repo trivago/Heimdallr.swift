@@ -14,8 +14,8 @@ public let HeimdallErrorInvalidData = 2
 public let HeimdallErrorNotAuthorized = 3
 
 private enum AuthorizationGrant {
-    case ResourceOwnerPasswordCredentials(username: String, password: String)
-    case Refresh(refreshToken: String)
+    case ResourceOwnerPasswordCredentials(String, String)
+    case Refresh(String)
 
     private var parameters: [String: String] {
         switch self {
@@ -139,7 +139,7 @@ public class Heimdall {
     }
 
     public func authorize(username: String, password: String, completion: Result<Void, NSError> -> ()) {
-        authorize(.ResourceOwnerPasswordCredentials(username: username, password: password)) { result in
+        authorize(.ResourceOwnerPasswordCredentials(username, password)) { result in
             completion(result.map { _ in return })
         }
     }
@@ -203,7 +203,7 @@ public class Heimdall {
         if let accessToken = accessToken {
             if accessToken.expiresAt != nil && accessToken.expiresAt < NSDate() {
                 if let refreshToken = accessToken.refreshToken {
-                    authorize(.Refresh(refreshToken: refreshToken)) { result in
+                    authorize(.Refresh(refreshToken)) { result in
                         completion(result.map { accessToken in
                             return self.requestByAddingAuthorizationHeaderToRequest(request, accessToken: accessToken)
                         })
