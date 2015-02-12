@@ -135,7 +135,19 @@ class NSURLRequestExtensionsSpec: QuickSpec {
 class NSMutableURLRequestExtensionsSpec: QuickSpec {
     override func spec() {
         describe("-setHTTPAuthorization") {
-            it("sets the HTTP Authorization Header") {
+            it("given nil, it resets the HTTP Authorization Header") {
+                let authentication: HTTPAuthentication = .BasicAuthentication(username: "username", password: "password")
+
+                let request = NSMutableURLRequest()
+                request.setHTTPAuthorization(authentication)
+                request.setHTTPAuthorization(nil)
+
+                let result = request.valueForHTTPHeaderField("Authorization")
+
+                expect(result).to(beNil())
+            }
+
+            it("given an HTTPAuthentication, it sets the HTTP Authorization Header") {
                 let authentication: HTTPAuthentication = .BasicAuthentication(username: "username", password: "password")
 
                 let request = NSMutableURLRequest()
