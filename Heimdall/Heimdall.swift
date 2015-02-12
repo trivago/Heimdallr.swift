@@ -150,8 +150,8 @@ public class Heimdall {
         var parameters = grant.parameters
         if let credentials = credentials {
             if let secret = credentials.secret {
-                let encodedCredentials = "\(credentials.id):\(secret)".dataUsingEncoding(NSASCIIStringEncoding)?.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(0))
-                request.setValue("Basic \(encodedCredentials!)", forHTTPHeaderField: "Authorization")
+                let authentication: HTTPAuthentication = .BasicAuthentication(username: credentials.id, password: secret)
+                request.setHTTPAuthorization(authentication)
             } else {
                 parameters["client_id"] = credentials.id
             }
