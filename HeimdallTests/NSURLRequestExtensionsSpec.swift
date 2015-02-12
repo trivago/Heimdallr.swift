@@ -68,32 +68,36 @@ class HTTPAuthenticationSpec: QuickSpec {
 class NSURLRequestExtensionsSpec: QuickSpec {
     override func spec() {
         describe(".HTTPAuthorization") {
-            it("returns nil if the HTTP Authorization Header is not set") {
+            it("returns nil if the Authorization header is not set") {
                 let request = NSURLRequest()
 
                 expect(request.HTTPAuthorization).to(beNil())
             }
 
-            it("returns BasicAuthentication if the HTTP Authorization Header is set accordingly") {
-                let authentication: HTTPAuthentication = .BasicAuthentication(username: "username", password: "password")
+            context("when the Authorization header is set to Basic Authentication") {
+                it("returns .BasicAuthentication with decoded username and password") {
+                    let authentication: HTTPAuthentication = .BasicAuthentication(username: "username", password: "password")
 
-                let request = NSMutableURLRequest()
-                request.setValue("Basic dXNlcm5hbWU6cGFzc3dvcmQ=", forHTTPHeaderField: "Authorization")
+                    let request = NSMutableURLRequest()
+                    request.setValue("Basic dXNlcm5hbWU6cGFzc3dvcmQ=", forHTTPHeaderField: "Authorization")
 
-                let result = request.HTTPAuthorization
+                    let result = request.HTTPAuthorization
 
-                expect(result).to(equal(authentication))
+                    expect(result).to(equal(authentication))
+                }
             }
 
-            it("returns Unknown if the HTTP Authorization Header is set accordingly") {
-                let authentication: HTTPAuthentication = .Unknown(value: "value")
+            context("when the Authorization header is set to an unknown authentication") {
+                it("returns .Unknown with the header's value") {
+                    let authentication: HTTPAuthentication = .Unknown(value: "value")
 
-                let request = NSMutableURLRequest()
-                request.setValue("value", forHTTPHeaderField: "Authorization")
+                    let request = NSMutableURLRequest()
+                    request.setValue("value", forHTTPHeaderField: "Authorization")
 
-                let result = request.HTTPAuthorization
+                    let result = request.HTTPAuthorization
 
-                expect(result).to(equal(authentication))
+                    expect(result).to(equal(authentication))
+                }
             }
         }
     }
@@ -102,7 +106,7 @@ class NSURLRequestExtensionsSpec: QuickSpec {
 class NSMutableURLRequestExtensionsSpec: QuickSpec {
     override func spec() {
         describe("-setHTTPAuthorization") {
-            it("resets the HTTP Authorization Header if given nil") {
+            it("resets the Authorization header if given nil") {
                 let authentication: HTTPAuthentication = .BasicAuthentication(username: "username", password: "password")
 
                 let request = NSMutableURLRequest()
@@ -114,26 +118,30 @@ class NSMutableURLRequestExtensionsSpec: QuickSpec {
                 expect(result).to(beNil())
             }
 
-            it("sets the HTTP Authorization Header accordingly if given BasicAuthentication") {
-                let authentication: HTTPAuthentication = .BasicAuthentication(username: "username", password: "password")
+            context("when given .BasicAuthentication") {
+                it("sets the Authorization header with encoded username and password") {
+                    let authentication: HTTPAuthentication = .BasicAuthentication(username: "username", password: "password")
 
-                let request = NSMutableURLRequest()
-                request.setHTTPAuthorization(authentication)
+                    let request = NSMutableURLRequest()
+                    request.setHTTPAuthorization(authentication)
 
-                let result = request.valueForHTTPHeaderField("Authorization")
+                    let result = request.valueForHTTPHeaderField("Authorization")
 
-                expect(result).to(equal("Basic dXNlcm5hbWU6cGFzc3dvcmQ="))
+                    expect(result).to(equal("Basic dXNlcm5hbWU6cGFzc3dvcmQ="))
+                }
             }
 
-            it("sets the HTTP Authorization Header accordingly if given Unknown") {
-                let authentication: HTTPAuthentication = .Unknown(value: "value")
+            context("when given .Unknown") {
+                it("sets the Authorization header with the value") {
+                    let authentication: HTTPAuthentication = .Unknown(value: "value")
 
-                let request = NSMutableURLRequest()
-                request.setHTTPAuthorization(authentication)
+                    let request = NSMutableURLRequest()
+                    request.setHTTPAuthorization(authentication)
 
-                let result = request.valueForHTTPHeaderField("Authorization")
+                    let result = request.valueForHTTPHeaderField("Authorization")
 
-                expect(result).to(equal("value"))
+                    expect(result).to(equal("value"))
+                }
             }
         }
     }
