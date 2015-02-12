@@ -10,9 +10,9 @@ import Foundation
 
 public enum HTTPAuthentication: Equatable {
     case BasicAuthentication(username: String, password: String)
-    case Unknown(value: String)
+    case AccessTokenAuthentication(AccessToken)
 
-    private func toHTTPAuthorization() -> String? {
+    private var value: String? {
         switch self {
         case .BasicAuthentication(let username, let password):
             if let credentials = "\(username):\(password)"
@@ -22,25 +22,9 @@ public enum HTTPAuthentication: Equatable {
             } else {
                 return nil
             }
-        case .Unknown(let value):
-            return value
+        case .AccessTokenAuthentication(let accessToken):
+            return "\(accessToken.tokenType) \(accessToken.accessToken)"
         }
-    }
-
-    private static func fromHTTPAuthorization(value: String) -> HTTPAuthentication {
-        if value.hasPrefix("Basic ") {
-            let credentials = value.substringFromIndex(advance(value.startIndex, 6))
-            if let data = NSData(base64EncodedString: credentials, options: NSDataBase64DecodingOptions(0)) {
-                if let userPass = NSString(data: data, encoding: NSASCIIStringEncoding) as String? {
-                    let result = split(userPass, { $0 == ":" }, maxSplit: 1)
-                    if result.count == 2 {
-                        return .BasicAuthentication(username: result[0], password: result[1])
-                    }
-                }
-            }
-        }
-
-        return .Unknown(value: value)
     }
 }
 
@@ -48,26 +32,26 @@ public func == (lhs: HTTPAuthentication, rhs: HTTPAuthentication) -> Bool {
     switch (lhs, rhs) {
     case (.BasicAuthentication(let lusername, let lpassword), .BasicAuthentication(let rusername, let rpassword)):
         return lusername == rusername && lpassword == rpassword
-    case (.Unknown(let lvalue), .Unknown(let rvalue)):
-        return lvalue == rvalue
+    case (.AccessTokenAuthentication(let laccessToken), .AccessTokenAuthentication(let raccessToken)):
+        return laccessToken == raccessToken
     default:
         return false
     }
 }
 
 public extension NSURLRequest {
-    public var HTTPAuthorization: HTTPAuthentication? {
-        if let value = self.valueForHTTPHeaderField("Authorization") {
-            return HTTPAuthentication.fromHTTPAuthorization(value)
-        } else {
-            return nil
-        }
+    public var HTTPAuthorization: String? {
+        return self.valueForHTTPHeaderField("Authorization")
     }
 }
 
 public extension NSMutableURLRequest {
     // Declarations in extensions cannot override yet.
-    public func setHTTPAuthorization(authentication: HTTPAuthentication?) {
-        self.setValue(authentication?.toHTTPAuthorization(), forHTTPHeaderField: "Authorization")
+    public func setHTTPAuthorization(value: String?) {
+        self.setValue(value, forHTTPHeaderField: "Authorization")
+    }
+
+    public func setHTTPAuthorization(authentication: HTTPAuthentication) {
+        self.setValue(authentication.value, forHTTPHeaderField: "Authorization")
     }
 }

@@ -150,8 +150,7 @@ public class Heimdall {
         var parameters = grant.parameters
         if let credentials = credentials {
             if let secret = credentials.secret {
-                let authentication: HTTPAuthentication = .BasicAuthentication(username: credentials.id, password: secret)
-                request.setHTTPAuthorization(authentication)
+                request.setHTTPAuthorization(.BasicAuthentication(username: credentials.id, password: secret))
             } else {
                 parameters["client_id"] = credentials.id
             }
@@ -196,7 +195,7 @@ public class Heimdall {
 
     private func requestByAddingAuthorizationHeaderToRequest(request: NSURLRequest, accessToken: AccessToken) -> NSURLRequest {
         var mutableRequest = request.mutableCopy() as NSMutableURLRequest
-        mutableRequest.setValue(accessToken.authorizationString, forHTTPHeaderField: "Authorization")
+        mutableRequest.setHTTPAuthorization(.AccessTokenAuthentication(accessToken))
         return mutableRequest
     }
 
