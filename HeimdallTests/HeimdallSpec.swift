@@ -12,19 +12,19 @@ import LlamaKit
 import Nimble
 import Quick
 
-public class MockStorage: AccessTokenStorage {
+class MockAccessTokenStorage: AccessTokenStorage {
+    var storeAccessTokenCalled: Bool = false
+
+    var mockedAccessToken: AccessToken? = nil
+    var storedAccessToken: AccessToken? = nil
     
-    public var storeAccessTokenCalled: Bool = false
-    public var mockedAccessToken: AccessToken? = nil
-    
-    private var storedAccessToken: AccessToken? = nil
-    
-    public func storeAccessToken(accessToken: AccessToken?){
+    func storeAccessToken(accessToken: AccessToken?){
         storeAccessTokenCalled = true
+
         storedAccessToken = accessToken
     }
     
-    public func retrieveAccessToken() -> AccessToken? {
+    func retrieveAccessToken() -> AccessToken? {
         return mockedAccessToken ?? storedAccessToken
     }
 }
@@ -33,19 +33,19 @@ class HeimdallSpec: QuickSpec {
     let bundle = NSBundle(forClass: HeimdallSpec.self)
 
     override func spec() {
-        var manager: Heimdall!
-        var storage: MockStorage!
+        var accessTokenStorage: MockAccessTokenStorage!
+        var heimdall: Heimdall!
 
         beforeEach {
-            storage = MockStorage()
-            manager = Heimdall(tokenURL: NSURL(string: "http://rheinfabrik.de")!, accessTokenStorage: storage)
+            accessTokenStorage = MockAccessTokenStorage()
+            heimdall = Heimdall(tokenURL: NSURL(string: "http://rheinfabrik.de")!, accessTokenStorage: accessTokenStorage)
         }
         
         describe("-init") {
             context("when a token is saved in the storage") {
                 it("loads the token from the token storage") {
-                    storage.mockedAccessToken = AccessToken(accessToken: "foo", tokenType: "bar", expiresAt: nil, refreshToken: nil)
-                    expect(manager.hasAccessToken).to(beTrue())
+                    accessTokenStorage.mockedAccessToken = AccessToken(accessToken: "foo", tokenType: "bar")
+                    expect(heimdall.hasAccessToken).to(beTrue())
                 }
             }
         }
@@ -64,7 +64,7 @@ class HeimdallSpec: QuickSpec {
                     }
 
                     waitUntil { done in
-                        manager.authorize("username", password: "password") { result = $0; done() }
+                        heimdall.authorize("username", password: "password") { result = $0; done() }
                     }
                 }
 
@@ -77,11 +77,11 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("sets the access token") {
-                    expect(storage.storeAccessTokenCalled).to(beTrue())
+                    expect(accessTokenStorage.storeAccessTokenCalled).to(beTrue())
                 }
                 
                 it("stores the access token in the token storage") {
-                    expect(storage.storeAccessTokenCalled).to(beTrue())
+                    expect(accessTokenStorage.storeAccessTokenCalled).to(beTrue())
                 }
                 
             }
@@ -93,7 +93,7 @@ class HeimdallSpec: QuickSpec {
                     }
 
                     waitUntil { done in
-                        manager.authorize("username", password: "password") { result = $0; done() }
+                        heimdall.authorize("username", password: "password") { result = $0; done() }
                     }
                 }
 
@@ -110,7 +110,7 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("does not set the access token") {
-                    expect(manager.hasAccessToken).to(beFalse())
+                    expect(heimdall.hasAccessToken).to(beFalse())
                 }
             }
 
@@ -121,7 +121,7 @@ class HeimdallSpec: QuickSpec {
                     }
 
                     waitUntil { done in
-                        manager.authorize("username", password: "password") { result = $0; done() }
+                        heimdall.authorize("username", password: "password") { result = $0; done() }
                     }
                 }
 
@@ -138,7 +138,7 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("does not set the access token") {
-                    expect(manager.hasAccessToken).to(beFalse())
+                    expect(heimdall.hasAccessToken).to(beFalse())
                 }
             }
 
@@ -149,7 +149,7 @@ class HeimdallSpec: QuickSpec {
                     }
 
                     waitUntil { done in
-                        manager.authorize("username", password: "password") { result = $0; done() }
+                        heimdall.authorize("username", password: "password") { result = $0; done() }
                     }
                 }
 
@@ -166,7 +166,7 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("does not set the access token") {
-                    expect(manager.hasAccessToken).to(beFalse())
+                    expect(heimdall.hasAccessToken).to(beFalse())
                 }
             }
         }
@@ -182,7 +182,7 @@ class HeimdallSpec: QuickSpec {
             context("when not authorized") {
                 beforeEach {
                     waitUntil { done in
-                        manager.requestByAddingAuthorizationToRequest(request) { result = $0; done() }
+                        heimdall.requestByAddingAuthorizationToRequest(request) { result = $0; done() }
                     }
                 }
 
@@ -202,11 +202,11 @@ class HeimdallSpec: QuickSpec {
                     }
 
                     waitUntil { done in
-                        manager.authorize("username", password: "password") { _ in done() }
+                        heimdall.authorize("username", password: "password") { _ in done() }
                     }
 
                     waitUntil { done in
-                        manager.requestByAddingAuthorizationToRequest(request) { result = $0; done() }
+                        heimdall.requestByAddingAuthorizationToRequest(request) { result = $0; done() }
                     }
                 }
 
@@ -215,7 +215,7 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("adds the correct authorization header to the request") {
-                    expect(result?.value?.valueForHTTPHeaderField("Authorization")).to(equal("bearer MTQzM2U3YTI3YmQyOWQ5YzQ0NjY4YTZkYjM0MjczYmZhNWI1M2YxM2Y1MjgwYTg3NDk3ZDc4ZGUzM2YxZmJjZQ"))
+                    expect(result?.value?.HTTPAuthorization).to(equal("bearer MTQzM2U3YTI3YmQyOWQ5YzQ0NjY4YTZkYjM0MjczYmZhNWI1M2YxM2Y1MjgwYTg3NDk3ZDc4ZGUzM2YxZmJjZQ"))
                 }
             }
 
@@ -226,11 +226,11 @@ class HeimdallSpec: QuickSpec {
                     }
 
                     waitUntil { done in
-                        manager.authorize("username", password: "password") { _ in done() }
+                        heimdall.authorize("username", password: "password") { _ in done() }
                     }
 
                     waitUntil { done in
-                        manager.requestByAddingAuthorizationToRequest(request) { result = $0; done() }
+                        heimdall.requestByAddingAuthorizationToRequest(request) { result = $0; done() }
                     }
                 }
 
@@ -245,12 +245,12 @@ class HeimdallSpec: QuickSpec {
 
             context("when authorized with an expired access token and a valid refresh token") {
                 beforeEach {
-                    StubsManager.stubRequestsPassingTest({ _ in !manager.hasAccessToken }) { request in
+                    StubsManager.stubRequestsPassingTest({ _ in !heimdall.hasAccessToken }) { request in
                         return StubResponse(filename: "request-invalid.json", bundle: self.bundle)
                     }
 
                     waitUntil { done in
-                        manager.authorize("username", password: "password") { _ in done() }
+                        heimdall.authorize("username", password: "password") { _ in done() }
                     }
 
                     StubsManager.stubRequestsPassingTest({ _ in true }) { request in
@@ -258,7 +258,7 @@ class HeimdallSpec: QuickSpec {
                     }
 
                     waitUntil { done in
-                        manager.requestByAddingAuthorizationToRequest(request) { result = $0; done() }
+                        heimdall.requestByAddingAuthorizationToRequest(request) { result = $0; done() }
                     }
                 }
 
@@ -267,7 +267,7 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("adds the correct authorization header to the request") {
-                    expect(result?.value?.valueForHTTPHeaderField("Authorization")).to(equal("bearer MTQzM2U3YTI3YmQyOWQ5YzQ0NjY4YTZkYjM0MjczYmZhNWI1M2YxM2Y1MjgwYTg3NDk3ZDc4ZGUzM2YxZmJjZQ"))
+                    expect(result?.value?.HTTPAuthorization).to(equal("bearer MTQzM2U3YTI3YmQyOWQ5YzQ0NjY4YTZkYjM0MjczYmZhNWI1M2YxM2Y1MjgwYTg3NDk3ZDc4ZGUzM2YxZmJjZQ"))
                 }
             }
         }
