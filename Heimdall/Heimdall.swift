@@ -14,8 +14,8 @@ public let HeimdallErrorInvalidData = 2
 public let HeimdallErrorNotAuthorized = 3
 
 private enum AuthorizationGrant {
-    case ResourceOwnerPasswordCredentials(username: String, password: String)
-    case Refresh(refreshToken: String)
+    case ResourceOwnerPasswordCredentials(String, String)
+    case Refresh(String)
 
     private var parameters: [String: String] {
         switch self {
@@ -91,6 +91,12 @@ public class AccessToken {
     }
 }
 
+extension AccessToken: Equatable {}
+
+public func == (lhs: AccessToken, rhs: AccessToken) -> Bool {
+    return lhs.accessToken == rhs.accessToken && lhs.tokenType == rhs.tokenType && lhs.expiresAt == rhs.expiresAt && lhs.refreshToken == rhs.refreshToken
+}
+
 @objc
 public class Credentials {
     public let id: String
@@ -139,7 +145,7 @@ public class Heimdall {
     }
 
     public func authorize(username: String, password: String, completion: Result<Void, NSError> -> ()) {
-        authorize(.ResourceOwnerPasswordCredentials(username: username, password: password)) { result in
+        authorize(.ResourceOwnerPasswordCredentials(username, password)) { result in
             completion(result.map { _ in return })
         }
     }
@@ -150,8 +156,7 @@ public class Heimdall {
         var parameters = grant.parameters
         if let credentials = credentials {
             if let secret = credentials.secret {
-                let encodedCredentials = "\(credentials.id):\(secret)".dataUsingEncoding(NSASCIIStringEncoding)?.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(0))
-                request.setValue("Basic \(encodedCredentials!)", forHTTPHeaderField: "Authorization")
+                request.setHTTPAuthorization(.BasicAuthentication(username: credentials.id, password: secret))
             } else {
                 parameters["client_id"] = credentials.id
             }
@@ -196,7 +201,7 @@ public class Heimdall {
 
     private func requestByAddingAuthorizationHeaderToRequest(request: NSURLRequest, accessToken: AccessToken) -> NSURLRequest {
         var mutableRequest = request.mutableCopy() as NSMutableURLRequest
-        mutableRequest.setValue(accessToken.authorizationString, forHTTPHeaderField: "Authorization")
+        mutableRequest.setHTTPAuthorization(.AccessTokenAuthentication(accessToken))
         return mutableRequest
     }
 
@@ -204,7 +209,7 @@ public class Heimdall {
         if let accessToken = accessToken {
             if accessToken.expiresAt != nil && accessToken.expiresAt < NSDate() {
                 if let refreshToken = accessToken.refreshToken {
-                    authorize(.Refresh(refreshToken: refreshToken)) { result in
+                    authorize(.Refresh(refreshToken)) { result in
                         completion(result.map { accessToken in
                             return self.requestByAddingAuthorizationHeaderToRequest(request, accessToken: accessToken)
                         })
