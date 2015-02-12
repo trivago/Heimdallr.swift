@@ -83,7 +83,38 @@ class HeimdallSpec: QuickSpec {
                 it("stores the access token in the token storage") {
                     expect(accessTokenStorage.storeAccessTokenCalled).to(beTrue())
                 }
-                
+            }
+
+            context("with an error response") {
+                beforeEach {
+                    StubsManager.stubRequestsPassingTest({ _ in true }) { request in
+                        return StubResponse(filename: "authorize-error.json", bundle: self.bundle, statusCode: 400)
+                    }
+
+                    waitUntil { done in
+                        heimdall.authorize("username", password: "password") { result = $0; done() }
+                    }
+                }
+
+                afterEach {
+                    StubsManager.removeAllStubs()
+                }
+
+                it("fails") {
+                    expect(result?.isSuccess).to(beFalse())
+                }
+
+                it("fails with the correct error domain") {
+                    expect(result?.error?.domain).to(equal(OAuthErrorDomain))
+                }
+
+                it("fails with the correct error code") {
+                    expect(result?.error?.code).to(equal(OAuthErrorInvalidClient))
+                }
+
+                it("does not set the access token") {
+                    expect(heimdall.hasAccessToken).to(beFalse())
+                }
             }
 
             context("with an invalid response") {

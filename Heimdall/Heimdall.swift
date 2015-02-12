@@ -8,10 +8,9 @@
 
 import LlamaKit
 
-public let HeimdallErrorDomain = "OAuthManagerErrorDomain"
-public let HeimdallErrorNoData = 1
-public let HeimdallErrorInvalidData = 2
-public let HeimdallErrorNotAuthorized = 3
+public let HeimdallErrorDomain = "HeimdallErrorDomain"
+public let HeimdallErrorInvalidData = 1
+public let HeimdallErrorNotAuthorized = 2
 
 private enum AuthorizationGrant {
     case ResourceOwnerPasswordCredentials(String, String)
@@ -107,7 +106,7 @@ public class Heimdall {
         let task = session.dataTaskWithRequest(request) { data, response, error in
             if let error = error {
                 completion(failure(error))
-            } else if let data = data {
+            } else if (response as NSHTTPURLResponse).statusCode == 200 {
                 if let accessToken = AccessToken.decode(data) {
                     self.accessToken = accessToken
                     completion(success(accessToken))
@@ -121,13 +120,17 @@ public class Heimdall {
                     completion(failure(error))
                 }
             } else {
-                let userInfo = [
-                    NSLocalizedDescriptionKey: NSLocalizedString("Could not authorize grant", comment: ""),
-                    NSLocalizedFailureReasonErrorKey: NSLocalizedString("Expected data, got: nil.", comment: "")
-                ]
+                if let error = OAuthError.decode(data) {
+                    completion(failure(error.nsError))
+                } else {
+                    let userInfo = [
+                        NSLocalizedDescriptionKey: NSLocalizedString("Could not authorize grant", comment: ""),
+                        NSLocalizedFailureReasonErrorKey: String(format: NSLocalizedString("Expected error, got: %@.", comment: ""), NSString(data: data, encoding: NSUTF8StringEncoding) ?? "nil")
+                    ]
 
-                let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorNoData, userInfo: userInfo)
-                completion(failure(error))
+                    let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorInvalidData, userInfo: userInfo)
+                    completion(failure(error))
+                }
             }
         }
         
@@ -151,8 +154,8 @@ public class Heimdall {
                     }
                 } else {
                     let userInfo = [
-                        NSLocalizedDescriptionKey: NSLocalizedString("Could not refresh access token", comment: ""),
-                        NSLocalizedFailureReasonErrorKey: NSLocalizedString("No refresh token available.", comment: "")
+                        NSLocalizedDescriptionKey: NSLocalizedString("Could not add authorization to request", comment: ""),
+                        NSLocalizedFailureReasonErrorKey: NSLocalizedString("Access token expired, no refresh token available.", comment: "")
                     ]
 
                     let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorNotAuthorized, userInfo: userInfo)
