@@ -136,6 +136,10 @@ class HeimdallSpec: QuickSpec {
                     expect(result?.isSuccess).to(beFalse())
                 }
 
+                it("fails with the correct error domain") {
+                    expect(result?.error?.domain).to(equal(HeimdallErrorDomain))
+                }
+
                 it("fails with the correct error code") {
                     expect(result?.error?.code).to(equal(HeimdallErrorInvalidData))
                 }
@@ -162,6 +166,10 @@ class HeimdallSpec: QuickSpec {
 
                 it("fails") {
                     expect(result?.isSuccess).to(beFalse())
+                }
+
+                it("fails with the correct error domain") {
+                    expect(result?.error?.domain).to(equal(HeimdallErrorDomain))
                 }
 
                 it("fails with the correct error code") {
@@ -192,6 +200,10 @@ class HeimdallSpec: QuickSpec {
                     expect(result?.isSuccess).to(beFalse())
                 }
 
+                it("fails with the correct error domain") {
+                    expect(result?.error?.domain).to(equal(HeimdallErrorDomain))
+                }
+
                 it("fails with the correct error code") {
                     expect(result?.error?.code).to(equal(HeimdallErrorInvalidData))
                 }
@@ -219,6 +231,10 @@ class HeimdallSpec: QuickSpec {
 
                 it("fails") {
                     expect(result?.isSuccess).to(beFalse())
+                }
+
+                it("fails with the correct error domain") {
+                    expect(result?.error?.domain).to(equal(HeimdallErrorDomain))
                 }
 
                 it("fails with the correct error code") {
@@ -267,6 +283,10 @@ class HeimdallSpec: QuickSpec {
 
                 it("fails") {
                     expect(result?.isSuccess).to(beFalse())
+                }
+
+                it("fails with the correct error domain") {
+                    expect(result?.error?.domain).to(equal(HeimdallErrorDomain))
                 }
 
                 it("fails with the correct error code") {
