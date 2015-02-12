@@ -55,4 +55,20 @@ public extension NSMutableURLRequest {
     public func setHTTPAuthorization(authentication: HTTPAuthentication) {
         self.setValue(authentication.value, forHTTPHeaderField: "Authorization")
     }
+
+    // Tests crash without named parameter.
+    public func setHTTPBody(#parameters: [String: String]?) {
+        if let parameters = parameters {
+            var parts = [String]()
+            for (name, value) in parameters {
+                let encodedName = name.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
+                let encodedValue = value.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
+                parts.append("\(encodedName!)=\(encodedValue!)")
+            }
+
+            HTTPBody = "&".join(parts).dataUsingEncoding(NSUTF8StringEncoding)
+        } else {
+            HTTPBody = nil
+        }
+    }
 }
