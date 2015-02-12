@@ -1,2 +1,3 @@
 github "LlamaKit/LlamaKit" ~> 0.5
+github "thoughtbot/Argo" ~> 0.3
 github "kishikawakatsumi/KeychainAccess" ~> 1.1
