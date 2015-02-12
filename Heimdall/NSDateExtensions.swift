@@ -6,7 +6,8 @@
 //  Copyright (c) 2015 B264 GmbH. All rights reserved.
 //
 
-import Foundation
+import Argo
+import Runes
 
 extension NSDate: Comparable {}
 
@@ -28,4 +29,14 @@ public func < (lhs: NSDate, rhs: NSDate) -> Bool {
 
 public func > (lhs: NSDate, rhs: NSDate) -> Bool {
     return rhs < lhs
+}
+
+extension NSDate: JSONDecodable {
+    public class func decode(json: JSONValue) -> NSDate? {
+        if let timeIntervalSinceNow = json.value() as NSTimeInterval? {
+            return NSDate(timeIntervalSinceNow: timeIntervalSinceNow)
+        } else {
+            return nil
+        }
+    }
 }
