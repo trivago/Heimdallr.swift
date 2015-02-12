@@ -28,76 +28,6 @@ private enum AuthorizationGrant {
 }
 
 @objc
-public class AccessToken {
-    public let accessToken: String
-    public let tokenType: String
-    public let expiresAt: NSDate?
-    public let refreshToken: String?
-
-    private var authorizationString: String {
-        return "\(tokenType) \(accessToken)"
-    }
-
-    public init(accessToken: String, tokenType: String, expiresAt: NSDate? = nil, refreshToken: String? = nil) {
-        self.accessToken = accessToken
-        self.tokenType = tokenType
-        self.expiresAt = expiresAt
-        self.refreshToken = refreshToken
-    }
-
-    private class func fromData(data: NSData) -> Result<AccessToken, NSError> {
-        var error: NSError?
-
-        if let dictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: &error) as? [String: AnyObject] {
-            return fromDictionary(dictionary)
-        } else {
-            let userInfo = [
-                NSLocalizedDescriptionKey: NSLocalizedString("Could not create access token from data", comment: ""),
-                NSLocalizedFailureReasonErrorKey: String(format: NSLocalizedString("Expected valid JSON, got: %@.", comment: ""), NSString(data: data, encoding: NSUTF8StringEncoding) ?? "nil")
-            ]
-
-            let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorInvalidData, userInfo: userInfo)
-            return failure(error)
-        }
-    }
-
-    private class func fromDictionary(dictionary: [String: AnyObject]) -> Result<AccessToken, NSError> {
-        let accessToken: AnyObject? = dictionary["access_token"]
-        let tokenType: AnyObject? = dictionary["token_type"]
-        let expiresAt = map(dictionary["expires_in"] as? NSTimeInterval) { NSDate(timeIntervalSinceNow: $0) }
-        let refreshToken = dictionary["refresh_token"] as? String
-
-        if let accessToken = accessToken as String? {
-            if let tokenType = tokenType as String? {
-                return success(self.init(accessToken: accessToken, tokenType: tokenType, expiresAt: expiresAt, refreshToken: refreshToken))
-            } else {
-                let userInfo = [
-                    NSLocalizedDescriptionKey: NSLocalizedString("Could not create access token from dictionary", comment: ""),
-                    NSLocalizedFailureReasonErrorKey: String(format: NSLocalizedString("Expected valid token type, got: %@.", comment: ""), tokenType?.description ?? "nil")
-                ]
-
-                let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorInvalidData, userInfo: userInfo)
-                return failure(error)
-            }
-        } else {
-            let userInfo = [
-                NSLocalizedDescriptionKey: NSLocalizedString("Could not create access token from dictionary", comment: ""),
-                NSLocalizedFailureReasonErrorKey: String(format: NSLocalizedString("Expected valid access token, got: %@.", comment: ""), accessToken?.description ?? "nil")
-            ]
-
-            let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorInvalidData, userInfo: userInfo)
-            return failure(error)
-        }
-    }
-}
-
-extension AccessToken: Equatable {}
-
-public func == (lhs: AccessToken, rhs: AccessToken) -> Bool {
-    return lhs.accessToken == rhs.accessToken && lhs.tokenType == rhs.tokenType && lhs.expiresAt == rhs.expiresAt && lhs.refreshToken == rhs.refreshToken
-}
-
-@objc
 public class Credentials {
     public let id: String
     public let secret: String?
@@ -178,12 +108,17 @@ public class Heimdall {
             if let error = error {
                 completion(failure(error))
             } else if let data = data {
-                switch AccessToken.fromData(data) {
-                case .Success(let value):
-                    self.accessToken = value.unbox
-                    completion(success(value.unbox))
-                case .Failure(let error):
-                    completion(failure(error.unbox))
+                if let accessToken = AccessToken.decode(data) {
+                    self.accessToken = accessToken
+                    completion(success(accessToken))
+                } else {
+                    let userInfo = [
+                        NSLocalizedDescriptionKey: NSLocalizedString("Could not authorize grant", comment: ""),
+                        NSLocalizedFailureReasonErrorKey: String(format: NSLocalizedString("Expected access token, got: %@.", comment: ""), NSString(data: data, encoding: NSUTF8StringEncoding) ?? "nil")
+                    ]
+
+                    let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorInvalidData, userInfo: userInfo)
+                    completion(failure(error))
                 }
             } else {
                 let userInfo = [

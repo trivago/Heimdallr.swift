@@ -33,6 +33,8 @@
 		DCA5B9A01A8A455700667D32 /* request-valid.json in Resources */ = {isa = PBXBuildFile; fileRef = DCA5B99E1A8A455700667D32 /* request-valid.json */; };
 		DCA5B9A21A8A4A8C00667D32 /* request-invalid.json in Resources */ = {isa = PBXBuildFile; fileRef = DCA5B9A11A8A4A8C00667D32 /* request-invalid.json */; };
 		DCA5B9A51A8A565C00667D32 /* StubResponseExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA5B9A41A8A565C00667D32 /* StubResponseExtensions.swift */; };
+		DCB2540D1A8CF70D00226966 /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB2540C1A8CF70D00226966 /* AccessToken.swift */; };
+		DCB2540F1A8CF74B00226966 /* AccessTokenSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB2540E1A8CF74B00226966 /* AccessTokenSpec.swift */; };
 		DCD72CB21A8C9EFA0024BAC1 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCD72CB11A8C9EFA0024BAC1 /* Argo.framework */; };
 		DCD72CB31A8C9F090024BAC1 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCD72CB11A8C9EFA0024BAC1 /* Argo.framework */; };
 		DCD72CB51A8C9FDE0024BAC1 /* NSURLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD72CB41A8C9FDE0024BAC1 /* NSURLRequestExtensions.swift */; };
@@ -76,6 +78,8 @@
 		DCA5B99E1A8A455700667D32 /* request-valid.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "request-valid.json"; sourceTree = "<group>"; };
 		DCA5B9A11A8A4A8C00667D32 /* request-invalid.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "request-invalid.json"; sourceTree = "<group>"; };
 		DCA5B9A41A8A565C00667D32 /* StubResponseExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StubResponseExtensions.swift; sourceTree = "<group>"; };
+		DCB2540C1A8CF70D00226966 /* AccessToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
+		DCB2540E1A8CF74B00226966 /* AccessTokenSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessTokenSpec.swift; sourceTree = "<group>"; };
 		DCD72CB11A8C9EFA0024BAC1 /* Argo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Argo.framework; path = Carthage/Build/iOS/Argo.framework; sourceTree = "<group>"; };
 		DCD72CB41A8C9FDE0024BAC1 /* NSURLRequestExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLRequestExtensions.swift; sourceTree = "<group>"; };
 		DCD72CB61A8CABB20024BAC1 /* NSURLRequestExtensionsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLRequestExtensionsSpec.swift; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 		DC545DC41A89F0F10051A575 /* Heimdall */ = {
 			isa = PBXGroup;
 			children = (
+				DCB2540C1A8CF70D00226966 /* AccessToken.swift */,
 				22BC446B1A8B858D00AB0A14 /* AccessTokenStorage.swift */,
 				22BC44601A8A3FBA00AB0A14 /* AccessTokenKeychainStorage.swift */,
 				DC545DC71A89F0F10051A575 /* Heimdall.h */,
@@ -161,6 +166,7 @@
 		DC545DD11A89F0F10051A575 /* HeimdallTests */ = {
 			isa = PBXGroup;
 			children = (
+				DCB2540E1A8CF74B00226966 /* AccessTokenSpec.swift */,
 				22BC44621A8A402300AB0A14 /* AccessTokenKeychainStorageSpec.swift */,
 				DCA5B9901A8A2B9700667D32 /* HeimdallSpec.swift */,
 				DCA5B98E1A8A296300667D32 /* NSDateExtensionsSpec.swift */,
@@ -363,6 +369,7 @@
 				DC545DEB1A89FFDA0051A575 /* Heimdall.swift in Sources */,
 				DCA5B98D1A8A12E700667D32 /* NSDateExtensions.swift in Sources */,
 				22BC446C1A8B858D00AB0A14 /* AccessTokenStorage.swift in Sources */,
+				DCB2540D1A8CF70D00226966 /* AccessToken.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +377,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCB2540F1A8CF74B00226966 /* AccessTokenSpec.swift in Sources */,
 				DCA5B9A51A8A565C00667D32 /* StubResponseExtensions.swift in Sources */,
 				22BC44631A8A402300AB0A14 /* AccessTokenKeychainStorageSpec.swift in Sources */,
 				DCD72CB71A8CABB20024BAC1 /* NSURLRequestExtensionsSpec.swift in Sources */,
