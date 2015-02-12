@@ -31,7 +31,8 @@ public enum HTTPAuthentication: Equatable {
 public func == (lhs: HTTPAuthentication, rhs: HTTPAuthentication) -> Bool {
     switch (lhs, rhs) {
     case (.BasicAuthentication(let lusername, let lpassword), .BasicAuthentication(let rusername, let rpassword)):
-        return lusername == rusername && lpassword == rpassword
+        return lusername == rusername
+            && lpassword == rpassword
     case (.AccessTokenAuthentication(let laccessToken), .AccessTokenAuthentication(let raccessToken)):
         return laccessToken == raccessToken
     default:
