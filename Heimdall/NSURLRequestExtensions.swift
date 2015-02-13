@@ -8,10 +8,22 @@
 
 import Foundation
 
+/// An HTTP authentication is used for authorizing requests to either the token
+/// or the resource endpoint.
 public enum HTTPAuthentication: Equatable {
+    /// HTTP Basic Authentication.
+    ///
+    /// :param: username The username.
+    /// :param: password The password.
     case BasicAuthentication(username: String, password: String)
+
+    /// Access Token Authentication.
+    ///
+    /// :param: _ The access token.
     case AccessTokenAuthentication(OAuthAccessToken)
 
+    /// Returns the authentication encoded as `String` suitable for the HTTP
+    /// `Authorization` header.
     private var value: String? {
         switch self {
         case .BasicAuthentication(let username, let password):
@@ -41,22 +53,35 @@ public func == (lhs: HTTPAuthentication, rhs: HTTPAuthentication) -> Bool {
 }
 
 public extension NSURLRequest {
+    /// Returns the HTTP `Authorization` header value or `nil` if not set.
     public var HTTPAuthorization: String? {
         return self.valueForHTTPHeaderField("Authorization")
     }
 }
 
 public extension NSMutableURLRequest {
-    // Declarations in extensions cannot override yet.
+    /// Sets the HTTP `Authorization` header value.
+    ///
+    /// :param: value The value to be set or `nil`.
+    ///
+    /// TODO: Declarations in extensions cannot override yet.
     public func setHTTPAuthorization(value: String?) {
         self.setValue(value, forHTTPHeaderField: "Authorization")
     }
 
+    /// Sets the HTTP `Authorization` header value using the given HTTP
+    /// authentication.
+    ///
+    /// :param: authentication The HTTP authentication to be set.
     public func setHTTPAuthorization(authentication: HTTPAuthentication) {
         self.setValue(authentication.value, forHTTPHeaderField: "Authorization")
     }
 
-    // Tests crash without named parameter.
+    /// Sets the HTTP body using the given paramters encoded as query string.
+    ///
+    /// :param: parameters The parameters to be encoded or `nil`.
+    ///
+    /// TODO: Tests crash without named parameter.
     public func setHTTPBody(#parameters: [String: String]?) {
         if let parameters = parameters {
             var parts = [String]()

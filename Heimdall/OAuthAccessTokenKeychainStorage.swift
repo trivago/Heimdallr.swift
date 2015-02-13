@@ -8,10 +8,18 @@
 
 import KeychainAccess
 
+/// A persistent Keychain-based access token store.
 @objc
 public class OAuthAccessTokenKeychainStorage: OAuthAccessTokenStorage {
     private let keychain: Keychain
-    
+
+    /// Initializes a new Keychain-based access token store.
+    ///
+    /// :param: service The Keychain service.
+    ///     Default: `de.rheinfabrik.heimdall.oauth`.
+    ///
+    /// :returns: A new Keychain-based access token store initialized with the
+    ///     the given service.
     public init(service: String = "de.rheinfabrik.heimdall.oauth") {
         keychain = Keychain(service: service)
     }

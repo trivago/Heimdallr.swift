@@ -9,6 +9,9 @@
 import Argo
 import Runes
 
+/// See: The OAuth 2.0 Authorization Framework, 5.2 Error Response
+///      <https://tools.ietf.org/html/rfc6749#section-5.2>
+
 public let OAuthErrorDomain = "OAuthErrorDomain"
 public let OAuthErrorInvalidRequest = 1
 public let OAuthErrorInvalidClient = 2
