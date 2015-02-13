@@ -23,17 +23,17 @@ public class Heimdall {
     private let tokenURL: NSURL
     private let credentials: OAuthClientCredentials?
 
-    private let accessTokenStorage: OAuthAccessTokenStorage
+    private let accessTokenStore: OAuthAccessTokenStore
     private var accessToken: OAuthAccessToken? {
         get {
-            return accessTokenStorage.retrieveAccessToken()
+            return accessTokenStore.retrieveAccessToken()
         }
         set {
-            accessTokenStorage.storeAccessToken(newValue)
+            accessTokenStore.storeAccessToken(newValue)
         }
     }
 
-    /// Returns a Bool indicating whether the client's access token storage
+    /// Returns a Bool indicating whether the client's access token store
     /// currently holds an access token.
     ///
     /// **Note:** It's not checked whether the stored access token, if any, has
@@ -49,16 +49,16 @@ public class Heimdall {
     ///     and a secret are set, client authentication is performed via HTTP
     ///     Basic Authentication. Otherwise, if only an identifier is set, it is
     ///     encoded as parameter. Default: `nil` (unauthenticated client).
-    /// :param: accessTokenStorage The (persistent) access token storage.
-    ///     Default: `OAuthAccessTokenKeychainStorage`.
+    /// :param: accessTokenStore The (persistent) access token store.
+    ///     Default: `OAuthAccessTokenKeychainStore`.
     ///
     /// :returns: A new client initialized with the given token endpoint URL,
-    ///     credentials and access token storage.
-    public init(tokenURL: NSURL, credentials: OAuthClientCredentials? = nil, accessTokenStorage: OAuthAccessTokenStorage = OAuthAccessTokenKeychainStorage()) {
+    ///     credentials and access token store.
+    public init(tokenURL: NSURL, credentials: OAuthClientCredentials? = nil, accessTokenStore: OAuthAccessTokenStore = OAuthAccessTokenKeychainStore()) {
         self.tokenURL = tokenURL
         self.credentials = credentials
 
-        self.accessTokenStorage = accessTokenStorage
+        self.accessTokenStore = accessTokenStore
     }
 
     /// Requests authorization with the resource owner's password credentials.

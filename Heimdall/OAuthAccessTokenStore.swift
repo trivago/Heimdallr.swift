@@ -1,5 +1,5 @@
 //
-//  OAuthAccessTokenStorage.swift
+//  OAuthAccessTokenStore.swift
 //  Heimdall
 //
 //  Created by Tim Brückmann on 11.02.15.
@@ -9,7 +9,7 @@
 import Foundation
 
 /// A (persistent) access token store.
-public protocol OAuthAccessTokenStorage {
+public protocol OAuthAccessTokenStore {
     /// Stores the given access token.
     ///
     /// Given nil, it resets the currently stored access token, if any.

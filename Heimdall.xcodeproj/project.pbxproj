@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		22BC44611A8A3FBA00AB0A14 /* OAuthAccessTokenKeychainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BC44601A8A3FBA00AB0A14 /* OAuthAccessTokenKeychainStorage.swift */; };
-		22BC44631A8A402300AB0A14 /* OAuthAccessTokenKeychainStorageSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BC44621A8A402300AB0A14 /* OAuthAccessTokenKeychainStorageSpec.swift */; };
+		22BC44611A8A3FBA00AB0A14 /* OAuthAccessTokenKeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BC44601A8A3FBA00AB0A14 /* OAuthAccessTokenKeychainStore.swift */; };
+		22BC44631A8A402300AB0A14 /* OAuthAccessTokenKeychainStoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BC44621A8A402300AB0A14 /* OAuthAccessTokenKeychainStoreSpec.swift */; };
 		22BC44651A8A442500AB0A14 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BC44641A8A442500AB0A14 /* KeychainAccess.framework */; };
 		22BC44661A8A445D00AB0A14 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BC44641A8A442500AB0A14 /* KeychainAccess.framework */; };
-		22BC446C1A8B858D00AB0A14 /* OAuthAccessTokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BC446B1A8B858D00AB0A14 /* OAuthAccessTokenStorage.swift */; };
+		22BC446C1A8B858D00AB0A14 /* OAuthAccessTokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BC446B1A8B858D00AB0A14 /* OAuthAccessTokenStore.swift */; };
 		DC4702791A8CBD4F00DBD047 /* Runes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC4702781A8CBD4F00DBD047 /* Runes.framework */; };
 		DC47027A1A8CBD6700DBD047 /* Runes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC4702781A8CBD4F00DBD047 /* Runes.framework */; };
 		DC545DC81A89F0F10051A575 /* Heimdall.h in Headers */ = {isa = PBXBuildFile; fileRef = DC545DC71A89F0F10051A575 /* Heimdall.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -56,10 +56,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		22BC44601A8A3FBA00AB0A14 /* OAuthAccessTokenKeychainStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenKeychainStorage.swift; sourceTree = "<group>"; };
-		22BC44621A8A402300AB0A14 /* OAuthAccessTokenKeychainStorageSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenKeychainStorageSpec.swift; sourceTree = "<group>"; };
+		22BC44601A8A3FBA00AB0A14 /* OAuthAccessTokenKeychainStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenKeychainStore.swift; sourceTree = "<group>"; };
+		22BC44621A8A402300AB0A14 /* OAuthAccessTokenKeychainStoreSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenKeychainStoreSpec.swift; sourceTree = "<group>"; };
 		22BC44641A8A442500AB0A14 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
-		22BC446B1A8B858D00AB0A14 /* OAuthAccessTokenStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenStorage.swift; sourceTree = "<group>"; };
+		22BC446B1A8B858D00AB0A14 /* OAuthAccessTokenStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenStore.swift; sourceTree = "<group>"; };
 		DC4702781A8CBD4F00DBD047 /* Runes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Runes.framework; path = Carthage/Build/iOS/Runes.framework; sourceTree = "<group>"; };
 		DC545DC21A89F0F10051A575 /* Heimdall.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Heimdall.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC545DC61A89F0F10051A575 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -156,8 +156,8 @@
 				DCA5B98C1A8A12E700667D32 /* NSDateExtensions.swift */,
 				DCD72CB41A8C9FDE0024BAC1 /* NSURLRequestExtensions.swift */,
 				DCB2540C1A8CF70D00226966 /* OAuthAccessToken.swift */,
-				22BC44601A8A3FBA00AB0A14 /* OAuthAccessTokenKeychainStorage.swift */,
-				22BC446B1A8B858D00AB0A14 /* OAuthAccessTokenStorage.swift */,
+				22BC44601A8A3FBA00AB0A14 /* OAuthAccessTokenKeychainStore.swift */,
+				22BC446B1A8B858D00AB0A14 /* OAuthAccessTokenStore.swift */,
 				DC54D2B31A8DF9D1001C87A4 /* OAuthAuthorizationGrant.swift */,
 				DC54D2B11A8DF990001C87A4 /* OAuthClientCredentials.swift */,
 				DCB254101A8D010800226966 /* OAuthError.swift */,
@@ -181,7 +181,7 @@
 				DCA5B98E1A8A296300667D32 /* NSDateExtensionsSpec.swift */,
 				DCD72CB61A8CABB20024BAC1 /* NSURLRequestExtensionsSpec.swift */,
 				DCB2540E1A8CF74B00226966 /* OAuthAccessTokenSpec.swift */,
-				22BC44621A8A402300AB0A14 /* OAuthAccessTokenKeychainStorageSpec.swift */,
+				22BC44621A8A402300AB0A14 /* OAuthAccessTokenKeychainStoreSpec.swift */,
 				DCD72CAD1A8B9ED90024BAC1 /* Extensions */,
 				DCA5B9A31A8A4C0500667D32 /* Stub Responses */,
 				DC545DD21A89F0F10051A575 /* Supporting Files */,
@@ -378,11 +378,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCD72CB51A8C9FDE0024BAC1 /* NSURLRequestExtensions.swift in Sources */,
-				22BC44611A8A3FBA00AB0A14 /* OAuthAccessTokenKeychainStorage.swift in Sources */,
+				22BC44611A8A3FBA00AB0A14 /* OAuthAccessTokenKeychainStore.swift in Sources */,
 				DC54D2B41A8DF9D1001C87A4 /* OAuthAuthorizationGrant.swift in Sources */,
 				DC545DEB1A89FFDA0051A575 /* Heimdall.swift in Sources */,
 				DCA5B98D1A8A12E700667D32 /* NSDateExtensions.swift in Sources */,
-				22BC446C1A8B858D00AB0A14 /* OAuthAccessTokenStorage.swift in Sources */,
+				22BC446C1A8B858D00AB0A14 /* OAuthAccessTokenStore.swift in Sources */,
 				DC54D2B21A8DF990001C87A4 /* OAuthClientCredentials.swift in Sources */,
 				DCB254111A8D010800226966 /* OAuthError.swift in Sources */,
 				DCB2540D1A8CF70D00226966 /* OAuthAccessToken.swift in Sources */,
@@ -395,7 +395,7 @@
 			files = (
 				DCB2540F1A8CF74B00226966 /* OAuthAccessTokenSpec.swift in Sources */,
 				DCA5B9A51A8A565C00667D32 /* StubResponseExtensions.swift in Sources */,
-				22BC44631A8A402300AB0A14 /* OAuthAccessTokenKeychainStorageSpec.swift in Sources */,
+				22BC44631A8A402300AB0A14 /* OAuthAccessTokenKeychainStoreSpec.swift in Sources */,
 				DCD72CB71A8CABB20024BAC1 /* NSURLRequestExtensionsSpec.swift in Sources */,
 				DCA5B9911A8A2B9700667D32 /* HeimdallSpec.swift in Sources */,
 				DCA5B98F1A8A296300667D32 /* NSDateExtensionsSpec.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  OAuthAccessTokenKeychainStorage.swift
+//  OAuthAccessTokenKeychainStore.swift
 //  Heimdall
 //
 //  Created by Tim Brückmann on 10.02.15.
@@ -10,7 +10,7 @@ import KeychainAccess
 
 /// A persistent Keychain-based access token store.
 @objc
-public class OAuthAccessTokenKeychainStorage: OAuthAccessTokenStorage {
+public class OAuthAccessTokenKeychainStore: OAuthAccessTokenStore {
     private let keychain: Keychain
 
     /// Initializes a new Keychain-based access token store.
