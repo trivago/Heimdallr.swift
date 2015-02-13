@@ -43,7 +43,13 @@ extension AccessToken: JSONDecodable {
         return AccessToken.create
             <^> json <| "access_token"
             <*> json <| "token_type"
-            <*> json <|? "expires_in"
+            <*> pure(json.find([ "expires_in" ]) >>- { json in
+                    if let timeIntervalSinceNow = json.value() as NSTimeInterval? {
+                        return NSDate(timeIntervalSinceNow: timeIntervalSinceNow)
+                    } else {
+                        return nil
+                    }
+                })
             <*> json <|? "refresh_token"
     }
 
