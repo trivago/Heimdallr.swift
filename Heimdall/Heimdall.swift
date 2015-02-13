@@ -12,48 +12,13 @@ public let HeimdallErrorDomain = "HeimdallErrorDomain"
 public let HeimdallErrorInvalidData = 1
 public let HeimdallErrorNotAuthorized = 2
 
-private enum AuthorizationGrant {
-    case ResourceOwnerPasswordCredentials(String, String)
-    case Refresh(String)
-
-    private var parameters: [String: String] {
-        switch self {
-        case .ResourceOwnerPasswordCredentials(let username, let password):
-            return [ "grant_type": "password", "username": username, "password": password ]
-        case .Refresh(let refreshToken):
-            return [ "grant_type": "refresh_token", "refresh_token": refreshToken ]
-        }
-    }
-}
-
-@objc
-public class Credentials {
-    public let id: String
-    public let secret: String?
-
-    private var parameters: [String: String] {
-        var parameters = [ "client_id": id ]
-
-        if let secret = secret {
-            parameters["client_secret"] = secret
-        }
-
-        return parameters
-    }
-
-    public init(id: String, secret: String? = nil) {
-        self.id = id
-        self.secret = secret
-    }
-}
-
 @objc
 public class Heimdall {
     private let tokenURL: NSURL
-    private let credentials: Credentials?
+    private let credentials: OAuthClientCredentials?
 
-    private let accessTokenStorage: AccessTokenStorage
-    private var accessToken: AccessToken? {
+    private let accessTokenStorage: OAuthAccessTokenStorage
+    private var accessToken: OAuthAccessToken? {
         get {
             return accessTokenStorage.retrieveAccessToken()
         }
@@ -66,7 +31,7 @@ public class Heimdall {
         return accessToken != nil
     }
     
-    public init(tokenURL: NSURL, credentials: Credentials? = nil, accessTokenStorage: AccessTokenStorage = AccessTokenKeychainStorage()) {
+    public init(tokenURL: NSURL, credentials: OAuthClientCredentials? = nil, accessTokenStorage: OAuthAccessTokenStorage = OAuthAccessTokenKeychainStorage()) {
         self.tokenURL = tokenURL
         self.credentials = credentials
 
@@ -79,7 +44,7 @@ public class Heimdall {
         }
     }
 
-    private func authorize(grant: AuthorizationGrant, completion: Result<AccessToken, NSError> -> ()) {
+    private func authorize(grant: OAuthAuthorizationGrant, completion: Result<OAuthAccessToken, NSError> -> ()) {
         let request = NSMutableURLRequest(URL: tokenURL)
 
         var parameters = grant.parameters
@@ -100,7 +65,7 @@ public class Heimdall {
             if let error = error {
                 completion(failure(error))
             } else if (response as NSHTTPURLResponse).statusCode == 200 {
-                if let accessToken = AccessToken.decode(data) {
+                if let accessToken = OAuthAccessToken.decode(data) {
                     self.accessToken = accessToken
                     completion(success(accessToken))
                 } else {
@@ -130,7 +95,7 @@ public class Heimdall {
         task.resume()
     }
 
-    private func requestByAddingAuthorizationHeaderToRequest(request: NSURLRequest, accessToken: AccessToken) -> NSURLRequest {
+    private func requestByAddingAuthorizationHeaderToRequest(request: NSURLRequest, accessToken: OAuthAccessToken) -> NSURLRequest {
         var mutableRequest = request.mutableCopy() as NSMutableURLRequest
         mutableRequest.setHTTPAuthorization(.AccessTokenAuthentication(accessToken))
         return mutableRequest

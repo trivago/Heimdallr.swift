@@ -28,7 +28,7 @@ public enum OAuthErrorCode: String {
     case InvalidScope = "invalid_scope"
 }
 
-extension OAuthErrorCode {
+public extension OAuthErrorCode {
     public var intValue: Int {
         switch self {
         case .InvalidRequest:
@@ -70,7 +70,7 @@ public class OAuthError {
     }
 }
 
-extension OAuthError {
+public extension OAuthError {
     public var nsError: NSError {
         var userInfo = [String: AnyObject]()
 
