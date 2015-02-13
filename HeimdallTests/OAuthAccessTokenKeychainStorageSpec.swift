@@ -1,5 +1,5 @@
 //
-//  HeimdallAccessTokenKeychainStorageSpec.swift
+//  OAuthAccessTokenKeychainStorageSpec.swift
 //  Heimdall
 //
 //  Created by Tim Brückmann on 10.02.15.
@@ -11,20 +11,18 @@ import KeychainAccess
 import Nimble
 import Quick
 
-class HeimdallAccessTokenKeychainStoreSpec: QuickSpec {
+class OAuthAccessTokenKeychainStoreSpec: QuickSpec {
     override func spec() {
-        
-        var storage: AccessTokenKeychainStorage!
+        var storage: OAuthAccessTokenKeychainStorage!
         let keychain = Keychain(service: "de.rheinfabrik.heimdall.oauth.unit-tests")
         
         beforeEach {
-            storage = AccessTokenKeychainStorage(service: "de.rheinfabrik.heimdall.oauth.unit-tests")
+            storage = OAuthAccessTokenKeychainStorage(service: "de.rheinfabrik.heimdall.oauth.unit-tests")
         }
         
         describe("-storeAccessToken") {
-
             let expirationDate = NSDate().dateByAddingTimeInterval(3600)
-            let token = AccessToken(
+            let token = OAuthAccessToken(
                 accessToken: "01234567-89ab-cdef-0123-456789abcdef",
                 tokenType: "bearer",
                 expiresAt: expirationDate,
@@ -51,10 +49,9 @@ class HeimdallAccessTokenKeychainStoreSpec: QuickSpec {
             }
             
             context("when the access token does not have an expiration date") {
-                
                 it("clears the expiration date from the keychain") {
                     keychain["expires_at"] = "foobar"
-                    let tokenWithoutExpirationDate = AccessToken(
+                    let tokenWithoutExpirationDate = OAuthAccessToken(
                         accessToken: "01234567-89ab-cdef-0123-456789abcdef",
                         tokenType: "bearer",
                         expiresAt: nil,
@@ -62,14 +59,12 @@ class HeimdallAccessTokenKeychainStoreSpec: QuickSpec {
                     storage.storeAccessToken(tokenWithoutExpirationDate)
                     expect(keychain["expires_at"]).to(beNil())
                 }
-                
             }
             
             context("when the access token does not have a refresh token") {
-                
                 it("clears the refresh token date from the keychain") {
                     keychain["refresh_token"] = "foobar"
-                    let tokenWithoutRefreshToken = AccessToken(
+                    let tokenWithoutRefreshToken = OAuthAccessToken(
                         accessToken: "01234567-89ab-cdef-0123-456789abcdef",
                         tokenType: "bearer",
                         expiresAt: expirationDate,
@@ -77,11 +72,9 @@ class HeimdallAccessTokenKeychainStoreSpec: QuickSpec {
                     storage.storeAccessToken(tokenWithoutRefreshToken)
                     expect(keychain["refresh_token"]).to(beNil())
                 }
-                
             }
             
             context("when the access token is nil") {
-                
                 it("clears the keychain") {
                     storage.storeAccessToken(nil)
                     
@@ -90,15 +83,11 @@ class HeimdallAccessTokenKeychainStoreSpec: QuickSpec {
                     expect(keychain["expires_at"]).to(beNil())
                     expect(keychain["refresh_token"]).to(beNil())
                 }
-                
             }
-            
         }
         
         describe("-retrieveAccessToken") {
-            
             context("when the keychain contains an access token") {
-                
                 beforeEach {
                     keychain["access_token"] = "01234567-89ab-cdef-0123-456789abcdef"
                     keychain["token_type"] = "bearer"
@@ -116,7 +105,6 @@ class HeimdallAccessTokenKeychainStoreSpec: QuickSpec {
                 }
                 
                 context("without an expiration date") {
-                    
                     beforeEach {
                         keychain["expires_at"] = nil
                     }
@@ -126,11 +114,9 @@ class HeimdallAccessTokenKeychainStoreSpec: QuickSpec {
                         expect(token).toNot(beNil())
                         expect(token?.expiresAt).to(beNil())
                     }
-                    
                 }
                 
                 context("without a refresh token") {
-                    
                     beforeEach {
                         keychain["refresh_token"] = nil
                     }
@@ -140,13 +126,10 @@ class HeimdallAccessTokenKeychainStoreSpec: QuickSpec {
                         expect(token).toNot(beNil())
                         expect(token?.refreshToken).to(beNil())
                     }
-                    
                 }
-                
             }
             
             context("when the keychain does not contain an access token") {
-                
                 beforeEach {
                     keychain["access_token"] = nil
                     keychain["token_type"] = nil
@@ -157,11 +140,8 @@ class HeimdallAccessTokenKeychainStoreSpec: QuickSpec {
                 it("returns nil") {
                     let token = storage.retrieveAccessToken()
                     expect(token).to(beNil())
-}
-                
+                }
             }
-            
         }
-        
     }
 }

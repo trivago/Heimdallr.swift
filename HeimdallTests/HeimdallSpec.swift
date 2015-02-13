@@ -12,19 +12,19 @@ import LlamaKit
 import Nimble
 import Quick
 
-class MockAccessTokenStorage: AccessTokenStorage {
+class OAuthAccessTokenMockStorage: OAuthAccessTokenStorage {
     var storeAccessTokenCalled: Bool = false
 
-    var mockedAccessToken: AccessToken? = nil
-    var storedAccessToken: AccessToken? = nil
+    var mockedAccessToken: OAuthAccessToken? = nil
+    var storedAccessToken: OAuthAccessToken? = nil
     
-    func storeAccessToken(accessToken: AccessToken?){
+    func storeAccessToken(accessToken: OAuthAccessToken?){
         storeAccessTokenCalled = true
 
         storedAccessToken = accessToken
     }
     
-    func retrieveAccessToken() -> AccessToken? {
+    func retrieveAccessToken() -> OAuthAccessToken? {
         return mockedAccessToken ?? storedAccessToken
     }
 }
@@ -33,18 +33,18 @@ class HeimdallSpec: QuickSpec {
     let bundle = NSBundle(forClass: HeimdallSpec.self)
 
     override func spec() {
-        var accessTokenStorage: MockAccessTokenStorage!
+        var accessTokenStorage: OAuthAccessTokenMockStorage!
         var heimdall: Heimdall!
 
         beforeEach {
-            accessTokenStorage = MockAccessTokenStorage()
+            accessTokenStorage = OAuthAccessTokenMockStorage()
             heimdall = Heimdall(tokenURL: NSURL(string: "http://rheinfabrik.de")!, accessTokenStorage: accessTokenStorage)
         }
         
         describe("-init") {
             context("when a token is saved in the storage") {
                 it("loads the token from the token storage") {
-                    accessTokenStorage.mockedAccessToken = AccessToken(accessToken: "foo", tokenType: "bar")
+                    accessTokenStorage.mockedAccessToken = OAuthAccessToken(accessToken: "foo", tokenType: "bar")
                     expect(heimdall.hasAccessToken).to(beTrue())
                 }
             }
