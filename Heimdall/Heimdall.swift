@@ -56,16 +56,9 @@ public class Heimdall {
             }
         }
 
-        var parts = [String]()
-        for (name, value) in parameters {
-            let encodedName = name.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
-            let encodedValue = value.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
-            parts.append("\(encodedName!)=\(encodedValue!)")
-        }
-
         request.HTTPMethod = "POST"
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        request.HTTPBody = "&".join(parts).dataUsingEncoding(NSUTF8StringEncoding)
+        request.setHTTPBody(parameters: parameters)
 
         let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
         let task = session.dataTaskWithRequest(request) { data, response, error in
