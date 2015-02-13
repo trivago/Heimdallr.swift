@@ -105,7 +105,7 @@ public class Heimdall {
         if let accessToken = accessToken {
             if accessToken.expiresAt != nil && accessToken.expiresAt < NSDate() {
                 if let refreshToken = accessToken.refreshToken {
-                    authorize(.Refresh(refreshToken)) { result in
+                    authorize(.RefreshToken(refreshToken)) { result in
                         completion(result.map { accessToken in
                             return self.requestByAddingAuthorizationHeaderToRequest(request, accessToken: accessToken)
                         })

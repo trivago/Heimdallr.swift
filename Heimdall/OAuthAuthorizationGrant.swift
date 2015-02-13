@@ -10,14 +10,22 @@ import Foundation
 
 public enum OAuthAuthorizationGrant {
     case ResourceOwnerPasswordCredentials(String, String)
-    case Refresh(String)
+
+    case RefreshToken(String)
 
     public var parameters: [String: String] {
         switch self {
         case .ResourceOwnerPasswordCredentials(let username, let password):
-            return [ "grant_type": "password", "username": username, "password": password ]
-        case .Refresh(let refreshToken):
-            return [ "grant_type": "refresh_token", "refresh_token": refreshToken ]
+            return [
+                "grant_type": "password",
+                "username": username,
+                "password": password
+            ]
+        case .RefreshToken(let refreshToken):
+            return [
+                "grant_type": "refresh_token",
+                "refresh_token": refreshToken
+            ]
         }
     }
 }
