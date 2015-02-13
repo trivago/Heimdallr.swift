@@ -12,7 +12,7 @@ import LlamaKit
 import Nimble
 import Quick
 
-class OAuthAccessTokenMockStorage: OAuthAccessTokenStorage {
+class OAuthAccessTokenMockStore: OAuthAccessTokenStore {
     var storeAccessTokenCalled: Bool = false
 
     var mockedAccessToken: OAuthAccessToken? = nil
@@ -33,18 +33,18 @@ class HeimdallSpec: QuickSpec {
     let bundle = NSBundle(forClass: HeimdallSpec.self)
 
     override func spec() {
-        var accessTokenStorage: OAuthAccessTokenMockStorage!
+        var accessTokenStore: OAuthAccessTokenMockStore!
         var heimdall: Heimdall!
 
         beforeEach {
-            accessTokenStorage = OAuthAccessTokenMockStorage()
-            heimdall = Heimdall(tokenURL: NSURL(string: "http://rheinfabrik.de")!, accessTokenStorage: accessTokenStorage)
+            accessTokenStore = OAuthAccessTokenMockStore()
+            heimdall = Heimdall(tokenURL: NSURL(string: "http://rheinfabrik.de")!, accessTokenStore: accessTokenStore)
         }
         
         describe("-init") {
-            context("when a token is saved in the storage") {
-                it("loads the token from the token storage") {
-                    accessTokenStorage.mockedAccessToken = OAuthAccessToken(accessToken: "foo", tokenType: "bar")
+            context("when a token is saved in the store") {
+                it("loads the token from the token store") {
+                    accessTokenStore.mockedAccessToken = OAuthAccessToken(accessToken: "foo", tokenType: "bar")
                     expect(heimdall.hasAccessToken).to(beTrue())
                 }
             }
@@ -77,11 +77,11 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("sets the access token") {
-                    expect(accessTokenStorage.storeAccessTokenCalled).to(beTrue())
+                    expect(accessTokenStore.storeAccessTokenCalled).to(beTrue())
                 }
                 
-                it("stores the access token in the token storage") {
-                    expect(accessTokenStorage.storeAccessTokenCalled).to(beTrue())
+                it("stores the access token in the token store") {
+                    expect(accessTokenStore.storeAccessTokenCalled).to(beTrue())
                 }
             }
 

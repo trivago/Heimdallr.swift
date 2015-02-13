@@ -1,5 +1,5 @@
 //
-//  OAuthAccessTokenKeychainStorageSpec.swift
+//  OAuthAccessTokenKeychainStoreSpec.swift
 //  Heimdall
 //
 //  Created by Tim Brückmann on 10.02.15.
@@ -13,11 +13,11 @@ import Quick
 
 class OAuthAccessTokenKeychainStoreSpec: QuickSpec {
     override func spec() {
-        var storage: OAuthAccessTokenKeychainStorage!
+        var store: OAuthAccessTokenKeychainStore!
         let keychain = Keychain(service: "de.rheinfabrik.heimdall.oauth.unit-tests")
         
         beforeEach {
-            storage = OAuthAccessTokenKeychainStorage(service: "de.rheinfabrik.heimdall.oauth.unit-tests")
+            store = OAuthAccessTokenKeychainStore(service: "de.rheinfabrik.heimdall.oauth.unit-tests")
         }
         
         describe("-storeAccessToken") {
@@ -29,7 +29,7 @@ class OAuthAccessTokenKeychainStoreSpec: QuickSpec {
                 refreshToken: "127386523686")
             
             beforeEach {
-                storage.storeAccessToken(token)
+                store.storeAccessToken(token)
             }
             
             it("saves the access token to the keychain") {
@@ -56,7 +56,7 @@ class OAuthAccessTokenKeychainStoreSpec: QuickSpec {
                         tokenType: "bearer",
                         expiresAt: nil,
                         refreshToken: "127386523686")
-                    storage.storeAccessToken(tokenWithoutExpirationDate)
+                    store.storeAccessToken(tokenWithoutExpirationDate)
                     expect(keychain["expires_at"]).to(beNil())
                 }
             }
@@ -69,14 +69,14 @@ class OAuthAccessTokenKeychainStoreSpec: QuickSpec {
                         tokenType: "bearer",
                         expiresAt: expirationDate,
                         refreshToken: nil)
-                    storage.storeAccessToken(tokenWithoutRefreshToken)
+                    store.storeAccessToken(tokenWithoutRefreshToken)
                     expect(keychain["refresh_token"]).to(beNil())
                 }
             }
             
             context("when the access token is nil") {
                 it("clears the keychain") {
-                    storage.storeAccessToken(nil)
+                    store.storeAccessToken(nil)
                     
                     expect(keychain["access_token"]).to(beNil())
                     expect(keychain["token_type"]).to(beNil())
@@ -96,7 +96,7 @@ class OAuthAccessTokenKeychainStoreSpec: QuickSpec {
                 }
                 
                 it("retrieves and returns the access token from the keychain") {
-                    let token = storage.retrieveAccessToken()
+                    let token = store.retrieveAccessToken()
                     expect(token).toNot(beNil())
                     expect(token?.accessToken).to(equal("01234567-89ab-cdef-0123-456789abcdef"))
                     expect(token?.tokenType).to(equal("bearer"))
@@ -110,7 +110,7 @@ class OAuthAccessTokenKeychainStoreSpec: QuickSpec {
                     }
                     
                     it("returns an access token without expiration date") {
-                        let token = storage.retrieveAccessToken()
+                        let token = store.retrieveAccessToken()
                         expect(token).toNot(beNil())
                         expect(token?.expiresAt).to(beNil())
                     }
@@ -122,7 +122,7 @@ class OAuthAccessTokenKeychainStoreSpec: QuickSpec {
                     }
                     
                     it("returns an access token without refresh token") {
-                        let token = storage.retrieveAccessToken()
+                        let token = store.retrieveAccessToken()
                         expect(token).toNot(beNil())
                         expect(token?.refreshToken).to(beNil())
                     }
@@ -138,7 +138,7 @@ class OAuthAccessTokenKeychainStoreSpec: QuickSpec {
                 }
                 
                 it("returns nil") {
-                    let token = storage.retrieveAccessToken()
+                    let token = store.retrieveAccessToken()
                     expect(token).to(beNil())
                 }
             }

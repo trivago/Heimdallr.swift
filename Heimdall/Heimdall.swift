@@ -9,41 +9,77 @@
 import LlamaKit
 
 public let HeimdallErrorDomain = "HeimdallErrorDomain"
+
+/// The token endpoint responded with invalid data.
 public let HeimdallErrorInvalidData = 1
+
+/// The request could not be authorized (e.g., no refresh token available).
 public let HeimdallErrorNotAuthorized = 2
 
+/// The all-seeing and all-hearing guardian sentry of your application who
+/// stands on the rainbow bridge network to authorize relevant requests.
 @objc
 public class Heimdall {
     private let tokenURL: NSURL
     private let credentials: OAuthClientCredentials?
 
-    private let accessTokenStorage: OAuthAccessTokenStorage
+    private let accessTokenStore: OAuthAccessTokenStore
     private var accessToken: OAuthAccessToken? {
         get {
-            return accessTokenStorage.retrieveAccessToken()
+            return accessTokenStore.retrieveAccessToken()
         }
         set {
-            accessTokenStorage.storeAccessToken(newValue)
+            accessTokenStore.storeAccessToken(newValue)
         }
     }
 
+    /// Returns a Bool indicating whether the client's access token store
+    /// currently holds an access token.
+    ///
+    /// **Note:** It's not checked whether the stored access token, if any, has
+    ///     already expired.
     public var hasAccessToken: Bool {
         return accessToken != nil
     }
-    
-    public init(tokenURL: NSURL, credentials: OAuthClientCredentials? = nil, accessTokenStorage: OAuthAccessTokenStorage = OAuthAccessTokenKeychainStorage()) {
+
+    /// Initializes a new client.
+    ///
+    /// :param: tokenURL The token endpoint URL.
+    /// :param: credentials The OAuth client credentials. If both an identifier
+    ///     and a secret are set, client authentication is performed via HTTP
+    ///     Basic Authentication. Otherwise, if only an identifier is set, it is
+    ///     encoded as parameter. Default: `nil` (unauthenticated client).
+    /// :param: accessTokenStore The (persistent) access token store.
+    ///     Default: `OAuthAccessTokenKeychainStore`.
+    ///
+    /// :returns: A new client initialized with the given token endpoint URL,
+    ///     credentials and access token store.
+    public init(tokenURL: NSURL, credentials: OAuthClientCredentials? = nil, accessTokenStore: OAuthAccessTokenStore = OAuthAccessTokenKeychainStore()) {
         self.tokenURL = tokenURL
         self.credentials = credentials
 
-        self.accessTokenStorage = accessTokenStorage
+        self.accessTokenStore = accessTokenStore
     }
 
+    /// Requests authorization with the resource owner's password credentials.
+    ///
+    /// :param: username The resource owner's username.
+    /// :param: password The resource owner's password.
+    /// :param: completion A callback to invoke when the request completed.
     public func authorize(username: String, password: String, completion: Result<Void, NSError> -> ()) {
         authorize(.ResourceOwnerPasswordCredentials(username, password)) { result in
             completion(result.map { _ in return })
         }
     }
 
+    /// Requests authorization with the given grant.
+    ///
+    /// The client is authenticated via HTTP Basic Authentication if both an
+    /// identifier and a secret are set in its credentials. Otherwise, if only
+    /// an identifier is set, it is encoded as parameter.
+    ///
+    /// :param: grant The authorization grant (e.g., refresh).
+    /// :param: completion A callback to invoke when the request completed.
     private func authorize(grant: OAuthAuthorizationGrant, completion: Result<OAuthAccessToken, NSError> -> ()) {
         let request = NSMutableURLRequest(URL: tokenURL)
 
@@ -95,17 +131,34 @@ public class Heimdall {
         task.resume()
     }
 
+    /// Alters the given request by adding authorization via access token
+    /// authentication.
+    ///
+    /// :param: request An unauthorized request.
+    /// :param: accessToken The access token to be used for authentication.
+    ///
+    /// :returns: The given request authorized via access token authentication.
     private func requestByAddingAuthorizationHeaderToRequest(request: NSURLRequest, accessToken: OAuthAccessToken) -> NSURLRequest {
         var mutableRequest = request.mutableCopy() as NSMutableURLRequest
         mutableRequest.setHTTPAuthorization(.AccessTokenAuthentication(accessToken))
         return mutableRequest
     }
 
+    /// Alters the given request by adding authorization, if possible.
+    ///
+    /// In case of an expired access token and the presence of a refresh token,
+    /// automatically tries to refresh the access token.
+    ///
+    /// **Note:** If the access token must be refreshed, network I/O is
+    ///     performed.
+    ///
+    /// :param: request An unauthorized NSURLRequest.
+    /// :param: completion A callback to invoke with the authorized request.
     public func requestByAddingAuthorizationToRequest(request: NSURLRequest, completion: Result<NSURLRequest, NSError> -> ()) {
         if let accessToken = accessToken {
             if accessToken.expiresAt != nil && accessToken.expiresAt < NSDate() {
                 if let refreshToken = accessToken.refreshToken {
-                    authorize(.Refresh(refreshToken)) { result in
+                    authorize(.RefreshToken(refreshToken)) { result in
                         completion(result.map { accessToken in
                             return self.requestByAddingAuthorizationHeaderToRequest(request, accessToken: accessToken)
                         })
