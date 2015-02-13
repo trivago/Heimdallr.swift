@@ -8,126 +8,17 @@
 
 import LlamaKit
 
-public let HeimdallErrorDomain = "OAuthManagerErrorDomain"
-public let HeimdallErrorNoData = 1
-public let HeimdallErrorInvalidData = 2
-public let HeimdallErrorNotAuthorized = 3
-
-private enum AuthorizationGrant {
-    case ResourceOwnerPasswordCredentials(String, String)
-    case Refresh(String)
-
-    private var parameters: [String: String] {
-        switch self {
-        case .ResourceOwnerPasswordCredentials(let username, let password):
-            return [ "grant_type": "password", "username": username, "password": password ]
-        case .Refresh(let refreshToken):
-            return [ "grant_type": "refresh_token", "refresh_token": refreshToken ]
-        }
-    }
-}
-
-@objc
-public class AccessToken {
-    public let accessToken: String
-    public let tokenType: String
-    public let expiresAt: NSDate?
-    public let refreshToken: String?
-
-    private var authorizationString: String {
-        return "\(tokenType) \(accessToken)"
-    }
-
-    public init(accessToken: String, tokenType: String, expiresAt: NSDate? = nil, refreshToken: String? = nil) {
-        self.accessToken = accessToken
-        self.tokenType = tokenType
-        self.expiresAt = expiresAt
-        self.refreshToken = refreshToken
-    }
-
-    private class func fromData(data: NSData) -> Result<AccessToken, NSError> {
-        var error: NSError?
-
-        if let dictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: &error) as? [String: AnyObject] {
-            return fromDictionary(dictionary)
-        } else {
-            let userInfo = [
-                NSLocalizedDescriptionKey: NSLocalizedString("Could not create access token from data", comment: ""),
-                NSLocalizedFailureReasonErrorKey: String(format: NSLocalizedString("Expected valid JSON, got: %@.", comment: ""), NSString(data: data, encoding: NSUTF8StringEncoding) ?? "nil")
-            ]
-
-            let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorInvalidData, userInfo: userInfo)
-            return failure(error)
-        }
-    }
-
-    private class func fromDictionary(dictionary: [String: AnyObject]) -> Result<AccessToken, NSError> {
-        let accessToken: AnyObject? = dictionary["access_token"]
-        let tokenType: AnyObject? = dictionary["token_type"]
-        let expiresAt = map(dictionary["expires_in"] as? NSTimeInterval) { NSDate(timeIntervalSinceNow: $0) }
-        let refreshToken = dictionary["refresh_token"] as? String
-
-        if let accessToken = accessToken as String? {
-            if let tokenType = tokenType as String? {
-                return success(self.init(accessToken: accessToken, tokenType: tokenType, expiresAt: expiresAt, refreshToken: refreshToken))
-            } else {
-                let userInfo = [
-                    NSLocalizedDescriptionKey: NSLocalizedString("Could not create access token from dictionary", comment: ""),
-                    NSLocalizedFailureReasonErrorKey: String(format: NSLocalizedString("Expected valid token type, got: %@.", comment: ""), tokenType?.description ?? "nil")
-                ]
-
-                let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorInvalidData, userInfo: userInfo)
-                return failure(error)
-            }
-        } else {
-            let userInfo = [
-                NSLocalizedDescriptionKey: NSLocalizedString("Could not create access token from dictionary", comment: ""),
-                NSLocalizedFailureReasonErrorKey: String(format: NSLocalizedString("Expected valid access token, got: %@.", comment: ""), accessToken?.description ?? "nil")
-            ]
-
-            let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorInvalidData, userInfo: userInfo)
-            return failure(error)
-        }
-    }
-}
-
-extension AccessToken: Equatable {}
-
-public func == (lhs: AccessToken, rhs: AccessToken) -> Bool {
-    return lhs.accessToken == rhs.accessToken
-        && lhs.tokenType == rhs.tokenType
-        && lhs.expiresAt == rhs.expiresAt
-        && lhs.refreshToken == rhs.refreshToken
-}
-
-@objc
-public class Credentials {
-    public let id: String
-    public let secret: String?
-
-    private var parameters: [String: String] {
-        var parameters = [ "client_id": id ]
-
-        if let secret = secret {
-            parameters["client_secret"] = secret
-        }
-
-        return parameters
-    }
-
-    public init(id: String, secret: String? = nil) {
-        self.id = id
-        self.secret = secret
-    }
-}
+public let HeimdallErrorDomain = "HeimdallErrorDomain"
+public let HeimdallErrorInvalidData = 1
+public let HeimdallErrorNotAuthorized = 2
 
 @objc
 public class Heimdall {
     private let tokenURL: NSURL
-    private let credentials: Credentials?
+    private let credentials: OAuthClientCredentials?
 
-    private let accessTokenStorage: AccessTokenStorage
-    private var accessToken: AccessToken? {
+    private let accessTokenStorage: OAuthAccessTokenStorage
+    private var accessToken: OAuthAccessToken? {
         get {
             return accessTokenStorage.retrieveAccessToken()
         }
@@ -140,7 +31,7 @@ public class Heimdall {
         return accessToken != nil
     }
     
-    public init(tokenURL: NSURL, credentials: Credentials? = nil, accessTokenStorage: AccessTokenStorage = AccessTokenKeychainStorage()) {
+    public init(tokenURL: NSURL, credentials: OAuthClientCredentials? = nil, accessTokenStorage: OAuthAccessTokenStorage = OAuthAccessTokenKeychainStorage()) {
         self.tokenURL = tokenURL
         self.credentials = credentials
 
@@ -153,7 +44,7 @@ public class Heimdall {
         }
     }
 
-    private func authorize(grant: AuthorizationGrant, completion: Result<AccessToken, NSError> -> ()) {
+    private func authorize(grant: OAuthAuthorizationGrant, completion: Result<OAuthAccessToken, NSError> -> ()) {
         let request = NSMutableURLRequest(URL: tokenURL)
 
         var parameters = grant.parameters
@@ -180,29 +71,38 @@ public class Heimdall {
         let task = session.dataTaskWithRequest(request) { data, response, error in
             if let error = error {
                 completion(failure(error))
-            } else if let data = data {
-                switch AccessToken.fromData(data) {
-                case .Success(let value):
-                    self.accessToken = value.unbox
-                    completion(success(value.unbox))
-                case .Failure(let error):
-                    completion(failure(error.unbox))
+            } else if (response as NSHTTPURLResponse).statusCode == 200 {
+                if let accessToken = OAuthAccessToken.decode(data) {
+                    self.accessToken = accessToken
+                    completion(success(accessToken))
+                } else {
+                    let userInfo = [
+                        NSLocalizedDescriptionKey: NSLocalizedString("Could not authorize grant", comment: ""),
+                        NSLocalizedFailureReasonErrorKey: String(format: NSLocalizedString("Expected access token, got: %@.", comment: ""), NSString(data: data, encoding: NSUTF8StringEncoding) ?? "nil")
+                    ]
+
+                    let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorInvalidData, userInfo: userInfo)
+                    completion(failure(error))
                 }
             } else {
-                let userInfo = [
-                    NSLocalizedDescriptionKey: NSLocalizedString("Could not authorize grant", comment: ""),
-                    NSLocalizedFailureReasonErrorKey: NSLocalizedString("Expected data, got: nil.", comment: "")
-                ]
+                if let error = OAuthError.decode(data) {
+                    completion(failure(error.nsError))
+                } else {
+                    let userInfo = [
+                        NSLocalizedDescriptionKey: NSLocalizedString("Could not authorize grant", comment: ""),
+                        NSLocalizedFailureReasonErrorKey: String(format: NSLocalizedString("Expected error, got: %@.", comment: ""), NSString(data: data, encoding: NSUTF8StringEncoding) ?? "nil")
+                    ]
 
-                let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorNoData, userInfo: userInfo)
-                completion(failure(error))
+                    let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorInvalidData, userInfo: userInfo)
+                    completion(failure(error))
+                }
             }
         }
         
         task.resume()
     }
 
-    private func requestByAddingAuthorizationHeaderToRequest(request: NSURLRequest, accessToken: AccessToken) -> NSURLRequest {
+    private func requestByAddingAuthorizationHeaderToRequest(request: NSURLRequest, accessToken: OAuthAccessToken) -> NSURLRequest {
         var mutableRequest = request.mutableCopy() as NSMutableURLRequest
         mutableRequest.setHTTPAuthorization(.AccessTokenAuthentication(accessToken))
         return mutableRequest
@@ -219,8 +119,8 @@ public class Heimdall {
                     }
                 } else {
                     let userInfo = [
-                        NSLocalizedDescriptionKey: NSLocalizedString("Could not refresh access token", comment: ""),
-                        NSLocalizedFailureReasonErrorKey: NSLocalizedString("No refresh token available.", comment: "")
+                        NSLocalizedDescriptionKey: NSLocalizedString("Could not add authorization to request", comment: ""),
+                        NSLocalizedFailureReasonErrorKey: NSLocalizedString("Access token expired, no refresh token available.", comment: "")
                     ]
 
                     let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorNotAuthorized, userInfo: userInfo)

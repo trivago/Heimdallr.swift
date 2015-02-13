@@ -12,62 +12,20 @@ import LlamaKit
 import Nimble
 import Quick
 
-public class MockStorage: AccessTokenStorage {
+class OAuthAccessTokenMockStorage: OAuthAccessTokenStorage {
+    var storeAccessTokenCalled: Bool = false
+
+    var mockedAccessToken: OAuthAccessToken? = nil
+    var storedAccessToken: OAuthAccessToken? = nil
     
-    public var storeAccessTokenCalled: Bool = false
-    public var mockedAccessToken: AccessToken? = nil
-    
-    private var storedAccessToken: AccessToken? = nil
-    
-    public func storeAccessToken(accessToken: AccessToken?){
+    func storeAccessToken(accessToken: OAuthAccessToken?){
         storeAccessTokenCalled = true
+
         storedAccessToken = accessToken
     }
     
-    public func retrieveAccessToken() -> AccessToken? {
+    func retrieveAccessToken() -> OAuthAccessToken? {
         return mockedAccessToken ?? storedAccessToken
-    }
-    
-}
-
-class AccessTokenSpec: QuickSpec {
-    override func spec() {
-        describe("<Equatable> ==") {
-            it("returns true if access tokens are equal") {
-                let lhs = AccessToken(accessToken: "accessToken", tokenType: "tokenType")
-                let rhs = AccessToken(accessToken: "accessToken", tokenType: "tokenType")
-
-                expect(lhs == rhs).to(beTrue())
-            }
-
-            it("returns false if access tokens are not equal") {
-                let lhs = AccessToken(accessToken: "accessTokena", tokenType: "tokenType")
-                let rhs = AccessToken(accessToken: "accessTokenb", tokenType: "tokenType")
-
-                expect(lhs == rhs).to(beFalse())
-            }
-
-            it("returns false if token types are not equal") {
-                let lhs = AccessToken(accessToken: "accessToken", tokenType: "tokenTypea")
-                let rhs = AccessToken(accessToken: "accessToken", tokenType: "tokenTypeb")
-
-                expect(lhs == rhs).to(beFalse())
-            }
-
-            it("returns false if expiration times are not equal") {
-                let lhs = AccessToken(accessToken: "accessToken", tokenType: "tokenType", expiresAt: NSDate(timeIntervalSinceNow: 1))
-                let rhs = AccessToken(accessToken: "accessToken", tokenType: "tokenType", expiresAt: NSDate(timeIntervalSinceNow: -1))
-
-                expect(lhs == rhs).to(beFalse())
-            }
-
-            it("returns false if refresh tokens are not equal") {
-                let lhs = AccessToken(accessToken: "accessToken", tokenType: "tokenType", refreshToken: "refreshTokena")
-                let rhs = AccessToken(accessToken: "accessToken", tokenType: "tokenType", refreshToken: "refreshTokenb")
-
-                expect(lhs == rhs).to(beFalse())
-            }
-        }
     }
 }
 
@@ -75,19 +33,19 @@ class HeimdallSpec: QuickSpec {
     let bundle = NSBundle(forClass: HeimdallSpec.self)
 
     override func spec() {
-        var manager: Heimdall!
-        var storage: MockStorage!
+        var accessTokenStorage: OAuthAccessTokenMockStorage!
+        var heimdall: Heimdall!
 
         beforeEach {
-            storage = MockStorage()
-            manager = Heimdall(tokenURL: NSURL(string: "http://rheinfabrik.de")!, accessTokenStorage: storage)
+            accessTokenStorage = OAuthAccessTokenMockStorage()
+            heimdall = Heimdall(tokenURL: NSURL(string: "http://rheinfabrik.de")!, accessTokenStorage: accessTokenStorage)
         }
         
         describe("-init") {
             context("when a token is saved in the storage") {
                 it("loads the token from the token storage") {
-                    storage.mockedAccessToken = AccessToken(accessToken: "foo", tokenType: "bar", expiresAt: nil, refreshToken: nil)
-                    expect(manager.hasAccessToken).to(beTrue())
+                    accessTokenStorage.mockedAccessToken = OAuthAccessToken(accessToken: "foo", tokenType: "bar")
+                    expect(heimdall.hasAccessToken).to(beTrue())
                 }
             }
         }
@@ -106,7 +64,7 @@ class HeimdallSpec: QuickSpec {
                     }
 
                     waitUntil { done in
-                        manager.authorize("username", password: "password") { result = $0; done() }
+                        heimdall.authorize("username", password: "password") { result = $0; done() }
                     }
                 }
 
@@ -119,23 +77,22 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("sets the access token") {
-                    expect(storage.storeAccessTokenCalled).to(beTrue())
+                    expect(accessTokenStorage.storeAccessTokenCalled).to(beTrue())
                 }
                 
                 it("stores the access token in the token storage") {
-                    expect(storage.storeAccessTokenCalled).to(beTrue())
+                    expect(accessTokenStorage.storeAccessTokenCalled).to(beTrue())
                 }
-                
             }
 
-            context("with an invalid response") {
+            context("with an error response") {
                 beforeEach {
                     StubsManager.stubRequestsPassingTest({ _ in true }) { request in
-                        return StubResponse(filename: "authorize-invalid.json", bundle: self.bundle)
+                        return StubResponse(filename: "authorize-error.json", bundle: self.bundle, statusCode: 400)
                     }
 
                     waitUntil { done in
-                        manager.authorize("username", password: "password") { result = $0; done() }
+                        heimdall.authorize("username", password: "password") { result = $0; done() }
                     }
                 }
 
@@ -147,12 +104,48 @@ class HeimdallSpec: QuickSpec {
                     expect(result?.isSuccess).to(beFalse())
                 }
 
+                it("fails with the correct error domain") {
+                    expect(result?.error?.domain).to(equal(OAuthErrorDomain))
+                }
+
+                it("fails with the correct error code") {
+                    expect(result?.error?.code).to(equal(OAuthErrorInvalidClient))
+                }
+
+                it("does not set the access token") {
+                    expect(heimdall.hasAccessToken).to(beFalse())
+                }
+            }
+
+            context("with an invalid response") {
+                beforeEach {
+                    StubsManager.stubRequestsPassingTest({ _ in true }) { request in
+                        return StubResponse(filename: "authorize-invalid.json", bundle: self.bundle)
+                    }
+
+                    waitUntil { done in
+                        heimdall.authorize("username", password: "password") { result = $0; done() }
+                    }
+                }
+
+                afterEach {
+                    StubsManager.removeAllStubs()
+                }
+
+                it("fails") {
+                    expect(result?.isSuccess).to(beFalse())
+                }
+
+                it("fails with the correct error domain") {
+                    expect(result?.error?.domain).to(equal(HeimdallErrorDomain))
+                }
+
                 it("fails with the correct error code") {
                     expect(result?.error?.code).to(equal(HeimdallErrorInvalidData))
                 }
 
                 it("does not set the access token") {
-                    expect(manager.hasAccessToken).to(beFalse())
+                    expect(heimdall.hasAccessToken).to(beFalse())
                 }
             }
 
@@ -163,7 +156,7 @@ class HeimdallSpec: QuickSpec {
                     }
 
                     waitUntil { done in
-                        manager.authorize("username", password: "password") { result = $0; done() }
+                        heimdall.authorize("username", password: "password") { result = $0; done() }
                     }
                 }
 
@@ -175,12 +168,16 @@ class HeimdallSpec: QuickSpec {
                     expect(result?.isSuccess).to(beFalse())
                 }
 
+                it("fails with the correct error domain") {
+                    expect(result?.error?.domain).to(equal(HeimdallErrorDomain))
+                }
+
                 it("fails with the correct error code") {
                     expect(result?.error?.code).to(equal(HeimdallErrorInvalidData))
                 }
 
                 it("does not set the access token") {
-                    expect(manager.hasAccessToken).to(beFalse())
+                    expect(heimdall.hasAccessToken).to(beFalse())
                 }
             }
 
@@ -191,7 +188,7 @@ class HeimdallSpec: QuickSpec {
                     }
 
                     waitUntil { done in
-                        manager.authorize("username", password: "password") { result = $0; done() }
+                        heimdall.authorize("username", password: "password") { result = $0; done() }
                     }
                 }
 
@@ -203,12 +200,16 @@ class HeimdallSpec: QuickSpec {
                     expect(result?.isSuccess).to(beFalse())
                 }
 
+                it("fails with the correct error domain") {
+                    expect(result?.error?.domain).to(equal(HeimdallErrorDomain))
+                }
+
                 it("fails with the correct error code") {
                     expect(result?.error?.code).to(equal(HeimdallErrorInvalidData))
                 }
 
                 it("does not set the access token") {
-                    expect(manager.hasAccessToken).to(beFalse())
+                    expect(heimdall.hasAccessToken).to(beFalse())
                 }
             }
         }
@@ -224,12 +225,16 @@ class HeimdallSpec: QuickSpec {
             context("when not authorized") {
                 beforeEach {
                     waitUntil { done in
-                        manager.requestByAddingAuthorizationToRequest(request) { result = $0; done() }
+                        heimdall.requestByAddingAuthorizationToRequest(request) { result = $0; done() }
                     }
                 }
 
                 it("fails") {
                     expect(result?.isSuccess).to(beFalse())
+                }
+
+                it("fails with the correct error domain") {
+                    expect(result?.error?.domain).to(equal(HeimdallErrorDomain))
                 }
 
                 it("fails with the correct error code") {
@@ -244,11 +249,11 @@ class HeimdallSpec: QuickSpec {
                     }
 
                     waitUntil { done in
-                        manager.authorize("username", password: "password") { _ in done() }
+                        heimdall.authorize("username", password: "password") { _ in done() }
                     }
 
                     waitUntil { done in
-                        manager.requestByAddingAuthorizationToRequest(request) { result = $0; done() }
+                        heimdall.requestByAddingAuthorizationToRequest(request) { result = $0; done() }
                     }
                 }
 
@@ -257,7 +262,7 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("adds the correct authorization header to the request") {
-                    expect(result?.value?.valueForHTTPHeaderField("Authorization")).to(equal("bearer MTQzM2U3YTI3YmQyOWQ5YzQ0NjY4YTZkYjM0MjczYmZhNWI1M2YxM2Y1MjgwYTg3NDk3ZDc4ZGUzM2YxZmJjZQ"))
+                    expect(result?.value?.HTTPAuthorization).to(equal("bearer MTQzM2U3YTI3YmQyOWQ5YzQ0NjY4YTZkYjM0MjczYmZhNWI1M2YxM2Y1MjgwYTg3NDk3ZDc4ZGUzM2YxZmJjZQ"))
                 }
             }
 
@@ -268,16 +273,20 @@ class HeimdallSpec: QuickSpec {
                     }
 
                     waitUntil { done in
-                        manager.authorize("username", password: "password") { _ in done() }
+                        heimdall.authorize("username", password: "password") { _ in done() }
                     }
 
                     waitUntil { done in
-                        manager.requestByAddingAuthorizationToRequest(request) { result = $0; done() }
+                        heimdall.requestByAddingAuthorizationToRequest(request) { result = $0; done() }
                     }
                 }
 
                 it("fails") {
                     expect(result?.isSuccess).to(beFalse())
+                }
+
+                it("fails with the correct error domain") {
+                    expect(result?.error?.domain).to(equal(HeimdallErrorDomain))
                 }
 
                 it("fails with the correct error code") {
@@ -287,12 +296,12 @@ class HeimdallSpec: QuickSpec {
 
             context("when authorized with an expired access token and a valid refresh token") {
                 beforeEach {
-                    StubsManager.stubRequestsPassingTest({ _ in !manager.hasAccessToken }) { request in
+                    StubsManager.stubRequestsPassingTest({ _ in !heimdall.hasAccessToken }) { request in
                         return StubResponse(filename: "request-invalid.json", bundle: self.bundle)
                     }
 
                     waitUntil { done in
-                        manager.authorize("username", password: "password") { _ in done() }
+                        heimdall.authorize("username", password: "password") { _ in done() }
                     }
 
                     StubsManager.stubRequestsPassingTest({ _ in true }) { request in
@@ -300,7 +309,7 @@ class HeimdallSpec: QuickSpec {
                     }
 
                     waitUntil { done in
-                        manager.requestByAddingAuthorizationToRequest(request) { result = $0; done() }
+                        heimdall.requestByAddingAuthorizationToRequest(request) { result = $0; done() }
                     }
                 }
 
@@ -309,7 +318,7 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("adds the correct authorization header to the request") {
-                    expect(result?.value?.valueForHTTPHeaderField("Authorization")).to(equal("bearer MTQzM2U3YTI3YmQyOWQ5YzQ0NjY4YTZkYjM0MjczYmZhNWI1M2YxM2Y1MjgwYTg3NDk3ZDc4ZGUzM2YxZmJjZQ"))
+                    expect(result?.value?.HTTPAuthorization).to(equal("bearer MTQzM2U3YTI3YmQyOWQ5YzQ0NjY4YTZkYjM0MjczYmZhNWI1M2YxM2Y1MjgwYTg3NDk3ZDc4ZGUzM2YxZmJjZQ"))
                 }
             }
         }

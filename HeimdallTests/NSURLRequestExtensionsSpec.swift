@@ -6,10 +6,9 @@
 //  Copyright (c) 2015 B264 GmbH. All rights reserved.
 //
 
-import Quick
-import Nimble
-
 import Heimdall
+import Nimble
+import Quick
 
 class HTTPAuthenticationSpec: QuickSpec {
     override func spec() {
@@ -39,22 +38,22 @@ class HTTPAuthenticationSpec: QuickSpec {
 
             context("Unknown") {
                 it("returns true if accessTokens and tokenTypes match") {
-                    let lhs: HTTPAuthentication = .AccessTokenAuthentication(AccessToken(accessToken: "accessToken", tokenType: "tokenType"))
-                    let rhs: HTTPAuthentication = .AccessTokenAuthentication(AccessToken(accessToken: "accessToken", tokenType: "tokenType"))
+                    let lhs: HTTPAuthentication = .AccessTokenAuthentication(OAuthAccessToken(accessToken: "accessToken", tokenType: "tokenType"))
+                    let rhs: HTTPAuthentication = .AccessTokenAuthentication(OAuthAccessToken(accessToken: "accessToken", tokenType: "tokenType"))
 
                     expect(lhs == rhs).to(beTrue())
                 }
 
                 it("returns false if accessTokens do not match") {
-                    let lhs: HTTPAuthentication = .AccessTokenAuthentication(AccessToken(accessToken: "accessTokena", tokenType: "tokenType"))
-                    let rhs: HTTPAuthentication = .AccessTokenAuthentication(AccessToken(accessToken: "accessTokenb", tokenType: "tokenType"))
+                    let lhs: HTTPAuthentication = .AccessTokenAuthentication(OAuthAccessToken(accessToken: "accessTokena", tokenType: "tokenType"))
+                    let rhs: HTTPAuthentication = .AccessTokenAuthentication(OAuthAccessToken(accessToken: "accessTokenb", tokenType: "tokenType"))
 
                     expect(lhs == rhs).to(beFalse())
                 }
 
                 it("returns false if tokenTypes do not match") {
-                    let lhs: HTTPAuthentication = .AccessTokenAuthentication(AccessToken(accessToken: "accessToken", tokenType: "tokenTypeb"))
-                    let rhs: HTTPAuthentication = .AccessTokenAuthentication(AccessToken(accessToken: "accessToken", tokenType: "tokenTypea"))
+                    let lhs: HTTPAuthentication = .AccessTokenAuthentication(OAuthAccessToken(accessToken: "accessToken", tokenType: "tokenTypeb"))
+                    let rhs: HTTPAuthentication = .AccessTokenAuthentication(OAuthAccessToken(accessToken: "accessToken", tokenType: "tokenTypea"))
 
                     expect(lhs == rhs).to(beFalse())
                 }
@@ -63,7 +62,7 @@ class HTTPAuthenticationSpec: QuickSpec {
             context("Mixed") {
                 it("returns false if authentication methods do not match") {
                     let lhs: HTTPAuthentication = .BasicAuthentication(username: "username", password: "password")
-                    let rhs: HTTPAuthentication = .AccessTokenAuthentication(AccessToken(accessToken: "accessToken", tokenType: "tokenType"))
+                    let rhs: HTTPAuthentication = .AccessTokenAuthentication(OAuthAccessToken(accessToken: "accessToken", tokenType: "tokenType"))
 
                     expect(lhs == rhs).to(beFalse())
                 }
@@ -131,7 +130,7 @@ class NSMutableURLRequestExtensionsSpec: QuickSpec {
 
             context("when given .AccessTokenAuthentication") {
                 it("sets the Authorization header with access token and token type") {
-                    let authentication: HTTPAuthentication = .AccessTokenAuthentication(AccessToken(accessToken: "accessToken", tokenType: "tokenType"))
+                    let authentication: HTTPAuthentication = .AccessTokenAuthentication(OAuthAccessToken(accessToken: "accessToken", tokenType: "tokenType"))
                     request.setHTTPAuthorization(authentication)
 
                     expect(request.HTTPAuthorization).to(equal("tokenType accessToken"))

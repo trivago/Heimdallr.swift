@@ -10,7 +10,7 @@ import Foundation
 
 public enum HTTPAuthentication: Equatable {
     case BasicAuthentication(username: String, password: String)
-    case AccessTokenAuthentication(AccessToken)
+    case AccessTokenAuthentication(OAuthAccessToken)
 
     private var value: String? {
         switch self {
