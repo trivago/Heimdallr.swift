@@ -2,7 +2,7 @@ import Foundation
 
 /// An HTTP client that uses NSURLSession
 @objc
-public class OAuthHTTPClientNSURLSession: OAuthHTTPClient {
+public class HeimdallHTTPClientNSURLSession: HeimdallHTTPClient {
     
     let urlSession: NSURLSession
     

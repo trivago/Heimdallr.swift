@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		227ADD371A9347E000F3831E /* OAuthHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227ADD361A9347E000F3831E /* OAuthHTTPClient.swift */; };
-		227ADD391A93487F00F3831E /* OAuthHTTPClientNSURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227ADD381A93487F00F3831E /* OAuthHTTPClientNSURLSession.swift */; };
+		227ADD371A9347E000F3831E /* HeimdallHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227ADD361A9347E000F3831E /* HeimdallHTTPClient.swift */; };
+		227ADD391A93487F00F3831E /* HeimdallHTTPClientNSURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227ADD381A93487F00F3831E /* HeimdallHTTPClientNSURLSession.swift */; };
 		22BC44611A8A3FBA00AB0A14 /* OAuthAccessTokenKeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BC44601A8A3FBA00AB0A14 /* OAuthAccessTokenKeychainStore.swift */; };
 		22BC44631A8A402300AB0A14 /* OAuthAccessTokenKeychainStoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BC44621A8A402300AB0A14 /* OAuthAccessTokenKeychainStoreSpec.swift */; };
 		22BC44651A8A442500AB0A14 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BC44641A8A442500AB0A14 /* KeychainAccess.framework */; };
@@ -58,8 +58,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		227ADD361A9347E000F3831E /* OAuthHTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthHTTPClient.swift; sourceTree = "<group>"; };
-		227ADD381A93487F00F3831E /* OAuthHTTPClientNSURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthHTTPClientNSURLSession.swift; sourceTree = "<group>"; };
+		227ADD361A9347E000F3831E /* HeimdallHTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeimdallHTTPClient.swift; sourceTree = "<group>"; };
+		227ADD381A93487F00F3831E /* HeimdallHTTPClientNSURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeimdallHTTPClientNSURLSession.swift; sourceTree = "<group>"; };
 		22BC44601A8A3FBA00AB0A14 /* OAuthAccessTokenKeychainStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenKeychainStore.swift; sourceTree = "<group>"; };
 		22BC44621A8A402300AB0A14 /* OAuthAccessTokenKeychainStoreSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenKeychainStoreSpec.swift; sourceTree = "<group>"; };
 		22BC44641A8A442500AB0A14 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
@@ -157,6 +157,8 @@
 			children = (
 				DC545DC71A89F0F10051A575 /* Heimdall.h */,
 				DC545DEA1A89FFDA0051A575 /* Heimdall.swift */,
+				227ADD361A9347E000F3831E /* HeimdallHTTPClient.swift */,
+				227ADD381A93487F00F3831E /* HeimdallHTTPClientNSURLSession.swift */,
 				DCA5B98C1A8A12E700667D32 /* NSDateExtensions.swift */,
 				DCD72CB41A8C9FDE0024BAC1 /* NSURLRequestExtensions.swift */,
 				DCB2540C1A8CF70D00226966 /* OAuthAccessToken.swift */,
@@ -165,8 +167,6 @@
 				DC54D2B31A8DF9D1001C87A4 /* OAuthAuthorizationGrant.swift */,
 				DC54D2B11A8DF990001C87A4 /* OAuthClientCredentials.swift */,
 				DCB254101A8D010800226966 /* OAuthError.swift */,
-				227ADD361A9347E000F3831E /* OAuthHTTPClient.swift */,
-				227ADD381A93487F00F3831E /* OAuthHTTPClientNSURLSession.swift */,
 				DC545DC51A89F0F10051A575 /* Supporting Files */,
 			);
 			path = Heimdall;
@@ -391,9 +391,9 @@
 				22BC446C1A8B858D00AB0A14 /* OAuthAccessTokenStore.swift in Sources */,
 				DC54D2B21A8DF990001C87A4 /* OAuthClientCredentials.swift in Sources */,
 				DCB254111A8D010800226966 /* OAuthError.swift in Sources */,
-				227ADD371A9347E000F3831E /* OAuthHTTPClient.swift in Sources */,
+				227ADD371A9347E000F3831E /* HeimdallHTTPClient.swift in Sources */,
 				DCB2540D1A8CF70D00226966 /* OAuthAccessToken.swift in Sources */,
-				227ADD391A93487F00F3831E /* OAuthHTTPClientNSURLSession.swift in Sources */,
+				227ADD391A93487F00F3831E /* HeimdallHTTPClientNSURLSession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

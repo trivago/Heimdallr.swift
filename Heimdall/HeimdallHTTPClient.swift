@@ -1,7 +1,7 @@
 import Foundation
 
 /// An HTTP client that can be used inside of Heimdall
-public protocol OAuthHTTPClient {
+public protocol HeimdallHTTPClient {
     
     /// Sends the given request
     /// 

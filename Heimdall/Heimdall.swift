@@ -32,7 +32,7 @@ public class Heimdall {
             accessTokenStore.storeAccessToken(newValue)
         }
     }
-    private let httpClient: OAuthHTTPClient
+    private let httpClient: HeimdallHTTPClient
 
     /// Returns a Bool indicating whether the client's access token store
     /// currently holds an access token.
@@ -57,7 +57,7 @@ public class Heimdall {
     ///
     /// :returns: A new client initialized with the given token endpoint URL,
     ///     credentials and access token store.
-    public init(tokenURL: NSURL, credentials: OAuthClientCredentials? = nil, accessTokenStore: OAuthAccessTokenStore = OAuthAccessTokenKeychainStore(), httpClient: OAuthHTTPClient = OAuthHTTPClientNSURLSession()) {
+    public init(tokenURL: NSURL, credentials: OAuthClientCredentials? = nil, accessTokenStore: OAuthAccessTokenStore = OAuthAccessTokenKeychainStore(), httpClient: HeimdallHTTPClient = HeimdallHTTPClientNSURLSession()) {
         self.tokenURL = tokenURL
         self.credentials = credentials
         self.accessTokenStore = accessTokenStore
