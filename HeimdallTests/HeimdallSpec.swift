@@ -1,11 +1,3 @@
-//
-//  HeimdallSpec.swift
-//  Heimdall
-//
-//  Created by Felix Jendrusch on 2/10/15.
-//  Copyright (c) 2015 B264 GmbH. All rights reserved.
-//
-
 import AeroGearHttpStub
 import Heimdall
 import LlamaKit
@@ -53,7 +45,7 @@ class HeimdallSpec: QuickSpec {
             }
         }
 
-        describe("-authorize") {
+        describe("-requestAccessToken") {
             var result: Result<Void, NSError>?
 
             afterEach {
@@ -67,7 +59,7 @@ class HeimdallSpec: QuickSpec {
                     }
 
                     waitUntil { done in
-                        heimdall.authorize("username", password: "password") { result = $0; done() }
+                        heimdall.requestAccessToken("username", password: "password") { result = $0; done() }
                     }
                 }
 
@@ -95,7 +87,7 @@ class HeimdallSpec: QuickSpec {
                     }
 
                     waitUntil { done in
-                        heimdall.authorize("username", password: "password") { result = $0; done() }
+                        heimdall.requestAccessToken("username", password: "password") { result = $0; done() }
                     }
                 }
 
@@ -127,7 +119,7 @@ class HeimdallSpec: QuickSpec {
                     }
 
                     waitUntil { done in
-                        heimdall.authorize("username", password: "password") { result = $0; done() }
+                        heimdall.requestAccessToken("username", password: "password") { result = $0; done() }
                     }
                 }
 
@@ -159,7 +151,7 @@ class HeimdallSpec: QuickSpec {
                     }
 
                     waitUntil { done in
-                        heimdall.authorize("username", password: "password") { result = $0; done() }
+                        heimdall.requestAccessToken("username", password: "password") { result = $0; done() }
                     }
                 }
 
@@ -191,7 +183,7 @@ class HeimdallSpec: QuickSpec {
                     }
 
                     waitUntil { done in
-                        heimdall.authorize("username", password: "password") { result = $0; done() }
+                        heimdall.requestAccessToken("username", password: "password") { result = $0; done() }
                     }
                 }
 
@@ -217,7 +209,7 @@ class HeimdallSpec: QuickSpec {
             }
         }
 
-        describe("-requestByAddingAuthorizationToRequest") {
+        describe("-authenticateRequest") {
             var request = NSURLRequest(URL: NSURL(string: "http://rheinfabrik.de")!)
             var result: Result<NSURLRequest, NSError>?
 
@@ -228,7 +220,7 @@ class HeimdallSpec: QuickSpec {
             context("when not authorized") {
                 beforeEach {
                     waitUntil { done in
-                        heimdall.requestByAddingAuthorizationToRequest(request) { result = $0; done() }
+                        heimdall.authenticateRequest(request) { result = $0; done() }
                     }
                 }
 
@@ -252,11 +244,11 @@ class HeimdallSpec: QuickSpec {
                     }
 
                     waitUntil { done in
-                        heimdall.authorize("username", password: "password") { _ in done() }
+                        heimdall.requestAccessToken("username", password: "password") { _ in done() }
                     }
 
                     waitUntil { done in
-                        heimdall.requestByAddingAuthorizationToRequest(request) { result = $0; done() }
+                        heimdall.authenticateRequest(request) { result = $0; done() }
                     }
                 }
 
@@ -276,11 +268,11 @@ class HeimdallSpec: QuickSpec {
                     }
 
                     waitUntil { done in
-                        heimdall.authorize("username", password: "password") { _ in done() }
+                        heimdall.requestAccessToken("username", password: "password") { _ in done() }
                     }
 
                     waitUntil { done in
-                        heimdall.requestByAddingAuthorizationToRequest(request) { result = $0; done() }
+                        heimdall.authenticateRequest(request) { result = $0; done() }
                     }
                 }
 
@@ -304,7 +296,7 @@ class HeimdallSpec: QuickSpec {
                     }
 
                     waitUntil { done in
-                        heimdall.authorize("username", password: "password") { _ in done() }
+                        heimdall.requestAccessToken("username", password: "password") { _ in done() }
                     }
 
                     StubsManager.stubRequestsPassingTest({ _ in true }) { request in
@@ -312,7 +304,7 @@ class HeimdallSpec: QuickSpec {
                     }
 
                     waitUntil { done in
-                        heimdall.requestByAddingAuthorizationToRequest(request) { result = $0; done() }
+                        heimdall.authenticateRequest(request) { result = $0; done() }
                     }
                 }
 

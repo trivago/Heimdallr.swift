@@ -14,6 +14,7 @@
 		22BC44651A8A442500AB0A14 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BC44641A8A442500AB0A14 /* KeychainAccess.framework */; };
 		22BC44661A8A445D00AB0A14 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BC44641A8A442500AB0A14 /* KeychainAccess.framework */; };
 		22BC446C1A8B858D00AB0A14 /* OAuthAccessTokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BC446B1A8B858D00AB0A14 /* OAuthAccessTokenStore.swift */; };
+		AAC42EF61A93575800A8F945 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = AAC42EF51A93575800A8F945 /* LICENSE */; };
 		DC4702791A8CBD4F00DBD047 /* Runes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC4702781A8CBD4F00DBD047 /* Runes.framework */; };
 		DC47027A1A8CBD6700DBD047 /* Runes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC4702781A8CBD4F00DBD047 /* Runes.framework */; };
 		DC545DC81A89F0F10051A575 /* Heimdall.h in Headers */ = {isa = PBXBuildFile; fileRef = DC545DC71A89F0F10051A575 /* Heimdall.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -64,6 +65,7 @@
 		22BC44621A8A402300AB0A14 /* OAuthAccessTokenKeychainStoreSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenKeychainStoreSpec.swift; sourceTree = "<group>"; };
 		22BC44641A8A442500AB0A14 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
 		22BC446B1A8B858D00AB0A14 /* OAuthAccessTokenStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenStore.swift; sourceTree = "<group>"; };
+		AAC42EF51A93575800A8F945 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		DC4702781A8CBD4F00DBD047 /* Runes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Runes.framework; path = Carthage/Build/iOS/Runes.framework; sourceTree = "<group>"; };
 		DC545DC21A89F0F10051A575 /* Heimdall.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Heimdall.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC545DC61A89F0F10051A575 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 		DC545DB81A89F0F10051A575 = {
 			isa = PBXGroup;
 			children = (
+				AAC42EF51A93575800A8F945 /* LICENSE */,
 				DC4702781A8CBD4F00DBD047 /* Runes.framework */,
 				DCD72CB11A8C9EFA0024BAC1 /* Argo.framework */,
 				DC545DE41A89F9E30051A575 /* Nimble.framework */,
@@ -318,6 +321,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAC42EF61A93575800A8F945 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
