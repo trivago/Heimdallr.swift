@@ -44,10 +44,12 @@ public func == (lhs: HTTPAuthentication, rhs: HTTPAuthentication) -> Bool {
     }
 }
 
+private let HTTPRequestHeaderFieldAuthorization = "Authorization"
+
 public extension NSURLRequest {
     /// Returns the HTTP `Authorization` header value or `nil` if not set.
     public var HTTPAuthorization: String? {
-        return self.valueForHTTPHeaderField("Authorization")
+        return self.valueForHTTPHeaderField(HTTPRequestHeaderFieldAuthorization)
     }
 }
 
@@ -58,7 +60,7 @@ public extension NSMutableURLRequest {
     ///
     /// TODO: Declarations in extensions cannot override yet.
     public func setHTTPAuthorization(value: String?) {
-        self.setValue(value, forHTTPHeaderField: "Authorization")
+        self.setValue(value, forHTTPHeaderField: HTTPRequestHeaderFieldAuthorization)
     }
 
     /// Sets the HTTP `Authorization` header value using the given HTTP
@@ -66,7 +68,7 @@ public extension NSMutableURLRequest {
     ///
     /// :param: authentication The HTTP authentication to be set.
     public func setHTTPAuthorization(authentication: HTTPAuthentication) {
-        self.setValue(authentication.value, forHTTPHeaderField: "Authorization")
+        self.setHTTPAuthorization(authentication.value)
     }
 
     /// Sets the HTTP body using the given paramters encoded as query string.
