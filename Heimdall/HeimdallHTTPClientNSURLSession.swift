@@ -19,7 +19,7 @@ public class HeimdallHTTPClientNSURLSession: HeimdallHTTPClient {
     ///
     /// :param: request The request to be sent.
     /// :param: completion A callback to invoke when the request completed.
-    public func sendRequest(request: NSURLRequest, completion: ((data: NSData!, response: NSURLResponse!, error: NSError?) -> Void)?) {
+    public func sendRequest(request: NSURLRequest, completion: (data: NSData!, response: NSURLResponse!, error: NSError?) -> ()) {
         let task = urlSession.dataTaskWithRequest(request, completionHandler: completion)
         task.resume()
     }
