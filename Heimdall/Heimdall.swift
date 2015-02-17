@@ -53,7 +53,7 @@ public class Heimdall {
     /// :param: accessTokenStore The (persistent) access token store.
     ///     Default: `OAuthAccessTokenKeychainStore`.
     /// :param: httpClient The HTTP client that should be used for authorization
-    ///     Default: `OAuthHTTPClientNSURLSession`.
+    ///     Default: `HeimdallHTTPClientNSURLSession`.
     ///
     /// :returns: A new client initialized with the given token endpoint URL,
     ///     credentials and access token store.
