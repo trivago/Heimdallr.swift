@@ -53,20 +53,20 @@ public class Heimdall {
         self.accessTokenStore = accessTokenStore
     }
 
-    /// Requests authorization with the resource owner's password credentials.
+    /// Requests an access token with the resource owner's password credentials.
     ///
     /// **Note:** The completion closure may be invoked on any thread.
     ///
     /// :param: username The resource owner's username.
     /// :param: password The resource owner's password.
     /// :param: completion A callback to invoke when the request completed.
-    public func authorize(username: String, password: String, completion: Result<Void, NSError> -> ()) {
-        authorize(.ResourceOwnerPasswordCredentials(username, password)) { result in
+    public func requestAccessToken(username: String, password: String, completion: Result<Void, NSError> -> ()) {
+        requestAccessToken(.ResourceOwnerPasswordCredentials(username, password)) { result in
             completion(result.map { _ in return })
         }
     }
 
-    /// Requests authorization with the given grant.
+    /// Requests an access token with the given authorization grant.
     ///
     /// The client is authenticated via HTTP Basic Authentication if both an
     /// identifier and a secret are set in its credentials. Otherwise, if only
@@ -74,7 +74,7 @@ public class Heimdall {
     ///
     /// :param: grant The authorization grant (e.g., refresh).
     /// :param: completion A callback to invoke when the request completed.
-    private func authorize(grant: OAuthAuthorizationGrant, completion: Result<OAuthAccessToken, NSError> -> ()) {
+    private func requestAccessToken(grant: OAuthAuthorizationGrant, completion: Result<OAuthAccessToken, NSError> -> ()) {
         let request = NSMutableURLRequest(URL: tokenURL)
 
         var parameters = grant.parameters
@@ -125,20 +125,19 @@ public class Heimdall {
         task.resume()
     }
 
-    /// Alters the given request by adding authorization via access token
-    /// authentication.
+    /// Alters the given request by adding authentication with an access token.
     ///
-    /// :param: request An unauthorized request.
+    /// :param: request An unauthenticated NSURLRequest.
     /// :param: accessToken The access token to be used for authentication.
     ///
     /// :returns: The given request authorized via access token authentication.
-    private func requestByAddingAuthorizationHeaderToRequest(request: NSURLRequest, accessToken: OAuthAccessToken) -> NSURLRequest {
+    private func authenticateRequest(request: NSURLRequest, accessToken: OAuthAccessToken) -> NSURLRequest {
         var mutableRequest = request.mutableCopy() as NSMutableURLRequest
         mutableRequest.setHTTPAuthorization(.AccessTokenAuthentication(accessToken))
         return mutableRequest
     }
 
-    /// Alters the given request by adding authorization, if possible.
+    /// Alters the given request by adding authentication, if possible.
     ///
     /// In case of an expired access token and the presence of a refresh token,
     /// automatically tries to refresh the access token.
@@ -148,15 +147,15 @@ public class Heimdall {
     ///
     /// **Note:** The completion closure may be invoked on any thread.
     ///
-    /// :param: request An unauthorized NSURLRequest.
-    /// :param: completion A callback to invoke with the authorized request.
-    public func requestByAddingAuthorizationToRequest(request: NSURLRequest, completion: Result<NSURLRequest, NSError> -> ()) {
+    /// :param: request An unauthenticated NSURLRequest.
+    /// :param: completion A callback to invoke with the authenticated request.
+    public func authenticateRequest(request: NSURLRequest, completion: Result<NSURLRequest, NSError> -> ()) {
         if let accessToken = accessToken {
             if accessToken.expiresAt != nil && accessToken.expiresAt < NSDate() {
                 if let refreshToken = accessToken.refreshToken {
-                    authorize(.RefreshToken(refreshToken)) { result in
+                    requestAccessToken(.RefreshToken(refreshToken)) { result in
                         completion(result.map { accessToken in
-                            return self.requestByAddingAuthorizationHeaderToRequest(request, accessToken: accessToken)
+                            return self.authenticateRequest(request, accessToken: accessToken)
                         })
                     }
                 } else {
@@ -169,7 +168,7 @@ public class Heimdall {
                     completion(failure(error))
                 }
             } else {
-                let request = requestByAddingAuthorizationHeaderToRequest(request, accessToken: accessToken)
+                let request = authenticateRequest(request, accessToken: accessToken)
                 completion(success(request))
             }
         } else {
