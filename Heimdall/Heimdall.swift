@@ -63,6 +63,8 @@ public class Heimdall {
 
     /// Requests authorization with the resource owner's password credentials.
     ///
+    /// **Note:** The completion closure may be invoked on any thread.
+    ///
     /// :param: username The resource owner's username.
     /// :param: password The resource owner's password.
     /// :param: completion A callback to invoke when the request completed.
@@ -151,6 +153,8 @@ public class Heimdall {
     ///
     /// **Note:** If the access token must be refreshed, network I/O is
     ///     performed.
+    ///
+    /// **Note:** The completion closure may be invoked on any thread.
     ///
     /// :param: request An unauthorized NSURLRequest.
     /// :param: completion A callback to invoke with the authorized request.
