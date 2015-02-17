@@ -27,7 +27,7 @@ heimdall.requestAccessToken("johndoe", "A3ddj3w") { result in
 }
 ```
 
-Heimdall automatically persists the access token using the configured store. Afterwards, any `NSURLRequest` can be easily authenticated using the received access token:
+Heimdall automatically persists the access token. Afterwards, any `NSURLRequest` can be easily authenticated using the received access token:
 
 ```swift
 var session: NSURLSession!
