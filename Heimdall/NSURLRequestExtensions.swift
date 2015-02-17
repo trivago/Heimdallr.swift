@@ -66,7 +66,7 @@ public extension NSMutableURLRequest {
     ///
     /// :param: authentication The HTTP authentication to be set.
     public func setHTTPAuthorization(authentication: HTTPAuthentication) {
-        self.setValue(authentication.value, forHTTPHeaderField: "Authorization")
+        self.setHTTPAuthorization(authentication.value)
     }
 
     /// Sets the HTTP body using the given paramters encoded as query string.
