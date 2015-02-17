@@ -9,7 +9,7 @@ public class OAuthHTTPClientNSURLSession: OAuthHTTPClient {
         self.urlSession = urlSession
     }
     
-    public func sendRequest(request: NSURLRequest, completionHandler: ((data: NSData?, response: NSURLResponse?, error: NSError?) -> Void)?) {
+    public func sendRequest(request: NSURLRequest, completionHandler: ((data: NSData!, response: NSURLResponse!, error: NSError?) -> Void)?) {
         let task = urlSession.dataTaskWithRequest(request, completionHandler: completionHandler)
         task.resume()
     }

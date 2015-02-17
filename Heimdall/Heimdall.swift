@@ -101,25 +101,25 @@ public class Heimdall {
             if let error = error {
                 completion(failure(error))
             } else if (response as NSHTTPURLResponse).statusCode == 200 {
-                if let accessToken = OAuthAccessToken.decode(data!) {
+                if let accessToken = OAuthAccessToken.decode(data) {
                     self.accessToken = accessToken
                     completion(success(accessToken))
                 } else {
                     let userInfo = [
                         NSLocalizedDescriptionKey: NSLocalizedString("Could not authorize grant", comment: ""),
-                        NSLocalizedFailureReasonErrorKey: String(format: NSLocalizedString("Expected access token, got: %@.", comment: ""), NSString(data: data!, encoding: NSUTF8StringEncoding) ?? "nil")
+                        NSLocalizedFailureReasonErrorKey: String(format: NSLocalizedString("Expected access token, got: %@.", comment: ""), NSString(data: data, encoding: NSUTF8StringEncoding) ?? "nil")
                     ]
 
                     let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorInvalidData, userInfo: userInfo)
                     completion(failure(error))
                 }
             } else {
-                if let error = OAuthError.decode(data!) {
+                if let error = OAuthError.decode(data) {
                     completion(failure(error.nsError))
                 } else {
                     let userInfo = [
                         NSLocalizedDescriptionKey: NSLocalizedString("Could not authorize grant", comment: ""),
-                        NSLocalizedFailureReasonErrorKey: String(format: NSLocalizedString("Expected error, got: %@.", comment: ""), NSString(data: data!, encoding: NSUTF8StringEncoding) ?? "nil")
+                        NSLocalizedFailureReasonErrorKey: String(format: NSLocalizedString("Expected error, got: %@.", comment: ""), NSString(data: data, encoding: NSUTF8StringEncoding) ?? "nil")
                     ]
 
                     let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorInvalidData, userInfo: userInfo)
