@@ -1,6 +1,8 @@
 # Heimdall
 
-Heimdall is a [OAuth 2.0](https://tools.ietf.org/html/rfc6749) client specifically designed for easy usage. It currently only supports the [resource owner password credentials grant](https://tools.ietf.org/html/rfc6749#section-4.3) flow as well as [refreshing an access token](https://tools.ietf.org/html/rfc6749#section-6).
+Heimdall is an [OAuth 2.0](https://tools.ietf.org/html/rfc6749) client specifically designed for easy usage. It currently only supports the [resource owner password credentials grant](https://tools.ietf.org/html/rfc6749#section-4.3) flow as well as [refreshing an access token](https://tools.ietf.org/html/rfc6749#section-6).
+
+If you are familiar with [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa), also check out [ReactiveHeimdall](https://github.com/rheinfabrik/ReactiveHeimdall)!
 
 ## Example
 
@@ -8,37 +10,40 @@ Before requesting an access token, the client must be configured appropriately:
 
 ```swift
 let tokenURL = NSURL(string: "http://example.com/oauth/v2/token")!
-let credentials = OAuthClientCredentials(id: "s6BhdRkqt3")
-let accessTokenStore = OAuthAccessTokenKeychainStore(service: "com.example.app")
 
-let heimdall = Heimdall(tokenURL: tokenURL, credentials: credentials, accessTokenStore: accessTokenStore)
+let heimdall = Heimdall(tokenURL: tokenURL)
 ```
 
 On login, the resource owner's password credentials are used to request an access token:
 
 ```swift
 heimdall.authorize("johndoe", "A3ddj3w") { result in
-  switch result {
-  case .Success:
-    println("success")
-  case .Failure(let error):
-    println("failure") // use error.value
-  }
+    switch result {
+    case .Success:
+        println("success")
+    case .Failure(let error):
+        println("failure: \(error.unbox.localizedDescription)")
+    }
 }
 ```
 
 Heimdall automatically persists the access token using the configured store. Afterwards, any `NSURLRequest` can be easily authenticated using the received access token:
 
 ```swift
+var session: NSURLSession!
 var request: NSURLRequest!
 
 heimdall.requestByAddingAuthorizationToRequest(request) { result
-  switch result {
-  case .Success(let request):
-    println("success") // use request.value
-  case .Failure(let error):
-    println("failure") // use error.value
-  }
+    switch result {
+    case .Success(let request):
+        let task = session.dataTaskWithRequest(request.unbox) { data, response, error in
+            // ...
+        }
+
+        task.resume()
+    case .Failure(let error):
+        println("failure: \(error.unbox.localizedDescription)")
+    }
 }
 ```
 
@@ -55,7 +60,7 @@ $ brew install carthage
 
 1. Add Heimdall to your [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile):
   ```
-  github "rheinfabrik/Heimdall.swift"
+  github "rheinfabrik/Heimdall.swift" ~> 1.0
   ```
 
 2. Run `carthage update` to actually fetch Heimdall and its dependencies.
@@ -97,9 +102,9 @@ let credentials = OAuthClientCredentials(id: identifier)
 An access token store is used to (persistently) store an access token received from the token endpoint. It must implement the following storage and retrieval methods:
 
 ```swift
-public protocol OAuthAccessTokenStore {
-  func storeAccessToken(accessToken: OAuthAccessToken?)
-  func retrieveAccessToken() -> OAuthAccessToken?
+protocol OAuthAccessTokenStore {
+    func storeAccessToken(accessToken: OAuthAccessToken?)
+    func retrieveAccessToken() -> OAuthAccessToken?
 }
 ```
 
@@ -132,7 +137,7 @@ var username: String!
 var password: String!
 
 heimdall.authorize(username, password) { result in
-  // ...
+    // ...
 }
 ```
 
@@ -144,7 +149,7 @@ Once successfully authorized, any `NSURLRequest` can be easily altered to includ
 var request: NSURLRequest!
 
 heimdall.requestByAddingAuthorizationToRequest(request) { result
-  // ...
+    // ...
 }
 ```
 
