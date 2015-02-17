@@ -1,11 +1,3 @@
-//
-//  NSURLRequestExtensionsSpec.swift
-//  Heimdall
-//
-//  Created by Felix Jendrusch on 2/12/15.
-//  Copyright (c) 2015 B264 GmbH. All rights reserved.
-//
-
 import Heimdall
 import Nimble
 import Quick

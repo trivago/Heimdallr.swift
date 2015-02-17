@@ -1,11 +1,3 @@
-//
-//  OAuthAuthorizationGrant.swift
-//  Heimdall
-//
-//  Created by Felix Jendrusch on 2/13/15.
-//  Copyright (c) 2015 B264 GmbH. All rights reserved.
-//
-
 import Foundation
 
 /// An authorization grant is a credential representing the resource owner's
