@@ -32,6 +32,7 @@ public class Heimdall {
             accessTokenStore.storeAccessToken(newValue)
         }
     }
+    private let httpClient: OAuthHTTPClient
 
     /// Returns a Bool indicating whether the client's access token store
     /// currently holds an access token.
@@ -54,11 +55,11 @@ public class Heimdall {
     ///
     /// :returns: A new client initialized with the given token endpoint URL,
     ///     credentials and access token store.
-    public init(tokenURL: NSURL, credentials: OAuthClientCredentials? = nil, accessTokenStore: OAuthAccessTokenStore = OAuthAccessTokenKeychainStore()) {
+    public init(tokenURL: NSURL, credentials: OAuthClientCredentials? = nil, accessTokenStore: OAuthAccessTokenStore = OAuthAccessTokenKeychainStore(), httpClient: OAuthHTTPClient = OAuthHTTPClientNSURLSession()) {
         self.tokenURL = tokenURL
         self.credentials = credentials
-
         self.accessTokenStore = accessTokenStore
+        self.httpClient = httpClient
     }
 
     /// Requests authorization with the resource owner's password credentials.
@@ -96,30 +97,29 @@ public class Heimdall {
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.setHTTPBody(parameters: parameters)
 
-        let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
-        let task = session.dataTaskWithRequest(request) { data, response, error in
+        httpClient.sendRequest(request) { data, response, error in
             if let error = error {
                 completion(failure(error))
             } else if (response as NSHTTPURLResponse).statusCode == 200 {
-                if let accessToken = OAuthAccessToken.decode(data) {
+                if let accessToken = OAuthAccessToken.decode(data!) {
                     self.accessToken = accessToken
                     completion(success(accessToken))
                 } else {
                     let userInfo = [
                         NSLocalizedDescriptionKey: NSLocalizedString("Could not authorize grant", comment: ""),
-                        NSLocalizedFailureReasonErrorKey: String(format: NSLocalizedString("Expected access token, got: %@.", comment: ""), NSString(data: data, encoding: NSUTF8StringEncoding) ?? "nil")
+                        NSLocalizedFailureReasonErrorKey: String(format: NSLocalizedString("Expected access token, got: %@.", comment: ""), NSString(data: data!, encoding: NSUTF8StringEncoding) ?? "nil")
                     ]
 
                     let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorInvalidData, userInfo: userInfo)
                     completion(failure(error))
                 }
             } else {
-                if let error = OAuthError.decode(data) {
+                if let error = OAuthError.decode(data!) {
                     completion(failure(error.nsError))
                 } else {
                     let userInfo = [
                         NSLocalizedDescriptionKey: NSLocalizedString("Could not authorize grant", comment: ""),
-                        NSLocalizedFailureReasonErrorKey: String(format: NSLocalizedString("Expected error, got: %@.", comment: ""), NSString(data: data, encoding: NSUTF8StringEncoding) ?? "nil")
+                        NSLocalizedFailureReasonErrorKey: String(format: NSLocalizedString("Expected error, got: %@.", comment: ""), NSString(data: data!, encoding: NSUTF8StringEncoding) ?? "nil")
                     ]
 
                     let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorInvalidData, userInfo: userInfo)
@@ -127,8 +127,6 @@ public class Heimdall {
                 }
             }
         }
-        
-        task.resume()
     }
 
     /// Alters the given request by adding authorization via access token
