@@ -1,11 +1,3 @@
-//
-//  OAuthClientCredentials.swift
-//  Heimdall
-//
-//  Created by Felix Jendrusch on 2/13/15.
-//  Copyright (c) 2015 B264 GmbH. All rights reserved.
-//
-
 import Foundation
 
 /// Client credentials are used for authenticating with the token endpoint.
