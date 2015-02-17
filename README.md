@@ -17,7 +17,7 @@ let heimdall = Heimdall(tokenURL: tokenURL)
 On login, the resource owner's password credentials are used to request an access token:
 
 ```swift
-heimdall.authorize("johndoe", "A3ddj3w") { result in
+heimdall.requestAccessToken("johndoe", "A3ddj3w") { result in
     switch result {
     case .Success:
         println("success")
@@ -33,7 +33,7 @@ Heimdall automatically persists the access token using the configured store. Aft
 var session: NSURLSession!
 var request: NSURLRequest!
 
-heimdall.requestByAddingAuthorizationToRequest(request) { result
+heimdall.authenticateRequest(request) { result
     switch result {
     case .Success(let request):
         let task = session.dataTaskWithRequest(request.unbox) { data, response, error in
@@ -136,7 +136,7 @@ The `authorize` method takes the resource owner's password credentials as parame
 var username: String!
 var password: String!
 
-heimdall.authorize(username, password) { result in
+heimdall.requestAccessToken(username, password) { result in
     // ...
 }
 ```
@@ -148,7 +148,7 @@ Once successfully authorized, any `NSURLRequest` can be easily altered to includ
 ```swift
 var request: NSURLRequest!
 
-heimdall.requestByAddingAuthorizationToRequest(request) { result
+heimdall.authenticateRequest(request) { result
     // ...
 }
 ```
