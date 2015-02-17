@@ -1,7 +1,12 @@
 import Foundation
 
+/// An HTTP client that can be used inside of Heimdall
 public protocol OAuthHTTPClient {
     
-    func sendRequest(request: NSURLRequest, completionHandler: ((data: NSData!, response: NSURLResponse!, error: NSError?) -> Void)?)
+    /// Sends the given request
+    /// 
+    /// :param: request The request to be sent.
+    /// :param: completion A callback to invoke when the request completed.
+    func sendRequest(request: NSURLRequest, completion: ((data: NSData!, response: NSURLResponse!, error: NSError?) -> Void)?)
     
 }
