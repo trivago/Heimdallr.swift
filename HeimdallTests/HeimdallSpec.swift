@@ -29,6 +29,9 @@ class HeimdallSpec: QuickSpec {
         var heimdall: Heimdall!
 
         beforeEach {
+            // due to the internals of aerogear-ios-httpstub we need to access the stubs manager once
+            StubsManager.removeAllStubs()
+            
             accessTokenStore = OAuthAccessTokenMockStore()
             heimdall = Heimdall(tokenURL: NSURL(string: "http://rheinfabrik.de")!, accessTokenStore: accessTokenStore)
         }

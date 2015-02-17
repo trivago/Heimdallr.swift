@@ -116,9 +116,27 @@ var service: String!
 let accessTokenStore = OAuthAccessTokenKeychainStore(service: service)
 ```
 
+### HeimdallHTTPClient
+
+An HTTP client that can be used by Heimdall for requesting access tokens. It must implement the following `sendRequest` method:
+
+```swift
+protocol HeimdallHTTPClient {
+    func sendRequest(request: NSURLRequest, completion: (data: NSData!, response: NSURLResponse!, error: NSError?) -> ())
+}
+```
+
+For convenience, a default HTTP client named `HeimdallHTTPClientNSURLSession` and based on `NSURLSession` is provided. It may be configured with an `NSURLSession`:
+
+```swift
+var urlSession: NSURLSession!
+
+let httpClient = HeimdallHTTPClientNSURLSession(urlSession: session)
+```
+
 ### Heimdall
 
-Heimdall must be initialized with the token endpoint URL and can optionally be configured with client credentials and an access token store:
+Heimdall must be initialized with the token endpoint URL and can optionally be configured with client credentials, an access token store and an HTTP client:
 
 ```swift
 var tokenURL: NSURL!
@@ -126,6 +144,7 @@ var tokenURL: NSURL!
 let heimdall = Heimdall(tokenURL: tokenURL)
             // Heimdall(tokenURL: tokenURL, credentials: credentials)
             // Heimdall(tokenURL: tokenURL, credentials: credentials, accessTokenStore: accessTokenStore)
+            // Heimdall(tokenURL: tokenURL, credentials: credentials, accessTokenStore: accessTokenStore, httpClient: httpClient)
 ```
 
 Whether the client's access token store currently holds an access token can be checked using the `hasAccessToken` property. *It's not checked whether the stored access token, if any, has already expired.*

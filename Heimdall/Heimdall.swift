@@ -24,6 +24,7 @@ public class Heimdall {
             accessTokenStore.storeAccessToken(newValue)
         }
     }
+    private let httpClient: HeimdallHTTPClient
 
     /// Returns a Bool indicating whether the client's access token store
     /// currently holds an access token.
@@ -43,14 +44,16 @@ public class Heimdall {
     ///     encoded as parameter. Default: `nil` (unauthenticated client).
     /// :param: accessTokenStore The (persistent) access token store.
     ///     Default: `OAuthAccessTokenKeychainStore`.
+    /// :param: httpClient The HTTP client that should be used for requesting
+    ///     access tokens. Default: `HeimdallHTTPClientNSURLSession`.
     ///
     /// :returns: A new client initialized with the given token endpoint URL,
     ///     credentials and access token store.
-    public init(tokenURL: NSURL, credentials: OAuthClientCredentials? = nil, accessTokenStore: OAuthAccessTokenStore = OAuthAccessTokenKeychainStore()) {
+    public init(tokenURL: NSURL, credentials: OAuthClientCredentials? = nil, accessTokenStore: OAuthAccessTokenStore = OAuthAccessTokenKeychainStore(), httpClient: HeimdallHTTPClient = HeimdallHTTPClientNSURLSession()) {
         self.tokenURL = tokenURL
         self.credentials = credentials
-
         self.accessTokenStore = accessTokenStore
+        self.httpClient = httpClient
     }
 
     /// Requests an access token with the resource owner's password credentials.
@@ -90,8 +93,7 @@ public class Heimdall {
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.setHTTPBody(parameters: parameters)
 
-        let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
-        let task = session.dataTaskWithRequest(request) { data, response, error in
+        httpClient.sendRequest(request) { data, response, error in
             if let error = error {
                 completion(failure(error))
             } else if (response as NSHTTPURLResponse).statusCode == 200 {
@@ -121,8 +123,6 @@ public class Heimdall {
                 }
             }
         }
-        
-        task.resume()
     }
 
     /// Alters the given request by adding authentication with an access token.
