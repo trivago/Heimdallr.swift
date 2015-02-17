@@ -59,7 +59,7 @@ class HeimdallSpec: QuickSpec {
                     }
 
                     waitUntil { done in
-                        heimdall.requestAccessToken("username", password: "password") { result = $0; done() }
+                        heimdall.requestAccessToken(username: "username", password: "password") { result = $0; done() }
                     }
                 }
 
@@ -87,7 +87,7 @@ class HeimdallSpec: QuickSpec {
                     }
 
                     waitUntil { done in
-                        heimdall.requestAccessToken("username", password: "password") { result = $0; done() }
+                        heimdall.requestAccessToken(username: "username", password: "password") { result = $0; done() }
                     }
                 }
 
@@ -119,7 +119,7 @@ class HeimdallSpec: QuickSpec {
                     }
 
                     waitUntil { done in
-                        heimdall.requestAccessToken("username", password: "password") { result = $0; done() }
+                        heimdall.requestAccessToken(username: "username", password: "password") { result = $0; done() }
                     }
                 }
 
@@ -151,7 +151,7 @@ class HeimdallSpec: QuickSpec {
                     }
 
                     waitUntil { done in
-                        heimdall.requestAccessToken("username", password: "password") { result = $0; done() }
+                        heimdall.requestAccessToken(username: "username", password: "password") { result = $0; done() }
                     }
                 }
 
@@ -183,7 +183,7 @@ class HeimdallSpec: QuickSpec {
                     }
 
                     waitUntil { done in
-                        heimdall.requestAccessToken("username", password: "password") { result = $0; done() }
+                        heimdall.requestAccessToken(username: "username", password: "password") { result = $0; done() }
                     }
                 }
 
@@ -244,7 +244,7 @@ class HeimdallSpec: QuickSpec {
                     }
 
                     waitUntil { done in
-                        heimdall.requestAccessToken("username", password: "password") { _ in done() }
+                        heimdall.requestAccessToken(username: "username", password: "password") { _ in done() }
                     }
 
                     waitUntil { done in
@@ -268,7 +268,7 @@ class HeimdallSpec: QuickSpec {
                     }
 
                     waitUntil { done in
-                        heimdall.requestAccessToken("username", password: "password") { _ in done() }
+                        heimdall.requestAccessToken(username: "username", password: "password") { _ in done() }
                     }
 
                     waitUntil { done in
@@ -296,7 +296,7 @@ class HeimdallSpec: QuickSpec {
                     }
 
                     waitUntil { done in
-                        heimdall.requestAccessToken("username", password: "password") { _ in done() }
+                        heimdall.requestAccessToken(username: "username", password: "password") { _ in done() }
                     }
 
                     StubsManager.stubRequestsPassingTest({ _ in true }) { request in

@@ -63,8 +63,8 @@ public class Heimdall {
     /// :param: username The resource owner's username.
     /// :param: password The resource owner's password.
     /// :param: completion A callback to invoke when the request completed.
-    public func requestAccessToken(username: String, password: String, completion: Result<Void, NSError> -> ()) {
-        requestAccessToken(.ResourceOwnerPasswordCredentials(username, password)) { result in
+    public func requestAccessToken(#username: String, password: String, completion: Result<Void, NSError> -> ()) {
+        requestAccessToken(grant: .ResourceOwnerPasswordCredentials(username, password)) { result in
             completion(result.map { _ in return })
         }
     }
@@ -77,7 +77,7 @@ public class Heimdall {
     ///
     /// :param: grant The authorization grant (e.g., refresh).
     /// :param: completion A callback to invoke when the request completed.
-    private func requestAccessToken(grant: OAuthAuthorizationGrant, completion: Result<OAuthAccessToken, NSError> -> ()) {
+    private func requestAccessToken(#grant: OAuthAuthorizationGrant, completion: Result<OAuthAccessToken, NSError> -> ()) {
         let request = NSMutableURLRequest(URL: tokenURL)
 
         var parameters = grant.parameters
@@ -153,7 +153,7 @@ public class Heimdall {
         if let accessToken = accessToken {
             if accessToken.expiresAt != nil && accessToken.expiresAt < NSDate() {
                 if let refreshToken = accessToken.refreshToken {
-                    requestAccessToken(.RefreshToken(refreshToken)) { result in
+                    requestAccessToken(grant: .RefreshToken(refreshToken)) { result in
                         completion(result.map { accessToken in
                             return self.authenticateRequest(request, accessToken: accessToken)
                         })
