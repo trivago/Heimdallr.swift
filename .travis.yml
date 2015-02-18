@@ -5,6 +5,6 @@ before_install:
 - brew outdated carthage || brew upgrade carthage || brew install carthage
 - gem install xcpretty
 install:
-- carthage bootstrap --verbose
+- carthage bootstrap --platform iOS --verbose
 script:
 - xcodebuild -project Heimdall.xcodeproj -scheme "Heimdall" test -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
