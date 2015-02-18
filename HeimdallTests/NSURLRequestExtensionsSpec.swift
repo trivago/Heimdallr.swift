@@ -143,13 +143,11 @@ class NSMutableURLRequestExtensionsSpec: QuickSpec {
                 it("sets the body with encoded parameyers") {
                     request.setHTTPBody(parameters: [ "#key1": "%value1", "#key2": "%value2" ])
                     
-                    var components: [String]? = NSString(data: request.HTTPBody!, encoding: NSUTF8StringEncoding)?.componentsSeparatedByString("&") as? [String]
-                    components = components?.sorted({ (lhs, rhs) -> Bool in
-                        return lhs < rhs
-                    })
+                    var components = NSString(data: request.HTTPBody!, encoding: NSUTF8StringEncoding)?.componentsSeparatedByString("&") as? [String]
+                    components = components?.sorted { $0 < $1 }
                     
-                    expect(components![0]).to(equal("%23key1=%25value1"))
-                    expect(components![1]).to(equal("%23key2=%25value2"))
+                    expect(components?[0]).to(equal("%23key1=%25value1"))
+                    expect(components?[1]).to(equal("%23key2=%25value2"))
                 }
             }
         }
