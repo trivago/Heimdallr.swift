@@ -1,5 +1,9 @@
 language: objective-c
 before_install: 
+- brew update
+- brew outdated carthage || brew upgrade carthage
 - gem install xcpretty
+install:
+- carthage bootstrap
 script:
 - xcodebuild -project Heimdall.xcodeproj -scheme "Heimdall" test -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
