@@ -2,7 +2,6 @@ language: objective-c
 osx_image: xcode611
 before_install: 
 - brew update
-- brew install carthage
 - brew outdated carthage || brew upgrade carthage
 - gem install xcpretty
 install:
