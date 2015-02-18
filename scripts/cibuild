@@ -19,7 +19,7 @@ main ()
 
     carthage bootstrap --platform iOS
 
-    xcodebuild -project Heimdall.xcodeproj -scheme "Heimdall" test -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c && exit ${PIPESTATUS[0]}
+    set -o pipefail && xcodebuild -project Heimdall.xcodeproj -scheme "Heimdall" test -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
     local status=$?
 
     delete_keychain
