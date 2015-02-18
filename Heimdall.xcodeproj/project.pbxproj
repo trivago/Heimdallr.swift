@@ -16,7 +16,6 @@
 		DC336D5D1A938E5D002AE918 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC336D591A938E5D002AE918 /* Argo.framework */; };
 		DC336D5E1A938E5D002AE918 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC336D5A1A938E5D002AE918 /* KeychainAccess.framework */; };
 		DC336D5F1A938E5D002AE918 /* LlamaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC336D5B1A938E5D002AE918 /* LlamaKit.framework */; };
-		DC336D601A938E5D002AE918 /* Runes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC336D5C1A938E5D002AE918 /* Runes.framework */; };
 		DC336D641A938F13002AE918 /* AeroGearHttpStub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC336D611A938F13002AE918 /* AeroGearHttpStub.framework */; };
 		DC336D651A938F13002AE918 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC336D621A938F13002AE918 /* Nimble.framework */; };
 		DC336D661A938F13002AE918 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC336D631A938F13002AE918 /* Quick.framework */; };
@@ -64,7 +63,6 @@
 		DC336D591A938E5D002AE918 /* Argo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Argo.framework; path = Carthage/Build/iOS/Argo.framework; sourceTree = "<group>"; };
 		DC336D5A1A938E5D002AE918 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
 		DC336D5B1A938E5D002AE918 /* LlamaKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LlamaKit.framework; path = Carthage/Build/iOS/LlamaKit.framework; sourceTree = "<group>"; };
-		DC336D5C1A938E5D002AE918 /* Runes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Runes.framework; path = Carthage/Build/iOS/Runes.framework; sourceTree = "<group>"; };
 		DC336D611A938F13002AE918 /* AeroGearHttpStub.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AeroGearHttpStub.framework; path = Carthage/Build/iOS/AeroGearHttpStub.framework; sourceTree = "<group>"; };
 		DC336D621A938F13002AE918 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		DC336D631A938F13002AE918 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
@@ -101,7 +99,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC336D5F1A938E5D002AE918 /* LlamaKit.framework in Frameworks */,
-				DC336D601A938E5D002AE918 /* Runes.framework in Frameworks */,
 				DC336D5D1A938E5D002AE918 /* Argo.framework in Frameworks */,
 				DC336D5E1A938E5D002AE918 /* KeychainAccess.framework in Frameworks */,
 			);
@@ -113,8 +110,8 @@
 			files = (
 				DC336D651A938F13002AE918 /* Nimble.framework in Frameworks */,
 				DC336D661A938F13002AE918 /* Quick.framework in Frameworks */,
-				DC545DCE1A89F0F10051A575 /* Heimdall.framework in Frameworks */,
 				DC336D641A938F13002AE918 /* AeroGearHttpStub.framework in Frameworks */,
+				DC545DCE1A89F0F10051A575 /* Heimdall.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,7 +124,6 @@
 				DC336D681A93A776002AE918 /* Private */,
 				DC336D5B1A938E5D002AE918 /* LlamaKit.framework */,
 				DC336D591A938E5D002AE918 /* Argo.framework */,
-				DC336D5C1A938E5D002AE918 /* Runes.framework */,
 				DC336D5A1A938E5D002AE918 /* KeychainAccess.framework */,
 			);
 			name = Frameworks;
