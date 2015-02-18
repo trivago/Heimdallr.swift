@@ -4,6 +4,8 @@ Heimdall is an [OAuth 2.0](https://tools.ietf.org/html/rfc6749) client specifica
 
 If you are familiar with [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa), also check out [ReactiveHeimdall](https://github.com/rheinfabrik/ReactiveHeimdall)!
 
+[![Build Status](https://travis-ci.org/rheinfabrik/Heimdall.swift.svg)](https://travis-ci.org/rheinfabrik/Heimdall.swift)
+
 ## Example
 
 Before requesting an access token, the client must be configured appropriately:
