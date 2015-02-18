@@ -8,4 +8,4 @@ before_install:
 install:
 - carthage bootstrap
 script:
-- xcodebuild -project Heimdall.xcodeproj -scheme "Heimdall" test -sdk iphonesimulator8.1 ONLY_ACTIVE_ARCH=NO | xcpretty -c
+- xcodebuild -project Heimdall.xcodeproj -scheme "Heimdall" test -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
