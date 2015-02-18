@@ -5,4 +5,4 @@ before_install:
 - brew outdated carthage || brew upgrade carthage || brew install carthage
 - gem install xcpretty
 script:
-- script/cibuild
+- scripts/cibuild
