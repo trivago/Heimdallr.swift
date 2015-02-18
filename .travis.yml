@@ -7,4 +7,4 @@ before_install:
 install:
 - carthage bootstrap --platform iOS --verbose
 script:
-- xcodebuild -project Heimdall.xcodeproj -scheme "Heimdall" test -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
+- script/cibuild
