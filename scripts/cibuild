@@ -17,6 +17,8 @@ main ()
 {
     import_certs
 
+    carthage bootstrap --platform iOS --verbose
+
     xcodebuild -project Heimdall.xcodeproj -scheme "Heimdall" test -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
     local status=$?
 
