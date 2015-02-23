@@ -10,7 +10,7 @@ class OAuthAccessTokenMockStore: OAuthAccessTokenStore {
     var mockedAccessToken: OAuthAccessToken? = nil
     var storedAccessToken: OAuthAccessToken? = nil
     
-    func storeAccessToken(accessToken: OAuthAccessToken?){
+    func storeAccessToken(accessToken: OAuthAccessToken?) {
         storeAccessTokenCalled = true
 
         storedAccessToken = accessToken
@@ -42,6 +42,18 @@ class HeimdallSpec: QuickSpec {
                     accessTokenStore.mockedAccessToken = OAuthAccessToken(accessToken: "foo", tokenType: "bar")
                     expect(heimdall.hasAccessToken).to(beTrue())
                 }
+            }
+        }
+
+        describe("-invalidateAccessToken") {
+            beforeEach {
+                accessTokenStore.storeAccessToken(OAuthAccessToken(accessToken: "foo", tokenType: "bar", expiresAt: NSDate(timeIntervalSinceNow: 3600)))
+            }
+
+            it("invalidates the currently stored access token") {
+                heimdall.invalidateAccessToken()
+
+                expect(accessTokenStore.retrieveAccessToken()?.expiresAt).to(equal(NSDate(timeIntervalSince1970: 0)))
             }
         }
 

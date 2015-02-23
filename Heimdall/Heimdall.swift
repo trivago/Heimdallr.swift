@@ -56,6 +56,14 @@ public class Heimdall {
         self.httpClient = httpClient
     }
 
+    /// Invalidates the currently stored access token, if any.
+    ///
+    /// **Note:** Sets the access token's expiration date to
+    ///     1 January 1970, GMT.
+    public func invalidateAccessToken() {
+        accessToken = accessToken?.copy(expiresAt: NSDate(timeIntervalSince1970: 0))
+    }
+
     /// Requests an access token with the resource owner's password credentials.
     ///
     /// **Note:** The completion closure may be invoked on any thread.
