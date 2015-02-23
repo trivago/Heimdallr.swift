@@ -5,6 +5,99 @@ import Quick
 
 class OAuthAccessTokenSpec: QuickSpec {
     override func spec() {
+        describe("-copy") {
+            let accessToken = OAuthAccessToken(accessToken: "accessToken",
+                                                 tokenType: "tokenType",
+                                                 expiresAt: NSDate(timeIntervalSince1970: 0),
+                                              refreshToken: "refreshToken")
+
+            it("returns a copy of an access token") {
+                let result = accessToken.copy()
+
+                expect(result).toNot(beIdenticalTo(accessToken))
+            }
+
+            context("when providing a new access token") {
+                let result = accessToken.copy(accessToken: "accessToken2")
+
+                it("sets the provided access token on the new access token") {
+                    expect(result.accessToken).to(equal("accessToken2"))
+                }
+
+                it("sets the original token type on the new access token") {
+                    expect(result.tokenType).to(equal(accessToken.tokenType))
+                }
+
+                it("sets the original expiration date on the new access token") {
+                    expect(result.expiresAt).to(equal(accessToken.expiresAt))
+                }
+
+                it("sets the original refreh token on the new access token") {
+                    expect(result.refreshToken).to(equal(accessToken.refreshToken))
+                }
+            }
+
+            context("when providing a new token type") {
+                let result = accessToken.copy(tokenType: "tokenType2")
+
+                it("sets the original access token on the new access token") {
+                    expect(result.accessToken).to(equal(accessToken.accessToken))
+                }
+
+                it("sets the provided token type on the new access token") {
+                    expect(result.tokenType).to(equal("tokenType2"))
+                }
+
+                it("sets the original expiration date on the new access token") {
+                    expect(result.expiresAt).to(equal(accessToken.expiresAt))
+                }
+
+                it("sets the original refreh token on the new access token") {
+                    expect(result.refreshToken).to(equal(accessToken.refreshToken))
+                }
+            }
+
+            context("when providing a new expiration date") {
+                let result = accessToken.copy(expiresAt: NSDate(timeIntervalSince1970: 1))
+
+                it("sets the original access token on the new access token") {
+                    expect(result.accessToken).to(equal(accessToken.accessToken))
+                }
+
+                it("sets the original token type on the new access token") {
+                    expect(result.tokenType).to(equal(accessToken.tokenType))
+                }
+
+                it("sets the provided expiration date on the new access token") {
+                    expect(result.expiresAt).to(equal(NSDate(timeIntervalSince1970: 1)))
+                }
+
+                it("sets the original refreh token on the new access token") {
+                    expect(result.refreshToken).to(equal(accessToken.refreshToken))
+                }
+            }
+
+            context("when providing a new refresh token") {
+                let result = accessToken.copy(refreshToken: "refreshToken2")
+
+                it("sets the original access token on the new access token") {
+                    expect(result.accessToken).to(equal(accessToken.accessToken))
+                }
+
+                it("sets the original token type on the new access token") {
+                    expect(result.tokenType).to(equal(accessToken.tokenType))
+                }
+
+                it("sets the original expiration date on the new access token") {
+                    expect(result.expiresAt).to(equal(accessToken.expiresAt))
+                }
+
+                it("sets the provided refresh token on the new access token") {
+                    expect(result.refreshToken).to(equal("refreshToken2"))
+                }
+            }
+        }
+
         describe("<Equatable> ==") {
             it("returns true if access tokens are equal") {
                 let lhs = OAuthAccessToken(accessToken: "accessToken", tokenType: "tokenType")
