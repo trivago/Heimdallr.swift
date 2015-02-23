@@ -32,6 +32,22 @@ public class OAuthAccessToken {
         self.expiresAt = expiresAt
         self.refreshToken = refreshToken
     }
+
+    /// Copies the access token, using new values if provided.
+    ///
+    /// :param: accessToken The new access token.
+    /// :param: tokenType The new access token's type.
+    /// :param: expiresAt The new access token's expiration date.
+    /// :param: refreshToken The new refresh token.
+    ///
+    /// :returns: A new access token with this access token's values for
+    ///     properties where new ones are not provided.
+    public func copy(accessToken: String? = nil, tokenType: String? = nil, expiresAt: NSDate?? = nil, refreshToken: String?? = nil) -> OAuthAccessToken {
+        return OAuthAccessToken(accessToken: accessToken ?? self.accessToken,
+                                  tokenType: tokenType ?? self.tokenType,
+                                  expiresAt: expiresAt ?? self.expiresAt,
+                               refreshToken: refreshToken ?? self.refreshToken)
+    }
 }
 
 extension OAuthAccessToken: Equatable {}
