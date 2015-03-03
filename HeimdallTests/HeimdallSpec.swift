@@ -57,7 +57,7 @@ class HeimdallSpec: QuickSpec {
             }
         }
         
-        describe("clearAccessToken") {
+        describe("-clearAccessToken") {
             
             beforeEach {
                 accessTokenStore.storeAccessToken(OAuthAccessToken(accessToken: "foo", tokenType: "bar", expiresAt: NSDate(timeIntervalSinceNow: 3600)))
