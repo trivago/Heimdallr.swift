@@ -58,10 +58,22 @@ public class Heimdall {
 
     /// Invalidates the currently stored access token, if any.
     ///
+    /// Unlike `clearAccessToken` this will only invalidate the access token so 
+    /// that Heimdall will try to refresh the token using the refresh token 
+    /// automatically.
+    ///
     /// **Note:** Sets the access token's expiration date to
     ///     1 January 1970, GMT.
     public func invalidateAccessToken() {
         accessToken = accessToken?.copy(expiresAt: NSDate(timeIntervalSince1970: 0))
+    }
+    
+    /// Clears the currently stored access token, if any.
+    ///
+    /// After calling this method the user needs to reauthenticate using 
+    /// `requestAccessToken`.
+    public func clearAccessToken() {
+        accessTokenStore.storeAccessToken(nil)
     }
 
     /// Requests an access token with the resource owner's password credentials.

@@ -56,6 +56,19 @@ class HeimdallSpec: QuickSpec {
                 expect(accessTokenStore.retrieveAccessToken()?.expiresAt).to(equal(NSDate(timeIntervalSince1970: 0)))
             }
         }
+        
+        describe("clearAccessToken") {
+            
+            beforeEach {
+                accessTokenStore.storeAccessToken(OAuthAccessToken(accessToken: "foo", tokenType: "bar", expiresAt: NSDate(timeIntervalSinceNow: 3600)))
+            }
+            
+            it("clears the currently stored access token") {
+                heimdall.clearAccessToken()
+                
+                expect(heimdall.hasAccessToken).to(beFalse())
+            }
+        }
 
         describe("-requestAccessToken") {
             var result: Result<Void, NSError>?
