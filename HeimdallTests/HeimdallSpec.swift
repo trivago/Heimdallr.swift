@@ -1,7 +1,7 @@
-import AeroGearHttpStub
 import Heimdall
 import LlamaKit
 import Nimble
+import OHHTTPStubs
 import Quick
 
 class OAuthAccessTokenMockStore: OAuthAccessTokenStore {
@@ -29,23 +29,25 @@ class HeimdallSpec: QuickSpec {
         var heimdall: Heimdall!
 
         beforeEach {
-            // due to the internals of aerogear-ios-httpstub we need to access the stubs manager once
-            StubsManager.removeAllStubs()
-            
             accessTokenStore = OAuthAccessTokenMockStore()
             heimdall = Heimdall(tokenURL: NSURL(string: "http://rheinfabrik.de")!, accessTokenStore: accessTokenStore)
         }
         
         describe("-init") {
+            
             context("when a token is saved in the store") {
+                
                 it("loads the token from the token store") {
                     accessTokenStore.mockedAccessToken = OAuthAccessToken(accessToken: "foo", tokenType: "bar")
                     expect(heimdall.hasAccessToken).to(beTrue())
                 }
+                
             }
+            
         }
 
         describe("-invalidateAccessToken") {
+            
             beforeEach {
                 accessTokenStore.storeAccessToken(OAuthAccessToken(accessToken: "foo", tokenType: "bar", expiresAt: NSDate(timeIntervalSinceNow: 3600)))
             }
@@ -55,6 +57,7 @@ class HeimdallSpec: QuickSpec {
 
                 expect(accessTokenStore.retrieveAccessToken()?.expiresAt).to(equal(NSDate(timeIntervalSince1970: 0)))
             }
+            
         }
         
         describe("-clearAccessToken") {
@@ -68,9 +71,11 @@ class HeimdallSpec: QuickSpec {
                 
                 expect(heimdall.hasAccessToken).to(beFalse())
             }
+            
         }
 
         describe("-requestAccessToken") {
+            
             var result: Result<Void, NSError>?
 
             afterEach {
@@ -78,10 +83,13 @@ class HeimdallSpec: QuickSpec {
             }
 
             context("with a valid response") {
+                
                 beforeEach {
-                    StubsManager.stubRequestsPassingTest({ _ in true }) { request in
-                        return StubResponse(filename: "authorize-valid.json", bundle: self.bundle)
-                    }
+                    OHHTTPStubs.stubRequestsPassingTest({ request in
+                        return (request.URL.absoluteString! == "http://rheinfabrik.de")
+                    }, withStubResponse: { request in
+                        return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("authorize-valid", ofType: "json")!), statusCode: 200, headers: nil)
+                    })
 
                     waitUntil { done in
                         heimdall.requestAccessToken(username: "username", password: "password") { result = $0; done() }
@@ -89,7 +97,7 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 afterEach {
-                    StubsManager.removeAllStubs()
+                    OHHTTPStubs.removeAllStubs()
                 }
 
                 it("succeeds") {
@@ -103,13 +111,17 @@ class HeimdallSpec: QuickSpec {
                 it("stores the access token in the token store") {
                     expect(accessTokenStore.storeAccessTokenCalled).to(beTrue())
                 }
+                
             }
 
             context("with an error response") {
+                
                 beforeEach {
-                    StubsManager.stubRequestsPassingTest({ _ in true }) { request in
-                        return StubResponse(filename: "authorize-error.json", bundle: self.bundle, statusCode: 400)
-                    }
+                    OHHTTPStubs.stubRequestsPassingTest({ request in
+                        return (request.URL.absoluteString! == "http://rheinfabrik.de")
+                        }, withStubResponse: { request in
+                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("authorize-error", ofType: "json")!), statusCode: 400, headers: nil)
+                    })
 
                     waitUntil { done in
                         heimdall.requestAccessToken(username: "username", password: "password") { result = $0; done() }
@@ -117,7 +129,7 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 afterEach {
-                    StubsManager.removeAllStubs()
+                    OHHTTPStubs.removeAllStubs()
                 }
 
                 it("fails") {
@@ -135,13 +147,17 @@ class HeimdallSpec: QuickSpec {
                 it("does not set the access token") {
                     expect(heimdall.hasAccessToken).to(beFalse())
                 }
+                
             }
 
             context("with an invalid response") {
+                
                 beforeEach {
-                    StubsManager.stubRequestsPassingTest({ _ in true }) { request in
-                        return StubResponse(filename: "authorize-invalid.json", bundle: self.bundle)
-                    }
+                    OHHTTPStubs.stubRequestsPassingTest({ request in
+                        return (request.URL.absoluteString! == "http://rheinfabrik.de")
+                        }, withStubResponse: { request in
+                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("authorize-invalid", ofType: "json")!), statusCode: 200, headers: nil)
+                    })
 
                     waitUntil { done in
                         heimdall.requestAccessToken(username: "username", password: "password") { result = $0; done() }
@@ -149,7 +165,7 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 afterEach {
-                    StubsManager.removeAllStubs()
+                    OHHTTPStubs.removeAllStubs()
                 }
 
                 it("fails") {
@@ -170,10 +186,13 @@ class HeimdallSpec: QuickSpec {
             }
 
             context("with an invalid response missing a token") {
+                
                 beforeEach {
-                    StubsManager.stubRequestsPassingTest({ _ in true }) { request in
-                        return StubResponse(filename: "authorize-invalid-token.json", bundle: self.bundle)
-                    }
+                    OHHTTPStubs.stubRequestsPassingTest({ request in
+                        return (request.URL.absoluteString! == "http://rheinfabrik.de")
+                        }, withStubResponse: { request in
+                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("authorize-invalid-token", ofType: "json")!), statusCode: 200, headers: nil)
+                    })
 
                     waitUntil { done in
                         heimdall.requestAccessToken(username: "username", password: "password") { result = $0; done() }
@@ -181,7 +200,7 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 afterEach {
-                    StubsManager.removeAllStubs()
+                    OHHTTPStubs.removeAllStubs()
                 }
 
                 it("fails") {
@@ -199,13 +218,17 @@ class HeimdallSpec: QuickSpec {
                 it("does not set the access token") {
                     expect(heimdall.hasAccessToken).to(beFalse())
                 }
+                
             }
 
             context("with an invalid response missing a type") {
+                
                 beforeEach {
-                    StubsManager.stubRequestsPassingTest({ _ in true }) { request in
-                        return StubResponse(filename: "authorize-invalid-type.json", bundle: self.bundle)
-                    }
+                    OHHTTPStubs.stubRequestsPassingTest({ request in
+                        return (request.URL.absoluteString! == "http://rheinfabrik.de")
+                        }, withStubResponse: { request in
+                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("authorize-invalid-type", ofType: "json")!), statusCode: 200, headers: nil)
+                    })
 
                     waitUntil { done in
                         heimdall.requestAccessToken(username: "username", password: "password") { result = $0; done() }
@@ -213,7 +236,7 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 afterEach {
-                    StubsManager.removeAllStubs()
+                    OHHTTPStubs.removeAllStubs()
                 }
 
                 it("fails") {
@@ -231,10 +254,13 @@ class HeimdallSpec: QuickSpec {
                 it("does not set the access token") {
                     expect(heimdall.hasAccessToken).to(beFalse())
                 }
+                
             }
+
         }
 
         describe("-authenticateRequest") {
+            
             var request = NSURLRequest(URL: NSURL(string: "http://rheinfabrik.de")!)
             var result: Result<NSURLRequest, NSError>?
 
@@ -243,6 +269,7 @@ class HeimdallSpec: QuickSpec {
             }
 
             context("when not authorized") {
+                
                 beforeEach {
                     waitUntil { done in
                         heimdall.authenticateRequest(request) { result = $0; done() }
@@ -260,13 +287,17 @@ class HeimdallSpec: QuickSpec {
                 it("fails with the correct error code") {
                     expect(result?.error?.code).to(equal(HeimdallErrorNotAuthorized))
                 }
+                
             }
 
             context("when authorized with a still valid access token") {
+                
                 beforeEach {
-                    StubsManager.stubRequestsPassingTest({ _ in true }) { request in
-                        return StubResponse(filename: "request-valid.json", bundle: self.bundle)
-                    }
+                    OHHTTPStubs.stubRequestsPassingTest({ request in
+                        return (request.URL.absoluteString! == "http://rheinfabrik.de")
+                        }, withStubResponse: { request in
+                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("request-valid", ofType: "json")!), statusCode: 200, headers: nil)
+                    })
 
                     waitUntil { done in
                         heimdall.requestAccessToken(username: "username", password: "password") { _ in done() }
@@ -275,6 +306,10 @@ class HeimdallSpec: QuickSpec {
                     waitUntil { done in
                         heimdall.authenticateRequest(request) { result = $0; done() }
                     }
+                }
+                
+                afterEach {
+                    OHHTTPStubs.removeAllStubs()
                 }
 
                 it("succeeds") {
@@ -284,13 +319,17 @@ class HeimdallSpec: QuickSpec {
                 it("adds the correct authorization header to the request") {
                     expect(result?.value?.HTTPAuthorization).to(equal("bearer MTQzM2U3YTI3YmQyOWQ5YzQ0NjY4YTZkYjM0MjczYmZhNWI1M2YxM2Y1MjgwYTg3NDk3ZDc4ZGUzM2YxZmJjZQ"))
                 }
+                
             }
 
             context("when authorized with an expired access token and no refresh token") {
+                
                 beforeEach {
-                    StubsManager.stubRequestsPassingTest({ _ in true }) { request in
-                        return StubResponse(filename: "request-invalid-norefresh.json", bundle: self.bundle)
-                    }
+                    OHHTTPStubs.stubRequestsPassingTest({ request in
+                        return (request.URL.absoluteString! == "http://rheinfabrik.de")
+                        }, withStubResponse: { request in
+                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("request-invalid-norefresh", ofType: "json")!), statusCode: 200, headers: nil)
+                    })
 
                     waitUntil { done in
                         heimdall.requestAccessToken(username: "username", password: "password") { _ in done() }
@@ -299,6 +338,10 @@ class HeimdallSpec: QuickSpec {
                     waitUntil { done in
                         heimdall.authenticateRequest(request) { result = $0; done() }
                     }
+                }
+                
+                afterEach {
+                    OHHTTPStubs.removeAllStubs()
                 }
 
                 it("fails") {
@@ -312,21 +355,30 @@ class HeimdallSpec: QuickSpec {
                 it("fails with the correct error code") {
                     expect(result?.error?.code).to(equal(HeimdallErrorNotAuthorized))
                 }
+                
             }
 
             context("when authorized with an expired access token and a valid refresh token") {
+                
                 beforeEach {
-                    StubsManager.stubRequestsPassingTest({ _ in !heimdall.hasAccessToken }) { request in
-                        return StubResponse(filename: "request-invalid.json", bundle: self.bundle)
-                    }
+                    OHHTTPStubs.stubRequestsPassingTest({ request in
+                        return (
+                            request.URL.absoluteString! == "http://rheinfabrik.de"
+                            && heimdall.hasAccessToken == false
+                            )
+                        }, withStubResponse: { request in
+                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("request-invalid", ofType: "json")!), statusCode: 200, headers: nil)
+                    })
 
                     waitUntil { done in
                         heimdall.requestAccessToken(username: "username", password: "password") { _ in done() }
                     }
-
-                    StubsManager.stubRequestsPassingTest({ _ in true }) { request in
-                        return StubResponse(filename: "request-valid.json", bundle: self.bundle)
-                    }
+                    
+                    OHHTTPStubs.stubRequestsPassingTest({ request in
+                        return (request.URL.absoluteString! == "http://rheinfabrik.de")
+                        }, withStubResponse: { request in
+                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("request-valid", ofType: "json")!), statusCode: 200, headers: nil)
+                    })
 
                     waitUntil { done in
                         heimdall.authenticateRequest(request) { result = $0; done() }
@@ -340,7 +392,11 @@ class HeimdallSpec: QuickSpec {
                 it("adds the correct authorization header to the request") {
                     expect(result?.value?.HTTPAuthorization).to(equal("bearer MTQzM2U3YTI3YmQyOWQ5YzQ0NjY4YTZkYjM0MjczYmZhNWI1M2YxM2Y1MjgwYTg3NDk3ZDc4ZGUzM2YxZmJjZQ"))
                 }
+                
             }
+            
         }
+
     }
+    
 }

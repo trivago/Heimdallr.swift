@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		227ADD371A9347E000F3831E /* HeimdallHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227ADD361A9347E000F3831E /* HeimdallHTTPClient.swift */; };
 		227ADD391A93487F00F3831E /* HeimdallHTTPClientNSURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227ADD381A93487F00F3831E /* HeimdallHTTPClientNSURLSession.swift */; };
+		22B8F4811AAEFA62004C1641 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B8F4801AAEFA62004C1641 /* OHHTTPStubs.framework */; };
 		22BC44611A8A3FBA00AB0A14 /* OAuthAccessTokenKeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BC44601A8A3FBA00AB0A14 /* OAuthAccessTokenKeychainStore.swift */; };
 		22BC44631A8A402300AB0A14 /* OAuthAccessTokenKeychainStoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BC44621A8A402300AB0A14 /* OAuthAccessTokenKeychainStoreSpec.swift */; };
 		22BC446C1A8B858D00AB0A14 /* OAuthAccessTokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BC446B1A8B858D00AB0A14 /* OAuthAccessTokenStore.swift */; };
@@ -16,7 +17,6 @@
 		DC336D5D1A938E5D002AE918 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC336D591A938E5D002AE918 /* Argo.framework */; };
 		DC336D5E1A938E5D002AE918 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC336D5A1A938E5D002AE918 /* KeychainAccess.framework */; };
 		DC336D5F1A938E5D002AE918 /* LlamaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC336D5B1A938E5D002AE918 /* LlamaKit.framework */; };
-		DC336D641A938F13002AE918 /* AeroGearHttpStub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC336D611A938F13002AE918 /* AeroGearHttpStub.framework */; };
 		DC336D651A938F13002AE918 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC336D621A938F13002AE918 /* Nimble.framework */; };
 		DC336D661A938F13002AE918 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC336D631A938F13002AE918 /* Quick.framework */; };
 		DC545DC81A89F0F10051A575 /* Heimdall.h in Headers */ = {isa = PBXBuildFile; fileRef = DC545DC71A89F0F10051A575 /* Heimdall.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -56,6 +56,7 @@
 /* Begin PBXFileReference section */
 		227ADD361A9347E000F3831E /* HeimdallHTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeimdallHTTPClient.swift; sourceTree = "<group>"; };
 		227ADD381A93487F00F3831E /* HeimdallHTTPClientNSURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeimdallHTTPClientNSURLSession.swift; sourceTree = "<group>"; };
+		22B8F4801AAEFA62004C1641 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
 		22BC44601A8A3FBA00AB0A14 /* OAuthAccessTokenKeychainStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenKeychainStore.swift; sourceTree = "<group>"; };
 		22BC44621A8A402300AB0A14 /* OAuthAccessTokenKeychainStoreSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenKeychainStoreSpec.swift; sourceTree = "<group>"; };
 		22BC446B1A8B858D00AB0A14 /* OAuthAccessTokenStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenStore.swift; sourceTree = "<group>"; };
@@ -63,7 +64,6 @@
 		DC336D591A938E5D002AE918 /* Argo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Argo.framework; path = Carthage/Build/iOS/Argo.framework; sourceTree = "<group>"; };
 		DC336D5A1A938E5D002AE918 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
 		DC336D5B1A938E5D002AE918 /* LlamaKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LlamaKit.framework; path = Carthage/Build/iOS/LlamaKit.framework; sourceTree = "<group>"; };
-		DC336D611A938F13002AE918 /* AeroGearHttpStub.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AeroGearHttpStub.framework; path = Carthage/Build/iOS/AeroGearHttpStub.framework; sourceTree = "<group>"; };
 		DC336D621A938F13002AE918 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		DC336D631A938F13002AE918 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		DC545DC21A89F0F10051A575 /* Heimdall.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Heimdall.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,9 +108,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22B8F4811AAEFA62004C1641 /* OHHTTPStubs.framework in Frameworks */,
 				DC336D651A938F13002AE918 /* Nimble.framework in Frameworks */,
 				DC336D661A938F13002AE918 /* Quick.framework in Frameworks */,
-				DC336D641A938F13002AE918 /* AeroGearHttpStub.framework in Frameworks */,
 				DC545DCE1A89F0F10051A575 /* Heimdall.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,9 +132,9 @@
 		DC336D681A93A776002AE918 /* Private */ = {
 			isa = PBXGroup;
 			children = (
+				22B8F4801AAEFA62004C1641 /* OHHTTPStubs.framework */,
 				DC336D631A938F13002AE918 /* Quick.framework */,
 				DC336D621A938F13002AE918 /* Nimble.framework */,
-				DC336D611A938F13002AE918 /* AeroGearHttpStub.framework */,
 			);
 			name = Private;
 			sourceTree = "<group>";
@@ -358,7 +358,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Runes.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Argo.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/KeychainAccess.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/AeroGearHttpStub.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/OHHTTPStubs.framework",
 			);
 			outputPaths = (
 			);
@@ -544,6 +544,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -562,6 +563,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = HeimdallTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
