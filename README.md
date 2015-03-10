@@ -177,6 +177,10 @@ heimdall.authenticateRequest(request) { result
 
 If the access token has already expired and a refresh token is available, Heimdall will automatically refresh the access token. *Refreshing requires network I/O.* *The `completion` closure may be invoked on any thread.*
 
+### HeimdallResourceRequestAuthenticator
+
+By default, Heimdall authenticates a request by setting the HTTP header field `Authorization`. This behavior can be changed by setting `heimdall.requestAuthenticator` to another request authenticator implementing `HeimdallResourceRequestAuthenticator`.
+
 ## About
 
 Heimdall was built by [Rheinfabrik](http://www.rheinfabrik.de) 🏭
