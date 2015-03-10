@@ -21,6 +21,14 @@ class OAuthAccessTokenMockStore: OAuthAccessTokenStore {
     }
 }
 
+class HeimdallResourceRequestMockAuthenticator: HeimdallResourceRequestAuthenticator {
+    func authenticateResourceRequest(request: NSURLRequest, accessToken: OAuthAccessToken) -> NSURLRequest {
+        var mutableRequest = request.mutableCopy() as NSMutableURLRequest
+        mutableRequest.addValue("totally", forHTTPHeaderField: "MockAuthorized")
+        return mutableRequest
+    }
+}
+
 class HeimdallSpec: QuickSpec {
     let bundle = NSBundle(forClass: HeimdallSpec.self)
 
@@ -34,6 +42,7 @@ class HeimdallSpec: QuickSpec {
             
             accessTokenStore = OAuthAccessTokenMockStore()
             heimdall = Heimdall(tokenURL: NSURL(string: "http://rheinfabrik.de")!, accessTokenStore: accessTokenStore)
+            heimdall.requestAuthenticator = HeimdallResourceRequestMockAuthenticator()
         }
         
         describe("-init") {
@@ -281,8 +290,8 @@ class HeimdallSpec: QuickSpec {
                     expect(result?.isSuccess).to(beTrue())
                 }
 
-                it("adds the correct authorization header to the request") {
-                    expect(result?.value?.HTTPAuthorization).to(equal("bearer MTQzM2U3YTI3YmQyOWQ5YzQ0NjY4YTZkYjM0MjczYmZhNWI1M2YxM2Y1MjgwYTg3NDk3ZDc4ZGUzM2YxZmJjZQ"))
+                it("authenticates the request using the current requestAuthenticator") {
+                    expect(result?.value?.valueForHTTPHeaderField("MockAuthorized")).to(equal("totally"))
                 }
             }
 
@@ -337,8 +346,8 @@ class HeimdallSpec: QuickSpec {
                     expect(result?.isSuccess).to(beTrue())
                 }
 
-                it("adds the correct authorization header to the request") {
-                    expect(result?.value?.HTTPAuthorization).to(equal("bearer MTQzM2U3YTI3YmQyOWQ5YzQ0NjY4YTZkYjM0MjczYmZhNWI1M2YxM2Y1MjgwYTg3NDk3ZDc4ZGUzM2YxZmJjZQ"))
+                it("authenticates the request using the current requestAuthenticator") {
+                    expect(result?.value?.valueForHTTPHeaderField("MockAuthorized")).to(equal("totally"))
                 }
             }
         }

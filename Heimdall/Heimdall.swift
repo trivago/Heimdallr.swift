@@ -25,6 +25,10 @@ public class Heimdall {
         }
     }
     private let httpClient: HeimdallHTTPClient
+    
+    /// The request authenticator that should be used to authenticate requests.
+    /// Default is `HeimdallResourceRequestAuthenticatorHTTPAuthorizationHeader`.
+    public var requestAuthenticator: HeimdallResourceRequestAuthenticator = HeimdallResourceRequestAuthenticatorHTTPAuthorizationHeader()
 
     /// Returns a Bool indicating whether the client's access token store
     /// currently holds an access token.
@@ -150,11 +154,9 @@ public class Heimdall {
     /// :param: request An unauthenticated NSURLRequest.
     /// :param: accessToken The access token to be used for authentication.
     ///
-    /// :returns: The given request authorized via access token authentication.
+    /// :returns: The given request authorized using the requestAuthenticator.
     private func authenticateRequest(request: NSURLRequest, accessToken: OAuthAccessToken) -> NSURLRequest {
-        var mutableRequest = request.mutableCopy() as NSMutableURLRequest
-        mutableRequest.setHTTPAuthorization(.AccessTokenAuthentication(accessToken))
-        return mutableRequest
+        return self.requestAuthenticator.authenticateResourceRequest(request, accessToken: accessToken)
     }
 
     /// Alters the given request by adding authentication, if possible.
