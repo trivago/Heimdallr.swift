@@ -157,7 +157,8 @@ public class Heimdall {
     /// :param: request An unauthenticated NSURLRequest.
     /// :param: accessToken The access token to be used for authentication.
     ///
-    /// :returns: The given request authorized using the requestAuthenticator.
+    /// :returns: The given request authorized using the resource request 
+    ///     authenticator.
     private func authenticateRequest(request: NSURLRequest, accessToken: OAuthAccessToken) -> NSURLRequest {
         return self.resourceRequestAuthenticator.authenticateResourceRequest(request, accessToken: accessToken)
     }

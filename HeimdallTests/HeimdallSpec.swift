@@ -324,7 +324,7 @@ class HeimdallSpec: QuickSpec {
                     expect(result?.isSuccess).to(beTrue())
                 }
 
-                it("authenticates the request using the current requestAuthenticator") {
+                it("authenticates the request using the resource request authenticator") {
                     expect(result?.value?.valueForHTTPHeaderField("MockAuthorized")).to(equal("totally"))
                 }
                 
@@ -397,7 +397,7 @@ class HeimdallSpec: QuickSpec {
                     expect(result?.isSuccess).to(beTrue())
                 }
 
-                it("authenticates the request using the current requestAuthenticator") {
+                it("authenticates the request using the resource request authenticator") {
                     expect(result?.value?.valueForHTTPHeaderField("MockAuthorized")).to(equal("totally"))
                 }
                 
