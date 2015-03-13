@@ -148,6 +148,7 @@ let heimdall = Heimdall(tokenURL: tokenURL)
             // Heimdall(tokenURL: tokenURL, credentials: credentials)
             // Heimdall(tokenURL: tokenURL, credentials: credentials, accessTokenStore: accessTokenStore)
             // Heimdall(tokenURL: tokenURL, credentials: credentials, accessTokenStore: accessTokenStore, httpClient: httpClient)
+            // Heimdall(tokenURL: tokenURL, credentials: credentials, accessTokenStore: accessTokenStore, httpClient: httpClient, resourceRequestAuthenticator: resourceRequestAuthenticator)
 ```
 
 Whether the client's access token store currently holds an access token can be checked using the `hasAccessToken` property. *It's not checked whether the stored access token, if any, has already expired.*
@@ -179,7 +180,7 @@ If the access token has already expired and a refresh token is available, Heimda
 
 ### HeimdallResourceRequestAuthenticator
 
-By default, Heimdall authenticates a request by setting the HTTP header field `Authorization`. This behavior can be changed by setting `heimdall.requestAuthenticator` to another request authenticator implementing `HeimdallResourceRequestAuthenticator`.
+By default, Heimdall authenticates a request by setting the HTTP header field `Authorization`. This behavior can be changed by passing another resource request authenticator implementing `HeimdallResourceRequestAuthenticator` to the initializer.
 
 ## About
 
