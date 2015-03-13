@@ -26,9 +26,8 @@ public class Heimdall {
     }
     private let httpClient: HeimdallHTTPClient
     
-    /// The request authenticator that should be used to authenticate requests.
-    /// Default is `HeimdallResourceRequestAuthenticatorHTTPAuthorizationHeader`.
-    public var requestAuthenticator: HeimdallResourceRequestAuthenticator = HeimdallResourceRequestAuthenticatorHTTPAuthorizationHeader()
+    /// The request authenticator that is used to authenticate requests.
+    public let resourceRequestAuthenticator: HeimdallResourceRequestAuthenticator
 
     /// Returns a Bool indicating whether the client's access token store
     /// currently holds an access token.
@@ -50,14 +49,18 @@ public class Heimdall {
     ///     Default: `OAuthAccessTokenKeychainStore`.
     /// :param: httpClient The HTTP client that should be used for requesting
     ///     access tokens. Default: `HeimdallHTTPClientNSURLSession`.
+    /// :param: resourceRequestAuthenticator The request authenticator that is 
+    ///     used to authenticate requests. Default: 
+    ///     `HeimdallResourceRequestAuthenticatorHTTPAuthorizationHeader`.
     ///
     /// :returns: A new client initialized with the given token endpoint URL,
     ///     credentials and access token store.
-    public init(tokenURL: NSURL, credentials: OAuthClientCredentials? = nil, accessTokenStore: OAuthAccessTokenStore = OAuthAccessTokenKeychainStore(), httpClient: HeimdallHTTPClient = HeimdallHTTPClientNSURLSession()) {
+    public init(tokenURL: NSURL, credentials: OAuthClientCredentials? = nil, accessTokenStore: OAuthAccessTokenStore = OAuthAccessTokenKeychainStore(), httpClient: HeimdallHTTPClient = HeimdallHTTPClientNSURLSession(), resourceRequestAuthenticator: HeimdallResourceRequestAuthenticator = HeimdallResourceRequestAuthenticatorHTTPAuthorizationHeader()) {
         self.tokenURL = tokenURL
         self.credentials = credentials
         self.accessTokenStore = accessTokenStore
         self.httpClient = httpClient
+        self.resourceRequestAuthenticator = resourceRequestAuthenticator
     }
 
     /// Invalidates the currently stored access token, if any.
@@ -156,7 +159,7 @@ public class Heimdall {
     ///
     /// :returns: The given request authorized using the requestAuthenticator.
     private func authenticateRequest(request: NSURLRequest, accessToken: OAuthAccessToken) -> NSURLRequest {
-        return self.requestAuthenticator.authenticateResourceRequest(request, accessToken: accessToken)
+        return self.resourceRequestAuthenticator.authenticateResourceRequest(request, accessToken: accessToken)
     }
 
     /// Alters the given request by adding authentication, if possible.

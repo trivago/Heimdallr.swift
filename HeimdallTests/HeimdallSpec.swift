@@ -38,8 +38,7 @@ class HeimdallSpec: QuickSpec {
 
         beforeEach {
             accessTokenStore = OAuthAccessTokenMockStore()
-            heimdall = Heimdall(tokenURL: NSURL(string: "http://rheinfabrik.de")!, accessTokenStore: accessTokenStore)
-            heimdall.requestAuthenticator = HeimdallResourceRequestMockAuthenticator()
+            heimdall = Heimdall(tokenURL: NSURL(string: "http://rheinfabrik.de")!, accessTokenStore: accessTokenStore, resourceRequestAuthenticator: HeimdallResourceRequestMockAuthenticator())
         }
         
         describe("-init") {
