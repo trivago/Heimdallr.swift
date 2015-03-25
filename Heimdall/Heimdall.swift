@@ -186,10 +186,7 @@ public class Heimdall {
                             let authenticatedRequest = self.authenticateRequest(request, accessToken: accessToken.unbox)
                             completion(success(authenticatedRequest))
                         case let .Failure(error):
-                            if (
-                                error.unbox.domain == HeimdallErrorDomain
-                                || error.unbox.domain == OAuthErrorDomain
-                                ) {
+                            if contains([ HeimdallErrorDomain, OAuthErrorDomain ], error.unbox.domain) {
                                 self.clearAccessToken()
                             }
                             completion(failure(error.unbox))
