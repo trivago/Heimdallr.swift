@@ -166,7 +166,8 @@ public class Heimdall {
     /// Alters the given request by adding authentication, if possible.
     ///
     /// In case of an expired access token and the presence of a refresh token,
-    /// automatically tries to refresh the access token.
+    /// automatically tries to refresh the access token. If refreshing the
+    /// access token fails, the access token is cleared.
     ///
     /// **Note:** If the access token must be refreshed, network I/O is
     ///     performed.
@@ -180,9 +181,16 @@ public class Heimdall {
             if accessToken.expiresAt != nil && accessToken.expiresAt < NSDate() {
                 if let refreshToken = accessToken.refreshToken {
                     requestAccessToken(grant: .RefreshToken(refreshToken)) { result in
-                        completion(result.map { accessToken in
-                            return self.authenticateRequest(request, accessToken: accessToken)
-                        })
+                        switch result {
+                        case let .Success(accessToken):
+                            let authenticatedRequest = self.authenticateRequest(request, accessToken: accessToken.unbox)
+                            completion(success(authenticatedRequest))
+                        case let .Failure(error):
+                            if contains([ HeimdallErrorDomain, OAuthErrorDomain ], error.unbox.domain) {
+                                self.clearAccessToken()
+                            }
+                            completion(failure(error.unbox))
+                        }
                     }
                 } else {
                     let userInfo = [

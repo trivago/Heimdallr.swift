@@ -374,31 +374,73 @@ class HeimdallSpec: QuickSpec {
                             request.URL.absoluteString! == "http://rheinfabrik.de"
                             && heimdall.hasAccessToken == false
                             )
-                        }, withStubResponse: { request in
-                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("request-invalid", ofType: "json")!), statusCode: 200, headers: [ "Content-Type": "application/json" ])
+                    }, withStubResponse: { request in
+                        return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("request-invalid", ofType: "json")!), statusCode: 200, headers: [ "Content-Type": "application/json" ])
                     })
 
                     waitUntil { done in
                         heimdall.requestAccessToken(username: "username", password: "password") { _ in done() }
                     }
-                    
-                    OHHTTPStubs.stubRequestsPassingTest({ request in
-                        return (request.URL.absoluteString! == "http://rheinfabrik.de")
+                }
+
+                afterEach {
+                    OHHTTPStubs.removeAllStubs()
+                }
+
+                context("when refreshing the access token succeeds") {
+
+                    beforeEach {
+                        OHHTTPStubs.stubRequestsPassingTest({ request in
+                            return (request.URL.absoluteString! == "http://rheinfabrik.de")
                         }, withStubResponse: { request in
                             return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("request-valid", ofType: "json")!), statusCode: 200, headers: [ "Content-Type": "application/json" ])
-                    })
+                        })
 
-                    waitUntil { done in
-                        heimdall.authenticateRequest(request) { result = $0; done() }
+                        waitUntil { done in
+                            heimdall.authenticateRequest(request) { result = $0; done() }
+                        }
                     }
+
+                    it("succeeds") {
+                        expect(result?.isSuccess).to(beTrue())
+                    }
+
+                    it("authenticates the request using the resource request authenticator") {
+                        expect(result?.value?.valueForHTTPHeaderField("MockAuthorized")).to(equal("totally"))
+                    }
+
                 }
 
-                it("succeeds") {
-                    expect(result?.isSuccess).to(beTrue())
-                }
+                context("when refreshing the access token fails") {
 
-                it("authenticates the request using the resource request authenticator") {
-                    expect(result?.value?.valueForHTTPHeaderField("MockAuthorized")).to(equal("totally"))
+                    beforeEach {
+                        OHHTTPStubs.stubRequestsPassingTest({ request in
+                            return (request.URL.absoluteString! == "http://rheinfabrik.de")
+                        }, withStubResponse: { request in
+                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("authorize-error", ofType: "json")!), statusCode: 400, headers: [ "Content-Type": "application/json" ])
+                        })
+
+                        waitUntil { done in
+                            heimdall.authenticateRequest(request) { result = $0; done() }
+                        }
+                    }
+
+                    it("clears the access token") {
+                        expect(heimdall.hasAccessToken).to(beFalse())
+                    }
+
+                    it("fails") {
+                        expect(result?.isSuccess).to(beFalse())
+                    }
+
+                    it("fails with the correct error domain") {
+                        expect(result?.error?.domain).to(equal(OAuthErrorDomain))
+                    }
+
+                    it("fails with the correct error code") {
+                        expect(result?.error?.code).to(equal(OAuthErrorInvalidClient))
+                    }
+
                 }
                 
             }
