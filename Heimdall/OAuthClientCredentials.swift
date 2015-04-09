@@ -2,7 +2,7 @@ import Foundation
 
 /// Client credentials are used for authenticating with the token endpoint.
 @objc
-public class OAuthClientCredentials {
+public class OAuthClientCredentials: NSObject {
     /// The client identifier.
     public let id: String
 

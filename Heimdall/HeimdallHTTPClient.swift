@@ -1,6 +1,7 @@
 import Foundation
 
 /// An HTTP client that can be used by Heimdall.
+@objc
 public protocol HeimdallHTTPClient {
     /// Sends the given request.
     /// 

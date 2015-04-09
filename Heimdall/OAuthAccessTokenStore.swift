@@ -1,6 +1,7 @@
 import Foundation
 
 /// A (persistent) access token store.
+@objc
 public protocol OAuthAccessTokenStore {
     /// Stores the given access token.
     ///
