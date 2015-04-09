@@ -12,7 +12,7 @@ class OAuthAccessTokenSpec: QuickSpec {
                                               refreshToken: "refreshToken")
 
             it("returns a copy of an access token") {
-                let result = accessToken.copy()
+                let result: OAuthAccessToken = accessToken.copy()
 
                 expect(result).toNot(beIdenticalTo(accessToken))
             }
