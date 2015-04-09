@@ -123,7 +123,7 @@ public class Heimdall: NSObject {
         httpClient.sendRequest(request) { data, response, error in
             if let error = error {
                 completion(failure(error))
-            } else if (response as NSHTTPURLResponse).statusCode == 200 {
+            } else if (response as! NSHTTPURLResponse).statusCode == 200 {
                 if let accessToken = OAuthAccessToken.decode(data) {
                     self.accessToken = accessToken
                     completion(success(accessToken))
