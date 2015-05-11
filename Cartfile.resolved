@@ -1,4 +1,4 @@
-github "kishikawakatsumi/KeychainAccess" "5fead3a29cac9f4ee5cc9e072e462191d50f214c"
+github "kishikawakatsumi/KeychainAccess" "v1.2.0"
 github "LlamaKit/LlamaKit" "v0.6.0"
 github "Quick/Nimble" "v0.4.2"
 github "AliSoftware/OHHTTPStubs" "3.1.12"
