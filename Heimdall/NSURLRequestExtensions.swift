@@ -79,15 +79,35 @@ public extension NSMutableURLRequest {
     public func setHTTPBody(#parameters: [String: String]?) {
         if let parameters = parameters {
             var parts = [String]()
-            for (name, value) in parameters {
-                let encodedName = name.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
-                let encodedValue = value.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
-                parts.append("\(encodedName!)=\(encodedValue!)")
+            for (key, value) in parameters {
+                let encodedKey = percentEscapedQueryStringKey(key)
+                let encodedValue = percentEscapedQueryStringValue(value)
+                parts.append("\(encodedKey)=\(encodedValue)")
             }
-
-            HTTPBody = "&".join(parts).dataUsingEncoding(NSUTF8StringEncoding)
+            
+            var bodyString = "&".join(parts)
+            HTTPBody = bodyString.dataUsingEncoding(NSUTF8StringEncoding)
         } else {
             HTTPBody = nil
         }
     }
+    
+    private func percentEscapedQueryStringKey(string: String) -> String {
+        let allowedCharacters = NSCharacterSet.URLQueryAllowedCharacterSet().mutableCopy() as! NSMutableCharacterSet
+        let charactersToLeaveUnescaped = NSCharacterSet(charactersInString:"[].")
+        let charactersToEscape = NSCharacterSet(charactersInString:":/?&=;+!@#$()',*")
+        allowedCharacters.formIntersectionWithCharacterSet(charactersToEscape.invertedSet)
+        allowedCharacters.formUnionWithCharacterSet(charactersToLeaveUnescaped)
+        
+        return string.stringByAddingPercentEncodingWithAllowedCharacters(allowedCharacters)!
+    }
+    
+    private func percentEscapedQueryStringValue(string: String) -> String {
+        let allowedCharacters = NSCharacterSet.URLQueryAllowedCharacterSet().mutableCopy() as! NSMutableCharacterSet
+        let charactersToEscape = NSCharacterSet(charactersInString:":/?&=;+!@#$()',*")
+        allowedCharacters.formIntersectionWithCharacterSet(charactersToEscape.invertedSet)
+        
+        return string.stringByAddingPercentEncodingWithAllowedCharacters(allowedCharacters)!
+    }
+    
 }

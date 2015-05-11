@@ -140,14 +140,28 @@ class NSMutableURLRequestExtensionsSpec: QuickSpec {
             }
 
             context("when given parameters") {
-                it("sets the body with encoded parameyers") {
-                    request.setHTTPBody(parameters: [ "#key1": "%value1", "#key2": "%value2" ])
+                it("sets the body with encoded parameters") {
+                    
+                    let parameters = [
+                        "#key1": "%value1",
+                        "#key2": "%value2",
+                        "key3[]": "value3[]",
+                        "key4": ":/?&=;+!@#$()',*",
+                        "key5.": "value.5",
+                        "key6": "https://accounts.example.com/oauth/v2/foo/bar"
+                    ]
+                    
+                    request.setHTTPBody(parameters: parameters)
                     
                     var components = NSString(data: request.HTTPBody!, encoding: NSUTF8StringEncoding)?.componentsSeparatedByString("&") as? [String]
                     components = components?.sorted { $0 < $1 }
                     
                     expect(components?[0]).to(equal("%23key1=%25value1"))
                     expect(components?[1]).to(equal("%23key2=%25value2"))
+                    expect(components?[2]).to(equal("key3[]=value3%5B%5D"))
+                    expect(components?[3]).to(equal("key4=%3A%2F%3F%26%3D%3B%2B%21%40%23%24%28%29%27%2C%2A"))
+                    expect(components?[4]).to(equal("key5.=value.5"))
+                    expect(components?[5]).to(equal("key6=https%3A%2F%2Faccounts.example.com%2Foauth%2Fv2%2Ffoo%2Fbar"))
                 }
             }
         }
