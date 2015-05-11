@@ -1,7 +1,7 @@
 github "kishikawakatsumi/KeychainAccess" "v1.2.0"
 github "LlamaKit/LlamaKit" "v0.6.0"
 github "Quick/Nimble" "v0.4.2"
-github "AliSoftware/OHHTTPStubs" "3.1.12"
+github "AliSoftware/OHHTTPStubs" "8f0f04866a2ffa1309527dd228151bba68b7fbae"
 github "Quick/Quick" "v0.3.1"
 github "thoughtbot/runes" "v1.2.2"
 github "thoughtbot/Argo" "v0.4.3"
