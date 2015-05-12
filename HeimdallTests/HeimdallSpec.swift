@@ -82,7 +82,7 @@ class HeimdallSpec: QuickSpec {
             
         }
 
-        describe("-requestAccessToken") {
+        describe("-requestAccessToken(username:password:completion:)") {
             
             var result: Result<Void, NSError>?
 
@@ -265,6 +265,192 @@ class HeimdallSpec: QuickSpec {
                 
             }
 
+        }
+        
+        
+        describe("-requestAccessToken(grantType:parameters:completion:)") {
+            
+            var result: Result<Void, NSError>?
+            
+            afterEach {
+                result = nil
+            }
+            
+            context("with a valid response") {
+                
+                beforeEach {
+                    OHHTTPStubs.stubRequestsPassingTest({ request in
+                        return (request.URL!.absoluteString! == "http://rheinfabrik.de")
+                        }, withStubResponse: { request in
+                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("authorize-valid", ofType: "json")!), statusCode: 200, headers: [ "Content-Type": "application/json" ])
+                    })
+                    
+                    waitUntil { done in
+                        heimdall.requestAccessToken(grantType: "https://accounts.example.com/oauth/v2/foo/bar", parameters: ["provider": "fb", "code": "tops3cret"]) { result = $0; done() }
+                    }
+                }
+                
+                afterEach {
+                    OHHTTPStubs.removeAllStubs()
+                }
+                
+                it("succeeds") {
+                    expect(result?.isSuccess).to(beTrue())
+                }
+                
+                it("sets the access token") {
+                    expect(accessTokenStore.storeAccessTokenCalled).to(beTrue())
+                }
+                
+                it("stores the access token in the token store") {
+                    expect(accessTokenStore.storeAccessTokenCalled).to(beTrue())
+                }
+                
+            }
+            
+            context("with an error response") {
+                
+                beforeEach {
+                    OHHTTPStubs.stubRequestsPassingTest({ request in
+                        return (request.URL!.absoluteString! == "http://rheinfabrik.de")
+                        }, withStubResponse: { request in
+                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("authorize-error", ofType: "json")!), statusCode: 400, headers: nil)
+                    })
+                    
+                    waitUntil { done in
+                        heimdall.requestAccessToken(grantType: "https://accounts.example.com/oauth/v2/foo/bar", parameters: ["provider": "fb", "code": "tops3cret"]) { result = $0; done() }
+                    }
+                }
+                
+                afterEach {
+                    OHHTTPStubs.removeAllStubs()
+                }
+                
+                it("fails") {
+                    expect(result?.isSuccess).to(beFalse())
+                }
+                
+                it("fails with the correct error domain") {
+                    expect(result?.error?.domain).to(equal(OAuthErrorDomain))
+                }
+                
+                it("fails with the correct error code") {
+                    expect(result?.error?.code).to(equal(OAuthErrorInvalidClient))
+                }
+                
+                it("does not set the access token") {
+                    expect(heimdall.hasAccessToken).to(beFalse())
+                }
+                
+            }
+            
+            context("with an invalid response") {
+                
+                beforeEach {
+                    OHHTTPStubs.stubRequestsPassingTest({ request in
+                        return (request.URL!.absoluteString! == "http://rheinfabrik.de")
+                        }, withStubResponse: { request in
+                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("authorize-invalid", ofType: "json")!), statusCode: 200, headers: [ "Content-Type": "application/json" ])
+                    })
+                    
+                    waitUntil { done in
+                        heimdall.requestAccessToken(grantType: "https://accounts.example.com/oauth/v2/foo/bar", parameters: ["provider": "fb", "code": "tops3cret"]) { result = $0; done() }
+                    }
+                }
+                
+                afterEach {
+                    OHHTTPStubs.removeAllStubs()
+                }
+                
+                it("fails") {
+                    expect(result?.isSuccess).to(beFalse())
+                }
+                
+                it("fails with the correct error domain") {
+                    expect(result?.error?.domain).to(equal(HeimdallErrorDomain))
+                }
+                
+                it("fails with the correct error code") {
+                    expect(result?.error?.code).to(equal(HeimdallErrorInvalidData))
+                }
+                
+                it("does not set the access token") {
+                    expect(heimdall.hasAccessToken).to(beFalse())
+                }
+            }
+            
+            context("with an invalid response missing a token") {
+                
+                beforeEach {
+                    OHHTTPStubs.stubRequestsPassingTest({ request in
+                        return (request.URL!.absoluteString! == "http://rheinfabrik.de")
+                        }, withStubResponse: { request in
+                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("authorize-invalid-token", ofType: "json")!), statusCode: 200, headers: [ "Content-Type": "application/json" ])
+                    })
+                    
+                    waitUntil { done in
+                        heimdall.requestAccessToken(grantType: "https://accounts.example.com/oauth/v2/foo/bar", parameters: ["provider": "fb", "code": "tops3cret"]) { result = $0; done() }
+                    }
+                }
+                
+                afterEach {
+                    OHHTTPStubs.removeAllStubs()
+                }
+                
+                it("fails") {
+                    expect(result?.isSuccess).to(beFalse())
+                }
+                
+                it("fails with the correct error domain") {
+                    expect(result?.error?.domain).to(equal(HeimdallErrorDomain))
+                }
+                
+                it("fails with the correct error code") {
+                    expect(result?.error?.code).to(equal(HeimdallErrorInvalidData))
+                }
+                
+                it("does not set the access token") {
+                    expect(heimdall.hasAccessToken).to(beFalse())
+                }
+                
+            }
+            
+            context("with an invalid response missing a type") {
+                
+                beforeEach {
+                    OHHTTPStubs.stubRequestsPassingTest({ request in
+                        return (request.URL!.absoluteString! == "http://rheinfabrik.de")
+                        }, withStubResponse: { request in
+                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("authorize-invalid-type", ofType: "json")!), statusCode: 200, headers: [ "Content-Type": "application/json" ])
+                    })
+                    
+                    waitUntil { done in
+                        heimdall.requestAccessToken(grantType: "https://accounts.example.com/oauth/v2/foo/bar", parameters: ["provider": "fb", "code": "tops3cret"]) { result = $0; done() }
+                    }
+                }
+                
+                afterEach {
+                    OHHTTPStubs.removeAllStubs()
+                }
+                
+                it("fails") {
+                    expect(result?.isSuccess).to(beFalse())
+                }
+                
+                it("fails with the correct error domain") {
+                    expect(result?.error?.domain).to(equal(HeimdallErrorDomain))
+                }
+                
+                it("fails with the correct error code") {
+                    expect(result?.error?.code).to(equal(HeimdallErrorInvalidData))
+                }
+                
+                it("does not set the access token") {
+                    expect(heimdall.hasAccessToken).to(beFalse())
+                }
+                
+            }
+            
         }
 
         describe("-authenticateRequest") {
