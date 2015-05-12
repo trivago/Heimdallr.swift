@@ -76,38 +76,41 @@ public extension NSMutableURLRequest {
     /// :param: parameters The parameters to be encoded or `nil`.
     ///
     /// TODO: Tests crash without named parameter.
-    public func setHTTPBody(#parameters: [String: String]?) {
+    public func setHTTPBody(#parameters: [String: AnyObject]?) {
         if let parameters = parameters {
-            var parts = [String]()
+            var components: [(String, String)] = []
             for (key, value) in parameters {
-                let encodedKey = percentEscapedQueryStringKey(key)
-                let encodedValue = percentEscapedQueryStringValue(value)
-                parts.append("\(encodedKey)=\(encodedValue)")
+                components += self.queryComponents(key, value)
             }
-            
-            var bodyString = "&".join(parts)
-            HTTPBody = bodyString.dataUsingEncoding(NSUTF8StringEncoding)
+            var bodyString = join("&", components.map{"\($0)=\($1)"} as [String])
+            HTTPBody = bodyString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
         } else {
             HTTPBody = nil
         }
     }
     
-    private func percentEscapedQueryStringKey(string: String) -> String {
-        let allowedCharacters = NSCharacterSet.URLQueryAllowedCharacterSet().mutableCopy() as! NSMutableCharacterSet
-        let charactersToLeaveUnescaped = NSCharacterSet(charactersInString:"[].")
-        let charactersToEscape = NSCharacterSet(charactersInString:":/?&=;+!@#$()',*")
-        allowedCharacters.formIntersectionWithCharacterSet(charactersToEscape.invertedSet)
-        allowedCharacters.formUnionWithCharacterSet(charactersToLeaveUnescaped)
+    //Taken from https://github.com/Alamofire/Alamofire/blob/master/Source/ParameterEncoding.swift#L136
+    func queryComponents(key: String, _ value: AnyObject) -> [(String, String)] {
+        var components: [(String, String)] = []
+        if let dictionary = value as? [String: AnyObject] {
+            for (nestedKey, value) in dictionary {
+                components += queryComponents("\(key)[\(nestedKey)]", value)
+            }
+        } else if let array = value as? [AnyObject] {
+            for value in array {
+                components += queryComponents("\(key)[]", value)
+            }
+        } else {
+            components.extend([(escapeQuery(key), escapeQuery("\(value)"))])
+        }
         
-        return string.stringByAddingPercentEncodingWithAllowedCharacters(allowedCharacters)!
+        return components
     }
     
-    private func percentEscapedQueryStringValue(string: String) -> String {
-        let allowedCharacters = NSCharacterSet.URLQueryAllowedCharacterSet().mutableCopy() as! NSMutableCharacterSet
-        let charactersToEscape = NSCharacterSet(charactersInString:":/?&=;+!@#$()',*")
-        allowedCharacters.formIntersectionWithCharacterSet(charactersToEscape.invertedSet)
-        
-        return string.stringByAddingPercentEncodingWithAllowedCharacters(allowedCharacters)!
+    private func escapeQuery(string: String) -> String {
+        let legalURLCharactersToBeEscaped: CFStringRef = ":&=;+!@#$()',*"
+        let charactersToLeaveUnescaped: CFStringRef = "[]."
+        return CFURLCreateStringByAddingPercentEscapes(nil, string, charactersToLeaveUnescaped, legalURLCharactersToBeEscaped, CFStringBuiltInEncodings.UTF8.rawValue) as! String
     }
-    
+
 }

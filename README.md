@@ -185,3 +185,7 @@ By default, Heimdall authenticates a request by setting the HTTP header field `A
 ## About
 
 Heimdall was built by [Rheinfabrik](http://www.rheinfabrik.de) 🏭
+
+## Credits
+
+Contains code for query string escaping taken from [Alamofire](https://github.com/Alamofire/Alamofire/) (MIT License)
