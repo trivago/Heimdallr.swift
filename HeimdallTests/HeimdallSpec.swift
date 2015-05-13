@@ -113,7 +113,7 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("sets the access token") {
-                    expect(accessTokenStore.storeAccessTokenCalled).to(beTrue())
+                    expect(heimdall.hasAccessToken).to(beTrue())
                 }
                 
                 it("stores the access token in the token store") {
@@ -299,7 +299,7 @@ class HeimdallSpec: QuickSpec {
                 }
                 
                 it("sets the access token") {
-                    expect(accessTokenStore.storeAccessTokenCalled).to(beTrue())
+                    expect(heimdall.hasAccessToken).to(beTrue())
                 }
                 
                 it("stores the access token in the token store") {
