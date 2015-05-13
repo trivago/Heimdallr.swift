@@ -1,0 +1,10 @@
+machine:
+  xcode:
+    version: "6.3.1"
+dependencies:
+  pre:
+    - sudo chown :wheel /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ *.simruntime/Contents/Resources/RuntimeRoot/usr/lib/dyld_sim
+    - brew install carthage
+test:
+  override:
+    - scripts/cibuild
