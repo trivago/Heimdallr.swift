@@ -4,7 +4,7 @@ machine:
 dependencies:
   pre:
     - brew update
-	- brew install carthage
+    - brew install carthage
 test:
   override:
-  	- scripts/cibuild
+    - scripts/cibuild
