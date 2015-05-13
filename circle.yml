@@ -1,0 +1,10 @@
+machine:
+  xcode:
+    version: "6.3.1"
+dependencies:
+  pre:
+    - brew update
+	- brew install carthage
+test:
+  override:
+  	- scripts/cibuild
