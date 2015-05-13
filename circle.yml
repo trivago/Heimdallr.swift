@@ -4,7 +4,7 @@ machine:
 dependencies:
   pre:
     - sudo chown :wheel /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ *.simruntime/Contents/Resources/RuntimeRoot/usr/lib/dyld_sim
-    - brew install carthage
+    - brew install carthage --verbose
 test:
   override:
     - scripts/cibuild
