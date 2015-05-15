@@ -80,7 +80,7 @@ public extension NSMutableURLRequest {
         if let parameters = parameters {
             var components: [(String, String)] = []
             for (key, value) in parameters {
-                components += self.queryComponents(key, value)
+                components += queryComponents(key, value)
             }
             var bodyString = join("&", components.map{"\($0)=\($1)"} as [String])
             HTTPBody = bodyString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
