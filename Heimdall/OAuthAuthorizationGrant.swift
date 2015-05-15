@@ -16,8 +16,8 @@ public enum OAuthAuthorizationGrant {
 
     /// An extension grant
     ///
-    /// :param: grantType the grant type URI of the extension grant
-    /// :param: a dictionary of parameters
+    /// :param: grantType The grant type URI of the extension grant
+    /// :param: parameters A dictionary of parameters
     case Extension(String, [String: String])
 
     /// Returns the grant's parameters.
