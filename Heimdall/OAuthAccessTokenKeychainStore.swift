@@ -2,7 +2,7 @@ import KeychainAccess
 
 /// A persistent Keychain-based access token store.
 @objc
-public class OAuthAccessTokenKeychainStore: OAuthAccessTokenStore {
+public class OAuthAccessTokenKeychainStore: NSObject, OAuthAccessTokenStore {
     private let keychain: Keychain
 
     /// Initializes a new Keychain-based access token store.

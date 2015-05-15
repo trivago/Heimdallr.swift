@@ -3,11 +3,11 @@ import Foundation
 /// A `HeimdallResourceRequestAuthenticator` which uses the HTTP `Authorization` 
 /// Header to authorize a request.
 @objc
-public class HeimdallResourceRequestAuthenticatorHTTPAuthorizationHeader: HeimdallResourceRequestAuthenticator {
-    
-    public init() {
+public class HeimdallResourceRequestAuthenticatorHTTPAuthorizationHeader: NSObject, HeimdallResourceRequestAuthenticator {
+
+    public override init() {
     }
-    
+
     /// Authenticates the given request by setting the HTTP `Authorization`
     /// header.
     ///

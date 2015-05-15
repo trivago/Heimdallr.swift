@@ -4,6 +4,7 @@ import Nimble
 import OHHTTPStubs
 import Quick
 
+@objc
 class OAuthAccessTokenMockStore: OAuthAccessTokenStore {
     var storeAccessTokenCalled: Bool = false
 
@@ -21,6 +22,7 @@ class OAuthAccessTokenMockStore: OAuthAccessTokenStore {
     }
 }
 
+@objc
 class HeimdallResourceRequestMockAuthenticator: HeimdallResourceRequestAuthenticator {
     func authenticateResourceRequest(request: NSURLRequest, accessToken: OAuthAccessToken) -> NSURLRequest {
         var mutableRequest = request.mutableCopy() as! NSMutableURLRequest
