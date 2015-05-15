@@ -91,6 +91,7 @@ public extension NSMutableURLRequest {
     
     //Taken from https://github.com/Alamofire/Alamofire/blob/master/Source/ParameterEncoding.swift#L136
     func queryComponents(key: String, _ value: AnyObject) -> [(String, String)] {
+    private func queryComponents(key: String, _ value: AnyObject) -> [(String, String)] {
         var components: [(String, String)] = []
         if let dictionary = value as? [String: AnyObject] {
             for (nestedKey, value) in dictionary {
