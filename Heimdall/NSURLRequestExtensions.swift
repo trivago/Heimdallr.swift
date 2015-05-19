@@ -76,18 +76,41 @@ public extension NSMutableURLRequest {
     /// :param: parameters The parameters to be encoded or `nil`.
     ///
     /// TODO: Tests crash without named parameter.
-    public func setHTTPBody(#parameters: [String: String]?) {
+    public func setHTTPBody(#parameters: [String: AnyObject]?) {
         if let parameters = parameters {
-            var parts = [String]()
-            for (name, value) in parameters {
-                let encodedName = name.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
-                let encodedValue = value.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
-                parts.append("\(encodedName!)=\(encodedValue!)")
+            var components: [(String, String)] = []
+            for (key, value) in parameters {
+                components += queryComponents(key, value)
             }
-
-            HTTPBody = "&".join(parts).dataUsingEncoding(NSUTF8StringEncoding)
+            var bodyString = join("&", components.map { "\($0)=\($1)" } )
+            HTTPBody = bodyString.dataUsingEncoding(NSUTF8StringEncoding)
         } else {
             HTTPBody = nil
         }
     }
+    
+    // Taken from https://github.com/Alamofire/Alamofire/blob/master/Source/ParameterEncoding.swift#L136
+    private func queryComponents(key: String, _ value: AnyObject) -> [(String, String)] {
+        var components: [(String, String)] = []
+        if let dictionary = value as? [String: AnyObject] {
+            for (nestedKey, value) in dictionary {
+                components += queryComponents("\(key)[\(nestedKey)]", value)
+            }
+        } else if let array = value as? [AnyObject] {
+            for value in array {
+                components += queryComponents("\(key)[]", value)
+            }
+        } else {
+            components.extend([(escapeQuery(key), escapeQuery("\(value)"))])
+        }
+        
+        return components
+    }
+    
+    private func escapeQuery(string: String) -> String {
+        let legalURLCharactersToBeEscaped: CFStringRef = ":&=;+!@#$()',*"
+        let charactersToLeaveUnescaped: CFStringRef = "[]."
+        return CFURLCreateStringByAddingPercentEscapes(nil, string, charactersToLeaveUnescaped, legalURLCharactersToBeEscaped, CFStringBuiltInEncodings.UTF8.rawValue) as! String
+    }
+
 }

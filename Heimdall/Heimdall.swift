@@ -10,9 +10,8 @@ public let HeimdallErrorNotAuthorized = 2
 
 /// The all-seeing and all-hearing guardian sentry of your application who
 /// stands on the rainbow bridge network to authorize relevant requests.
-@objc
-public class Heimdall: NSObject {
-    private let tokenURL: NSURL
+@objc public class Heimdall: NSObject {
+    public let tokenURL: NSURL
     private let credentials: OAuthClientCredentials?
 
     private let accessTokenStore: OAuthAccessTokenStore
@@ -92,6 +91,19 @@ public class Heimdall: NSObject {
     /// :param: completion A callback to invoke when the request completed.
     public func requestAccessToken(#username: String, password: String, completion: Result<Void, NSError> -> ()) {
         requestAccessToken(grant: .ResourceOwnerPasswordCredentials(username, password)) { result in
+            completion(result.map { _ in return })
+        }
+    }
+    
+    /// Requests an access token with the given grant type URI and parameters
+    ///
+    /// **Note:** The completion closure may be invoked on any thread.
+    ///
+    /// :param: grantType The grant type URI of the extension grant
+    /// :param: parameters The required parameters for the external grant
+    /// :param: completion A callback to invoke when the request completed.
+    public func requestAccessToken(#grantType: String, parameters: [String: String], completion: Result<Void, NSError> -> ()) {
+        requestAccessToken(grant: .Extension(grantType, parameters)) { result in
             completion(result.map { _ in return })
         }
     }
