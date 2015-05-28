@@ -1,4 +1,4 @@
-import LlamaKit
+import Result
 
 public let HeimdallErrorDomain = "HeimdallErrorDomain"
 
@@ -134,11 +134,11 @@ public let HeimdallErrorNotAuthorized = 2
 
         httpClient.sendRequest(request) { data, response, error in
             if let error = error {
-                completion(failure(error))
+                completion(.failure(error))
             } else if (response as! NSHTTPURLResponse).statusCode == 200 {
                 if let accessToken = OAuthAccessToken.decode(data) {
                     self.accessToken = accessToken
-                    completion(success(accessToken))
+                    completion(.success(accessToken))
                 } else {
                     let userInfo = [
                         NSLocalizedDescriptionKey: NSLocalizedString("Could not authorize grant", comment: ""),
@@ -146,11 +146,11 @@ public let HeimdallErrorNotAuthorized = 2
                     ]
 
                     let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorInvalidData, userInfo: userInfo)
-                    completion(failure(error))
+                    completion(.failure(error))
                 }
             } else {
                 if let error = OAuthError.decode(data) {
-                    completion(failure(error.nsError))
+                    completion(.failure(error.nsError))
                 } else {
                     let userInfo = [
                         NSLocalizedDescriptionKey: NSLocalizedString("Could not authorize grant", comment: ""),
@@ -158,7 +158,7 @@ public let HeimdallErrorNotAuthorized = 2
                     ]
 
                     let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorInvalidData, userInfo: userInfo)
-                    completion(failure(error))
+                    completion(.failure(error))
                 }
             }
         }
@@ -193,16 +193,15 @@ public let HeimdallErrorNotAuthorized = 2
             if accessToken.expiresAt != nil && accessToken.expiresAt < NSDate() {
                 if let refreshToken = accessToken.refreshToken {
                     requestAccessToken(grant: .RefreshToken(refreshToken)) { result in
-                        switch result {
-                        case let .Success(accessToken):
-                            let authenticatedRequest = self.authenticateRequest(request, accessToken: accessToken.unbox)
-                            completion(success(authenticatedRequest))
-                        case let .Failure(error):
-                            if contains([ HeimdallErrorDomain, OAuthErrorDomain ], error.unbox.domain) {
+                        completion(result.analysis(ifSuccess: { accessToken in
+                            let authenticatedRequest = self.authenticateRequest(request, accessToken: accessToken)
+                            return .success(authenticatedRequest)
+                        }, ifFailure: { error in
+                            if contains([ HeimdallErrorDomain, OAuthErrorDomain ], error.domain) {
                                 self.clearAccessToken()
                             }
-                            completion(failure(error.unbox))
-                        }
+                            return .failure(error)
+                        }))
                     }
                 } else {
                     let userInfo = [
@@ -211,11 +210,11 @@ public let HeimdallErrorNotAuthorized = 2
                     ]
 
                     let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorNotAuthorized, userInfo: userInfo)
-                    completion(failure(error))
+                    completion(.failure(error))
                 }
             } else {
                 let request = authenticateRequest(request, accessToken: accessToken)
-                completion(success(request))
+                completion(.success(request))
             }
         } else {
             let userInfo = [
@@ -224,7 +223,7 @@ public let HeimdallErrorNotAuthorized = 2
             ]
 
             let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorNotAuthorized, userInfo: userInfo)
-            completion(failure(error))
+            completion(.failure(error))
         }
     }
 }

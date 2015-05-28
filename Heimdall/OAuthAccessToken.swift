@@ -1,5 +1,5 @@
 import Argo
-import LlamaKit
+import Result
 import Runes
 
 /// An access token is used for authorizing requests to the resource endpoint.
