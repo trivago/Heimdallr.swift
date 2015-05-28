@@ -1,7 +1,7 @@
 import Heimdall
-import LlamaKit
 import Nimble
 import Quick
+import Result
 
 class OAuthAccessTokenSpec: QuickSpec {
     override func spec() {

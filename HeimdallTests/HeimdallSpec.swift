@@ -1,8 +1,8 @@
 import Heimdall
-import LlamaKit
 import Nimble
 import OHHTTPStubs
 import Quick
+import Result
 
 @objc
 class OAuthAccessTokenMockStore: OAuthAccessTokenStore {
@@ -111,7 +111,7 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("succeeds") {
-                    expect(result?.isSuccess).to(beTrue())
+                    expect(result?.value).toNot(beNil())
                 }
 
                 it("sets the access token") {
@@ -143,7 +143,7 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("fails") {
-                    expect(result?.isSuccess).to(beFalse())
+                    expect(result?.value).to(beNil())
                 }
 
                 it("fails with the correct error domain") {
@@ -179,7 +179,7 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("fails") {
-                    expect(result?.isSuccess).to(beFalse())
+                    expect(result?.value).to(beNil())
                 }
 
                 it("fails with the correct error domain") {
@@ -214,7 +214,7 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("fails") {
-                    expect(result?.isSuccess).to(beFalse())
+                    expect(result?.value).to(beNil())
                 }
 
                 it("fails with the correct error domain") {
@@ -250,7 +250,7 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("fails") {
-                    expect(result?.isSuccess).to(beFalse())
+                    expect(result?.value).to(beNil())
                 }
 
                 it("fails with the correct error domain") {
@@ -297,7 +297,7 @@ class HeimdallSpec: QuickSpec {
                 }
                 
                 it("succeeds") {
-                    expect(result?.isSuccess).to(beTrue())
+                    expect(result?.value).toNot(beNil())
                 }
                 
                 it("sets the access token") {
@@ -329,7 +329,7 @@ class HeimdallSpec: QuickSpec {
                 }
                 
                 it("fails") {
-                    expect(result?.isSuccess).to(beFalse())
+                    expect(result?.value).to(beNil())
                 }
                 
                 it("fails with the correct error domain") {
@@ -365,7 +365,7 @@ class HeimdallSpec: QuickSpec {
                 }
                 
                 it("fails") {
-                    expect(result?.isSuccess).to(beFalse())
+                    expect(result?.value).to(beNil())
                 }
                 
                 it("fails with the correct error domain") {
@@ -400,7 +400,7 @@ class HeimdallSpec: QuickSpec {
                 }
                 
                 it("fails") {
-                    expect(result?.isSuccess).to(beFalse())
+                    expect(result?.value).to(beNil())
                 }
                 
                 it("fails with the correct error domain") {
@@ -436,7 +436,7 @@ class HeimdallSpec: QuickSpec {
                 }
                 
                 it("fails") {
-                    expect(result?.isSuccess).to(beFalse())
+                    expect(result?.value).to(beNil())
                 }
                 
                 it("fails with the correct error domain") {
@@ -473,7 +473,7 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("fails") {
-                    expect(result?.isSuccess).to(beFalse())
+                    expect(result?.value).to(beNil())
                 }
 
                 it("fails with the correct error domain") {
@@ -509,7 +509,7 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("succeeds") {
-                    expect(result?.isSuccess).to(beTrue())
+                    expect(result?.value).toNot(beNil())
                 }
 
                 it("authenticates the request using the resource request authenticator") {
@@ -541,7 +541,7 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("fails") {
-                    expect(result?.isSuccess).to(beFalse())
+                    expect(result?.value).to(beNil())
                 }
 
                 it("fails with the correct error domain") {
@@ -590,7 +590,7 @@ class HeimdallSpec: QuickSpec {
                     }
 
                     it("succeeds") {
-                        expect(result?.isSuccess).to(beTrue())
+                        expect(result?.value).toNot(beNil())
                     }
 
                     it("authenticates the request using the resource request authenticator") {
@@ -618,7 +618,7 @@ class HeimdallSpec: QuickSpec {
                     }
 
                     it("fails") {
-                        expect(result?.isSuccess).to(beFalse())
+                        expect(result?.value).to(beNil())
                     }
 
                     it("fails with the correct error domain") {
