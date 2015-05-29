@@ -136,10 +136,11 @@ public let HeimdallErrorNotAuthorized = 2
             if let error = error {
                 completion(.failure(error))
             } else if (response as! NSHTTPURLResponse).statusCode == 200 {
-                if let accessToken = OAuthAccessToken.decode(data) {
-                    self.accessToken = accessToken
-                    completion(.success(accessToken))
-                } else {
+                switch OAuthAccessToken.decode(data) {
+                case let .Success(accessToken):
+                    self.accessToken = accessToken.value
+                    completion(.success(accessToken.value))
+                default:
                     let userInfo = [
                         NSLocalizedDescriptionKey: NSLocalizedString("Could not authorize grant", comment: ""),
                         NSLocalizedFailureReasonErrorKey: String(format: NSLocalizedString("Expected access token, got: %@.", comment: ""), NSString(data: data, encoding: NSUTF8StringEncoding) ?? "nil")
@@ -149,9 +150,10 @@ public let HeimdallErrorNotAuthorized = 2
                     completion(.failure(error))
                 }
             } else {
-                if let error = OAuthError.decode(data) {
-                    completion(.failure(error.nsError))
-                } else {
+                switch OAuthError.decode(data) {
+                case let .Success(error):
+                    completion(.failure(error.value.nsError))
+                default:
                     let userInfo = [
                         NSLocalizedDescriptionKey: NSLocalizedString("Could not authorize grant", comment: ""),
                         NSLocalizedFailureReasonErrorKey: String(format: NSLocalizedString("Expected error, got: %@.", comment: ""), NSString(data: data, encoding: NSUTF8StringEncoding) ?? "nil")

@@ -59,32 +59,27 @@ public func == (lhs: OAuthAccessToken, rhs: OAuthAccessToken) -> Bool {
         && lhs.refreshToken == rhs.refreshToken
 }
 
-extension OAuthAccessToken: JSONDecodable {
+extension OAuthAccessToken: Decodable {
     public class func create(accessToken: String)(tokenType: String)(expiresAt: NSDate?)(refreshToken: String?) -> OAuthAccessToken {
         return OAuthAccessToken(accessToken: accessToken, tokenType: tokenType, expiresAt: expiresAt, refreshToken: refreshToken)
     }
 
-    public class func decode(json: JSONValue) -> OAuthAccessToken? {
-        return OAuthAccessToken.create
+    public class func decode(json: JSON) -> Decoded<OAuthAccessToken> {
+        func toNSDate(timeIntervalSinceNow: NSTimeInterval?) -> Decoded<NSDate?> {
+            return .fromOptional(map(timeIntervalSinceNow) { timeIntervalSinceNow in
+                return NSDate(timeIntervalSinceNow: timeIntervalSinceNow)
+            })
+        }
+
+        return create
             <^> json <| "access_token"
             <*> json <| "token_type"
-            <*> pure(json.find([ "expires_in" ]) >>- { json in
-                    if let timeIntervalSinceNow = json.value() as NSTimeInterval? {
-                        return NSDate(timeIntervalSinceNow: timeIntervalSinceNow)
-                    } else {
-                        return nil
-                    }
-                })
+            <*> (json <|? "expires_in").flatMap(toNSDate)
             <*> json <|? "refresh_token"
     }
 
-    public class func decode(data: NSData) -> OAuthAccessToken? {
-        var error: NSError?
-
-        if let json: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: &error) {
-            return decode(JSONValue.parse(json))
-        } else {
-            return nil
-        }
+    public class func decode(data: NSData) -> Decoded<OAuthAccessToken> {
+        let json: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: nil)
+        return Decoded<AnyObject>.fromOptional(json).flatMap(Argo.decode)
     }
 }
