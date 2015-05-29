@@ -93,6 +93,6 @@ extension OAuthError: Decodable {
 
     public class func decode(data: NSData) -> Decoded<OAuthError> {
         let json: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: nil)
-        return .fromOptional(flatMap(json, Argo.decode))
+        return Decoded<AnyObject>.fromOptional(json).flatMap(Argo.decode)
     }
 }
