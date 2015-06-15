@@ -27,7 +27,7 @@ public enum HTTPAuthentication: Equatable {
                 return nil
             }
         case .AccessTokenAuthentication(let accessToken):
-            return "\(accessToken.tokenType) \(accessToken.accessToken)"
+            return "\(accessToken.tokenType.capitalizedString) \(accessToken.accessToken)"
         }
     }
 }
