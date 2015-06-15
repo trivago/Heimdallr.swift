@@ -1,3 +1,4 @@
+import Argo
 import Heimdall
 import Nimble
 import Quick
@@ -132,6 +133,23 @@ class OAuthAccessTokenSpec: QuickSpec {
                 let rhs = OAuthAccessToken(accessToken: "accessToken", tokenType: "tokenType", refreshToken: "refreshTokenb")
                 
                 expect(lhs == rhs).to(beFalse())
+            }
+        }
+
+        describe("+decode") {
+            context("without an expiration date") {
+                it("creates a valid access token") {
+                    let accessToken = OAuthAccessToken.decode(.Object([
+                        "access_token": .String("accessToken"),
+                        "token_type": .String("tokenType")
+                    ]))
+
+                    expect(accessToken.value).toNot(beNil())
+                    expect(accessToken.value?.accessToken).to(equal("accessToken"))
+                    expect(accessToken.value?.tokenType).to(equal("tokenType"))
+                    expect(accessToken.value?.expiresAt).to(beNil())
+                    expect(accessToken.value?.refreshToken).to(beNil())
+                }
             }
         }
     }
