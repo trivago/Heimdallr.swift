@@ -66,9 +66,9 @@ extension OAuthAccessToken: Decodable {
 
     public class func decode(json: JSON) -> Decoded<OAuthAccessToken> {
         func toNSDate(timeIntervalSinceNow: NSTimeInterval?) -> Decoded<NSDate?> {
-            return .fromOptional(map(timeIntervalSinceNow) { timeIntervalSinceNow in
+            return pure(map(timeIntervalSinceNow) { timeIntervalSinceNow in
                 return NSDate(timeIntervalSinceNow: timeIntervalSinceNow)
-            })
+            } ?? .None)
         }
 
         return create
