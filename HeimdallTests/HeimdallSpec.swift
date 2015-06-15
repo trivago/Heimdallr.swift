@@ -98,7 +98,7 @@ class HeimdallSpec: QuickSpec {
                     OHHTTPStubs.stubRequestsPassingTest({ request in
                         return (request.URL!.absoluteString! == "http://rheinfabrik.de")
                     }, withStubResponse: { request in
-                        return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("authorize-valid", ofType: "json")!), statusCode: 200, headers: [ "Content-Type": "application/json" ])
+                        return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("authorize-valid", ofType: "json")!)!, statusCode: 200, headers: [ "Content-Type": "application/json" ])
                     })
 
                     waitUntil { done in
@@ -130,7 +130,7 @@ class HeimdallSpec: QuickSpec {
                     OHHTTPStubs.stubRequestsPassingTest({ request in
                         return (request.URL!.absoluteString! == "http://rheinfabrik.de")
                         }, withStubResponse: { request in
-                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("authorize-error", ofType: "json")!), statusCode: 400, headers: nil)
+                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("authorize-error", ofType: "json")!)!, statusCode: 400, headers: nil)
                     })
 
                     waitUntil { done in
@@ -166,7 +166,7 @@ class HeimdallSpec: QuickSpec {
                     OHHTTPStubs.stubRequestsPassingTest({ request in
                         return (request.URL!.absoluteString! == "http://rheinfabrik.de")
                         }, withStubResponse: { request in
-                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("authorize-invalid", ofType: "json")!), statusCode: 200, headers: [ "Content-Type": "application/json" ])
+                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("authorize-invalid", ofType: "json")!)!, statusCode: 200, headers: [ "Content-Type": "application/json" ])
                     })
 
                     waitUntil { done in
@@ -201,7 +201,7 @@ class HeimdallSpec: QuickSpec {
                     OHHTTPStubs.stubRequestsPassingTest({ request in
                         return (request.URL!.absoluteString! == "http://rheinfabrik.de")
                         }, withStubResponse: { request in
-                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("authorize-invalid-token", ofType: "json")!), statusCode: 200, headers: [ "Content-Type": "application/json" ])
+                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("authorize-invalid-token", ofType: "json")!)!, statusCode: 200, headers: [ "Content-Type": "application/json" ])
                     })
 
                     waitUntil { done in
@@ -237,7 +237,7 @@ class HeimdallSpec: QuickSpec {
                     OHHTTPStubs.stubRequestsPassingTest({ request in
                         return (request.URL!.absoluteString! == "http://rheinfabrik.de")
                         }, withStubResponse: { request in
-                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("authorize-invalid-type", ofType: "json")!), statusCode: 200, headers: [ "Content-Type": "application/json" ])
+                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("authorize-invalid-type", ofType: "json")!)!, statusCode: 200, headers: [ "Content-Type": "application/json" ])
                     })
 
                     waitUntil { done in
@@ -284,7 +284,7 @@ class HeimdallSpec: QuickSpec {
                     OHHTTPStubs.stubRequestsPassingTest({ request in
                         return (request.URL!.absoluteString! == "http://rheinfabrik.de")
                         }, withStubResponse: { request in
-                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("authorize-valid", ofType: "json")!), statusCode: 200, headers: [ "Content-Type": "application/json" ])
+                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("authorize-valid", ofType: "json")!)!, statusCode: 200, headers: [ "Content-Type": "application/json" ])
                     })
                     
                     waitUntil { done in
@@ -316,7 +316,7 @@ class HeimdallSpec: QuickSpec {
                     OHHTTPStubs.stubRequestsPassingTest({ request in
                         return (request.URL!.absoluteString! == "http://rheinfabrik.de")
                         }, withStubResponse: { request in
-                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("authorize-error", ofType: "json")!), statusCode: 400, headers: nil)
+                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("authorize-error", ofType: "json")!)!, statusCode: 400, headers: nil)
                     })
                     
                     waitUntil { done in
@@ -352,7 +352,7 @@ class HeimdallSpec: QuickSpec {
                     OHHTTPStubs.stubRequestsPassingTest({ request in
                         return (request.URL!.absoluteString! == "http://rheinfabrik.de")
                         }, withStubResponse: { request in
-                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("authorize-invalid", ofType: "json")!), statusCode: 200, headers: [ "Content-Type": "application/json" ])
+                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("authorize-invalid", ofType: "json")!)!, statusCode: 200, headers: [ "Content-Type": "application/json" ])
                     })
                     
                     waitUntil { done in
@@ -387,7 +387,7 @@ class HeimdallSpec: QuickSpec {
                     OHHTTPStubs.stubRequestsPassingTest({ request in
                         return (request.URL!.absoluteString! == "http://rheinfabrik.de")
                         }, withStubResponse: { request in
-                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("authorize-invalid-token", ofType: "json")!), statusCode: 200, headers: [ "Content-Type": "application/json" ])
+                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("authorize-invalid-token", ofType: "json")!)!, statusCode: 200, headers: [ "Content-Type": "application/json" ])
                     })
                     
                     waitUntil { done in
@@ -423,7 +423,7 @@ class HeimdallSpec: QuickSpec {
                     OHHTTPStubs.stubRequestsPassingTest({ request in
                         return (request.URL!.absoluteString! == "http://rheinfabrik.de")
                         }, withStubResponse: { request in
-                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("authorize-invalid-type", ofType: "json")!), statusCode: 200, headers: [ "Content-Type": "application/json" ])
+                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("authorize-invalid-type", ofType: "json")!)!, statusCode: 200, headers: [ "Content-Type": "application/json" ])
                     })
                     
                     waitUntil { done in
@@ -492,7 +492,7 @@ class HeimdallSpec: QuickSpec {
                     OHHTTPStubs.stubRequestsPassingTest({ request in
                         return (request.URL!.absoluteString! == "http://rheinfabrik.de")
                         }, withStubResponse: { request in
-                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("request-valid", ofType: "json")!), statusCode: 200, headers: [ "Content-Type": "application/json" ])
+                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("request-valid", ofType: "json")!)!, statusCode: 200, headers: [ "Content-Type": "application/json" ])
                     })
 
                     waitUntil { done in
@@ -524,7 +524,7 @@ class HeimdallSpec: QuickSpec {
                     OHHTTPStubs.stubRequestsPassingTest({ request in
                         return (request.URL!.absoluteString! == "http://rheinfabrik.de")
                         }, withStubResponse: { request in
-                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("request-invalid-norefresh", ofType: "json")!), statusCode: 200, headers: [ "Content-Type": "application/json" ])
+                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("request-invalid-norefresh", ofType: "json")!)!, statusCode: 200, headers: [ "Content-Type": "application/json" ])
                     })
 
                     waitUntil { done in
@@ -563,7 +563,7 @@ class HeimdallSpec: QuickSpec {
                             && heimdall.hasAccessToken == false
                             )
                     }, withStubResponse: { request in
-                        return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("request-invalid", ofType: "json")!), statusCode: 200, headers: [ "Content-Type": "application/json" ])
+                        return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("request-invalid", ofType: "json")!)!, statusCode: 200, headers: [ "Content-Type": "application/json" ])
                     })
 
                     waitUntil { done in
@@ -581,7 +581,7 @@ class HeimdallSpec: QuickSpec {
                         OHHTTPStubs.stubRequestsPassingTest({ request in
                             return (request.URL!.absoluteString! == "http://rheinfabrik.de")
                         }, withStubResponse: { request in
-                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("request-valid", ofType: "json")!), statusCode: 200, headers: [ "Content-Type": "application/json" ])
+                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("request-valid", ofType: "json")!)!, statusCode: 200, headers: [ "Content-Type": "application/json" ])
                         })
 
                         waitUntil { done in
@@ -605,7 +605,7 @@ class HeimdallSpec: QuickSpec {
                         OHHTTPStubs.stubRequestsPassingTest({ request in
                             return (request.URL!.absoluteString! == "http://rheinfabrik.de")
                         }, withStubResponse: { request in
-                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("authorize-error", ofType: "json")!), statusCode: 400, headers: [ "Content-Type": "application/json" ])
+                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("authorize-error", ofType: "json")!)!, statusCode: 400, headers: [ "Content-Type": "application/json" ])
                         })
 
                         waitUntil { done in
