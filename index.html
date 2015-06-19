@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Heimdall.swift by rheinfabrik</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Heimdall.swift</h1>
+      <h2 class="project-tagline">Easy to use OAuth 2 library for iOS, written in Swift.</h2>
+      <a href="https://github.com/rheinfabrik/Heimdall.swift" class="btn">View on GitHub</a>
+      <a href="https://github.com/rheinfabrik/Heimdall.swift/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/rheinfabrik/Heimdall.swift/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="heimdall" class="anchor" href="#heimdall" aria-hidden="true"><span class="octicon octicon-link"></span></a>Heimdall</h1>
+
+<p>Heimdall is an <a href="https://tools.ietf.org/html/rfc6749">OAuth 2.0</a> client specifically designed for easy usage. It currently supports the <a href="https://tools.ietf.org/html/rfc6749#section-4.3">resource owner password credentials grant</a> flow, <a href="https://tools.ietf.org/html/rfc6749#section-6">refreshing an access token</a> as well as <a href="https://tools.ietf.org/html/rfc6749#section-4.5">extension grants</a>.</p>
+
+<p>If you are familiar with <a href="https://github.com/ReactiveCocoa/ReactiveCocoa">ReactiveCocoa</a>, also check out <a href="https://github.com/rheinfabrik/ReactiveHeimdall">ReactiveHeimdall</a>!</p>
+
+<p><a href="https://circleci.com/gh/rheinfabrik/Heimdall.swift"><img src="https://circleci.com/gh/rheinfabrik/Heimdall.swift.svg?style=shield&amp;circle-token=06d0c39133fae3dd9b649c116776c7f882885f1f" alt="Build Status"></a></p>
+
+<h2>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h2>
+
+<p>Before requesting an access token, the client must be configured appropriately:</p>
+
+<div class="highlight highlight-swift"><pre><span class="pl-k">let</span> tokenURL <span class="pl-k">=</span> NSURL(string: <span class="pl-s"><span class="pl-pds">"</span>http://example.com/oauth/v2/token<span class="pl-pds">"</span></span>)<span class="pl-k">!</span>
+<span class="pl-k">let</span> heimdall <span class="pl-k">=</span> Heimdall(tokenURL: tokenURL)</pre></div>
+
+<p>On login, the resource owner's password credentials are used to request an access token:</p>
+
+<div class="highlight highlight-swift"><pre>heimdall<span class="pl-k">.</span>requestAccessToken(username: <span class="pl-s"><span class="pl-pds">"</span>johndoe<span class="pl-pds">"</span></span>, password: <span class="pl-s"><span class="pl-pds">"</span>A3ddj3w<span class="pl-pds">"</span></span>) { result <span class="pl-k">in</span>
+    <span class="pl-k">switch</span> result {
+    <span class="pl-k">case</span> <span class="pl-k">.</span>Success:
+        println(<span class="pl-s"><span class="pl-pds">"</span>success<span class="pl-pds">"</span></span>)
+    <span class="pl-k">case</span> <span class="pl-k">.</span>Failure(<span class="pl-k">let</span> error):
+        println(<span class="pl-s"><span class="pl-pds">"</span>failure: <span class="pl-pse">\(</span><span class="pl-s1">error<span class="pl-k">.</span>unbox<span class="pl-k">.</span>localizedDescription</span><span class="pl-pse">)</span><span class="pl-pds">"</span></span>)
+    }
+}</pre></div>
+
+<p>Heimdall automatically persists the access token. Afterwards, any <code>NSURLRequest</code> can be easily authenticated using the received access token:</p>
+
+<div class="highlight highlight-swift"><pre><span class="pl-k">var</span> session: NSURLSession<span class="pl-k">!</span>
+<span class="pl-k">var</span> request: NSURLRequest<span class="pl-k">!</span>
+
+heimdall<span class="pl-k">.</span>authenticateRequest(request) { result
+    <span class="pl-k">switch</span> result {
+    <span class="pl-k">case</span> <span class="pl-k">.</span>Success(<span class="pl-k">let</span> request):
+        <span class="pl-k">let</span> task <span class="pl-k">=</span> session<span class="pl-k">.</span>dataTaskWithRequest(request<span class="pl-k">.</span>unbox) { data, response, error <span class="pl-k">in</span>
+            <span class="pl-c">// ...</span>
+        }
+
+        task<span class="pl-k">.</span>resume()
+    <span class="pl-k">case</span> <span class="pl-k">.</span>Failure(<span class="pl-k">let</span> error):
+        println(<span class="pl-s"><span class="pl-pds">"</span>failure: <span class="pl-pse">\(</span><span class="pl-s1">error<span class="pl-k">.</span>unbox<span class="pl-k">.</span>localizedDescription</span><span class="pl-pse">)</span><span class="pl-pds">"</span></span>)
+    }
+}</pre></div>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<h3>
+<a id="carthage" class="anchor" href="#carthage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Carthage</h3>
+
+<p><a href="https://github.com/Carthage/Carthage">Carthage</a> is a simple, decentralized dependency manager for Cocoa.</p>
+
+<ol>
+<li>
+<p>Add Heimdall to your <a href="https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile">Cartfile</a>:</p>
+
+<pre><code>github "rheinfabrik/Heimdall.swift" ~&gt; 1.1
+</code></pre>
+</li>
+<li><p>Run <code>carthage update</code> to fetch and build Heimdall and its dependencies.</p></li>
+<li><p><a href="https://github.com/carthage/carthage#getting-started">Make sure your application's target links against <code>Heimdall.framework</code> and copies all relevant frameworks into its application bundle (iOS); or embeds the binaries of all relevant frameworks (Mac).</a></p></li>
+</ol>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<h3>
+<a id="oauthclientcredentials" class="anchor" href="#oauthclientcredentials" aria-hidden="true"><span class="octicon octicon-link"></span></a>OAuthClientCredentials</h3>
+
+<p>The client credentials, consisting of the client's identifier and optionally its secret, are used for authenticating with the token endpoint:</p>
+
+<div class="highlight highlight-swift"><pre><span class="pl-k">var</span> identifier: <span class="pl-c1">String</span><span class="pl-k">!</span>
+<span class="pl-k">var</span> secret: <span class="pl-c1">String</span><span class="pl-k">!</span>
+
+<span class="pl-k">let</span> credentials <span class="pl-k">=</span> OAuthClientCredentials(id: identifier)
+               <span class="pl-c">// OAuthClientCredentials(id: identifier, secret: secret)</span></pre></div>
+
+<p><em>Please note that native applications are considered to be <a href="https://tools.ietf.org/html/rfc6749#section-2.1">public clients</a>.</em></p>
+
+<h3>
+<a id="oauthaccesstokenstore" class="anchor" href="#oauthaccesstokenstore" aria-hidden="true"><span class="octicon octicon-link"></span></a>OAuthAccessTokenStore</h3>
+
+<p>An access token store is used to (persistently) store an access token received from the token endpoint. It must implement the following storage and retrieval methods:</p>
+
+<div class="highlight highlight-swift"><pre><span class="pl-k">protocol</span> OAuthAccessTokenStore {
+    <span class="pl-k">func</span> <span class="pl-en">storeAccessToken</span>(accessToken: OAuthAccessToken?)
+    <span class="pl-k">func</span> <span class="pl-en">retrieveAccessToken</span>() <span class="pl-k">-&gt;</span> OAuthAccessToken?
+}</pre></div>
+
+<p>Heimdall ships with an already built-in persistent Keychain-based access token store, using <a href="https://github.com/kishikawakatsumi/KeychainAccess">KeychainAccess</a>. The service is configurable:</p>
+
+<div class="highlight highlight-swift"><pre><span class="pl-k">var</span> service: <span class="pl-c1">String</span><span class="pl-k">!</span>
+
+<span class="pl-k">let</span> accessTokenStore <span class="pl-k">=</span> OAuthAccessTokenKeychainStore(service: service)</pre></div>
+
+<h3>
+<a id="heimdallhttpclient" class="anchor" href="#heimdallhttpclient" aria-hidden="true"><span class="octicon octicon-link"></span></a>HeimdallHTTPClient</h3>
+
+<p>An HTTP client that can be used by Heimdall for requesting access tokens. It must implement the following <code>sendRequest</code> method:</p>
+
+<div class="highlight highlight-swift"><pre><span class="pl-k">protocol</span> HeimdallHTTPClient {
+    <span class="pl-k">func</span> <span class="pl-en">sendRequest</span>(request: NSURLRequest, completion: (data: NSData<span class="pl-k">!</span>, response: NSURLResponse<span class="pl-k">!</span>, error: NSError?) <span class="pl-k">-&gt;</span> ())
+}</pre></div>
+
+<p>For convenience, a default HTTP client named <code>HeimdallHTTPClientNSURLSession</code> and based on <code>NSURLSession</code> is provided. It may be configured with an <code>NSURLSession</code>:</p>
+
+<div class="highlight highlight-swift"><pre><span class="pl-k">var</span> urlSession: NSURLSession<span class="pl-k">!</span>
+
+<span class="pl-k">let</span> httpClient <span class="pl-k">=</span> HeimdallHTTPClientNSURLSession(urlSession: session)</pre></div>
+
+<h3>
+<a id="heimdall-1" class="anchor" href="#heimdall-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Heimdall</h3>
+
+<p>Heimdall must be initialized with the token endpoint URL and can optionally be configured with client credentials, an access token store and an HTTP client:</p>
+
+<div class="highlight highlight-swift"><pre><span class="pl-k">var</span> tokenURL: NSURL<span class="pl-k">!</span>
+
+<span class="pl-k">let</span> heimdall <span class="pl-k">=</span> Heimdall(tokenURL: tokenURL)
+            <span class="pl-c">// Heimdall(tokenURL: tokenURL, credentials: credentials)</span>
+            <span class="pl-c">// Heimdall(tokenURL: tokenURL, credentials: credentials, accessTokenStore: accessTokenStore)</span>
+            <span class="pl-c">// Heimdall(tokenURL: tokenURL, credentials: credentials, accessTokenStore: accessTokenStore, httpClient: httpClient)</span>
+            <span class="pl-c">// Heimdall(tokenURL: tokenURL, credentials: credentials, accessTokenStore: accessTokenStore, httpClient: httpClient, resourceRequestAuthenticator: resourceRequestAuthenticator)</span></pre></div>
+
+<p>Whether the client's access token store currently holds an access token can be checked using the <code>hasAccessToken</code> property. <em>It's not checked whether the stored access token, if any, has already expired.</em></p>
+
+<p>The <code>authorize</code> method takes the resource owner's password credentials as parameters and uses them to request an access token from the token endpoint:</p>
+
+<div class="highlight highlight-swift"><pre><span class="pl-k">var</span> username: <span class="pl-c1">String</span><span class="pl-k">!</span>
+<span class="pl-k">var</span> password: <span class="pl-c1">String</span><span class="pl-k">!</span>
+
+heimdall<span class="pl-k">.</span>requestAccessToken(username: username, password: password) { result <span class="pl-k">in</span>
+    <span class="pl-c">// ...</span>
+}</pre></div>
+
+<p><em>The <code>completion</code> closure may be invoked on any thread.</em></p>
+
+<p>Once successfully authorized, any <code>NSURLRequest</code> can be easily altered to include authentication via the received access token:</p>
+
+<div class="highlight highlight-swift"><pre><span class="pl-k">var</span> request: NSURLRequest<span class="pl-k">!</span>
+
+heimdall<span class="pl-k">.</span>authenticateRequest(request) { result
+    <span class="pl-c">// ...</span>
+}</pre></div>
+
+<p>If the access token has already expired and a refresh token is available, Heimdall will automatically refresh the access token. <em>Refreshing requires network I/O.</em> <em>The <code>completion</code> closure may be invoked on any thread.</em></p>
+
+<h3>
+<a id="heimdallresourcerequestauthenticator" class="anchor" href="#heimdallresourcerequestauthenticator" aria-hidden="true"><span class="octicon octicon-link"></span></a>HeimdallResourceRequestAuthenticator</h3>
+
+<p>By default, Heimdall authenticates a request by setting the HTTP header field <code>Authorization</code>. This behavior can be changed by passing another resource request authenticator implementing <code>HeimdallResourceRequestAuthenticator</code> to the initializer.</p>
+
+<h2>
+<a id="about" class="anchor" href="#about" aria-hidden="true"><span class="octicon octicon-link"></span></a>About</h2>
+
+<p>Heimdall was built by <a href="http://www.rheinfabrik.de">Rheinfabrik</a> <g-emoji alias="factory" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f3ed.png">🏭</g-emoji></p>
+
+<h2>
+<a id="credits" class="anchor" href="#credits" aria-hidden="true"><span class="octicon octicon-link"></span></a>Credits</h2>
+
+<p>Contains code for query string escaping taken from <a href="https://github.com/Alamofire/Alamofire/">Alamofire</a> (MIT License)</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/rheinfabrik/Heimdall.swift">Heimdall.swift</a> is maintained by <a href="https://github.com/rheinfabrik">rheinfabrik</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
+
