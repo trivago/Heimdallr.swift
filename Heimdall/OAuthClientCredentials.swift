@@ -25,10 +25,10 @@ public class OAuthClientCredentials: NSObject {
 
     /// Initializes new client credentials.
     ///
-    /// :param: id The client identifier.
-    /// :param: secret The client secret.
+    /// - parameter id: The client identifier.
+    /// - parameter secret: The client secret.
     ///
-    /// :returns: New client credentials initialized with the given client
+    /// - returns: New client credentials initialized with the given client
     ///     identifier and secret.
     public init(id: String, secret: String? = nil) {
         self.id = id

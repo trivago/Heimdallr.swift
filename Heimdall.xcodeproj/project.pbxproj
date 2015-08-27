@@ -312,6 +312,8 @@
 		DC545DB91A89F0F10051A575 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "B264 GmbH";
 				TargetAttributes = {

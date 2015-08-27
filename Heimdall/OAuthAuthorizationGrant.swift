@@ -5,19 +5,19 @@ import Foundation
 public enum OAuthAuthorizationGrant {
     /// A resource owner password credentials grant.
     ///
-    /// :param: username The resource owner's username.
-    /// :param: password The resource owner's password.
+    /// - parameter username: The resource owner's username.
+    /// - parameter password: The resource owner's password.
     case ResourceOwnerPasswordCredentials(String, String)
 
     /// A refresh token grant.
     ///
-    /// :param: refreshToken The refresh token.
+    /// - parameter refreshToken: The refresh token.
     case RefreshToken(String)
 
     /// An extension grant
     ///
-    /// :param: grantType The grant type URI of the extension grant
-    /// :param: parameters A dictionary of parameters
+    /// - parameter grantType: The grant type URI of the extension grant
+    /// - parameter parameters: A dictionary of parameters
     case Extension(String, [String: String])
 
     /// Returns the grant's parameters.

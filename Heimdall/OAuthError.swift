@@ -1,5 +1,4 @@
 import Argo
-import Runes
 
 /// See: The OAuth 2.0 Authorization Framework, 5.2 Error Response
 ///      <https://tools.ietf.org/html/rfc6749#section-5.2>
@@ -50,7 +49,6 @@ extension OAuthErrorCode: Decodable {
     }
 }
 
-@objc
 public class OAuthError {
     public let code: OAuthErrorCode
     public let description: String?
@@ -92,7 +90,7 @@ extension OAuthError: Decodable {
     }
 
     public class func decode(data: NSData) -> Decoded<OAuthError> {
-        let json: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: nil)
+        let json: AnyObject? = try? NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
         return Decoded<AnyObject>.fromOptional(json).flatMap(Argo.decode)
     }
 }
