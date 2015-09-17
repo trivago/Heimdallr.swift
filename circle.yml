@@ -1,6 +1,6 @@
 machine:
   xcode:
-    version: "6.3.1"
+    version: "7.0"
 dependencies:
   pre:
     - sudo chown :wheel /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ *.simruntime/Contents/Resources/RuntimeRoot/usr/lib/dyld_sim
