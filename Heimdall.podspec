@@ -19,8 +19,8 @@ Pod::Spec.new do |spec|
 
   spec.platform = :ios, '8.0'
 
-  spec.dependency 'Argo', '~> 1.0'
-  spec.dependency 'KeychainAccess', '~> 1.2'
+  spec.dependency 'Argo', '~> 2.0'
+  spec.dependency 'KeychainAccess', '~> 2.0'
   spec.dependency 'Result', '0.6-beta.1'
   spec.framework = 'Foundation'
 
