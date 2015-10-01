@@ -108,9 +108,7 @@ public extension NSMutableURLRequest {
     }
 
     private func escapeQuery(string: String) -> String {
-        let legalURLCharactersToBeEscaped: CFStringRef = ":&=;+!@#$()',*"
-        let charactersToLeaveUnescaped: CFStringRef = "[]."
-        return CFURLCreateStringByAddingPercentEscapes(nil, string, charactersToLeaveUnescaped, legalURLCharactersToBeEscaped, CFStringBuiltInEncodings.UTF8.rawValue) as String
+        return string.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
     }
 
 }
