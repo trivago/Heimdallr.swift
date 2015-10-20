@@ -73,7 +73,7 @@ Installation is possible via Carthage or CocoaPods, see below for either method:
 1. Add Heimdall to your [Podfile](https://guides.cocoapods.org/syntax/podfile.html):
 
    ```ruby
-   pod 'Heimdall', '~> 2.0'
+   pod 'Heimdall', :git => 'https://github.com/rheinfabrik/Heimdall.swift.git', :tag => '2.0'
    ```
    
 2.  Run `pod install` to fetch and build Heimdall and its dependencies.
