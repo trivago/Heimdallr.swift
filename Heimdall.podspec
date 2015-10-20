@@ -1,10 +1,10 @@
 Pod::Spec.new do |spec|
   spec.name = 'Heimdall'
-  spec.version = '2.0-alpha.2'
+  spec.version = '2.0'
   spec.authors = {
-    'Felix Jendrusch' => 'felix@rheinfabrik.de',
-    'Tim Brückmann' => 'tim@rheinfabrik.de'
+    'Rheinfabrik' => 'hi@rheinfabrik.de'
   }
+  spec.social_media_url = 'https://twitter.com/rheinfabrik'
   spec.license = {
     :type => 'Apache License, Version 2.0',
     :file => 'LICENSE'
@@ -19,9 +19,9 @@ Pod::Spec.new do |spec|
 
   spec.platform = :ios, '8.0'
 
-  spec.dependency 'Argo', '~> 2.0'
+  spec.dependency 'Argo', '~> 2.1'
   spec.dependency 'KeychainAccess', '~> 2.0'
-  spec.dependency 'Result', '0.6-beta.1'
+  spec.dependency 'Result', '0.6.0-beta.4'
   spec.framework = 'Foundation'
 
   spec.source_files = 'Heimdall/**/*.{h,swift}'
