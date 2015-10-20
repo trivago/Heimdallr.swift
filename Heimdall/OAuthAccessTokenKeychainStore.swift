@@ -7,32 +7,32 @@ public class OAuthAccessTokenKeychainStore: NSObject, OAuthAccessTokenStore {
 
     /// Initializes a new Keychain-based access token store.
     ///
-    /// :param: service The Keychain service.
+    /// - parameter service: The Keychain service.
     ///     Default: `de.rheinfabrik.heimdall.oauth`.
     ///
-    /// :returns: A new Keychain-based access token store initialized with the
+    /// - returns: A new Keychain-based access token store initialized with the
     ///     the given service.
     public init(service: String = "de.rheinfabrik.heimdall.oauth") {
         keychain = Keychain(service: service)
     }
-    
+
     public func storeAccessToken(accessToken: OAuthAccessToken?) {
         keychain["access_token"] = accessToken?.accessToken
         keychain["token_type"] = accessToken?.tokenType
         keychain["expires_at"] = accessToken?.expiresAt?.timeIntervalSince1970.description
         keychain["refresh_token"] = accessToken?.refreshToken
     }
-    
+
     public func retrieveAccessToken() -> OAuthAccessToken? {
         let accessToken = keychain["access_token"]
         let tokenType = keychain["token_type"]
         let refreshToken = keychain["refresh_token"]
-        
+
         var expiresAt: NSDate?
         if let expiresAtInSeconds = keychain["expires_at"] as NSString? {
             expiresAt = NSDate(timeIntervalSince1970: expiresAtInSeconds.doubleValue)
         }
-        
+
         if let accessToken = accessToken {
             if let tokenType = tokenType {
                 return OAuthAccessToken(
@@ -42,7 +42,7 @@ public class OAuthAccessTokenKeychainStore: NSObject, OAuthAccessTokenStore {
                     refreshToken: refreshToken)
             }
         }
-        
+
         return nil
     }
 }

@@ -131,7 +131,7 @@ class OAuthAccessTokenSpec: QuickSpec {
             it("returns false if refresh tokens are not equal") {
                 let lhs = OAuthAccessToken(accessToken: "accessToken", tokenType: "tokenType", refreshToken: "refreshTokena")
                 let rhs = OAuthAccessToken(accessToken: "accessToken", tokenType: "tokenType", refreshToken: "refreshTokenb")
-                
+
                 expect(lhs == rhs).to(beFalse())
             }
         }

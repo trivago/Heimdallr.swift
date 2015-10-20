@@ -5,13 +5,13 @@ import Foundation
 public enum HTTPAuthentication: Equatable {
     /// HTTP Basic Authentication.
     ///
-    /// :param: username The username.
-    /// :param: password The password.
+    /// - parameter username: The username.
+    /// - parameter password: The password.
     case BasicAuthentication(username: String, password: String)
 
     /// Access Token Authentication.
     ///
-    /// :param: _ The access token.
+    /// - parameter _: The access token.
     case AccessTokenAuthentication(OAuthAccessToken)
 
     /// Returns the authentication encoded as `String` suitable for the HTTP
@@ -21,7 +21,7 @@ public enum HTTPAuthentication: Equatable {
         case .BasicAuthentication(let username, let password):
             if let credentials = "\(username):\(password)"
                 .dataUsingEncoding(NSASCIIStringEncoding)?
-                .base64EncodedStringWithOptions(NSDataBase64EncodingOptions(0)) {
+                .base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0)) {
                 return "Basic \(credentials)"
             } else {
                 return nil
@@ -56,7 +56,7 @@ public extension NSURLRequest {
 public extension NSMutableURLRequest {
     /// Sets the HTTP `Authorization` header value.
     ///
-    /// :param: value The value to be set or `nil`.
+    /// - parameter value: The value to be set or `nil`.
     ///
     /// TODO: Declarations in extensions cannot override yet.
     public func setHTTPAuthorization(value: String?) {
@@ -66,29 +66,29 @@ public extension NSMutableURLRequest {
     /// Sets the HTTP `Authorization` header value using the given HTTP
     /// authentication.
     ///
-    /// :param: authentication The HTTP authentication to be set.
+    /// - parameter authentication: The HTTP authentication to be set.
     public func setHTTPAuthorization(authentication: HTTPAuthentication) {
         self.setHTTPAuthorization(authentication.value)
     }
 
     /// Sets the HTTP body using the given paramters encoded as query string.
     ///
-    /// :param: parameters The parameters to be encoded or `nil`.
+    /// - parameter parameters: The parameters to be encoded or `nil`.
     ///
     /// TODO: Tests crash without named parameter.
-    public func setHTTPBody(#parameters: [String: AnyObject]?) {
+    public func setHTTPBody(parameters parameters: [String: AnyObject]?) {
         if let parameters = parameters {
             var components: [(String, String)] = []
             for (key, value) in parameters {
                 components += queryComponents(key, value)
             }
-            var bodyString = join("&", components.map { "\($0)=\($1)" } )
+            let bodyString = components.map { "\($0)=\($1)" }.joinWithSeparator("&" )
             HTTPBody = bodyString.dataUsingEncoding(NSUTF8StringEncoding)
         } else {
             HTTPBody = nil
         }
     }
-    
+
     // Taken from https://github.com/Alamofire/Alamofire/blob/master/Source/ParameterEncoding.swift#L136
     private func queryComponents(key: String, _ value: AnyObject) -> [(String, String)] {
         var components: [(String, String)] = []
@@ -101,16 +101,16 @@ public extension NSMutableURLRequest {
                 components += queryComponents("\(key)[]", value)
             }
         } else {
-            components.extend([(escapeQuery(key), escapeQuery("\(value)"))])
+            components.appendContentsOf([(escapeQuery(key), escapeQuery("\(value)"))])
         }
-        
+
         return components
     }
-    
+
     private func escapeQuery(string: String) -> String {
         let legalURLCharactersToBeEscaped: CFStringRef = ":&=;+!@#$()',*"
         let charactersToLeaveUnescaped: CFStringRef = "[]."
-        return CFURLCreateStringByAddingPercentEscapes(nil, string, charactersToLeaveUnescaped, legalURLCharactersToBeEscaped, CFStringBuiltInEncodings.UTF8.rawValue) as! String
+        return CFURLCreateStringByAddingPercentEscapes(nil, string, charactersToLeaveUnescaped, legalURLCharactersToBeEscaped, CFStringBuiltInEncodings.UTF8.rawValue) as String
     }
 
 }

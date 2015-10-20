@@ -11,15 +11,15 @@ public class HeimdallResourceRequestAuthenticatorHTTPAuthorizationHeader: NSObje
     /// Authenticates the given request by setting the HTTP `Authorization`
     /// header.
     ///
-    /// :param: request The request to be authenticated.
-    /// :param: accessToken The access token that should be used for
+    /// - parameter request: The request to be authenticated.
+    /// - parameter accessToken: The access token that should be used for
     ///     authenticating the request.
     ///
-    /// :returns: The authenticated request.
+    /// - returns: The authenticated request.
     public func authenticateResourceRequest(request: NSURLRequest, accessToken: OAuthAccessToken) -> NSURLRequest {
-        var mutableRequest = request.mutableCopy() as! NSMutableURLRequest
+        let mutableRequest = request.mutableCopy() as! NSMutableURLRequest
         mutableRequest.setHTTPAuthorization(.AccessTokenAuthentication(accessToken))
         return mutableRequest
     }
-    
+
 }

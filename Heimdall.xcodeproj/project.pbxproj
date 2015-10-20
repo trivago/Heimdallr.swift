@@ -44,9 +44,7 @@
 		DCD6C14A1B17546100BD66CB /* OHHTTPStubs.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 22B8F4801AAEFA62004C1641 /* OHHTTPStubs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DCD6C14B1B17546100BD66CB /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC336D631A938F13002AE918 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DCD6C14C1B17546100BD66CB /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC336D621A938F13002AE918 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DCD6C14D1B17546500BD66CB /* Box.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCD6C1451B17540C00BD66CB /* Box.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DCD6C14E1B17546500BD66CB /* Result.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCD6C1461B17540C00BD66CB /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DCD6C14F1B17546500BD66CB /* Runes.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCD6C1481B17543F00BD66CB /* Runes.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DCD6C1501B17546500BD66CB /* Argo.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC336D591A938E5D002AE918 /* Argo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DCD6C1511B17546500BD66CB /* KeychainAccess.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC336D5A1A938E5D002AE918 /* KeychainAccess.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DCD72CB51A8C9FDE0024BAC1 /* NSURLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD72CB41A8C9FDE0024BAC1 /* NSURLRequestExtensions.swift */; };
@@ -73,9 +71,7 @@
 				DCD6C14A1B17546100BD66CB /* OHHTTPStubs.framework in CopyFiles */,
 				DCD6C14B1B17546100BD66CB /* Quick.framework in CopyFiles */,
 				DCD6C14C1B17546100BD66CB /* Nimble.framework in CopyFiles */,
-				DCD6C14D1B17546500BD66CB /* Box.framework in CopyFiles */,
 				DCD6C14E1B17546500BD66CB /* Result.framework in CopyFiles */,
-				DCD6C14F1B17546500BD66CB /* Runes.framework in CopyFiles */,
 				DCD6C1501B17546500BD66CB /* Argo.framework in CopyFiles */,
 				DCD6C1511B17546500BD66CB /* KeychainAccess.framework in CopyFiles */,
 			);
@@ -120,9 +116,7 @@
 		DCB2540E1A8CF74B00226966 /* OAuthAccessTokenSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenSpec.swift; sourceTree = "<group>"; };
 		DCB254101A8D010800226966 /* OAuthError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthError.swift; sourceTree = "<group>"; };
 		DCB254121A8D138D00226966 /* authorize-error.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "authorize-error.json"; sourceTree = "<group>"; };
-		DCD6C1451B17540C00BD66CB /* Box.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Box.framework; path = Carthage/Build/iOS/Box.framework; sourceTree = "<group>"; };
 		DCD6C1461B17540C00BD66CB /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
-		DCD6C1481B17543F00BD66CB /* Runes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Runes.framework; path = Carthage/Build/iOS/Runes.framework; sourceTree = "<group>"; };
 		DCD72CB41A8C9FDE0024BAC1 /* NSURLRequestExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLRequestExtensions.swift; sourceTree = "<group>"; };
 		DCD72CB61A8CABB20024BAC1 /* NSURLRequestExtensionsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLRequestExtensionsSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -155,14 +149,10 @@
 		DC336D671A93A76D002AE918 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DC7E181F1BD636C100154183 /* Private */,
 				DC336D591A938E5D002AE918 /* Argo.framework */,
-				DCD6C1451B17540C00BD66CB /* Box.framework */,
 				DC336D5A1A938E5D002AE918 /* KeychainAccess.framework */,
-				DC336D621A938F13002AE918 /* Nimble.framework */,
-				22B8F4801AAEFA62004C1641 /* OHHTTPStubs.framework */,
-				DC336D631A938F13002AE918 /* Quick.framework */,
 				DCD6C1461B17540C00BD66CB /* Result.framework */,
-				DCD6C1481B17543F00BD66CB /* Runes.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -239,6 +229,16 @@
 				DC545DD31A89F0F10051A575 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DC7E181F1BD636C100154183 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				DC336D621A938F13002AE918 /* Nimble.framework */,
+				22B8F4801AAEFA62004C1641 /* OHHTTPStubs.framework */,
+				DC336D631A938F13002AE918 /* Quick.framework */,
+			);
+			name = Private;
 			sourceTree = "<group>";
 		};
 		DCA5B9A31A8A4C0500667D32 /* Stub Responses */ = {
@@ -320,7 +320,9 @@
 		DC545DB91A89F0F10051A575 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "B264 GmbH";
 				TargetAttributes = {
 					DC545DC11A89F0F10051A575 = {
@@ -441,6 +443,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -455,7 +458,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -495,7 +498,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -520,6 +523,7 @@
 				INFOPLIST_FILE = Heimdall/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -541,6 +545,7 @@
 				INFOPLIST_FILE = Heimdall/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -560,6 +565,7 @@
 				);
 				INFOPLIST_FILE = HeimdallTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -574,6 +580,7 @@
 				);
 				INFOPLIST_FILE = HeimdallTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

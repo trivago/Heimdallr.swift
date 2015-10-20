@@ -24,7 +24,7 @@ public let HeimdallErrorNotAuthorized = 2
         }
     }
     private let httpClient: HeimdallHTTPClient
-    
+
     /// The request authenticator that is used to authenticate requests.
     public let resourceRequestAuthenticator: HeimdallResourceRequestAuthenticator
 
@@ -39,20 +39,20 @@ public let HeimdallErrorNotAuthorized = 2
 
     /// Initializes a new client.
     ///
-    /// :param: tokenURL The token endpoint URL.
-    /// :param: credentials The OAuth client credentials. If both an identifier
+    /// - parameter tokenURL: The token endpoint URL.
+    /// - parameter credentials: The OAuth client credentials. If both an identifier
     ///     and a secret are set, client authentication is performed via HTTP
     ///     Basic Authentication. Otherwise, if only an identifier is set, it is
     ///     encoded as parameter. Default: `nil` (unauthenticated client).
-    /// :param: accessTokenStore The (persistent) access token store.
+    /// - parameter accessTokenStore: The (persistent) access token store.
     ///     Default: `OAuthAccessTokenKeychainStore`.
-    /// :param: httpClient The HTTP client that should be used for requesting
+    /// - parameter httpClient: The HTTP client that should be used for requesting
     ///     access tokens. Default: `HeimdallHTTPClientNSURLSession`.
-    /// :param: resourceRequestAuthenticator The request authenticator that is 
+    /// - parameter resourceRequestAuthenticator: The request authenticator that is 
     ///     used to authenticate requests. Default: 
     ///     `HeimdallResourceRequestAuthenticatorHTTPAuthorizationHeader`.
     ///
-    /// :returns: A new client initialized with the given token endpoint URL,
+    /// - returns: A new client initialized with the given token endpoint URL,
     ///     credentials and access token store.
     public init(tokenURL: NSURL, credentials: OAuthClientCredentials? = nil, accessTokenStore: OAuthAccessTokenStore = OAuthAccessTokenKeychainStore(), httpClient: HeimdallHTTPClient = HeimdallHTTPClientNSURLSession(), resourceRequestAuthenticator: HeimdallResourceRequestAuthenticator = HeimdallResourceRequestAuthenticatorHTTPAuthorizationHeader()) {
         self.tokenURL = tokenURL
@@ -73,7 +73,7 @@ public let HeimdallErrorNotAuthorized = 2
     public func invalidateAccessToken() {
         accessToken = accessToken?.copy(expiresAt: NSDate(timeIntervalSince1970: 0))
     }
-    
+
     /// Clears the currently stored access token, if any.
     ///
     /// After calling this method the user needs to reauthenticate using 
@@ -86,23 +86,23 @@ public let HeimdallErrorNotAuthorized = 2
     ///
     /// **Note:** The completion closure may be invoked on any thread.
     ///
-    /// :param: username The resource owner's username.
-    /// :param: password The resource owner's password.
-    /// :param: completion A callback to invoke when the request completed.
-    public func requestAccessToken(#username: String, password: String, completion: Result<Void, NSError> -> ()) {
+    /// - parameter username: The resource owner's username.
+    /// - parameter password: The resource owner's password.
+    /// - parameter completion: A callback to invoke when the request completed.
+    public func requestAccessToken(username username: String, password: String, completion: Result<Void, NSError> -> ()) {
         requestAccessToken(grant: .ResourceOwnerPasswordCredentials(username, password)) { result in
             completion(result.map { _ in return })
         }
     }
-    
+
     /// Requests an access token with the given grant type URI and parameters
     ///
     /// **Note:** The completion closure may be invoked on any thread.
     ///
-    /// :param: grantType The grant type URI of the extension grant
-    /// :param: parameters The required parameters for the external grant
-    /// :param: completion A callback to invoke when the request completed.
-    public func requestAccessToken(#grantType: String, parameters: [String: String], completion: Result<Void, NSError> -> ()) {
+    /// - parameter grantType: The grant type URI of the extension grant
+    /// - parameter parameters: The required parameters for the external grant
+    /// - parameter completion: A callback to invoke when the request completed.
+    public func requestAccessToken(grantType grantType: String, parameters: [String: String], completion: Result<Void, NSError> -> ()) {
         requestAccessToken(grant: .Extension(grantType, parameters)) { result in
             completion(result.map { _ in return })
         }
@@ -114,9 +114,9 @@ public let HeimdallErrorNotAuthorized = 2
     /// identifier and a secret are set in its credentials. Otherwise, if only
     /// an identifier is set, it is encoded as parameter.
     ///
-    /// :param: grant The authorization grant (e.g., refresh).
-    /// :param: completion A callback to invoke when the request completed.
-    private func requestAccessToken(#grant: OAuthAuthorizationGrant, completion: Result<OAuthAccessToken, NSError> -> ()) {
+    /// - parameter grant: The authorization grant (e.g., refresh).
+    /// - parameter completion: A callback to invoke when the request completed.
+    private func requestAccessToken(grant grant: OAuthAuthorizationGrant, completion: Result<OAuthAccessToken, NSError> -> ()) {
         let request = NSMutableURLRequest(URL: tokenURL)
 
         var parameters = grant.parameters
@@ -134,33 +134,33 @@ public let HeimdallErrorNotAuthorized = 2
 
         httpClient.sendRequest(request) { data, response, error in
             if let error = error {
-                completion(.failure(error))
+                completion(.Failure(error))
             } else if (response as! NSHTTPURLResponse).statusCode == 200 {
-                switch OAuthAccessToken.decode(data) {
+                switch OAuthAccessToken.decode(data!) {
                 case let .Success(accessToken):
-                    self.accessToken = accessToken.value
-                    completion(.success(accessToken.value))
+                    self.accessToken = accessToken
+                    completion(.Success(accessToken))
                 default:
                     let userInfo = [
                         NSLocalizedDescriptionKey: NSLocalizedString("Could not authorize grant", comment: ""),
-                        NSLocalizedFailureReasonErrorKey: String(format: NSLocalizedString("Expected access token, got: %@.", comment: ""), NSString(data: data, encoding: NSUTF8StringEncoding) ?? "nil")
+                        NSLocalizedFailureReasonErrorKey: String(format: NSLocalizedString("Expected access token, got: %@.", comment: ""), NSString(data: data!, encoding: NSUTF8StringEncoding) ?? "nil")
                     ]
 
                     let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorInvalidData, userInfo: userInfo)
-                    completion(.failure(error))
+                    completion(.Failure(error))
                 }
             } else {
-                switch OAuthError.decode(data) {
+                switch OAuthError.decode(data!) {
                 case let .Success(error):
-                    completion(.failure(error.value.nsError))
+                    completion(.Failure(error.nsError))
                 default:
                     let userInfo = [
                         NSLocalizedDescriptionKey: NSLocalizedString("Could not authorize grant", comment: ""),
-                        NSLocalizedFailureReasonErrorKey: String(format: NSLocalizedString("Expected error, got: %@.", comment: ""), NSString(data: data, encoding: NSUTF8StringEncoding) ?? "nil")
+                        NSLocalizedFailureReasonErrorKey: String(format: NSLocalizedString("Expected error, got: %@.", comment: ""), NSString(data: data!, encoding: NSUTF8StringEncoding) ?? "nil")
                     ]
 
                     let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorInvalidData, userInfo: userInfo)
-                    completion(.failure(error))
+                    completion(.Failure(error))
                 }
             }
         }
@@ -168,10 +168,10 @@ public let HeimdallErrorNotAuthorized = 2
 
     /// Alters the given request by adding authentication with an access token.
     ///
-    /// :param: request An unauthenticated NSURLRequest.
-    /// :param: accessToken The access token to be used for authentication.
+    /// - parameter request: An unauthenticated NSURLRequest.
+    /// - parameter accessToken: The access token to be used for authentication.
     ///
-    /// :returns: The given request authorized using the resource request 
+    /// - returns: The given request authorized using the resource request 
     ///     authenticator.
     private func authenticateRequest(request: NSURLRequest, accessToken: OAuthAccessToken) -> NSURLRequest {
         return self.resourceRequestAuthenticator.authenticateResourceRequest(request, accessToken: accessToken)
@@ -188,8 +188,8 @@ public let HeimdallErrorNotAuthorized = 2
     ///
     /// **Note:** The completion closure may be invoked on any thread.
     ///
-    /// :param: request An unauthenticated NSURLRequest.
-    /// :param: completion A callback to invoke with the authenticated request.
+    /// - parameter request: An unauthenticated NSURLRequest.
+    /// - parameter completion: A callback to invoke with the authenticated request.
     public func authenticateRequest(request: NSURLRequest, completion: Result<NSURLRequest, NSError> -> ()) {
         if let accessToken = accessToken {
             if accessToken.expiresAt != nil && accessToken.expiresAt < NSDate() {
@@ -197,12 +197,12 @@ public let HeimdallErrorNotAuthorized = 2
                     requestAccessToken(grant: .RefreshToken(refreshToken)) { result in
                         completion(result.analysis(ifSuccess: { accessToken in
                             let authenticatedRequest = self.authenticateRequest(request, accessToken: accessToken)
-                            return .success(authenticatedRequest)
+                            return .Success(authenticatedRequest)
                         }, ifFailure: { error in
-                            if contains([ HeimdallErrorDomain, OAuthErrorDomain ], error.domain) {
+                            if [ HeimdallErrorDomain, OAuthErrorDomain ].contains(error.domain) {
                                 self.clearAccessToken()
                             }
-                            return .failure(error)
+                            return .Failure(error)
                         }))
                     }
                 } else {
@@ -212,11 +212,11 @@ public let HeimdallErrorNotAuthorized = 2
                     ]
 
                     let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorNotAuthorized, userInfo: userInfo)
-                    completion(.failure(error))
+                    completion(.Failure(error))
                 }
             } else {
                 let request = authenticateRequest(request, accessToken: accessToken)
-                completion(.success(request))
+                completion(.Success(request))
             }
         } else {
             let userInfo = [
@@ -225,7 +225,7 @@ public let HeimdallErrorNotAuthorized = 2
             ]
 
             let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorNotAuthorized, userInfo: userInfo)
-            completion(.failure(error))
+            completion(.Failure(error))
         }
     }
 }
