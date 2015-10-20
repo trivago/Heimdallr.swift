@@ -149,11 +149,9 @@
 		DC336D671A93A76D002AE918 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DC7E181F1BD636C100154183 /* Private */,
 				DC336D591A938E5D002AE918 /* Argo.framework */,
 				DC336D5A1A938E5D002AE918 /* KeychainAccess.framework */,
-				DC336D621A938F13002AE918 /* Nimble.framework */,
-				22B8F4801AAEFA62004C1641 /* OHHTTPStubs.framework */,
-				DC336D631A938F13002AE918 /* Quick.framework */,
 				DCD6C1461B17540C00BD66CB /* Result.framework */,
 			);
 			name = Frameworks;
@@ -231,6 +229,16 @@
 				DC545DD31A89F0F10051A575 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DC7E181F1BD636C100154183 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				DC336D621A938F13002AE918 /* Nimble.framework */,
+				22B8F4801AAEFA62004C1641 /* OHHTTPStubs.framework */,
+				DC336D631A938F13002AE918 /* Quick.framework */,
+			);
+			name = Private;
 			sourceTree = "<group>";
 		};
 		DCA5B9A31A8A4C0500667D32 /* Stub Responses */ = {
@@ -314,7 +322,7 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "B264 GmbH";
 				TargetAttributes = {
 					DC545DC11A89F0F10051A575 = {
@@ -435,6 +443,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -514,6 +523,7 @@
 				INFOPLIST_FILE = Heimdall/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -535,6 +545,7 @@
 				INFOPLIST_FILE = Heimdall/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -554,6 +565,7 @@
 				);
 				INFOPLIST_FILE = HeimdallTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -568,6 +580,7 @@
 				);
 				INFOPLIST_FILE = HeimdallTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
