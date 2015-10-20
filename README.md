@@ -61,7 +61,7 @@ Installation is possible via Carthage or CocoaPods, see below for either method:
 1. Add Heimdall to your [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile):
 
   ```
-  github "rheinfabrik/Heimdall.swift" ~> 1.1
+  github "rheinfabrik/Heimdall.swift" ~> 2.0
   ```
 
 2. Run `carthage update` to fetch and build Heimdall and its dependencies.
@@ -72,8 +72,8 @@ Installation is possible via Carthage or CocoaPods, see below for either method:
 
 1. Add Heimdall to your [Podfile](https://guides.cocoapods.org/syntax/podfile.html):
 
-   ```
-   pod 'Heimdall', :git => 'https://github.com/rheinfabrik/Heimdall.swift.git', :branch => 'master'
+   ```ruby
+   pod 'Heimdall', '~> 2.0'
    ```
    
 2.  Run `pod install` to fetch and build Heimdall and its dependencies.
