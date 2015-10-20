@@ -1,10 +1,28 @@
 machine:
   xcode:
     version: "7.0"
+
 dependencies:
   pre:
-    - sudo chown :wheel /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ *.simruntime/Contents/Resources/RuntimeRoot/usr/lib/dyld_sim
+    - scripts/cisetup
     - brew install carthage
-test:
   override:
-    - scripts/cibuild
+    - carthage bootstrap --platform iOS --no-use-binaries
+
+test:
+  pre:
+    - sudo chown :wheel /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ *.simruntime/Contents/Resources/RuntimeRoot/usr/lib/dyld_sim
+  override:
+    - set -o pipefail &&
+      xcodebuild
+        CODE_SIGNING_REQUIRED=NO
+        CODE_SIGN_IDENTITY=
+        PROVISIONING_PROFILE=
+        -sdk iphonesimulator
+        -destination 'platform=iOS Simulator,OS=9.0,name=iPhone 6s'
+        -project Heimdall.xcodeproj
+        -scheme "Heimdall"
+        -configuration Debug
+        clean test |
+      tee $CIRCLE_ARTIFACTS/xcode_raw_ios.log |
+      xcpretty --color --report junit --output $CIRCLE_TEST_REPORTS/xcode/ios-results.xml
