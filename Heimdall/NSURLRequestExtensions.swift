@@ -89,9 +89,10 @@ public extension NSMutableURLRequest {
         }
     }
 
-    // Taken from https://github.com/Alamofire/Alamofire/blob/master/Source/ParameterEncoding.swift#L136
+    // Taken from https://github.com/Alamofire/Alamofire/blob/master/Source/ParameterEncoding.swift#L176
     private func queryComponents(key: String, _ value: AnyObject) -> [(String, String)] {
         var components: [(String, String)] = []
+
         if let dictionary = value as? [String: AnyObject] {
             for (nestedKey, value) in dictionary {
                 components += queryComponents("\(key)[\(nestedKey)]", value)
@@ -101,16 +102,52 @@ public extension NSMutableURLRequest {
                 components += queryComponents("\(key)[]", value)
             }
         } else {
-            components.appendContentsOf([(escapeQuery(key), escapeQuery("\(value)"))])
+            components.append((escape(key), escape("\(value)")))
         }
 
         return components
     }
 
-    private func escapeQuery(string: String) -> String {
-        let legalURLCharactersToBeEscaped: CFStringRef = ":&=;+!@#$()',*"
-        let charactersToLeaveUnescaped: CFStringRef = "[]."
-        return CFURLCreateStringByAddingPercentEscapes(nil, string, charactersToLeaveUnescaped, legalURLCharactersToBeEscaped, CFStringBuiltInEncodings.UTF8.rawValue) as String
-    }
+    // Taken from https://github.com/Alamofire/Alamofire/blob/master/Source/ParameterEncoding.swift#L210
+    private func escape(string: String) -> String {
+        let generalDelimitersToEncode = ":#[]@" // does not include "?" or "/" due to RFC 3986 - Section 3.4
+        let subDelimitersToEncode = "!$&'()*+,;="
 
+        let allowedCharacterSet = NSCharacterSet.URLQueryAllowedCharacterSet().mutableCopy() as! NSMutableCharacterSet
+        allowedCharacterSet.removeCharactersInString(generalDelimitersToEncode + subDelimitersToEncode)
+
+        var escaped = ""
+
+        //==========================================================================================================
+        //
+        //  Batching is required for escaping due to an internal bug in iOS 8.1 and 8.2. Encoding more than a few
+        //  hundred Chinense characters causes various malloc error crashes. To avoid this issue until iOS 8 is no
+        //  longer supported, batching MUST be used for encoding. This introduces roughly a 20% overhead. For more
+        //  info, please refer to:
+        //
+        //      - https://github.com/Alamofire/Alamofire/issues/206
+        //
+        //==========================================================================================================
+
+        if #available(iOS 8.3, OSX 10.10, *) {
+            escaped = string.stringByAddingPercentEncodingWithAllowedCharacters(allowedCharacterSet) ?? string
+        } else {
+            let batchSize = 50
+            var index = string.startIndex
+
+            while index != string.endIndex {
+                let startIndex = index
+                let endIndex = index.advancedBy(batchSize, limit: string.endIndex)
+                let range = Range(start: startIndex, end: endIndex)
+
+                let substring = string.substringWithRange(range)
+
+                escaped += substring.stringByAddingPercentEncodingWithAllowedCharacters(allowedCharacterSet) ?? substring
+
+                index = endIndex
+            }
+        }
+        
+        return escaped
+    }
 }

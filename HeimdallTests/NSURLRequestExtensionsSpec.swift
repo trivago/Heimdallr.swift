@@ -141,7 +141,6 @@ class NSMutableURLRequestExtensionsSpec: QuickSpec {
 
             context("when given parameters") {
                 it("sets the body with encoded parameters") {
-
                     let parameters: [String: AnyObject] = [
                         "#key1": "%value1",
                         "#key2": "%value2",
@@ -167,12 +166,12 @@ class NSMutableURLRequestExtensionsSpec: QuickSpec {
 
                     expect(components?[0]).to(equal("%23key1=%25value1"))
                     expect(components?[1]).to(equal("%23key2=%25value2"))
-                    expect(components?[2]).to(equal("key3=value3[]"))
+                    expect(components?[2]).to(equal("key3=value3%5B%5D"))
                     expect(components?[3]).to(equal("key4=%3A%26%3D%3B%2B%21%40%23%24%28%29%27%2C%2A"))
                     expect(components?[4]).to(equal("key5.=value.5"))
                     expect(components?[5]).to(equal("key6=https%3A//accounts.example.com/oauth/v2/foo/bar"))
-                    expect(components?[6]).to(equal("key7[]=one"))
-                    expect(components?[7]).to(equal("key7[]=two"))
+                    expect(components?[6]).to(equal("key7%5B%5D=one"))
+                    expect(components?[7]).to(equal("key7%5B%5D=two"))
                 }
             }
         }
