@@ -52,6 +52,8 @@ heimdall.authenticateRequest(request) { result
 
 ## Installation
 
+Installation is possible via Carthage or CocoaPods, see below for either method:
+
 ### Carthage
 
 [Carthage](https://github.com/Carthage/Carthage) is a simple, decentralized dependency manager for Cocoa.
@@ -65,6 +67,16 @@ heimdall.authenticateRequest(request) { result
 2. Run `carthage update` to fetch and build Heimdall and its dependencies.
 
 3. [Make sure your application's target links against `Heimdall.framework` and copies all relevant frameworks into its application bundle (iOS); or embeds the binaries of all relevant frameworks (Mac).](https://github.com/carthage/carthage#getting-started)
+
+### CocoaPods
+
+1. Add Heimdall to your [Podfile](https://guides.cocoapods.org/syntax/podfile.html):
+
+   ```
+   pod 'Heimdall', :git => 'https://github.com/rheinfabrik/Heimdall.swift.git', :branch => 'master'
+   ```
+   
+2.  Run `pod install` to fetch and build Heimdall and its dependencies.
 
 ## Usage
 
