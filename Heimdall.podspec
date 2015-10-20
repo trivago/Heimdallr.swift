@@ -12,7 +12,7 @@ Pod::Spec.new do |spec|
   spec.homepage = 'https://github.com/rheinfabrik/Heimdall.swift'
   spec.source = {
     :git => 'https://github.com/rheinfabrik/Heimdall.swift.git',
-    :branch => 'master'
+    :tag => spec.version.to_s
   }
   spec.summary = 'Easy to use OAuth 2 library for iOS, written in Swift'
   spec.description = 'Heimdall is an OAuth 2.0 client specifically designed for easy usage. It currently supports the resource owner password credentials grant flow, refreshing an access token as well as extension grants.'
