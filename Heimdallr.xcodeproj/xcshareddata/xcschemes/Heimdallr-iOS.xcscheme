@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DC545DC11A89F0F10051A575"
-               BuildableName = "Heimdall.framework"
-               BlueprintName = "Heimdall"
-               ReferencedContainer = "container:Heimdall.xcodeproj">
+               BuildableName = "Heimdallr.framework"
+               BlueprintName = "Heimdallr-iOS"
+               ReferencedContainer = "container:Heimdallr.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DC545DCC1A89F0F10051A575"
-               BuildableName = "HeimdallTests.xctest"
-               BlueprintName = "HeimdallTests"
-               ReferencedContainer = "container:Heimdall.xcodeproj">
+               BuildableName = "HeimdallrTests.xctest"
+               BlueprintName = "Heimdallr-iOSTests"
+               ReferencedContainer = "container:Heimdallr.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -48,9 +48,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DC545DCC1A89F0F10051A575"
-               BuildableName = "HeimdallTests.xctest"
-               BlueprintName = "HeimdallTests"
-               ReferencedContainer = "container:Heimdall.xcodeproj">
+               BuildableName = "HeimdallrTests.xctest"
+               BlueprintName = "Heimdallr-iOSTests"
+               ReferencedContainer = "container:Heimdallr.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -58,9 +58,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DC545DC11A89F0F10051A575"
-            BuildableName = "Heimdall.framework"
-            BlueprintName = "Heimdall"
-            ReferencedContainer = "container:Heimdall.xcodeproj">
+            BuildableName = "Heimdallr.framework"
+            BlueprintName = "Heimdallr-iOS"
+            ReferencedContainer = "container:Heimdallr.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DC545DC11A89F0F10051A575"
-            BuildableName = "Heimdall.framework"
-            BlueprintName = "Heimdall"
-            ReferencedContainer = "container:Heimdall.xcodeproj">
+            BuildableName = "Heimdallr.framework"
+            BlueprintName = "Heimdallr-iOS"
+            ReferencedContainer = "container:Heimdallr.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -98,9 +98,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DC545DC11A89F0F10051A575"
-            BuildableName = "Heimdall.framework"
-            BlueprintName = "Heimdall"
-            ReferencedContainer = "container:Heimdall.xcodeproj">
+            BuildableName = "Heimdallr.framework"
+            BlueprintName = "Heimdallr-iOS"
+            ReferencedContainer = "container:Heimdallr.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

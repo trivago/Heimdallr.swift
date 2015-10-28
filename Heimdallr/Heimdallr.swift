@@ -1,16 +1,17 @@
+import Foundation
 import Result
 
-public let HeimdallErrorDomain = "HeimdallErrorDomain"
+public let HeimdallrErrorDomain = "HeimdallrErrorDomain"
 
 /// The token endpoint responded with invalid data.
-public let HeimdallErrorInvalidData = 1
+public let HeimdallrErrorInvalidData = 1
 
 /// The request could not be authorized (e.g., no refresh token available).
-public let HeimdallErrorNotAuthorized = 2
+public let HeimdallrErrorNotAuthorized = 2
 
 /// The all-seeing and all-hearing guardian sentry of your application who
 /// stands on the rainbow bridge network to authorize relevant requests.
-@objc public class Heimdall: NSObject {
+@objc public class Heimdallr: NSObject {
     public let tokenURL: NSURL
     private let credentials: OAuthClientCredentials?
 
@@ -23,7 +24,7 @@ public let HeimdallErrorNotAuthorized = 2
             accessTokenStore.storeAccessToken(newValue)
         }
     }
-    private let httpClient: HeimdallHTTPClient
+    private let httpClient: HeimdallrHTTPClient
 
     /// The request authenticator that is used to authenticate requests.
     public let resourceRequestAuthenticator: HeimdallResourceRequestAuthenticator
@@ -47,14 +48,14 @@ public let HeimdallErrorNotAuthorized = 2
     /// - parameter accessTokenStore: The (persistent) access token store.
     ///     Default: `OAuthAccessTokenKeychainStore`.
     /// - parameter httpClient: The HTTP client that should be used for requesting
-    ///     access tokens. Default: `HeimdallHTTPClientNSURLSession`.
+    ///     access tokens. Default: `HeimdallrHTTPClientNSURLSession`.
     /// - parameter resourceRequestAuthenticator: The request authenticator that is 
     ///     used to authenticate requests. Default: 
     ///     `HeimdallResourceRequestAuthenticatorHTTPAuthorizationHeader`.
     ///
     /// - returns: A new client initialized with the given token endpoint URL,
     ///     credentials and access token store.
-    public init(tokenURL: NSURL, credentials: OAuthClientCredentials? = nil, accessTokenStore: OAuthAccessTokenStore = OAuthAccessTokenKeychainStore(), httpClient: HeimdallHTTPClient = HeimdallHTTPClientNSURLSession(), resourceRequestAuthenticator: HeimdallResourceRequestAuthenticator = HeimdallResourceRequestAuthenticatorHTTPAuthorizationHeader()) {
+    public init(tokenURL: NSURL, credentials: OAuthClientCredentials? = nil, accessTokenStore: OAuthAccessTokenStore = OAuthAccessTokenKeychainStore(), httpClient: HeimdallrHTTPClient = HeimdallrHTTPClientNSURLSession(), resourceRequestAuthenticator: HeimdallResourceRequestAuthenticator = HeimdallResourceRequestAuthenticatorHTTPAuthorizationHeader()) {
         self.tokenURL = tokenURL
         self.credentials = credentials
         self.accessTokenStore = accessTokenStore
@@ -65,7 +66,7 @@ public let HeimdallErrorNotAuthorized = 2
     /// Invalidates the currently stored access token, if any.
     ///
     /// Unlike `clearAccessToken` this will only invalidate the access token so 
-    /// that Heimdall will try to refresh the token using the refresh token 
+    /// that Heimdallr will try to refresh the token using the refresh token 
     /// automatically.
     ///
     /// **Note:** Sets the access token's expiration date to
@@ -146,7 +147,7 @@ public let HeimdallErrorNotAuthorized = 2
                         NSLocalizedFailureReasonErrorKey: String(format: NSLocalizedString("Expected access token, got: %@.", comment: ""), NSString(data: data!, encoding: NSUTF8StringEncoding) ?? "nil")
                     ]
 
-                    let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorInvalidData, userInfo: userInfo)
+                    let error = NSError(domain: HeimdallrErrorDomain, code: HeimdallrErrorInvalidData, userInfo: userInfo)
                     completion(.Failure(error))
                 }
             } else {
@@ -159,7 +160,7 @@ public let HeimdallErrorNotAuthorized = 2
                         NSLocalizedFailureReasonErrorKey: String(format: NSLocalizedString("Expected error, got: %@.", comment: ""), NSString(data: data!, encoding: NSUTF8StringEncoding) ?? "nil")
                     ]
 
-                    let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorInvalidData, userInfo: userInfo)
+                    let error = NSError(domain: HeimdallrErrorDomain, code: HeimdallrErrorInvalidData, userInfo: userInfo)
                     completion(.Failure(error))
                 }
             }
@@ -199,7 +200,7 @@ public let HeimdallErrorNotAuthorized = 2
                             let authenticatedRequest = self.authenticateRequest(request, accessToken: accessToken)
                             return .Success(authenticatedRequest)
                         }, ifFailure: { error in
-                            if [ HeimdallErrorDomain, OAuthErrorDomain ].contains(error.domain) {
+                            if [ HeimdallrErrorDomain, OAuthErrorDomain ].contains(error.domain) {
                                 self.clearAccessToken()
                             }
                             return .Failure(error)
@@ -211,7 +212,7 @@ public let HeimdallErrorNotAuthorized = 2
                         NSLocalizedFailureReasonErrorKey: NSLocalizedString("Access token expired, no refresh token available.", comment: "")
                     ]
 
-                    let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorNotAuthorized, userInfo: userInfo)
+                    let error = NSError(domain: HeimdallrErrorDomain, code: HeimdallrErrorNotAuthorized, userInfo: userInfo)
                     completion(.Failure(error))
                 }
             } else {
@@ -224,7 +225,7 @@ public let HeimdallErrorNotAuthorized = 2
                 NSLocalizedFailureReasonErrorKey: NSLocalizedString("Not authorized.", comment: "")
             ]
 
-            let error = NSError(domain: HeimdallErrorDomain, code: HeimdallErrorNotAuthorized, userInfo: userInfo)
+            let error = NSError(domain: HeimdallrErrorDomain, code: HeimdallrErrorNotAuthorized, userInfo: userInfo)
             completion(.Failure(error))
         }
     }
