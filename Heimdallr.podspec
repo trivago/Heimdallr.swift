@@ -30,4 +30,10 @@ Pod::Spec.new do |spec|
 
     subspec.source_files = 'Heimdallr/**/*.swift'
   end
+
+  spec.subspec 'ReactiveHeimdallr' do |subspec|
+    subspec.dependency 'ReactiveCocoa', '4.0.0-alpha-3'
+
+    subspec.source_files = 'ReactiveHeimdallr/**/*.swift'
+  end
 end
