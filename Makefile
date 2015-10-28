@@ -1,3 +1,3 @@
 archive:
-	carthage build --no-skip-current --platform iOS
+	carthage build --no-skip-current
 	carthage archive Heimdallr
