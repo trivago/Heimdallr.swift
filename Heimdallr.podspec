@@ -28,12 +28,12 @@ Pod::Spec.new do |spec|
     subspec.dependency 'KeychainAccess', '2.2.0'
     subspec.framework = 'Foundation'
 
-    subspec.source_files = 'Heimdallr/**/*.swift'
+    subspec.source_files = 'Heimdallr/Core/*.swift'
   end
 
   spec.subspec 'ReactiveCocoa' do |subspec|
     subspec.dependency 'ReactiveCocoa', '4.0.0-alpha-1'
 
-    subspec.source_files = 'ReactiveHeimdallr/**/*.swift'
+    subspec.source_files = 'Heimdallr/ReactiveCocoa/*.swift'
   end
 end
