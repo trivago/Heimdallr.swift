@@ -1,10 +1,8 @@
 # <img src="https://cloud.githubusercontent.com/assets/460060/8159821/b8bfeb32-136a-11e5-83ed-83b7fe01df3a.jpg" width="30" height="30"> Heimdallr
 
-Heimdallr is an [OAuth 2.0](https://tools.ietf.org/html/rfc6749) client specifically designed for easy usage. It currently supports the [resource owner password credentials grant](https://tools.ietf.org/html/rfc6749#section-4.3) flow, [refreshing an access token](https://tools.ietf.org/html/rfc6749#section-6) as well as [extension grants](https://tools.ietf.org/html/rfc6749#section-4.5).
+Heimdallr is an [OAuth 2.0](https://tools.ietf.org/html/rfc6749) client specifically designed for easy usage. It currently supports the [resource owner password credentials grant](https://tools.ietf.org/html/rfc6749#section-4.3) flow, [refreshing an access token](https://tools.ietf.org/html/rfc6749#section-6), as well as [extension grants](https://tools.ietf.org/html/rfc6749#section-4.5).
 
-If you are familiar with [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa), also check out [ReactiveHeimdall](https://github.com/rheinfabrik/ReactiveHeimdall)!
-
-If you are an Android Developer then please take a look at the [Android version of Heimdallr](https://github.com/rheinfabrik/Heimdall.droid).
+If you are an Android Developer, please take a look at the [Android version of Heimdallr](https://github.com/rheinfabrik/Heimdall.droid).
 
 [![Build Status](https://circleci.com/gh/rheinfabrik/Heimdallr.swift.svg?style=shield&circle-token=06d0c39133fae3dd9b649c116776c7f882885f1f)](https://circleci.com/gh/rheinfabrik/Heimdallr)
 
@@ -68,6 +66,8 @@ Installation is possible via Carthage or CocoaPods, see below for either method:
 
 3. [Make sure your application's target links against `Heimdallr.framework` and copies all relevant frameworks into its application bundle (iOS); or embeds the binaries of all relevant frameworks (Mac).](https://github.com/carthage/carthage#getting-started)
 
+Extensions for [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa) are provided as `ReactiveHeimdallr.framework`.
+
 ### CocoaPods
 
 1. Add Heimdallr to your [Podfile](https://guides.cocoapods.org/syntax/podfile.html):
@@ -77,6 +77,8 @@ Installation is possible via Carthage or CocoaPods, see below for either method:
    ```
 
 2.  Run `pod install` to fetch and build Heimdallr and its dependencies.
+
+Extensions for [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa) are provided as `ReactiveCocoa` [subspec](https://guides.cocoapods.org/syntax/podfile.html#pod).
 
 ## Usage
 
