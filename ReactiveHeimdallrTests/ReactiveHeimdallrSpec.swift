@@ -1,5 +1,4 @@
 import Foundation
-import Heimdallr
 import Nimble
 import Quick
 import ReactiveCocoa

@@ -15,6 +15,32 @@
 		22BC44611A8A3FBA00AB0A14 /* OAuthAccessTokenKeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BC44601A8A3FBA00AB0A14 /* OAuthAccessTokenKeychainStore.swift */; };
 		22BC44631A8A402300AB0A14 /* OAuthAccessTokenKeychainStoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BC44621A8A402300AB0A14 /* OAuthAccessTokenKeychainStoreSpec.swift */; };
 		22BC446C1A8B858D00AB0A14 /* OAuthAccessTokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BC446B1A8B858D00AB0A14 /* OAuthAccessTokenStore.swift */; };
+		DC52202B1BEA2EEF00F37F2A /* Heimdallr.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC545DEA1A89FFDA0051A575 /* Heimdallr.swift */; settings = {ASSET_TAGS = (); }; };
+		DC52202C1BEA2EEF00F37F2A /* HeimdallrHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227ADD361A9347E000F3831E /* HeimdallrHTTPClient.swift */; settings = {ASSET_TAGS = (); }; };
+		DC52202D1BEA2EEF00F37F2A /* HeimdallrHTTPClientNSURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227ADD381A93487F00F3831E /* HeimdallrHTTPClientNSURLSession.swift */; settings = {ASSET_TAGS = (); }; };
+		DC52202E1BEA2EEF00F37F2A /* HeimdallrResourceRequestAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B8F4821AAF0704004C1641 /* HeimdallrResourceRequestAuthenticator.swift */; settings = {ASSET_TAGS = (); }; };
+		DC52202F1BEA2EEF00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B8F4841AAF0805004C1641 /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift */; settings = {ASSET_TAGS = (); }; };
+		DC5220301BEA2EEF00F37F2A /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA5B98C1A8A12E700667D32 /* NSDateExtensions.swift */; settings = {ASSET_TAGS = (); }; };
+		DC5220311BEA2EEF00F37F2A /* NSURLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD72CB41A8C9FDE0024BAC1 /* NSURLRequestExtensions.swift */; settings = {ASSET_TAGS = (); }; };
+		DC5220321BEA2EEF00F37F2A /* OAuthAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB2540C1A8CF70D00226966 /* OAuthAccessToken.swift */; settings = {ASSET_TAGS = (); }; };
+		DC5220331BEA2EEF00F37F2A /* OAuthAccessTokenKeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BC44601A8A3FBA00AB0A14 /* OAuthAccessTokenKeychainStore.swift */; settings = {ASSET_TAGS = (); }; };
+		DC5220341BEA2EEF00F37F2A /* OAuthAccessTokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BC446B1A8B858D00AB0A14 /* OAuthAccessTokenStore.swift */; settings = {ASSET_TAGS = (); }; };
+		DC5220351BEA2EEF00F37F2A /* OAuthAuthorizationGrant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC54D2B31A8DF9D1001C87A4 /* OAuthAuthorizationGrant.swift */; settings = {ASSET_TAGS = (); }; };
+		DC5220361BEA2EEF00F37F2A /* OAuthClientCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC54D2B11A8DF990001C87A4 /* OAuthClientCredentials.swift */; settings = {ASSET_TAGS = (); }; };
+		DC5220371BEA2EEF00F37F2A /* OAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB254101A8D010800226966 /* OAuthError.swift */; settings = {ASSET_TAGS = (); }; };
+		DC5220381BEA2EF000F37F2A /* Heimdallr.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC545DEA1A89FFDA0051A575 /* Heimdallr.swift */; settings = {ASSET_TAGS = (); }; };
+		DC5220391BEA2EF000F37F2A /* HeimdallrHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227ADD361A9347E000F3831E /* HeimdallrHTTPClient.swift */; settings = {ASSET_TAGS = (); }; };
+		DC52203A1BEA2EF000F37F2A /* HeimdallrHTTPClientNSURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227ADD381A93487F00F3831E /* HeimdallrHTTPClientNSURLSession.swift */; settings = {ASSET_TAGS = (); }; };
+		DC52203B1BEA2EF000F37F2A /* HeimdallrResourceRequestAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B8F4821AAF0704004C1641 /* HeimdallrResourceRequestAuthenticator.swift */; settings = {ASSET_TAGS = (); }; };
+		DC52203C1BEA2EF000F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B8F4841AAF0805004C1641 /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift */; settings = {ASSET_TAGS = (); }; };
+		DC52203D1BEA2EF000F37F2A /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA5B98C1A8A12E700667D32 /* NSDateExtensions.swift */; settings = {ASSET_TAGS = (); }; };
+		DC52203E1BEA2EF000F37F2A /* NSURLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD72CB41A8C9FDE0024BAC1 /* NSURLRequestExtensions.swift */; settings = {ASSET_TAGS = (); }; };
+		DC52203F1BEA2EF000F37F2A /* OAuthAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB2540C1A8CF70D00226966 /* OAuthAccessToken.swift */; settings = {ASSET_TAGS = (); }; };
+		DC5220401BEA2EF000F37F2A /* OAuthAccessTokenKeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BC44601A8A3FBA00AB0A14 /* OAuthAccessTokenKeychainStore.swift */; settings = {ASSET_TAGS = (); }; };
+		DC5220411BEA2EF000F37F2A /* OAuthAccessTokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BC446B1A8B858D00AB0A14 /* OAuthAccessTokenStore.swift */; settings = {ASSET_TAGS = (); }; };
+		DC5220421BEA2EF000F37F2A /* OAuthAuthorizationGrant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC54D2B31A8DF9D1001C87A4 /* OAuthAuthorizationGrant.swift */; settings = {ASSET_TAGS = (); }; };
+		DC5220431BEA2EF000F37F2A /* OAuthClientCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC54D2B11A8DF990001C87A4 /* OAuthClientCredentials.swift */; settings = {ASSET_TAGS = (); }; };
+		DC5220441BEA2EF000F37F2A /* OAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB254101A8D010800226966 /* OAuthError.swift */; settings = {ASSET_TAGS = (); }; };
 		DC545DC81A89F0F10051A575 /* Heimdallr.h in Headers */ = {isa = PBXBuildFile; fileRef = DC545DC71A89F0F10051A575 /* Heimdallr.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC545DCE1A89F0F10051A575 /* Heimdallr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC545DC21A89F0F10051A575 /* Heimdallr.framework */; };
 		DC545DEB1A89FFDA0051A575 /* Heimdallr.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC545DEA1A89FFDA0051A575 /* Heimdallr.swift */; };
@@ -155,26 +181,12 @@
 			remoteGlobalIDString = DC582FBF1BE13EB20017BE06;
 			remoteInfo = ReactiveHeimdallr;
 		};
-		DC582FD91BE1452F0017BE06 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DC545DB91A89F0F10051A575 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DC545DC11A89F0F10051A575;
-			remoteInfo = "Heimdallr-iOS";
-		};
 		DC5830001BE148610017BE06 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DC545DB91A89F0F10051A575 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = DC582FF41BE148610017BE06;
 			remoteInfo = "ReactiveHeimdallr-Mac";
-		};
-		DC5830101BE149EE0017BE06 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DC545DB91A89F0F10051A575 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DC582F421BE1319F0017BE06;
-			remoteInfo = "Heimdallr-Mac";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -740,7 +752,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				DC582FDA1BE1452F0017BE06 /* PBXTargetDependency */,
 			);
 			name = "ReactiveHeimdallr-iOS";
 			productName = ReactiveHeimdallr;
@@ -778,7 +789,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				DC5830111BE149EE0017BE06 /* PBXTargetDependency */,
 			);
 			name = "ReactiveHeimdallr-Mac";
 			productName = "ReactiveHeimdallr-Mac";
@@ -1011,6 +1021,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC52202E1BEA2EEF00F37F2A /* HeimdallrResourceRequestAuthenticator.swift in Sources */,
+				DC5220331BEA2EEF00F37F2A /* OAuthAccessTokenKeychainStore.swift in Sources */,
+				DC5220351BEA2EEF00F37F2A /* OAuthAuthorizationGrant.swift in Sources */,
+				DC5220301BEA2EEF00F37F2A /* NSDateExtensions.swift in Sources */,
+				DC5220361BEA2EEF00F37F2A /* OAuthClientCredentials.swift in Sources */,
+				DC52202F1BEA2EEF00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */,
+				DC5220341BEA2EEF00F37F2A /* OAuthAccessTokenStore.swift in Sources */,
+				DC52202C1BEA2EEF00F37F2A /* HeimdallrHTTPClient.swift in Sources */,
+				DC5220321BEA2EEF00F37F2A /* OAuthAccessToken.swift in Sources */,
+				DC5220311BEA2EEF00F37F2A /* NSURLRequestExtensions.swift in Sources */,
+				DC52202D1BEA2EEF00F37F2A /* HeimdallrHTTPClientNSURLSession.swift in Sources */,
+				DC52202B1BEA2EEF00F37F2A /* Heimdallr.swift in Sources */,
+				DC5220371BEA2EEF00F37F2A /* OAuthError.swift in Sources */,
 				DC582FEF1BE146070017BE06 /* ReactiveHeimdallr.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1027,6 +1050,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC52203B1BEA2EF000F37F2A /* HeimdallrResourceRequestAuthenticator.swift in Sources */,
+				DC5220401BEA2EF000F37F2A /* OAuthAccessTokenKeychainStore.swift in Sources */,
+				DC5220421BEA2EF000F37F2A /* OAuthAuthorizationGrant.swift in Sources */,
+				DC52203D1BEA2EF000F37F2A /* NSDateExtensions.swift in Sources */,
+				DC5220431BEA2EF000F37F2A /* OAuthClientCredentials.swift in Sources */,
+				DC52203C1BEA2EF000F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */,
+				DC5220411BEA2EF000F37F2A /* OAuthAccessTokenStore.swift in Sources */,
+				DC5220391BEA2EF000F37F2A /* HeimdallrHTTPClient.swift in Sources */,
+				DC52203F1BEA2EF000F37F2A /* OAuthAccessToken.swift in Sources */,
+				DC52203E1BEA2EF000F37F2A /* NSURLRequestExtensions.swift in Sources */,
+				DC52203A1BEA2EF000F37F2A /* HeimdallrHTTPClientNSURLSession.swift in Sources */,
+				DC5220381BEA2EF000F37F2A /* Heimdallr.swift in Sources */,
+				DC5220441BEA2EF000F37F2A /* OAuthError.swift in Sources */,
 				DC58300D1BE1496A0017BE06 /* ReactiveHeimdallr.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1057,20 +1093,10 @@
 			target = DC582FBF1BE13EB20017BE06 /* ReactiveHeimdallr-iOS */;
 			targetProxy = DC582FCB1BE13EB30017BE06 /* PBXContainerItemProxy */;
 		};
-		DC582FDA1BE1452F0017BE06 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DC545DC11A89F0F10051A575 /* Heimdallr-iOS */;
-			targetProxy = DC582FD91BE1452F0017BE06 /* PBXContainerItemProxy */;
-		};
 		DC5830011BE148610017BE06 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DC582FF41BE148610017BE06 /* ReactiveHeimdallr-Mac */;
 			targetProxy = DC5830001BE148610017BE06 /* PBXContainerItemProxy */;
-		};
-		DC5830111BE149EE0017BE06 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DC582F421BE1319F0017BE06 /* Heimdallr-Mac */;
-			targetProxy = DC5830101BE149EE0017BE06 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

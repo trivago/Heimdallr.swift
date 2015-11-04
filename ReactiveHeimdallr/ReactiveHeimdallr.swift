@@ -1,5 +1,4 @@
 import Foundation
-import Heimdallr
 import ReactiveCocoa
 
 extension Heimdallr {
