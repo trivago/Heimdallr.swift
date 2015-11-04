@@ -1,4 +1,4 @@
 # Heimdallr
-github "antitypical/Result" "0.6.0-beta.5"
-github "thoughtbot/Argo" ~> 2.2
-github "kishikawakatsumi/KeychainAccess" ~> 2.2
+github "antitypical/Result" "0.6.0-beta.4"
+github "thoughtbot/Argo" "v2.1.0"
+github "kishikawakatsumi/KeychainAccess" "v2.2.0"

@@ -7,7 +7,7 @@ dependencies:
     - scripts/cisetup
     - brew install carthage
   override:
-    - carthage bootstrap --platform ios,mac --no-use-binaries
+    - carthage bootstrap --platform ios,mac
 
 test:
   pre:

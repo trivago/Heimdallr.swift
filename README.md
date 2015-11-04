@@ -61,7 +61,7 @@ Installation is possible via Carthage or CocoaPods, see below for either method:
 1. Add Heimdallr to your [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile):
 
   ```
-  github "rheinfabrik/Heimdallr" ~> 3.0
+  github "rheinfabrik/Heimdallr.swift" ~> 3.0
   ```
 
 2. Run `carthage update` to fetch and build Heimdallr and its dependencies.
