@@ -20,6 +20,35 @@
 		DC545DEB1A89FFDA0051A575 /* Heimdallr.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC545DEA1A89FFDA0051A575 /* Heimdallr.swift */; };
 		DC54D2B21A8DF990001C87A4 /* OAuthClientCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC54D2B11A8DF990001C87A4 /* OAuthClientCredentials.swift */; };
 		DC54D2B41A8DF9D1001C87A4 /* OAuthAuthorizationGrant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC54D2B31A8DF9D1001C87A4 /* OAuthAuthorizationGrant.swift */; };
+		DC582F4D1BE1319F0017BE06 /* Heimdallr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F431BE1319F0017BE06 /* Heimdallr.framework */; };
+		DC582F5A1BE134560017BE06 /* Heimdallr.h in Headers */ = {isa = PBXBuildFile; fileRef = DC545DC71A89F0F10051A575 /* Heimdallr.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC582F5B1BE1345C0017BE06 /* Heimdallr.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC545DEA1A89FFDA0051A575 /* Heimdallr.swift */; };
+		DC582F5C1BE1345C0017BE06 /* HeimdallrHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227ADD361A9347E000F3831E /* HeimdallrHTTPClient.swift */; };
+		DC582F5D1BE1345C0017BE06 /* HeimdallrHTTPClientNSURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227ADD381A93487F00F3831E /* HeimdallrHTTPClientNSURLSession.swift */; };
+		DC582F5E1BE1345C0017BE06 /* HeimdallrResourceRequestAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B8F4821AAF0704004C1641 /* HeimdallrResourceRequestAuthenticator.swift */; };
+		DC582F5F1BE1345C0017BE06 /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B8F4841AAF0805004C1641 /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift */; };
+		DC582F601BE1345C0017BE06 /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA5B98C1A8A12E700667D32 /* NSDateExtensions.swift */; };
+		DC582F611BE1345C0017BE06 /* NSURLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD72CB41A8C9FDE0024BAC1 /* NSURLRequestExtensions.swift */; };
+		DC582F621BE1345C0017BE06 /* OAuthAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB2540C1A8CF70D00226966 /* OAuthAccessToken.swift */; };
+		DC582F631BE1345C0017BE06 /* OAuthAccessTokenKeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BC44601A8A3FBA00AB0A14 /* OAuthAccessTokenKeychainStore.swift */; };
+		DC582F641BE1345C0017BE06 /* OAuthAccessTokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BC446B1A8B858D00AB0A14 /* OAuthAccessTokenStore.swift */; };
+		DC582F651BE1345C0017BE06 /* OAuthAuthorizationGrant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC54D2B31A8DF9D1001C87A4 /* OAuthAuthorizationGrant.swift */; };
+		DC582F661BE1345C0017BE06 /* OAuthClientCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC54D2B11A8DF990001C87A4 /* OAuthClientCredentials.swift */; };
+		DC582F671BE1345C0017BE06 /* OAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB254101A8D010800226966 /* OAuthError.swift */; };
+		DC582F681BE134880017BE06 /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeaderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B8F4861AAF0DA5004C1641 /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeaderSpec.swift */; };
+		DC582F691BE134880017BE06 /* HeimdallrSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA5B9901A8A2B9700667D32 /* HeimdallrSpec.swift */; };
+		DC582F6A1BE134880017BE06 /* NSDateExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA5B98E1A8A296300667D32 /* NSDateExtensionsSpec.swift */; };
+		DC582F6B1BE134880017BE06 /* NSURLRequestExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD72CB61A8CABB20024BAC1 /* NSURLRequestExtensionsSpec.swift */; };
+		DC582F6C1BE134880017BE06 /* OAuthAccessTokenKeychainStoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BC44621A8A402300AB0A14 /* OAuthAccessTokenKeychainStoreSpec.swift */; };
+		DC582F6D1BE134880017BE06 /* OAuthAccessTokenSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB2540E1A8CF74B00226966 /* OAuthAccessTokenSpec.swift */; };
+		DC582F6E1BE134880017BE06 /* authorize-error.json in Resources */ = {isa = PBXBuildFile; fileRef = DCB254121A8D138D00226966 /* authorize-error.json */; };
+		DC582F6F1BE134880017BE06 /* authorize-invalid-token.json in Resources */ = {isa = PBXBuildFile; fileRef = DCA5B9971A8A385B00667D32 /* authorize-invalid-token.json */; };
+		DC582F701BE134880017BE06 /* authorize-invalid-type.json in Resources */ = {isa = PBXBuildFile; fileRef = DCA5B9981A8A385B00667D32 /* authorize-invalid-type.json */; };
+		DC582F711BE134880017BE06 /* authorize-invalid.json in Resources */ = {isa = PBXBuildFile; fileRef = DCA5B9991A8A385B00667D32 /* authorize-invalid.json */; };
+		DC582F721BE134880017BE06 /* authorize-valid.json in Resources */ = {isa = PBXBuildFile; fileRef = DCA5B9941A8A317900667D32 /* authorize-valid.json */; };
+		DC582F731BE134880017BE06 /* request-invalid-norefresh.json in Resources */ = {isa = PBXBuildFile; fileRef = DCA5B99D1A8A455700667D32 /* request-invalid-norefresh.json */; };
+		DC582F741BE134880017BE06 /* request-invalid.json in Resources */ = {isa = PBXBuildFile; fileRef = DCA5B9A11A8A4A8C00667D32 /* request-invalid.json */; };
+		DC582F751BE134880017BE06 /* request-valid.json in Resources */ = {isa = PBXBuildFile; fileRef = DCA5B99E1A8A455700667D32 /* request-valid.json */; };
 		DC582F9C1BE135670017BE06 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F771BE134DA0017BE06 /* Argo.framework */; };
 		DC582F9D1BE135670017BE06 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F7B1BE134DA0017BE06 /* KeychainAccess.framework */; };
 		DC582F9E1BE135670017BE06 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F851BE134DA0017BE06 /* Result.framework */; };
@@ -35,6 +64,21 @@
 		DC582FA81BE135AB0017BE06 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC582F7D1BE134DA0017BE06 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC582FA91BE135AB0017BE06 /* OHHTTPStubs.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC582F7F1BE134DA0017BE06 /* OHHTTPStubs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC582FAA1BE135AB0017BE06 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC582F811BE134DA0017BE06 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DC582FAB1BE135B90017BE06 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F881BE134DA0017BE06 /* Argo.framework */; };
+		DC582FAC1BE135B90017BE06 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F8A1BE134DA0017BE06 /* KeychainAccess.framework */; };
+		DC582FAD1BE135B90017BE06 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F941BE134DA0017BE06 /* Result.framework */; };
+		DC582FAE1BE135C40017BE06 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F881BE134DA0017BE06 /* Argo.framework */; };
+		DC582FAF1BE135C40017BE06 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F8A1BE134DA0017BE06 /* KeychainAccess.framework */; };
+		DC582FB01BE135C40017BE06 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F941BE134DA0017BE06 /* Result.framework */; };
+		DC582FB11BE135C40017BE06 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F8C1BE134DA0017BE06 /* Nimble.framework */; };
+		DC582FB21BE135C40017BE06 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F8E1BE134DA0017BE06 /* OHHTTPStubs.framework */; };
+		DC582FB31BE135C40017BE06 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F901BE134DA0017BE06 /* Quick.framework */; };
+		DC582FB51BE135E90017BE06 /* Argo.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC582F881BE134DA0017BE06 /* Argo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DC582FB61BE135E90017BE06 /* KeychainAccess.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC582F8A1BE134DA0017BE06 /* KeychainAccess.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DC582FB71BE135ED0017BE06 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC582F8C1BE134DA0017BE06 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DC582FB81BE135ED0017BE06 /* OHHTTPStubs.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC582F8E1BE134DA0017BE06 /* OHHTTPStubs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DC582FB91BE135ED0017BE06 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC582F901BE134DA0017BE06 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DC582FBA1BE135F10017BE06 /* Result.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC582F941BE134DA0017BE06 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DCA5B98D1A8A12E700667D32 /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA5B98C1A8A12E700667D32 /* NSDateExtensions.swift */; };
 		DCA5B98F1A8A296300667D32 /* NSDateExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA5B98E1A8A296300667D32 /* NSDateExtensionsSpec.swift */; };
 		DCA5B9911A8A2B9700667D32 /* HeimdallrSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA5B9901A8A2B9700667D32 /* HeimdallrSpec.swift */; };
@@ -61,9 +105,31 @@
 			remoteGlobalIDString = DC545DC11A89F0F10051A575;
 			remoteInfo = "oauth-swift";
 		};
+		DC582F4E1BE1319F0017BE06 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC545DB91A89F0F10051A575 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC582F421BE1319F0017BE06;
+			remoteInfo = "Heimdallr-Mac";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		DC582FB41BE135D80017BE06 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DC582FB51BE135E90017BE06 /* Argo.framework in CopyFiles */,
+				DC582FB61BE135E90017BE06 /* KeychainAccess.framework in CopyFiles */,
+				DC582FB71BE135ED0017BE06 /* Nimble.framework in CopyFiles */,
+				DC582FB81BE135ED0017BE06 /* OHHTTPStubs.framework in CopyFiles */,
+				DC582FB91BE135ED0017BE06 /* Quick.framework in CopyFiles */,
+				DC582FBA1BE135F10017BE06 /* Result.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DCD6C1491B17545B00BD66CB /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -98,12 +164,20 @@
 		DC545DEA1A89FFDA0051A575 /* Heimdallr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Heimdallr.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		DC54D2B11A8DF990001C87A4 /* OAuthClientCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthClientCredentials.swift; sourceTree = "<group>"; };
 		DC54D2B31A8DF9D1001C87A4 /* OAuthAuthorizationGrant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAuthorizationGrant.swift; sourceTree = "<group>"; };
+		DC582F431BE1319F0017BE06 /* Heimdallr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Heimdallr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC582F4C1BE1319F0017BE06 /* HeimdallrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeimdallrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC582F771BE134DA0017BE06 /* Argo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Argo.framework; sourceTree = "<group>"; };
 		DC582F7B1BE134DA0017BE06 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KeychainAccess.framework; sourceTree = "<group>"; };
 		DC582F7D1BE134DA0017BE06 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nimble.framework; sourceTree = "<group>"; };
 		DC582F7F1BE134DA0017BE06 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OHHTTPStubs.framework; sourceTree = "<group>"; };
 		DC582F811BE134DA0017BE06 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Quick.framework; sourceTree = "<group>"; };
 		DC582F851BE134DA0017BE06 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Result.framework; sourceTree = "<group>"; };
+		DC582F881BE134DA0017BE06 /* Argo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Argo.framework; sourceTree = "<group>"; };
+		DC582F8A1BE134DA0017BE06 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KeychainAccess.framework; sourceTree = "<group>"; };
+		DC582F8C1BE134DA0017BE06 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nimble.framework; sourceTree = "<group>"; };
+		DC582F8E1BE134DA0017BE06 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OHHTTPStubs.framework; sourceTree = "<group>"; };
+		DC582F901BE134DA0017BE06 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Quick.framework; sourceTree = "<group>"; };
+		DC582F941BE134DA0017BE06 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Result.framework; sourceTree = "<group>"; };
 		DCA5B98C1A8A12E700667D32 /* NSDateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtensions.swift; sourceTree = "<group>"; };
 		DCA5B98E1A8A296300667D32 /* NSDateExtensionsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtensionsSpec.swift; sourceTree = "<group>"; };
 		DCA5B9901A8A2B9700667D32 /* HeimdallrSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = HeimdallrSpec.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -147,6 +221,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DC582F3F1BE1319F0017BE06 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC582FAB1BE135B90017BE06 /* Argo.framework in Frameworks */,
+				DC582FAC1BE135B90017BE06 /* KeychainAccess.framework in Frameworks */,
+				DC582FAD1BE135B90017BE06 /* Result.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC582F491BE1319F0017BE06 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC582FAE1BE135C40017BE06 /* Argo.framework in Frameworks */,
+				DC582F4D1BE1319F0017BE06 /* Heimdallr.framework in Frameworks */,
+				DC582FAF1BE135C40017BE06 /* KeychainAccess.framework in Frameworks */,
+				DC582FB11BE135C40017BE06 /* Nimble.framework in Frameworks */,
+				DC582FB21BE135C40017BE06 /* OHHTTPStubs.framework in Frameworks */,
+				DC582FB31BE135C40017BE06 /* Quick.framework in Frameworks */,
+				DC582FB01BE135C40017BE06 /* Result.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -154,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				DC582F761BE134DA0017BE06 /* iOS */,
+				DC582F871BE134DA0017BE06 /* Mac */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -173,6 +272,8 @@
 			children = (
 				DC545DC21A89F0F10051A575 /* Heimdallr.framework */,
 				DC545DCD1A89F0F10051A575 /* HeimdallrTests.xctest */,
+				DC582F431BE1319F0017BE06 /* Heimdallr.framework */,
+				DC582F4C1BE1319F0017BE06 /* HeimdallrTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -240,6 +341,16 @@
 			path = Carthage/Build/iOS;
 			sourceTree = "<group>";
 		};
+		DC582F871BE134DA0017BE06 /* Mac */ = {
+			isa = PBXGroup;
+			children = (
+				DC582F9A1BE1353C0017BE06 /* Heimdallr */,
+				DC582F971BE135020017BE06 /* Private */,
+			);
+			name = Mac;
+			path = Carthage/Build/Mac;
+			sourceTree = "<group>";
+		};
 		DC582F961BE134FB0017BE06 /* Private */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,6 +359,26 @@
 				DC582F811BE134DA0017BE06 /* Quick.framework */,
 			);
 			name = Private;
+			sourceTree = "<group>";
+		};
+		DC582F971BE135020017BE06 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				DC582F8C1BE134DA0017BE06 /* Nimble.framework */,
+				DC582F8E1BE134DA0017BE06 /* OHHTTPStubs.framework */,
+				DC582F901BE134DA0017BE06 /* Quick.framework */,
+			);
+			name = Private;
+			sourceTree = "<group>";
+		};
+		DC582F9A1BE1353C0017BE06 /* Heimdallr */ = {
+			isa = PBXGroup;
+			children = (
+				DC582F881BE134DA0017BE06 /* Argo.framework */,
+				DC582F8A1BE134DA0017BE06 /* KeychainAccess.framework */,
+				DC582F941BE134DA0017BE06 /* Result.framework */,
+			);
+			name = Heimdallr;
 			sourceTree = "<group>";
 		};
 		DC582F9B1BE135440017BE06 /* Heimdallr */ = {
@@ -283,6 +414,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC545DC81A89F0F10051A575 /* Heimdallr.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC582F401BE1319F0017BE06 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC582F5A1BE134560017BE06 /* Heimdallr.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +465,43 @@
 			productReference = DC545DCD1A89F0F10051A575 /* HeimdallrTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		DC582F421BE1319F0017BE06 /* Heimdallr-Mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC582F541BE1319F0017BE06 /* Build configuration list for PBXNativeTarget "Heimdallr-Mac" */;
+			buildPhases = (
+				DC582F3E1BE1319F0017BE06 /* Sources */,
+				DC582F3F1BE1319F0017BE06 /* Frameworks */,
+				DC582F401BE1319F0017BE06 /* Headers */,
+				DC582F411BE1319F0017BE06 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Heimdallr-Mac";
+			productName = "Heimdallr-Mac";
+			productReference = DC582F431BE1319F0017BE06 /* Heimdallr.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DC582F4B1BE1319F0017BE06 /* Heimdallr-MacTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC582F571BE1319F0017BE06 /* Build configuration list for PBXNativeTarget "Heimdallr-MacTests" */;
+			buildPhases = (
+				DC582F481BE1319F0017BE06 /* Sources */,
+				DC582F491BE1319F0017BE06 /* Frameworks */,
+				DC582F4A1BE1319F0017BE06 /* Resources */,
+				DC582FB41BE135D80017BE06 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DC582F4F1BE1319F0017BE06 /* PBXTargetDependency */,
+			);
+			name = "Heimdallr-MacTests";
+			productName = "Heimdallr-MacTests";
+			productReference = DC582F4C1BE1319F0017BE06 /* HeimdallrTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -343,6 +519,12 @@
 					DC545DCC1A89F0F10051A575 = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
+					DC582F421BE1319F0017BE06 = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					DC582F4B1BE1319F0017BE06 = {
+						CreatedOnToolsVersion = 7.1;
+					};
 				};
 			};
 			buildConfigurationList = DC545DBC1A89F0F10051A575 /* Build configuration list for PBXProject "Heimdallr" */;
@@ -359,6 +541,8 @@
 			targets = (
 				DC545DC11A89F0F10051A575 /* Heimdallr-iOS */,
 				DC545DCC1A89F0F10051A575 /* Heimdallr-iOSTests */,
+				DC582F421BE1319F0017BE06 /* Heimdallr-Mac */,
+				DC582F4B1BE1319F0017BE06 /* Heimdallr-MacTests */,
 			);
 		};
 /* End PBXProject section */
@@ -383,6 +567,28 @@
 				DCA5B9A21A8A4A8C00667D32 /* request-invalid.json in Resources */,
 				DCB254131A8D138D00226966 /* authorize-error.json in Resources */,
 				DCA5B99A1A8A385B00667D32 /* authorize-invalid-token.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC582F411BE1319F0017BE06 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC582F4A1BE1319F0017BE06 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC582F751BE134880017BE06 /* request-valid.json in Resources */,
+				DC582F6E1BE134880017BE06 /* authorize-error.json in Resources */,
+				DC582F711BE134880017BE06 /* authorize-invalid.json in Resources */,
+				DC582F731BE134880017BE06 /* request-invalid-norefresh.json in Resources */,
+				DC582F701BE134880017BE06 /* authorize-invalid-type.json in Resources */,
+				DC582F6F1BE134880017BE06 /* authorize-invalid-token.json in Resources */,
+				DC582F741BE134880017BE06 /* request-invalid.json in Resources */,
+				DC582F721BE134880017BE06 /* authorize-valid.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +628,39 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DC582F3E1BE1319F0017BE06 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC582F5E1BE1345C0017BE06 /* HeimdallrResourceRequestAuthenticator.swift in Sources */,
+				DC582F631BE1345C0017BE06 /* OAuthAccessTokenKeychainStore.swift in Sources */,
+				DC582F5B1BE1345C0017BE06 /* Heimdallr.swift in Sources */,
+				DC582F671BE1345C0017BE06 /* OAuthError.swift in Sources */,
+				DC582F611BE1345C0017BE06 /* NSURLRequestExtensions.swift in Sources */,
+				DC582F601BE1345C0017BE06 /* NSDateExtensions.swift in Sources */,
+				DC582F661BE1345C0017BE06 /* OAuthClientCredentials.swift in Sources */,
+				DC582F641BE1345C0017BE06 /* OAuthAccessTokenStore.swift in Sources */,
+				DC582F5D1BE1345C0017BE06 /* HeimdallrHTTPClientNSURLSession.swift in Sources */,
+				DC582F621BE1345C0017BE06 /* OAuthAccessToken.swift in Sources */,
+				DC582F5F1BE1345C0017BE06 /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */,
+				DC582F5C1BE1345C0017BE06 /* HeimdallrHTTPClient.swift in Sources */,
+				DC582F651BE1345C0017BE06 /* OAuthAuthorizationGrant.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC582F481BE1319F0017BE06 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC582F681BE134880017BE06 /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeaderSpec.swift in Sources */,
+				DC582F6A1BE134880017BE06 /* NSDateExtensionsSpec.swift in Sources */,
+				DC582F6D1BE134880017BE06 /* OAuthAccessTokenSpec.swift in Sources */,
+				DC582F6B1BE134880017BE06 /* NSURLRequestExtensionsSpec.swift in Sources */,
+				DC582F6C1BE134880017BE06 /* OAuthAccessTokenKeychainStoreSpec.swift in Sources */,
+				DC582F691BE134880017BE06 /* HeimdallrSpec.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -429,6 +668,11 @@
 			isa = PBXTargetDependency;
 			target = DC545DC11A89F0F10051A575 /* Heimdallr-iOS */;
 			targetProxy = DC545DCF1A89F0F10051A575 /* PBXContainerItemProxy */;
+		};
+		DC582F4F1BE1319F0017BE06 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC582F421BE1319F0017BE06 /* Heimdallr-Mac */;
+			targetProxy = DC582F4E1BE1319F0017BE06 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -598,6 +842,92 @@
 			};
 			name = Release;
 		};
+		DC582F551BE1319F0017BE06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = Heimdallr/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		DC582F561BE1319F0017BE06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = Heimdallr/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		DC582F581BE1319F0017BE06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = HeimdallrTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(inherited)Tests";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		DC582F591BE1319F0017BE06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = HeimdallrTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(inherited)Tests";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -627,6 +957,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		DC582F541BE1319F0017BE06 /* Build configuration list for PBXNativeTarget "Heimdallr-Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC582F551BE1319F0017BE06 /* Debug */,
+				DC582F561BE1319F0017BE06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DC582F571BE1319F0017BE06 /* Build configuration list for PBXNativeTarget "Heimdallr-MacTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC582F581BE1319F0017BE06 /* Debug */,
+				DC582F591BE1319F0017BE06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
