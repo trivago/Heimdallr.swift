@@ -23,8 +23,8 @@ Pod::Spec.new do |spec|
 
   spec.subspec 'Heimdallr' do |subspec|
     subspec.dependency 'Result', '0.6.0-beta.4'
-    subspec.dependency 'Argo', '~> 2.2'
-    subspec.dependency 'KeychainAccess', '~> 2.2'
+    subspec.dependency 'Argo', '2.1.0'
+    subspec.dependency 'KeychainAccess', '2.2.0'
     subspec.framework = 'Foundation'
 
     subspec.source_files = 'Heimdallr/**/*.swift'
