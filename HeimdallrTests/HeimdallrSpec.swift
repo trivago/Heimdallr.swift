@@ -1,4 +1,4 @@
-import Heimdall
+import Heimdallr
 import Nimble
 import OHHTTPStubs
 import Quick
@@ -29,23 +29,23 @@ class HeimdallResourceRequestMockAuthenticator: HeimdallResourceRequestAuthentic
     }
 }
 
-class HeimdallSpec: QuickSpec {
-    let bundle = NSBundle(forClass: HeimdallSpec.self)
+class HeimdallrSpec: QuickSpec {
+    let bundle = NSBundle(forClass: HeimdallrSpec.self)
 
     override func spec() {
         var accessTokenStore: OAuthAccessTokenMockStore!
-        var heimdall: Heimdall!
+        var heimdallr: Heimdallr!
 
         beforeEach {
             accessTokenStore = OAuthAccessTokenMockStore()
-            heimdall = Heimdall(tokenURL: NSURL(string: "http://rheinfabrik.de")!, accessTokenStore: accessTokenStore, resourceRequestAuthenticator: HeimdallResourceRequestMockAuthenticator())
+            heimdallr = Heimdallr(tokenURL: NSURL(string: "http://rheinfabrik.de")!, accessTokenStore: accessTokenStore, resourceRequestAuthenticator: HeimdallResourceRequestMockAuthenticator())
         }
 
         describe("-init") {
             context("when a token is saved in the store") {
                 it("loads the token from the token store") {
                     accessTokenStore.mockedAccessToken = OAuthAccessToken(accessToken: "foo", tokenType: "bar")
-                    expect(heimdall.hasAccessToken).to(beTrue())
+                    expect(heimdallr.hasAccessToken).to(beTrue())
                 }
             }
         }
@@ -56,7 +56,7 @@ class HeimdallSpec: QuickSpec {
             }
 
             it("invalidates the currently stored access token") {
-                heimdall.invalidateAccessToken()
+                heimdallr.invalidateAccessToken()
 
                 expect(accessTokenStore.retrieveAccessToken()?.expiresAt).to(equal(NSDate(timeIntervalSince1970: 0)))
             }
@@ -68,9 +68,9 @@ class HeimdallSpec: QuickSpec {
             }
 
             it("clears the currently stored access token") {
-                heimdall.clearAccessToken()
+                heimdallr.clearAccessToken()
 
-                expect(heimdall.hasAccessToken).to(beFalse())
+                expect(heimdallr.hasAccessToken).to(beFalse())
             }
         }
 
@@ -90,7 +90,7 @@ class HeimdallSpec: QuickSpec {
                     })
 
                     waitUntil { done in
-                        heimdall.requestAccessToken(username: "username", password: "password") { result = $0; done() }
+                        heimdallr.requestAccessToken(username: "username", password: "password") { result = $0; done() }
                     }
                 }
 
@@ -103,7 +103,7 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("sets the access token") {
-                    expect(heimdall.hasAccessToken).to(beTrue())
+                    expect(heimdallr.hasAccessToken).to(beTrue())
                 }
 
                 it("stores the access token in the token store") {
@@ -120,7 +120,7 @@ class HeimdallSpec: QuickSpec {
                     })
 
                     waitUntil { done in
-                        heimdall.requestAccessToken(username: "username", password: "password") { result = $0; done() }
+                        heimdallr.requestAccessToken(username: "username", password: "password") { result = $0; done() }
                     }
                 }
 
@@ -141,7 +141,7 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("does not set the access token") {
-                    expect(heimdall.hasAccessToken).to(beFalse())
+                    expect(heimdallr.hasAccessToken).to(beFalse())
                 }
             }
 
@@ -154,7 +154,7 @@ class HeimdallSpec: QuickSpec {
                     })
 
                     waitUntil { done in
-                        heimdall.requestAccessToken(username: "username", password: "password") { result = $0; done() }
+                        heimdallr.requestAccessToken(username: "username", password: "password") { result = $0; done() }
                     }
                 }
 
@@ -167,15 +167,15 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("fails with the correct error domain") {
-                    expect(result?.error?.domain).to(equal(HeimdallErrorDomain))
+                    expect(result?.error?.domain).to(equal(HeimdallrErrorDomain))
                 }
 
                 it("fails with the correct error code") {
-                    expect(result?.error?.code).to(equal(HeimdallErrorInvalidData))
+                    expect(result?.error?.code).to(equal(HeimdallrErrorInvalidData))
                 }
 
                 it("does not set the access token") {
-                    expect(heimdall.hasAccessToken).to(beFalse())
+                    expect(heimdallr.hasAccessToken).to(beFalse())
                 }
             }
 
@@ -188,7 +188,7 @@ class HeimdallSpec: QuickSpec {
                     })
 
                     waitUntil { done in
-                        heimdall.requestAccessToken(username: "username", password: "password") { result = $0; done() }
+                        heimdallr.requestAccessToken(username: "username", password: "password") { result = $0; done() }
                     }
                 }
 
@@ -201,15 +201,15 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("fails with the correct error domain") {
-                    expect(result?.error?.domain).to(equal(HeimdallErrorDomain))
+                    expect(result?.error?.domain).to(equal(HeimdallrErrorDomain))
                 }
 
                 it("fails with the correct error code") {
-                    expect(result?.error?.code).to(equal(HeimdallErrorInvalidData))
+                    expect(result?.error?.code).to(equal(HeimdallrErrorInvalidData))
                 }
 
                 it("does not set the access token") {
-                    expect(heimdall.hasAccessToken).to(beFalse())
+                    expect(heimdallr.hasAccessToken).to(beFalse())
                 }
 
             }
@@ -223,7 +223,7 @@ class HeimdallSpec: QuickSpec {
                     })
 
                     waitUntil { done in
-                        heimdall.requestAccessToken(username: "username", password: "password") { result = $0; done() }
+                        heimdallr.requestAccessToken(username: "username", password: "password") { result = $0; done() }
                     }
                 }
 
@@ -236,15 +236,15 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("fails with the correct error domain") {
-                    expect(result?.error?.domain).to(equal(HeimdallErrorDomain))
+                    expect(result?.error?.domain).to(equal(HeimdallrErrorDomain))
                 }
 
                 it("fails with the correct error code") {
-                    expect(result?.error?.code).to(equal(HeimdallErrorInvalidData))
+                    expect(result?.error?.code).to(equal(HeimdallrErrorInvalidData))
                 }
 
                 it("does not set the access token") {
-                    expect(heimdall.hasAccessToken).to(beFalse())
+                    expect(heimdallr.hasAccessToken).to(beFalse())
                 }
             }
         }
@@ -265,7 +265,7 @@ class HeimdallSpec: QuickSpec {
                     })
 
                     waitUntil { done in
-                        heimdall.requestAccessToken(grantType: "https://accounts.example.com/oauth/v2/foo/bar", parameters: ["provider": "fb", "code": "tops3cret"]) { result = $0; done() }
+                        heimdallr.requestAccessToken(grantType: "https://accounts.example.com/oauth/v2/foo/bar", parameters: ["provider": "fb", "code": "tops3cret"]) { result = $0; done() }
                     }
                 }
 
@@ -278,7 +278,7 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("sets the access token") {
-                    expect(heimdall.hasAccessToken).to(beTrue())
+                    expect(heimdallr.hasAccessToken).to(beTrue())
                 }
 
                 it("stores the access token in the token store") {
@@ -295,7 +295,7 @@ class HeimdallSpec: QuickSpec {
                     })
 
                     waitUntil { done in
-                        heimdall.requestAccessToken(grantType: "https://accounts.example.com/oauth/v2/foo/bar", parameters: ["provider": "fb", "code": "tops3cret"]) { result = $0; done() }
+                        heimdallr.requestAccessToken(grantType: "https://accounts.example.com/oauth/v2/foo/bar", parameters: ["provider": "fb", "code": "tops3cret"]) { result = $0; done() }
                     }
                 }
 
@@ -316,7 +316,7 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("does not set the access token") {
-                    expect(heimdall.hasAccessToken).to(beFalse())
+                    expect(heimdallr.hasAccessToken).to(beFalse())
                 }
             }
 
@@ -329,7 +329,7 @@ class HeimdallSpec: QuickSpec {
                     })
 
                     waitUntil { done in
-                        heimdall.requestAccessToken(grantType: "https://accounts.example.com/oauth/v2/foo/bar", parameters: ["provider": "fb", "code": "tops3cret"]) { result = $0; done() }
+                        heimdallr.requestAccessToken(grantType: "https://accounts.example.com/oauth/v2/foo/bar", parameters: ["provider": "fb", "code": "tops3cret"]) { result = $0; done() }
                     }
                 }
 
@@ -342,15 +342,15 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("fails with the correct error domain") {
-                    expect(result?.error?.domain).to(equal(HeimdallErrorDomain))
+                    expect(result?.error?.domain).to(equal(HeimdallrErrorDomain))
                 }
 
                 it("fails with the correct error code") {
-                    expect(result?.error?.code).to(equal(HeimdallErrorInvalidData))
+                    expect(result?.error?.code).to(equal(HeimdallrErrorInvalidData))
                 }
 
                 it("does not set the access token") {
-                    expect(heimdall.hasAccessToken).to(beFalse())
+                    expect(heimdallr.hasAccessToken).to(beFalse())
                 }
             }
 
@@ -363,7 +363,7 @@ class HeimdallSpec: QuickSpec {
                     })
 
                     waitUntil { done in
-                        heimdall.requestAccessToken(grantType: "https://accounts.example.com/oauth/v2/foo/bar", parameters: ["provider": "fb", "code": "tops3cret"]) { result = $0; done() }
+                        heimdallr.requestAccessToken(grantType: "https://accounts.example.com/oauth/v2/foo/bar", parameters: ["provider": "fb", "code": "tops3cret"]) { result = $0; done() }
                     }
                 }
 
@@ -376,15 +376,15 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("fails with the correct error domain") {
-                    expect(result?.error?.domain).to(equal(HeimdallErrorDomain))
+                    expect(result?.error?.domain).to(equal(HeimdallrErrorDomain))
                 }
 
                 it("fails with the correct error code") {
-                    expect(result?.error?.code).to(equal(HeimdallErrorInvalidData))
+                    expect(result?.error?.code).to(equal(HeimdallrErrorInvalidData))
                 }
 
                 it("does not set the access token") {
-                    expect(heimdall.hasAccessToken).to(beFalse())
+                    expect(heimdallr.hasAccessToken).to(beFalse())
                 }
             }
 
@@ -397,7 +397,7 @@ class HeimdallSpec: QuickSpec {
                     })
 
                     waitUntil { done in
-                        heimdall.requestAccessToken(grantType: "https://accounts.example.com/oauth/v2/foo/bar", parameters: ["provider": "fb", "code": "tops3cret"]) { result = $0; done() }
+                        heimdallr.requestAccessToken(grantType: "https://accounts.example.com/oauth/v2/foo/bar", parameters: ["provider": "fb", "code": "tops3cret"]) { result = $0; done() }
                     }
                 }
 
@@ -410,15 +410,15 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("fails with the correct error domain") {
-                    expect(result?.error?.domain).to(equal(HeimdallErrorDomain))
+                    expect(result?.error?.domain).to(equal(HeimdallrErrorDomain))
                 }
 
                 it("fails with the correct error code") {
-                    expect(result?.error?.code).to(equal(HeimdallErrorInvalidData))
+                    expect(result?.error?.code).to(equal(HeimdallrErrorInvalidData))
                 }
 
                 it("does not set the access token") {
-                    expect(heimdall.hasAccessToken).to(beFalse())
+                    expect(heimdallr.hasAccessToken).to(beFalse())
                 }
             }
         }
@@ -434,7 +434,7 @@ class HeimdallSpec: QuickSpec {
             context("when not authorized") {
                 beforeEach {
                     waitUntil { done in
-                        heimdall.authenticateRequest(request) { result = $0; done() }
+                        heimdallr.authenticateRequest(request) { result = $0; done() }
                     }
                 }
 
@@ -443,11 +443,11 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("fails with the correct error domain") {
-                    expect(result?.error?.domain).to(equal(HeimdallErrorDomain))
+                    expect(result?.error?.domain).to(equal(HeimdallrErrorDomain))
                 }
 
                 it("fails with the correct error code") {
-                    expect(result?.error?.code).to(equal(HeimdallErrorNotAuthorized))
+                    expect(result?.error?.code).to(equal(HeimdallrErrorNotAuthorized))
                 }
             }
 
@@ -460,11 +460,11 @@ class HeimdallSpec: QuickSpec {
                     })
 
                     waitUntil { done in
-                        heimdall.requestAccessToken(username: "username", password: "password") { _ in done() }
+                        heimdallr.requestAccessToken(username: "username", password: "password") { _ in done() }
                     }
 
                     waitUntil { done in
-                        heimdall.authenticateRequest(request) { result = $0; done() }
+                        heimdallr.authenticateRequest(request) { result = $0; done() }
                     }
                 }
 
@@ -491,11 +491,11 @@ class HeimdallSpec: QuickSpec {
                     })
 
                     waitUntil { done in
-                        heimdall.requestAccessToken(username: "username", password: "password") { _ in done() }
+                        heimdallr.requestAccessToken(username: "username", password: "password") { _ in done() }
                     }
 
                     waitUntil { done in
-                        heimdall.authenticateRequest(request) { result = $0; done() }
+                        heimdallr.authenticateRequest(request) { result = $0; done() }
                     }
                 }
 
@@ -508,11 +508,11 @@ class HeimdallSpec: QuickSpec {
                 }
 
                 it("fails with the correct error domain") {
-                    expect(result?.error?.domain).to(equal(HeimdallErrorDomain))
+                    expect(result?.error?.domain).to(equal(HeimdallrErrorDomain))
                 }
 
                 it("fails with the correct error code") {
-                    expect(result?.error?.code).to(equal(HeimdallErrorNotAuthorized))
+                    expect(result?.error?.code).to(equal(HeimdallrErrorNotAuthorized))
                 }
 
             }
@@ -522,14 +522,14 @@ class HeimdallSpec: QuickSpec {
                     OHHTTPStubs.stubRequestsPassingTest({ request in
                         return (
                             request.URL!.absoluteString == "http://rheinfabrik.de"
-                            && heimdall.hasAccessToken == false
+                            && heimdallr.hasAccessToken == false
                             )
                     }, withStubResponse: { request in
                         return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("request-invalid", ofType: "json")!)!, statusCode: 200, headers: [ "Content-Type": "application/json" ])
                     })
 
                     waitUntil { done in
-                        heimdall.requestAccessToken(username: "username", password: "password") { _ in done() }
+                        heimdallr.requestAccessToken(username: "username", password: "password") { _ in done() }
                     }
                 }
 
@@ -546,7 +546,7 @@ class HeimdallSpec: QuickSpec {
                         })
 
                         waitUntil { done in
-                            heimdall.authenticateRequest(request) { result = $0; done() }
+                            heimdallr.authenticateRequest(request) { result = $0; done() }
                         }
                     }
 
@@ -568,12 +568,12 @@ class HeimdallSpec: QuickSpec {
                         })
 
                         waitUntil { done in
-                            heimdall.authenticateRequest(request) { result = $0; done() }
+                            heimdallr.authenticateRequest(request) { result = $0; done() }
                         }
                     }
 
                     it("clears the access token") {
-                        expect(heimdall.hasAccessToken).to(beFalse())
+                        expect(heimdallr.hasAccessToken).to(beFalse())
                     }
 
                     it("fails") {

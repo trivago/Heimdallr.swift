@@ -1,6 +1,6 @@
 import Foundation
 
-/// A request authenticator that can be used by Heimdall.
+/// A request authenticator that can be used by Heimdallr.
 @objc
 public protocol HeimdallResourceRequestAuthenticator {
 

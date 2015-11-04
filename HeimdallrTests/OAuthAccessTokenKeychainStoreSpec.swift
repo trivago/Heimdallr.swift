@@ -1,4 +1,4 @@
-import Heimdall
+import Heimdallr
 import KeychainAccess
 import Nimble
 import Quick
@@ -6,10 +6,10 @@ import Quick
 class OAuthAccessTokenKeychainStoreSpec: QuickSpec {
     override func spec() {
         var store: OAuthAccessTokenKeychainStore!
-        let keychain = Keychain(service: "de.rheinfabrik.heimdall.oauth.unit-tests")
+        let keychain = Keychain(service: "de.rheinfabrik.heimdallr.oauth.unit-tests")
 
         beforeEach {
-            store = OAuthAccessTokenKeychainStore(service: "de.rheinfabrik.heimdall.oauth.unit-tests")
+            store = OAuthAccessTokenKeychainStore(service: "de.rheinfabrik.heimdallr.oauth.unit-tests")
         }
 
         describe("-storeAccessToken") {

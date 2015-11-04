@@ -2,7 +2,7 @@ import Foundation
 
 /// An HTTP client that uses NSURLSession.
 @objc
-public class HeimdallHTTPClientNSURLSession: NSObject, HeimdallHTTPClient {
+public class HeimdallrHTTPClientNSURLSession: NSObject, HeimdallrHTTPClient {
     let urlSession: NSURLSession
 
     /// Initializes a new client.

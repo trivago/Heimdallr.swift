@@ -20,8 +20,8 @@ test:
         PROVISIONING_PROFILE=
         -sdk iphonesimulator
         -destination 'platform=iOS Simulator,OS=9.0,name=iPhone 6s'
-        -project Heimdall.xcodeproj
-        -scheme "Heimdall"
+        -project Heimdallr.xcodeproj
+        -scheme "Heimdallr-iOS"
         -configuration Debug
         clean test |
       tee $CIRCLE_ARTIFACTS/xcode_raw_ios.log |

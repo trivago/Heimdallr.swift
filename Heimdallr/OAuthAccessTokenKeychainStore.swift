@@ -8,11 +8,11 @@ public class OAuthAccessTokenKeychainStore: NSObject, OAuthAccessTokenStore {
     /// Initializes a new Keychain-based access token store.
     ///
     /// - parameter service: The Keychain service.
-    ///     Default: `de.rheinfabrik.heimdall.oauth`.
+    ///     Default: `de.rheinfabrik.heimdallr.oauth`.
     ///
     /// - returns: A new Keychain-based access token store initialized with the
     ///     the given service.
-    public init(service: String = "de.rheinfabrik.heimdall.oauth") {
+    public init(service: String = "de.rheinfabrik.heimdallr.oauth") {
         keychain = Keychain(service: service)
     }
 
