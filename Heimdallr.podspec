@@ -31,7 +31,7 @@ Pod::Spec.new do |spec|
     subspec.source_files = 'Heimdallr/**/*.swift'
   end
 
-  spec.subspec 'ReactiveHeimdallr' do |subspec|
+  spec.subspec 'ReactiveCocoa' do |subspec|
     subspec.dependency 'ReactiveCocoa', '4.0.0-alpha-1'
 
     subspec.source_files = 'ReactiveHeimdallr/**/*.swift'
