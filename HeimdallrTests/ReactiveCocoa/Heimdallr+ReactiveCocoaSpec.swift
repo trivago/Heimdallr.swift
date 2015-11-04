@@ -173,7 +173,7 @@ class ReactiveHeimdallrSpec: QuickSpec {
             }
         }
 
-        describe("-RH_requestAccessToken(username:password:)") {
+        describe("-rac_requestAccessToken(username:password:)") {
             context("when the completion block sends a success result") {
                 beforeEach {
                     heimdallr.authorizeSuccess = true
@@ -181,7 +181,7 @@ class ReactiveHeimdallrSpec: QuickSpec {
 
                 it("sends a RACUnit") {
                     waitUntil { done in
-                        let signal = heimdallr.RH_requestAccessToken(username: "foo", password: "bar")
+                        let signal = heimdallr.rac_requestAccessToken(username: "foo", password: "bar")
                         signal.subscribeNext { value in
                             expect(value is RACUnit).to(beTrue())
                             done()
@@ -191,7 +191,7 @@ class ReactiveHeimdallrSpec: QuickSpec {
 
                 it("completes") {
                     waitUntil { done in
-                        let signal = heimdallr.RH_requestAccessToken(username: "foo", password: "bar")
+                        let signal = heimdallr.rac_requestAccessToken(username: "foo", password: "bar")
                         signal.subscribeCompleted {
                             done()
                         }
@@ -206,7 +206,7 @@ class ReactiveHeimdallrSpec: QuickSpec {
 
                 it("sends the error") {
                     waitUntil { done in
-                        let signal = heimdallr.RH_requestAccessToken(username: "foo", password: "bar")
+                        let signal = heimdallr.rac_requestAccessToken(username: "foo", password: "bar")
                         signal.subscribeError { error in
                             expect(error).to(equal(testError))
                             done()
@@ -216,7 +216,7 @@ class ReactiveHeimdallrSpec: QuickSpec {
             }
         }
 
-        describe("-RH_requestAccessToken(grantType:parameters:)") {
+        describe("-rac_requestAccessToken(grantType:parameters:)") {
             context("when the completion block sends a success result") {
                 beforeEach {
                     heimdallr.authorizeSuccess = true
@@ -224,7 +224,7 @@ class ReactiveHeimdallrSpec: QuickSpec {
 
                 it("sends a RACUnit") {
                     waitUntil { done in
-                        let signal = heimdallr.RH_requestAccessToken(grantType:"foo", parameters:["code": "bar"])
+                        let signal = heimdallr.rac_requestAccessToken(grantType:"foo", parameters:["code": "bar"])
                         signal.subscribeNext { value in
                             expect(value is RACUnit).to(beTrue())
                             done()
@@ -234,7 +234,7 @@ class ReactiveHeimdallrSpec: QuickSpec {
 
                 it("completes") {
                     waitUntil { done in
-                        let signal = heimdallr.RH_requestAccessToken(grantType:"foo", parameters:["code": "bar"])
+                        let signal = heimdallr.rac_requestAccessToken(grantType:"foo", parameters:["code": "bar"])
                         signal.subscribeCompleted {
                             done()
                         }
@@ -250,7 +250,7 @@ class ReactiveHeimdallrSpec: QuickSpec {
 
                 it("sends the error") {
                     waitUntil { done in
-                        let signal = heimdallr.RH_requestAccessToken(grantType:"foo", parameters:["code": "bar"])
+                        let signal = heimdallr.rac_requestAccessToken(grantType:"foo", parameters:["code": "bar"])
                         signal.subscribeError { error in
                             expect(error).to(equal(testError))
                             done()
@@ -260,7 +260,7 @@ class ReactiveHeimdallrSpec: QuickSpec {
             }
         }
 
-        describe ("-RH_authenticateRequest") {
+        describe ("-rac_authenticateRequest") {
             context("when the completion block sends a success result") {
                 beforeEach {
                     heimdallr.requestSuccess = true
@@ -268,7 +268,7 @@ class ReactiveHeimdallrSpec: QuickSpec {
 
                 it("sends the result value") {
                     waitUntil { done in
-                        let signal = heimdallr.RH_authenticateRequest(NSURLRequest(URL: NSURL(string: "http://www.rheinfabrik.de/foobar")!))
+                        let signal = heimdallr.rac_authenticateRequest(NSURLRequest(URL: NSURL(string: "http://www.rheinfabrik.de/foobar")!))
                         signal.subscribeNext { value in
                             expect(value as? NSURLRequest).to(equal(testRequest))
                             done()
@@ -278,7 +278,7 @@ class ReactiveHeimdallrSpec: QuickSpec {
 
                 it("completes") {
                     waitUntil { done in
-                        let signal = heimdallr.RH_authenticateRequest(NSURLRequest(URL: NSURL(string: "http://www.rheinfabrik.de/foobar")!))
+                        let signal = heimdallr.rac_authenticateRequest(NSURLRequest(URL: NSURL(string: "http://www.rheinfabrik.de/foobar")!))
                         signal.subscribeCompleted {
                             done()
                         }
@@ -293,7 +293,7 @@ class ReactiveHeimdallrSpec: QuickSpec {
 
                 it("sends the error") {
                     waitUntil { done in
-                        let signal = heimdallr.RH_authenticateRequest(NSURLRequest(URL: NSURL(string: "http://www.rheinfabrik.de/foobar")!))
+                        let signal = heimdallr.rac_authenticateRequest(NSURLRequest(URL: NSURL(string: "http://www.rheinfabrik.de/foobar")!))
                         signal.subscribeError { error in
                             expect(error).to(equal(testError))
                             done()

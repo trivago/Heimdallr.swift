@@ -79,7 +79,7 @@ extension Heimdallr {
     /// - returns: A signal that sends a `RACUnit` and completes when the
     ///     request finishes successfully or sends an error if the request
     ///     finishes with an error.
-    @objc public func RH_requestAccessToken(username username: String, password: String) -> RACSignal {
+    @objc public func rac_requestAccessToken(username username: String, password: String) -> RACSignal {
         let producer: SignalProducer<RACUnit, NSError> = requestAccessToken(username: username, password: password)
             .map { _ in RACUnit.defaultUnit() }
         return toRACSignal(producer)
@@ -92,7 +92,7 @@ extension Heimdallr {
     /// - returns: A signal that sends a `RACUnit` and completes when the
     ///     request finishes successfully or sends an error if the request
     ///     finishes with an error.
-    @objc public func RH_requestAccessToken(grantType grantType: String, parameters: NSDictionary) -> RACSignal {
+    @objc public func rac_requestAccessToken(grantType grantType: String, parameters: NSDictionary) -> RACSignal {
         let producer: SignalProducer<RACUnit, NSError> = requestAccessToken(grantType: grantType, parameters: parameters as! [String: String])
             .map { _ in RACUnit.defaultUnit() }
         return toRACSignal(producer)
@@ -109,7 +109,7 @@ extension Heimdallr {
     /// - parameter request: An unauthenticated NSURLRequest.
     /// - returns: A signal that sends the authenticated request on success or
     ///     an error if the request could not be authenticated.
-    @objc public func RH_authenticateRequest(request: NSURLRequest) -> RACSignal {
+    @objc public func rac_authenticateRequest(request: NSURLRequest) -> RACSignal {
         return toRACSignal(authenticateRequest(request))
     }
 }
