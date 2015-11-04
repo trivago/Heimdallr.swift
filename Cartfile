@@ -1,4 +1,4 @@
-# Heimdallr
+# Core
 github "antitypical/Result" "76f9a97"
 github "thoughtbot/Argo" "v2.1.0"
 github "kishikawakatsumi/KeychainAccess" "v2.2.0"
