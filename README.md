@@ -6,7 +6,7 @@ If you are familiar with [ReactiveCocoa](https://github.com/ReactiveCocoa/Reacti
 
 If you are an Android Developer then please take a look at the [Android version of Heimdallr](https://github.com/rheinfabrik/Heimdall.droid).
 
-[![Build Status](https://circleci.com/gh/rheinfabrik/Heimdallr.svg?style=shield&circle-token=06d0c39133fae3dd9b649c116776c7f882885f1f)](https://circleci.com/gh/rheinfabrik/Heimdallr)
+[![Build Status](https://circleci.com/gh/rheinfabrik/Heimdallr.swift.svg?style=shield&circle-token=06d0c39133fae3dd9b649c116776c7f882885f1f)](https://circleci.com/gh/rheinfabrik/Heimdallr)
 
 ## Example
 
