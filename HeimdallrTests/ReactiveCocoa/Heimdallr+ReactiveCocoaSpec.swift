@@ -78,7 +78,7 @@ class ReactiveHeimdallrSpec: QuickSpec {
                 it("sends the error") {
                     waitUntil { done in
                         let producer = heimdallr.requestAccessToken(username: "foo", password: "bar")
-                        producer.startWithError { error in
+                        producer.startWithFailed { error in
                             expect(error).to(equal(testError))
                             done()
                         }
@@ -121,7 +121,7 @@ class ReactiveHeimdallrSpec: QuickSpec {
                 it("sends the error") {
                     waitUntil { done in
                         let producer = heimdallr.requestAccessToken(grantType:"foo", parameters: ["code": "bar"])
-                        producer.startWithError { error in
+                        producer.startWithFailed { error in
                             expect(error).to(equal(testError))
                             done()
                         }
@@ -164,7 +164,7 @@ class ReactiveHeimdallrSpec: QuickSpec {
                 it("sends the error") {
                     waitUntil { done in
                         let producer = heimdallr.authenticateRequest(NSURLRequest(URL: NSURL(string: "http://www.rheinfabrik.de/foobar")!))
-                        producer.startWithError { error in
+                        producer.startWithFailed { error in
                             expect(error).to(equal(testError))
                             done()
                         }
