@@ -129,7 +129,7 @@ public extension NSMutableURLRequest {
         //
         //==========================================================================================================
 
-        if #available(iOS 8.3, OSX 10.10, *) {
+        if #available(iOS 8.3, *) {
             escaped = string.stringByAddingPercentEncodingWithAllowedCharacters(allowedCharacterSet) ?? string
         } else {
             let batchSize = 50

@@ -11,7 +11,7 @@ Pod::Spec.new do |spec|
   }
   spec.homepage = 'https://github.com/rheinfabrik/Heimdallr.swift'
   spec.source = {
-    :git => 'https://github.com/rheinfabrik/Heimdallr.git',
+    :git => 'https://github.com/rheinfabrik/Heimdallr.swift.git',
     :tag => spec.version.to_s
   }
   spec.summary = 'Easy to use OAuth 2 library, written in Swift'
@@ -24,15 +24,15 @@ Pod::Spec.new do |spec|
 
   spec.subspec 'Heimdallr' do |subspec|
     subspec.dependency 'Result', '0.6.0-beta.4'
-    subspec.dependency 'Argo', '~> 2.2'
-    subspec.dependency 'KeychainAccess', '~> 2.2'
+    subspec.dependency 'Argo', '2.1.0'
+    subspec.dependency 'KeychainAccess', '2.2.0'
     subspec.framework = 'Foundation'
 
     subspec.source_files = 'Heimdallr/**/*.swift'
   end
 
   spec.subspec 'ReactiveHeimdallr' do |subspec|
-    subspec.dependency 'ReactiveCocoa', '4.0.0-alpha-3'
+    subspec.dependency 'ReactiveCocoa', '4.0.0-alpha-1'
 
     subspec.source_files = 'ReactiveHeimdallr/**/*.swift'
   end

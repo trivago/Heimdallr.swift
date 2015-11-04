@@ -15,10 +15,10 @@ extension Heimdallr {
             self.requestAccessToken(username: username, password: password) { result in
                 switch result {
                 case .Success:
-                    observer.sendNext()
-                    observer.sendCompleted()
+                    sendNext(observer, ())
+                    sendCompleted(observer)
                 case .Failure(let error):
-                    observer.sendFailed(error)
+                    sendError(observer, error)
                 }
             }
         }
@@ -36,10 +36,10 @@ extension Heimdallr {
             self.requestAccessToken(grantType: grantType, parameters: parameters) { result in
                 switch result {
                 case .Success:
-                    observer.sendNext()
-                    observer.sendCompleted()
+                    sendNext(observer, ())
+                    sendCompleted(observer)
                 case .Failure(let error):
-                    observer.sendFailed(error)
+                    sendError(observer, error)
                 }
             }
         }
@@ -62,10 +62,10 @@ extension Heimdallr {
             self.authenticateRequest(request) { result in
                 switch result {
                 case .Success(let value):
-                    observer.sendNext(value)
-                    observer.sendCompleted()
+                    sendNext(observer, value)
+                    sendCompleted(observer)
                 case .Failure(let error):
-                    observer.sendFailed(error)
+                    sendError(observer, error)
                 }
             }
         }

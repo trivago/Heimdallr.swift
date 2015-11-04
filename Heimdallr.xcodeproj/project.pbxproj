@@ -1531,6 +1531,7 @@
 				DC582FD21BE13EB30017BE06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DC582FD61BE13EB30017BE06 /* Build configuration list for PBXNativeTarget "ReactiveHeimdallr-iOSTests" */ = {
 			isa = XCConfigurationList;
@@ -1539,6 +1540,7 @@
 				DC582FD41BE13EB30017BE06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DC5830061BE148610017BE06 /* Build configuration list for PBXNativeTarget "ReactiveHeimdallr-Mac" */ = {
 			isa = XCConfigurationList;
@@ -1547,6 +1549,7 @@
 				DC5830081BE148610017BE06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DC5830091BE148610017BE06 /* Build configuration list for PBXNativeTarget "ReactiveHeimdallr-MacTests" */ = {
 			isa = XCConfigurationList;
@@ -1555,6 +1558,7 @@
 				DC58300B1BE148610017BE06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DC582FF41BE148610017BE06"
-               BuildableName = "ReactiveHeimdallr-Mac.framework"
+               BuildableName = "ReactiveHeimdallr.framework"
                BlueprintName = "ReactiveHeimdallr-Mac"
                ReferencedContainer = "container:Heimdallr.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DC582FFD1BE148610017BE06"
-               BuildableName = "ReactiveHeimdallr-MacTests.xctest"
+               BuildableName = "ReactiveHeimdallrTests.xctest"
                BlueprintName = "ReactiveHeimdallr-MacTests"
                ReferencedContainer = "container:Heimdallr.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DC582FF41BE148610017BE06"
-            BuildableName = "ReactiveHeimdallr-Mac.framework"
+            BuildableName = "ReactiveHeimdallr.framework"
             BlueprintName = "ReactiveHeimdallr-Mac"
             ReferencedContainer = "container:Heimdallr.xcodeproj">
          </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DC582FF41BE148610017BE06"
-            BuildableName = "ReactiveHeimdallr-Mac.framework"
+            BuildableName = "ReactiveHeimdallr.framework"
             BlueprintName = "ReactiveHeimdallr-Mac"
             ReferencedContainer = "container:Heimdallr.xcodeproj">
          </BuildableReference>
@@ -83,7 +83,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DC582FF41BE148610017BE06"
-            BuildableName = "ReactiveHeimdallr-Mac.framework"
+            BuildableName = "ReactiveHeimdallr.framework"
             BlueprintName = "ReactiveHeimdallr-Mac"
             ReferencedContainer = "container:Heimdallr.xcodeproj">
          </BuildableReference>

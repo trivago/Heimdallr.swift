@@ -1,7 +1,7 @@
 # Heimdallr
-github "antitypical/Result" "0.6.0-beta.5"
-github "thoughtbot/Argo" ~> 2.2
-github "kishikawakatsumi/KeychainAccess" ~> 2.2
+github "antitypical/Result" "76f9a97"
+github "thoughtbot/Argo" "v2.1.0"
+github "kishikawakatsumi/KeychainAccess" "v2.2.0"
 
 # ReactiveHeimdallr
-github "ReactiveCocoa/ReactiveCocoa" "v4.0.0-alpha.3"
+github "ReactiveCocoa/ReactiveCocoa" "v4.0-alpha.1"
