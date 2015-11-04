@@ -19,9 +19,9 @@ Pod::Spec.new do |spec|
 
   spec.ios.deployment_target = '8.0'
 
-  spec.default_subspec = 'Heimdallr'
+  spec.default_subspec = 'Core'
 
-  spec.subspec 'Heimdallr' do |subspec|
+  spec.subspec 'Core' do |subspec|
     subspec.dependency 'Result', '0.6.0-beta.4'
     subspec.dependency 'Argo', '2.1.0'
     subspec.dependency 'KeychainAccess', '2.2.0'
