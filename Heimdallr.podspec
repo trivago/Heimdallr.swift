@@ -11,7 +11,7 @@ Pod::Spec.new do |spec|
   }
   spec.homepage = 'https://github.com/rheinfabrik/Heimdallr.swift'
   spec.source = {
-    :git => 'https://github.com/rheinfabrik/Heimdallr.git',
+    :git => 'https://github.com/rheinfabrik/Heimdallr.swift.git',
     :tag => spec.version.to_s
   }
   spec.summary = 'Easy to use OAuth 2 library, written in Swift'
