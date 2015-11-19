@@ -19,7 +19,7 @@ test:
         CODE_SIGN_IDENTITY=
         PROVISIONING_PROFILE=
         -sdk iphonesimulator
-        -destination 'platform=iOS Simulator,OS=9.0,name=iPhone 6s'
+        -destination 'platform=iOS Simulator,OS=9.1,name=iPhone 6s'
         -project Heimdallr.xcodeproj
         -scheme "Heimdallr-iOS"
         -configuration Debug
@@ -44,7 +44,7 @@ test:
         CODE_SIGN_IDENTITY=
         PROVISIONING_PROFILE=
         -sdk iphonesimulator
-        -destination 'platform=iOS Simulator,OS=9.0,name=iPhone 6s'
+        -destination 'platform=iOS Simulator,OS=9.1,name=iPhone 6s'
         -project Heimdallr.xcodeproj
         -scheme "ReactiveHeimdallr-iOS"
         -configuration Debug
