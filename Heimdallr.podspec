@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = 'Heimdallr'
-  spec.version = '3.1.0-alpha.1'
+  spec.version = '3.1.0-alpha.2'
   spec.authors = {
     'Rheinfabrik' => 'hi@rheinfabrik.de'
   }
@@ -23,7 +23,7 @@ Pod::Spec.new do |spec|
   spec.default_subspec = 'Core'
 
   spec.subspec 'Core' do |subspec|
-    subspec.dependency 'Result', '0.6.0-beta.5'
+    subspec.dependency 'Result', '~> 1.0'
     subspec.dependency 'Argo', '~> 2.2'
     subspec.dependency 'KeychainAccess', '~> 2.3'
     subspec.framework = 'Foundation'
@@ -33,7 +33,7 @@ Pod::Spec.new do |spec|
 
   spec.subspec 'ReactiveCocoa' do |subspec|
     subspec.dependency 'Heimdallr/Core'
-    subspec.dependency 'ReactiveCocoa', '4.0.0-alpha-3'
+    subspec.dependency 'ReactiveCocoa', '4.0.0-alpha-5'
 
     subspec.source_files = 'Heimdallr/ReactiveCocoa/*.swift'
   end

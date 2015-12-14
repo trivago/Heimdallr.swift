@@ -1,7 +1,7 @@
 # Core
-github "antitypical/Result" "0.6.0-beta.5"
+github "antitypical/Result" ~> 1.0
 github "thoughtbot/Argo" ~> 2.2
 github "kishikawakatsumi/KeychainAccess" ~> 2.3
 
 # ReactiveCocoa
-github "ReactiveCocoa/ReactiveCocoa" "v4.0.0-alpha.3"
+github "ReactiveCocoa/ReactiveCocoa" "v4.0.0-alpha.5"

@@ -82,7 +82,7 @@ extension Heimdallr {
     @objc public func rac_requestAccessToken(username username: String, password: String) -> RACSignal {
         let producer: SignalProducer<RACUnit, NSError> = requestAccessToken(username: username, password: password)
             .map { _ in RACUnit.defaultUnit() }
-        return toRACSignal(producer)
+        return producer.toRACSignal()
     }
 
     /// Requests an access token with the given grant type.
@@ -95,7 +95,7 @@ extension Heimdallr {
     @objc public func rac_requestAccessToken(grantType grantType: String, parameters: NSDictionary) -> RACSignal {
         let producer: SignalProducer<RACUnit, NSError> = requestAccessToken(grantType: grantType, parameters: parameters as! [String: String])
             .map { _ in RACUnit.defaultUnit() }
-        return toRACSignal(producer)
+        return producer.toRACSignal()
     }
 
     /// Alters the given request by adding authentication, if possible.
@@ -110,6 +110,6 @@ extension Heimdallr {
     /// - returns: A signal that sends the authenticated request on success or
     ///     an error if the request could not be authenticated.
     @objc public func rac_authenticateRequest(request: NSURLRequest) -> RACSignal {
-        return toRACSignal(authenticateRequest(request))
+        return authenticateRequest(request).toRACSignal()
     }
 }
