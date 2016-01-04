@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = 'Heimdallr'
-  spec.version = '3.1.0-alpha.2'
+  spec.version = '3.1.0-alpha.3'
   spec.authors = {
     'Rheinfabrik' => 'hi@rheinfabrik.de'
   }
@@ -33,7 +33,7 @@ Pod::Spec.new do |spec|
 
   spec.subspec 'ReactiveCocoa' do |subspec|
     subspec.dependency 'Heimdallr/Core'
-    subspec.dependency 'ReactiveCocoa', '4.0.0-alpha-5'
+    subspec.dependency 'ReactiveCocoa', '4.0.0-RC.1'
 
     subspec.source_files = 'Heimdallr/ReactiveCocoa/*.swift'
   end
