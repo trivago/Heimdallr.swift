@@ -2,64 +2,6 @@ machine:
   xcode:
     version: "7.1"
 
-dependencies:
-  pre:
-    - scripts/cisetup
-    - curl -O -L https://github.com/Carthage/Carthage/releases/download/0.9.4/Carthage.pkg && sudo installer -pkg Carthage.pkg -target /
-  override:
-    - carthage bootstrap --platform ios,mac
-
 test:
-  pre:
-    - sudo chown :wheel /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ *.simruntime/Contents/Resources/RuntimeRoot/usr/lib/dyld_sim
   override:
-    - set -o pipefail &&
-      xcodebuild
-        CODE_SIGNING_REQUIRED=NO
-        CODE_SIGN_IDENTITY=
-        PROVISIONING_PROFILE=
-        -sdk iphonesimulator
-        -destination 'platform=iOS Simulator,OS=9.1,name=iPhone 6s'
-        -project Heimdallr.xcodeproj
-        -scheme "Heimdallr-iOS"
-        -configuration Debug
-        clean test |
-      tee $CIRCLE_ARTIFACTS/xcode_raw_ios.log |
-      xcpretty --color --report junit --output $CIRCLE_TEST_REPORTS/xcode/heimdallr-ios-results.xml
-    - set -o pipefail &&
-      xcodebuild
-        CODE_SIGNING_REQUIRED=NO
-        CODE_SIGN_IDENTITY=
-        PROVISIONING_PROFILE=
-        -sdk macosx
-        -project Heimdallr.xcodeproj
-        -scheme "Heimdallr-Mac"
-        -configuration Debug
-        clean test |
-      tee $CIRCLE_ARTIFACTS/xcode_raw_osx.log |
-      xcpretty --color --report junit --output $CIRCLE_TEST_REPORTS/xcode/heimdallr-mac-results.xml
-    - set -o pipefail &&
-      xcodebuild
-        CODE_SIGNING_REQUIRED=NO
-        CODE_SIGN_IDENTITY=
-        PROVISIONING_PROFILE=
-        -sdk iphonesimulator
-        -destination 'platform=iOS Simulator,OS=9.1,name=iPhone 6s'
-        -project Heimdallr.xcodeproj
-        -scheme "ReactiveHeimdallr-iOS"
-        -configuration Debug
-        clean test |
-      tee $CIRCLE_ARTIFACTS/xcode_raw_ios.log |
-      xcpretty --color --report junit --output $CIRCLE_TEST_REPORTS/xcode/reactive-heimdallr-ios-results.xml
-    - set -o pipefail &&
-      xcodebuild
-        CODE_SIGNING_REQUIRED=NO
-        CODE_SIGN_IDENTITY=
-        PROVISIONING_PROFILE=
-        -sdk macosx
-        -project Heimdallr.xcodeproj
-        -scheme "ReactiveHeimdallr-Mac"
-        -configuration Debug
-        clean test |
-      tee $CIRCLE_ARTIFACTS/xcode_raw_osx.log |
-      xcpretty --color --report junit --output $CIRCLE_TEST_REPORTS/xcode/reactive-heimdallr-mac-results.xml
+    - script/cibuild
