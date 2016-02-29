@@ -7,156 +7,124 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DC52206E1BEA321300F37F2A /* Heimdallr.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220471BEA320B00F37F2A /* Heimdallr.swift */; settings = {ASSET_TAGS = (); }; };
-		DC52206F1BEA321300F37F2A /* HeimdallrHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220481BEA320B00F37F2A /* HeimdallrHTTPClient.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220701BEA321300F37F2A /* HeimdallrHTTPClientNSURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220491BEA320B00F37F2A /* HeimdallrHTTPClientNSURLSession.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220711BEA321300F37F2A /* HeimdallrResourceRequestAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204A1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticator.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220721BEA321300F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204B1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220731BEA321300F37F2A /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204C1BEA320B00F37F2A /* NSDateExtensions.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220741BEA321300F37F2A /* NSURLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204D1BEA320B00F37F2A /* NSURLRequestExtensions.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220751BEA321300F37F2A /* OAuthAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204E1BEA320B00F37F2A /* OAuthAccessToken.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220761BEA321300F37F2A /* OAuthAccessTokenKeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204F1BEA320B00F37F2A /* OAuthAccessTokenKeychainStore.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220771BEA321300F37F2A /* OAuthAccessTokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220501BEA320B00F37F2A /* OAuthAccessTokenStore.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220781BEA321300F37F2A /* OAuthAuthorizationGrant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220511BEA320B00F37F2A /* OAuthAuthorizationGrant.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220791BEA321300F37F2A /* OAuthClientCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220521BEA320B00F37F2A /* OAuthClientCredentials.swift */; settings = {ASSET_TAGS = (); }; };
-		DC52207A1BEA321300F37F2A /* OAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220531BEA320B00F37F2A /* OAuthError.swift */; settings = {ASSET_TAGS = (); }; };
-		DC52207B1BEA321500F37F2A /* Heimdallr.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220471BEA320B00F37F2A /* Heimdallr.swift */; settings = {ASSET_TAGS = (); }; };
-		DC52207C1BEA321500F37F2A /* HeimdallrHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220481BEA320B00F37F2A /* HeimdallrHTTPClient.swift */; settings = {ASSET_TAGS = (); }; };
-		DC52207D1BEA321500F37F2A /* HeimdallrHTTPClientNSURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220491BEA320B00F37F2A /* HeimdallrHTTPClientNSURLSession.swift */; settings = {ASSET_TAGS = (); }; };
-		DC52207E1BEA321500F37F2A /* HeimdallrResourceRequestAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204A1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticator.swift */; settings = {ASSET_TAGS = (); }; };
-		DC52207F1BEA321500F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204B1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220801BEA321500F37F2A /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204C1BEA320B00F37F2A /* NSDateExtensions.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220811BEA321500F37F2A /* NSURLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204D1BEA320B00F37F2A /* NSURLRequestExtensions.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220821BEA321500F37F2A /* OAuthAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204E1BEA320B00F37F2A /* OAuthAccessToken.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220831BEA321500F37F2A /* OAuthAccessTokenKeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204F1BEA320B00F37F2A /* OAuthAccessTokenKeychainStore.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220841BEA321500F37F2A /* OAuthAccessTokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220501BEA320B00F37F2A /* OAuthAccessTokenStore.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220851BEA321500F37F2A /* OAuthAuthorizationGrant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220511BEA320B00F37F2A /* OAuthAuthorizationGrant.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220861BEA321500F37F2A /* OAuthClientCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220521BEA320B00F37F2A /* OAuthClientCredentials.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220871BEA321500F37F2A /* OAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220531BEA320B00F37F2A /* OAuthError.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220881BEA321500F37F2A /* Heimdallr.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220471BEA320B00F37F2A /* Heimdallr.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220891BEA321500F37F2A /* HeimdallrHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220481BEA320B00F37F2A /* HeimdallrHTTPClient.swift */; settings = {ASSET_TAGS = (); }; };
-		DC52208A1BEA321500F37F2A /* HeimdallrHTTPClientNSURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220491BEA320B00F37F2A /* HeimdallrHTTPClientNSURLSession.swift */; settings = {ASSET_TAGS = (); }; };
-		DC52208B1BEA321500F37F2A /* HeimdallrResourceRequestAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204A1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticator.swift */; settings = {ASSET_TAGS = (); }; };
-		DC52208C1BEA321500F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204B1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift */; settings = {ASSET_TAGS = (); }; };
-		DC52208D1BEA321500F37F2A /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204C1BEA320B00F37F2A /* NSDateExtensions.swift */; settings = {ASSET_TAGS = (); }; };
-		DC52208E1BEA321500F37F2A /* NSURLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204D1BEA320B00F37F2A /* NSURLRequestExtensions.swift */; settings = {ASSET_TAGS = (); }; };
-		DC52208F1BEA321500F37F2A /* OAuthAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204E1BEA320B00F37F2A /* OAuthAccessToken.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220901BEA321500F37F2A /* OAuthAccessTokenKeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204F1BEA320B00F37F2A /* OAuthAccessTokenKeychainStore.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220911BEA321500F37F2A /* OAuthAccessTokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220501BEA320B00F37F2A /* OAuthAccessTokenStore.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220921BEA321500F37F2A /* OAuthAuthorizationGrant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220511BEA320B00F37F2A /* OAuthAuthorizationGrant.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220931BEA321500F37F2A /* OAuthClientCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220521BEA320B00F37F2A /* OAuthClientCredentials.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220941BEA321500F37F2A /* OAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220531BEA320B00F37F2A /* OAuthError.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220951BEA321600F37F2A /* Heimdallr.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220471BEA320B00F37F2A /* Heimdallr.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220961BEA321600F37F2A /* HeimdallrHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220481BEA320B00F37F2A /* HeimdallrHTTPClient.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220971BEA321600F37F2A /* HeimdallrHTTPClientNSURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220491BEA320B00F37F2A /* HeimdallrHTTPClientNSURLSession.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220981BEA321600F37F2A /* HeimdallrResourceRequestAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204A1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticator.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220991BEA321600F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204B1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift */; settings = {ASSET_TAGS = (); }; };
-		DC52209A1BEA321600F37F2A /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204C1BEA320B00F37F2A /* NSDateExtensions.swift */; settings = {ASSET_TAGS = (); }; };
-		DC52209B1BEA321600F37F2A /* NSURLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204D1BEA320B00F37F2A /* NSURLRequestExtensions.swift */; settings = {ASSET_TAGS = (); }; };
-		DC52209C1BEA321600F37F2A /* OAuthAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204E1BEA320B00F37F2A /* OAuthAccessToken.swift */; settings = {ASSET_TAGS = (); }; };
-		DC52209D1BEA321600F37F2A /* OAuthAccessTokenKeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204F1BEA320B00F37F2A /* OAuthAccessTokenKeychainStore.swift */; settings = {ASSET_TAGS = (); }; };
-		DC52209E1BEA321600F37F2A /* OAuthAccessTokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220501BEA320B00F37F2A /* OAuthAccessTokenStore.swift */; settings = {ASSET_TAGS = (); }; };
-		DC52209F1BEA321600F37F2A /* OAuthAuthorizationGrant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220511BEA320B00F37F2A /* OAuthAuthorizationGrant.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220A01BEA321600F37F2A /* OAuthClientCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220521BEA320B00F37F2A /* OAuthClientCredentials.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220A11BEA321600F37F2A /* OAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220531BEA320B00F37F2A /* OAuthError.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220A21BEA321E00F37F2A /* Heimdallr+ReactiveCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220551BEA320B00F37F2A /* Heimdallr+ReactiveCocoa.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220A31BEA321F00F37F2A /* Heimdallr+ReactiveCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220551BEA320B00F37F2A /* Heimdallr+ReactiveCocoa.swift */; settings = {ASSET_TAGS = (); }; };
+		DC209CCD1C845F9500C43C75 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC51C845F1900C43C75 /* Argo.framework */; };
+		DC209CCE1C845F9600C43C75 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC51C845F1900C43C75 /* Argo.framework */; };
+		DC209CCF1C845F9700C43C75 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC51C845F1900C43C75 /* Argo.framework */; };
+		DC209CD01C845F9800C43C75 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC51C845F1900C43C75 /* Argo.framework */; };
+		DC209CD11C845FA100C43C75 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC61C845F1900C43C75 /* KeychainAccess.framework */; };
+		DC209CD31C845FA100C43C75 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CCB1C845F1900C43C75 /* Result.framework */; };
+		DC209CD41C845FA300C43C75 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC61C845F1900C43C75 /* KeychainAccess.framework */; };
+		DC209CD61C845FA300C43C75 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CCB1C845F1900C43C75 /* Result.framework */; };
+		DC209CD71C845FA400C43C75 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC61C845F1900C43C75 /* KeychainAccess.framework */; };
+		DC209CD81C845FA400C43C75 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CCA1C845F1900C43C75 /* ReactiveCocoa.framework */; };
+		DC209CD91C845FA400C43C75 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CCB1C845F1900C43C75 /* Result.framework */; };
+		DC209CDA1C845FA400C43C75 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC61C845F1900C43C75 /* KeychainAccess.framework */; };
+		DC209CDB1C845FA400C43C75 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CCA1C845F1900C43C75 /* ReactiveCocoa.framework */; };
+		DC209CDC1C845FA400C43C75 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CCB1C845F1900C43C75 /* Result.framework */; };
+		DC209CDD1C845FCB00C43C75 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC71C845F1900C43C75 /* Nimble.framework */; };
+		DC209CDE1C845FCB00C43C75 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC81C845F1900C43C75 /* OHHTTPStubs.framework */; };
+		DC209CDF1C845FCB00C43C75 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC91C845F1900C43C75 /* Quick.framework */; };
+		DC209CE01C845FCC00C43C75 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC71C845F1900C43C75 /* Nimble.framework */; };
+		DC209CE11C845FCC00C43C75 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC81C845F1900C43C75 /* OHHTTPStubs.framework */; };
+		DC209CE21C845FCC00C43C75 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC91C845F1900C43C75 /* Quick.framework */; };
+		DC209CE31C845FCD00C43C75 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC71C845F1900C43C75 /* Nimble.framework */; };
+		DC209CE41C845FCD00C43C75 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC81C845F1900C43C75 /* OHHTTPStubs.framework */; };
+		DC209CE51C845FCD00C43C75 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC91C845F1900C43C75 /* Quick.framework */; };
+		DC209CE61C845FCE00C43C75 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC71C845F1900C43C75 /* Nimble.framework */; };
+		DC209CE71C845FCE00C43C75 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC81C845F1900C43C75 /* OHHTTPStubs.framework */; };
+		DC209CE81C845FCE00C43C75 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC91C845F1900C43C75 /* Quick.framework */; };
+		DC52206E1BEA321300F37F2A /* Heimdallr.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220471BEA320B00F37F2A /* Heimdallr.swift */; };
+		DC52206F1BEA321300F37F2A /* HeimdallrHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220481BEA320B00F37F2A /* HeimdallrHTTPClient.swift */; };
+		DC5220701BEA321300F37F2A /* HeimdallrHTTPClientNSURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220491BEA320B00F37F2A /* HeimdallrHTTPClientNSURLSession.swift */; };
+		DC5220711BEA321300F37F2A /* HeimdallrResourceRequestAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204A1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticator.swift */; };
+		DC5220721BEA321300F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204B1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift */; };
+		DC5220731BEA321300F37F2A /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204C1BEA320B00F37F2A /* NSDateExtensions.swift */; };
+		DC5220741BEA321300F37F2A /* NSURLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204D1BEA320B00F37F2A /* NSURLRequestExtensions.swift */; };
+		DC5220751BEA321300F37F2A /* OAuthAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204E1BEA320B00F37F2A /* OAuthAccessToken.swift */; };
+		DC5220761BEA321300F37F2A /* OAuthAccessTokenKeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204F1BEA320B00F37F2A /* OAuthAccessTokenKeychainStore.swift */; };
+		DC5220771BEA321300F37F2A /* OAuthAccessTokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220501BEA320B00F37F2A /* OAuthAccessTokenStore.swift */; };
+		DC5220781BEA321300F37F2A /* OAuthAuthorizationGrant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220511BEA320B00F37F2A /* OAuthAuthorizationGrant.swift */; };
+		DC5220791BEA321300F37F2A /* OAuthClientCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220521BEA320B00F37F2A /* OAuthClientCredentials.swift */; };
+		DC52207A1BEA321300F37F2A /* OAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220531BEA320B00F37F2A /* OAuthError.swift */; };
+		DC52207B1BEA321500F37F2A /* Heimdallr.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220471BEA320B00F37F2A /* Heimdallr.swift */; };
+		DC52207C1BEA321500F37F2A /* HeimdallrHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220481BEA320B00F37F2A /* HeimdallrHTTPClient.swift */; };
+		DC52207D1BEA321500F37F2A /* HeimdallrHTTPClientNSURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220491BEA320B00F37F2A /* HeimdallrHTTPClientNSURLSession.swift */; };
+		DC52207E1BEA321500F37F2A /* HeimdallrResourceRequestAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204A1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticator.swift */; };
+		DC52207F1BEA321500F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204B1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift */; };
+		DC5220801BEA321500F37F2A /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204C1BEA320B00F37F2A /* NSDateExtensions.swift */; };
+		DC5220811BEA321500F37F2A /* NSURLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204D1BEA320B00F37F2A /* NSURLRequestExtensions.swift */; };
+		DC5220821BEA321500F37F2A /* OAuthAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204E1BEA320B00F37F2A /* OAuthAccessToken.swift */; };
+		DC5220831BEA321500F37F2A /* OAuthAccessTokenKeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204F1BEA320B00F37F2A /* OAuthAccessTokenKeychainStore.swift */; };
+		DC5220841BEA321500F37F2A /* OAuthAccessTokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220501BEA320B00F37F2A /* OAuthAccessTokenStore.swift */; };
+		DC5220851BEA321500F37F2A /* OAuthAuthorizationGrant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220511BEA320B00F37F2A /* OAuthAuthorizationGrant.swift */; };
+		DC5220861BEA321500F37F2A /* OAuthClientCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220521BEA320B00F37F2A /* OAuthClientCredentials.swift */; };
+		DC5220871BEA321500F37F2A /* OAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220531BEA320B00F37F2A /* OAuthError.swift */; };
+		DC5220881BEA321500F37F2A /* Heimdallr.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220471BEA320B00F37F2A /* Heimdallr.swift */; };
+		DC5220891BEA321500F37F2A /* HeimdallrHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220481BEA320B00F37F2A /* HeimdallrHTTPClient.swift */; };
+		DC52208A1BEA321500F37F2A /* HeimdallrHTTPClientNSURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220491BEA320B00F37F2A /* HeimdallrHTTPClientNSURLSession.swift */; };
+		DC52208B1BEA321500F37F2A /* HeimdallrResourceRequestAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204A1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticator.swift */; };
+		DC52208C1BEA321500F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204B1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift */; };
+		DC52208D1BEA321500F37F2A /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204C1BEA320B00F37F2A /* NSDateExtensions.swift */; };
+		DC52208E1BEA321500F37F2A /* NSURLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204D1BEA320B00F37F2A /* NSURLRequestExtensions.swift */; };
+		DC52208F1BEA321500F37F2A /* OAuthAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204E1BEA320B00F37F2A /* OAuthAccessToken.swift */; };
+		DC5220901BEA321500F37F2A /* OAuthAccessTokenKeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204F1BEA320B00F37F2A /* OAuthAccessTokenKeychainStore.swift */; };
+		DC5220911BEA321500F37F2A /* OAuthAccessTokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220501BEA320B00F37F2A /* OAuthAccessTokenStore.swift */; };
+		DC5220921BEA321500F37F2A /* OAuthAuthorizationGrant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220511BEA320B00F37F2A /* OAuthAuthorizationGrant.swift */; };
+		DC5220931BEA321500F37F2A /* OAuthClientCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220521BEA320B00F37F2A /* OAuthClientCredentials.swift */; };
+		DC5220941BEA321500F37F2A /* OAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220531BEA320B00F37F2A /* OAuthError.swift */; };
+		DC5220951BEA321600F37F2A /* Heimdallr.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220471BEA320B00F37F2A /* Heimdallr.swift */; };
+		DC5220961BEA321600F37F2A /* HeimdallrHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220481BEA320B00F37F2A /* HeimdallrHTTPClient.swift */; };
+		DC5220971BEA321600F37F2A /* HeimdallrHTTPClientNSURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220491BEA320B00F37F2A /* HeimdallrHTTPClientNSURLSession.swift */; };
+		DC5220981BEA321600F37F2A /* HeimdallrResourceRequestAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204A1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticator.swift */; };
+		DC5220991BEA321600F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204B1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift */; };
+		DC52209A1BEA321600F37F2A /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204C1BEA320B00F37F2A /* NSDateExtensions.swift */; };
+		DC52209B1BEA321600F37F2A /* NSURLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204D1BEA320B00F37F2A /* NSURLRequestExtensions.swift */; };
+		DC52209C1BEA321600F37F2A /* OAuthAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204E1BEA320B00F37F2A /* OAuthAccessToken.swift */; };
+		DC52209D1BEA321600F37F2A /* OAuthAccessTokenKeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204F1BEA320B00F37F2A /* OAuthAccessTokenKeychainStore.swift */; };
+		DC52209E1BEA321600F37F2A /* OAuthAccessTokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220501BEA320B00F37F2A /* OAuthAccessTokenStore.swift */; };
+		DC52209F1BEA321600F37F2A /* OAuthAuthorizationGrant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220511BEA320B00F37F2A /* OAuthAuthorizationGrant.swift */; };
+		DC5220A01BEA321600F37F2A /* OAuthClientCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220521BEA320B00F37F2A /* OAuthClientCredentials.swift */; };
+		DC5220A11BEA321600F37F2A /* OAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220531BEA320B00F37F2A /* OAuthError.swift */; };
+		DC5220A21BEA321E00F37F2A /* Heimdallr+ReactiveCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220551BEA320B00F37F2A /* Heimdallr+ReactiveCocoa.swift */; };
+		DC5220A31BEA321F00F37F2A /* Heimdallr+ReactiveCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220551BEA320B00F37F2A /* Heimdallr+ReactiveCocoa.swift */; };
 		DC5220A41BEA322900F37F2A /* ReactiveHeimdallr.h in Headers */ = {isa = PBXBuildFile; fileRef = DC5220591BEA320B00F37F2A /* ReactiveHeimdallr.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC5220A51BEA322A00F37F2A /* ReactiveHeimdallr.h in Headers */ = {isa = PBXBuildFile; fileRef = DC5220591BEA320B00F37F2A /* ReactiveHeimdallr.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC5220A61BEA323500F37F2A /* Heimdallr.h in Headers */ = {isa = PBXBuildFile; fileRef = DC5220571BEA320B00F37F2A /* Heimdallr.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC5220A71BEA323500F37F2A /* Heimdallr.h in Headers */ = {isa = PBXBuildFile; fileRef = DC5220571BEA320B00F37F2A /* Heimdallr.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DC5220B11BEA32A000F37F2A /* authorize-error.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220A91BEA32A000F37F2A /* authorize-error.json */; settings = {ASSET_TAGS = (); }; };
-		DC5220B21BEA32A000F37F2A /* authorize-error.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220A91BEA32A000F37F2A /* authorize-error.json */; settings = {ASSET_TAGS = (); }; };
-		DC5220B31BEA32A000F37F2A /* authorize-invalid-token.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220AA1BEA32A000F37F2A /* authorize-invalid-token.json */; settings = {ASSET_TAGS = (); }; };
-		DC5220B41BEA32A000F37F2A /* authorize-invalid-token.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220AA1BEA32A000F37F2A /* authorize-invalid-token.json */; settings = {ASSET_TAGS = (); }; };
-		DC5220B51BEA32A000F37F2A /* authorize-invalid-type.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220AB1BEA32A000F37F2A /* authorize-invalid-type.json */; settings = {ASSET_TAGS = (); }; };
-		DC5220B61BEA32A000F37F2A /* authorize-invalid-type.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220AB1BEA32A000F37F2A /* authorize-invalid-type.json */; settings = {ASSET_TAGS = (); }; };
-		DC5220B71BEA32A000F37F2A /* authorize-invalid.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220AC1BEA32A000F37F2A /* authorize-invalid.json */; settings = {ASSET_TAGS = (); }; };
-		DC5220B81BEA32A000F37F2A /* authorize-invalid.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220AC1BEA32A000F37F2A /* authorize-invalid.json */; settings = {ASSET_TAGS = (); }; };
-		DC5220B91BEA32A000F37F2A /* authorize-valid.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220AD1BEA32A000F37F2A /* authorize-valid.json */; settings = {ASSET_TAGS = (); }; };
-		DC5220BA1BEA32A000F37F2A /* authorize-valid.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220AD1BEA32A000F37F2A /* authorize-valid.json */; settings = {ASSET_TAGS = (); }; };
-		DC5220BB1BEA32A000F37F2A /* request-invalid-norefresh.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220AE1BEA32A000F37F2A /* request-invalid-norefresh.json */; settings = {ASSET_TAGS = (); }; };
-		DC5220BC1BEA32A000F37F2A /* request-invalid-norefresh.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220AE1BEA32A000F37F2A /* request-invalid-norefresh.json */; settings = {ASSET_TAGS = (); }; };
-		DC5220BD1BEA32A000F37F2A /* request-invalid.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220AF1BEA32A000F37F2A /* request-invalid.json */; settings = {ASSET_TAGS = (); }; };
-		DC5220BE1BEA32A000F37F2A /* request-invalid.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220AF1BEA32A000F37F2A /* request-invalid.json */; settings = {ASSET_TAGS = (); }; };
-		DC5220BF1BEA32A000F37F2A /* request-valid.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220B01BEA32A000F37F2A /* request-valid.json */; settings = {ASSET_TAGS = (); }; };
-		DC5220C01BEA32A000F37F2A /* request-valid.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220B01BEA32A000F37F2A /* request-valid.json */; settings = {ASSET_TAGS = (); }; };
-		DC5220C11BEA32A900F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeaderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220611BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeaderSpec.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220C21BEA32A900F37F2A /* HeimdallrSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220621BEA320B00F37F2A /* HeimdallrSpec.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220C31BEA32A900F37F2A /* NSDateExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220631BEA320B00F37F2A /* NSDateExtensionsSpec.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220C41BEA32A900F37F2A /* NSURLRequestExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220641BEA320B00F37F2A /* NSURLRequestExtensionsSpec.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220C51BEA32A900F37F2A /* OAuthAccessTokenKeychainStoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220651BEA320B00F37F2A /* OAuthAccessTokenKeychainStoreSpec.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220C61BEA32A900F37F2A /* OAuthAccessTokenSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220661BEA320B00F37F2A /* OAuthAccessTokenSpec.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220C71BEA32AA00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeaderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220611BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeaderSpec.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220C81BEA32AA00F37F2A /* HeimdallrSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220621BEA320B00F37F2A /* HeimdallrSpec.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220C91BEA32AA00F37F2A /* NSDateExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220631BEA320B00F37F2A /* NSDateExtensionsSpec.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220CA1BEA32AA00F37F2A /* NSURLRequestExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220641BEA320B00F37F2A /* NSURLRequestExtensionsSpec.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220CB1BEA32AA00F37F2A /* OAuthAccessTokenKeychainStoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220651BEA320B00F37F2A /* OAuthAccessTokenKeychainStoreSpec.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220CC1BEA32AA00F37F2A /* OAuthAccessTokenSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220661BEA320B00F37F2A /* OAuthAccessTokenSpec.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220CD1BEA32AF00F37F2A /* Heimdallr+ReactiveCocoaSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52206B1BEA320B00F37F2A /* Heimdallr+ReactiveCocoaSpec.swift */; settings = {ASSET_TAGS = (); }; };
-		DC5220CE1BEA32AF00F37F2A /* Heimdallr+ReactiveCocoaSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52206B1BEA320B00F37F2A /* Heimdallr+ReactiveCocoaSpec.swift */; settings = {ASSET_TAGS = (); }; };
+		DC5220B11BEA32A000F37F2A /* authorize-error.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220A91BEA32A000F37F2A /* authorize-error.json */; };
+		DC5220B21BEA32A000F37F2A /* authorize-error.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220A91BEA32A000F37F2A /* authorize-error.json */; };
+		DC5220B31BEA32A000F37F2A /* authorize-invalid-token.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220AA1BEA32A000F37F2A /* authorize-invalid-token.json */; };
+		DC5220B41BEA32A000F37F2A /* authorize-invalid-token.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220AA1BEA32A000F37F2A /* authorize-invalid-token.json */; };
+		DC5220B51BEA32A000F37F2A /* authorize-invalid-type.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220AB1BEA32A000F37F2A /* authorize-invalid-type.json */; };
+		DC5220B61BEA32A000F37F2A /* authorize-invalid-type.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220AB1BEA32A000F37F2A /* authorize-invalid-type.json */; };
+		DC5220B71BEA32A000F37F2A /* authorize-invalid.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220AC1BEA32A000F37F2A /* authorize-invalid.json */; };
+		DC5220B81BEA32A000F37F2A /* authorize-invalid.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220AC1BEA32A000F37F2A /* authorize-invalid.json */; };
+		DC5220B91BEA32A000F37F2A /* authorize-valid.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220AD1BEA32A000F37F2A /* authorize-valid.json */; };
+		DC5220BA1BEA32A000F37F2A /* authorize-valid.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220AD1BEA32A000F37F2A /* authorize-valid.json */; };
+		DC5220BB1BEA32A000F37F2A /* request-invalid-norefresh.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220AE1BEA32A000F37F2A /* request-invalid-norefresh.json */; };
+		DC5220BC1BEA32A000F37F2A /* request-invalid-norefresh.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220AE1BEA32A000F37F2A /* request-invalid-norefresh.json */; };
+		DC5220BD1BEA32A000F37F2A /* request-invalid.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220AF1BEA32A000F37F2A /* request-invalid.json */; };
+		DC5220BE1BEA32A000F37F2A /* request-invalid.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220AF1BEA32A000F37F2A /* request-invalid.json */; };
+		DC5220BF1BEA32A000F37F2A /* request-valid.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220B01BEA32A000F37F2A /* request-valid.json */; };
+		DC5220C01BEA32A000F37F2A /* request-valid.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220B01BEA32A000F37F2A /* request-valid.json */; };
+		DC5220C11BEA32A900F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeaderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220611BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeaderSpec.swift */; };
+		DC5220C21BEA32A900F37F2A /* HeimdallrSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220621BEA320B00F37F2A /* HeimdallrSpec.swift */; };
+		DC5220C31BEA32A900F37F2A /* NSDateExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220631BEA320B00F37F2A /* NSDateExtensionsSpec.swift */; };
+		DC5220C41BEA32A900F37F2A /* NSURLRequestExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220641BEA320B00F37F2A /* NSURLRequestExtensionsSpec.swift */; };
+		DC5220C51BEA32A900F37F2A /* OAuthAccessTokenKeychainStoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220651BEA320B00F37F2A /* OAuthAccessTokenKeychainStoreSpec.swift */; };
+		DC5220C61BEA32A900F37F2A /* OAuthAccessTokenSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220661BEA320B00F37F2A /* OAuthAccessTokenSpec.swift */; };
+		DC5220C71BEA32AA00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeaderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220611BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeaderSpec.swift */; };
+		DC5220C81BEA32AA00F37F2A /* HeimdallrSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220621BEA320B00F37F2A /* HeimdallrSpec.swift */; };
+		DC5220C91BEA32AA00F37F2A /* NSDateExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220631BEA320B00F37F2A /* NSDateExtensionsSpec.swift */; };
+		DC5220CA1BEA32AA00F37F2A /* NSURLRequestExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220641BEA320B00F37F2A /* NSURLRequestExtensionsSpec.swift */; };
+		DC5220CB1BEA32AA00F37F2A /* OAuthAccessTokenKeychainStoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220651BEA320B00F37F2A /* OAuthAccessTokenKeychainStoreSpec.swift */; };
+		DC5220CC1BEA32AA00F37F2A /* OAuthAccessTokenSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220661BEA320B00F37F2A /* OAuthAccessTokenSpec.swift */; };
+		DC5220CD1BEA32AF00F37F2A /* Heimdallr+ReactiveCocoaSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52206B1BEA320B00F37F2A /* Heimdallr+ReactiveCocoaSpec.swift */; };
+		DC5220CE1BEA32AF00F37F2A /* Heimdallr+ReactiveCocoaSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52206B1BEA320B00F37F2A /* Heimdallr+ReactiveCocoaSpec.swift */; };
 		DC545DCE1A89F0F10051A575 /* Heimdallr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC545DC21A89F0F10051A575 /* Heimdallr.framework */; };
 		DC582F4D1BE1319F0017BE06 /* Heimdallr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F431BE1319F0017BE06 /* Heimdallr.framework */; };
-		DC582F9C1BE135670017BE06 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F771BE134DA0017BE06 /* Argo.framework */; };
-		DC582F9D1BE135670017BE06 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F7B1BE134DA0017BE06 /* KeychainAccess.framework */; };
-		DC582F9E1BE135670017BE06 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F851BE134DA0017BE06 /* Result.framework */; };
-		DC582F9F1BE135830017BE06 /* Argo.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC582F771BE134DA0017BE06 /* Argo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC582FA01BE135830017BE06 /* KeychainAccess.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC582F7B1BE134DA0017BE06 /* KeychainAccess.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC582FA11BE135830017BE06 /* Result.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC582F851BE134DA0017BE06 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC582FA21BE135890017BE06 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F771BE134DA0017BE06 /* Argo.framework */; };
-		DC582FA31BE135890017BE06 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F7B1BE134DA0017BE06 /* KeychainAccess.framework */; };
-		DC582FA41BE135890017BE06 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F851BE134DA0017BE06 /* Result.framework */; };
-		DC582FA51BE135A60017BE06 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F7D1BE134DA0017BE06 /* Nimble.framework */; };
-		DC582FA61BE135A60017BE06 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F7F1BE134DA0017BE06 /* OHHTTPStubs.framework */; };
-		DC582FA71BE135A60017BE06 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F811BE134DA0017BE06 /* Quick.framework */; };
-		DC582FA81BE135AB0017BE06 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC582F7D1BE134DA0017BE06 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC582FA91BE135AB0017BE06 /* OHHTTPStubs.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC582F7F1BE134DA0017BE06 /* OHHTTPStubs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC582FAA1BE135AB0017BE06 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC582F811BE134DA0017BE06 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC582FAB1BE135B90017BE06 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F881BE134DA0017BE06 /* Argo.framework */; };
-		DC582FAC1BE135B90017BE06 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F8A1BE134DA0017BE06 /* KeychainAccess.framework */; };
-		DC582FAD1BE135B90017BE06 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F941BE134DA0017BE06 /* Result.framework */; };
-		DC582FAE1BE135C40017BE06 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F881BE134DA0017BE06 /* Argo.framework */; };
-		DC582FAF1BE135C40017BE06 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F8A1BE134DA0017BE06 /* KeychainAccess.framework */; };
-		DC582FB01BE135C40017BE06 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F941BE134DA0017BE06 /* Result.framework */; };
-		DC582FB11BE135C40017BE06 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F8C1BE134DA0017BE06 /* Nimble.framework */; };
-		DC582FB21BE135C40017BE06 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F8E1BE134DA0017BE06 /* OHHTTPStubs.framework */; };
-		DC582FB31BE135C40017BE06 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F901BE134DA0017BE06 /* Quick.framework */; };
-		DC582FB51BE135E90017BE06 /* Argo.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC582F881BE134DA0017BE06 /* Argo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC582FB61BE135E90017BE06 /* KeychainAccess.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC582F8A1BE134DA0017BE06 /* KeychainAccess.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC582FB71BE135ED0017BE06 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC582F8C1BE134DA0017BE06 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC582FB81BE135ED0017BE06 /* OHHTTPStubs.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC582F8E1BE134DA0017BE06 /* OHHTTPStubs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC582FB91BE135ED0017BE06 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC582F901BE134DA0017BE06 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC582FBA1BE135F10017BE06 /* Result.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC582F941BE134DA0017BE06 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC582FCA1BE13EB30017BE06 /* ReactiveHeimdallr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582FC01BE13EB20017BE06 /* ReactiveHeimdallr.framework */; };
-		DC582FDB1BE1453F0017BE06 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F831BE134DA0017BE06 /* ReactiveCocoa.framework */; };
-		DC582FDC1BE1455B0017BE06 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F771BE134DA0017BE06 /* Argo.framework */; };
-		DC582FDD1BE1455B0017BE06 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F7B1BE134DA0017BE06 /* KeychainAccess.framework */; };
-		DC582FDE1BE1455B0017BE06 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F851BE134DA0017BE06 /* Result.framework */; };
-		DC582FDF1BE145660017BE06 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F7D1BE134DA0017BE06 /* Nimble.framework */; };
-		DC582FE01BE145660017BE06 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F7F1BE134DA0017BE06 /* OHHTTPStubs.framework */; };
-		DC582FE11BE145660017BE06 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F811BE134DA0017BE06 /* Quick.framework */; };
-		DC582FE31BE145730017BE06 /* Argo.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC582F771BE134DA0017BE06 /* Argo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC582FE41BE145730017BE06 /* KeychainAccess.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC582F7B1BE134DA0017BE06 /* KeychainAccess.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC582FE51BE145730017BE06 /* Result.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC582F851BE134DA0017BE06 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC582FE61BE145760017BE06 /* ReactiveCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC582F831BE134DA0017BE06 /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC582FE71BE1457A0017BE06 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC582F7D1BE134DA0017BE06 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC582FE81BE1457A0017BE06 /* OHHTTPStubs.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC582F7F1BE134DA0017BE06 /* OHHTTPStubs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC582FE91BE1457A0017BE06 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC582F811BE134DA0017BE06 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC582FFF1BE148610017BE06 /* ReactiveHeimdallr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582FF51BE148610017BE06 /* ReactiveHeimdallr.framework */; };
-		DC58300F1BE149E60017BE06 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F921BE134DA0017BE06 /* ReactiveCocoa.framework */; };
-		DC5830121BE14A0E0017BE06 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F881BE134DA0017BE06 /* Argo.framework */; };
-		DC5830131BE14A0E0017BE06 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F8A1BE134DA0017BE06 /* KeychainAccess.framework */; };
-		DC5830141BE14A110017BE06 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F941BE134DA0017BE06 /* Result.framework */; };
-		DC5830151BE14A160017BE06 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F8C1BE134DA0017BE06 /* Nimble.framework */; };
-		DC5830161BE14A160017BE06 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F8E1BE134DA0017BE06 /* OHHTTPStubs.framework */; };
-		DC5830171BE14A160017BE06 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F901BE134DA0017BE06 /* Quick.framework */; };
-		DC5830191BE14A220017BE06 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC582F8C1BE134DA0017BE06 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC58301A1BE14A220017BE06 /* OHHTTPStubs.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC582F8E1BE134DA0017BE06 /* OHHTTPStubs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC58301B1BE14A220017BE06 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC582F901BE134DA0017BE06 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC58301C1BE14A270017BE06 /* Argo.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC582F881BE134DA0017BE06 /* Argo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC58301D1BE14A270017BE06 /* KeychainAccess.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC582F8A1BE134DA0017BE06 /* KeychainAccess.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC58301E1BE14A2B0017BE06 /* ReactiveCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC582F921BE134DA0017BE06 /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC58301F1BE14A2F0017BE06 /* Result.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC582F941BE134DA0017BE06 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,72 +158,14 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		DC582FB41BE135D80017BE06 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				DC582FB51BE135E90017BE06 /* Argo.framework in CopyFiles */,
-				DC582FB61BE135E90017BE06 /* KeychainAccess.framework in CopyFiles */,
-				DC582FB71BE135ED0017BE06 /* Nimble.framework in CopyFiles */,
-				DC582FB81BE135ED0017BE06 /* OHHTTPStubs.framework in CopyFiles */,
-				DC582FB91BE135ED0017BE06 /* Quick.framework in CopyFiles */,
-				DC582FBA1BE135F10017BE06 /* Result.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DC582FE21BE1456B0017BE06 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				DC582FE31BE145730017BE06 /* Argo.framework in CopyFiles */,
-				DC582FE41BE145730017BE06 /* KeychainAccess.framework in CopyFiles */,
-				DC582FE71BE1457A0017BE06 /* Nimble.framework in CopyFiles */,
-				DC582FE81BE1457A0017BE06 /* OHHTTPStubs.framework in CopyFiles */,
-				DC582FE91BE1457A0017BE06 /* Quick.framework in CopyFiles */,
-				DC582FE61BE145760017BE06 /* ReactiveCocoa.framework in CopyFiles */,
-				DC582FE51BE145730017BE06 /* Result.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DC5830181BE14A190017BE06 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				DC58301C1BE14A270017BE06 /* Argo.framework in CopyFiles */,
-				DC58301D1BE14A270017BE06 /* KeychainAccess.framework in CopyFiles */,
-				DC5830191BE14A220017BE06 /* Nimble.framework in CopyFiles */,
-				DC58301A1BE14A220017BE06 /* OHHTTPStubs.framework in CopyFiles */,
-				DC58301B1BE14A220017BE06 /* Quick.framework in CopyFiles */,
-				DC58301E1BE14A2B0017BE06 /* ReactiveCocoa.framework in CopyFiles */,
-				DC58301F1BE14A2F0017BE06 /* Result.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DCD6C1491B17545B00BD66CB /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				DC582F9F1BE135830017BE06 /* Argo.framework in CopyFiles */,
-				DC582FA01BE135830017BE06 /* KeychainAccess.framework in CopyFiles */,
-				DC582FA81BE135AB0017BE06 /* Nimble.framework in CopyFiles */,
-				DC582FA91BE135AB0017BE06 /* OHHTTPStubs.framework in CopyFiles */,
-				DC582FAA1BE135AB0017BE06 /* Quick.framework in CopyFiles */,
-				DC582FA11BE135830017BE06 /* Result.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
+		DC209CC51C845F1900C43C75 /* Argo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Argo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC209CC61C845F1900C43C75 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC209CC71C845F1900C43C75 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC209CC81C845F1900C43C75 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OHHTTPStubs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC209CC91C845F1900C43C75 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC209CCA1C845F1900C43C75 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ReactiveCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC209CCB1C845F1900C43C75 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Result.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC5220471BEA320B00F37F2A /* Heimdallr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heimdallr.swift; sourceTree = "<group>"; };
 		DC5220481BEA320B00F37F2A /* HeimdallrHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeimdallrHTTPClient.swift; sourceTree = "<group>"; };
 		DC5220491BEA320B00F37F2A /* HeimdallrHTTPClientNSURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeimdallrHTTPClientNSURLSession.swift; sourceTree = "<group>"; };
@@ -293,20 +203,6 @@
 		DC545DCD1A89F0F10051A575 /* HeimdallrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeimdallrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC582F431BE1319F0017BE06 /* Heimdallr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Heimdallr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC582F4C1BE1319F0017BE06 /* HeimdallrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeimdallrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC582F771BE134DA0017BE06 /* Argo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Argo.framework; sourceTree = "<group>"; };
-		DC582F7B1BE134DA0017BE06 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KeychainAccess.framework; sourceTree = "<group>"; };
-		DC582F7D1BE134DA0017BE06 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nimble.framework; sourceTree = "<group>"; };
-		DC582F7F1BE134DA0017BE06 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OHHTTPStubs.framework; sourceTree = "<group>"; };
-		DC582F811BE134DA0017BE06 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Quick.framework; sourceTree = "<group>"; };
-		DC582F831BE134DA0017BE06 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ReactiveCocoa.framework; sourceTree = "<group>"; };
-		DC582F851BE134DA0017BE06 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Result.framework; sourceTree = "<group>"; };
-		DC582F881BE134DA0017BE06 /* Argo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Argo.framework; sourceTree = "<group>"; };
-		DC582F8A1BE134DA0017BE06 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KeychainAccess.framework; sourceTree = "<group>"; };
-		DC582F8C1BE134DA0017BE06 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nimble.framework; sourceTree = "<group>"; };
-		DC582F8E1BE134DA0017BE06 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OHHTTPStubs.framework; sourceTree = "<group>"; };
-		DC582F901BE134DA0017BE06 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Quick.framework; sourceTree = "<group>"; };
-		DC582F921BE134DA0017BE06 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ReactiveCocoa.framework; sourceTree = "<group>"; };
-		DC582F941BE134DA0017BE06 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Result.framework; sourceTree = "<group>"; };
 		DC582FC01BE13EB20017BE06 /* ReactiveHeimdallr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactiveHeimdallr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC582FC91BE13EB30017BE06 /* ReactiveHeimdallrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactiveHeimdallrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC582FF51BE148610017BE06 /* ReactiveHeimdallr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactiveHeimdallr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -318,9 +214,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC582F9C1BE135670017BE06 /* Argo.framework in Frameworks */,
-				DC582F9D1BE135670017BE06 /* KeychainAccess.framework in Frameworks */,
-				DC582F9E1BE135670017BE06 /* Result.framework in Frameworks */,
+				DC209CCD1C845F9500C43C75 /* Argo.framework in Frameworks */,
+				DC209CD11C845FA100C43C75 /* KeychainAccess.framework in Frameworks */,
+				DC209CD31C845FA100C43C75 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,13 +224,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC582FA21BE135890017BE06 /* Argo.framework in Frameworks */,
+				DC209CDD1C845FCB00C43C75 /* Nimble.framework in Frameworks */,
+				DC209CDE1C845FCB00C43C75 /* OHHTTPStubs.framework in Frameworks */,
+				DC209CDF1C845FCB00C43C75 /* Quick.framework in Frameworks */,
 				DC545DCE1A89F0F10051A575 /* Heimdallr.framework in Frameworks */,
-				DC582FA31BE135890017BE06 /* KeychainAccess.framework in Frameworks */,
-				DC582FA51BE135A60017BE06 /* Nimble.framework in Frameworks */,
-				DC582FA61BE135A60017BE06 /* OHHTTPStubs.framework in Frameworks */,
-				DC582FA71BE135A60017BE06 /* Quick.framework in Frameworks */,
-				DC582FA41BE135890017BE06 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,9 +235,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC582FAB1BE135B90017BE06 /* Argo.framework in Frameworks */,
-				DC582FAC1BE135B90017BE06 /* KeychainAccess.framework in Frameworks */,
-				DC582FAD1BE135B90017BE06 /* Result.framework in Frameworks */,
+				DC209CCE1C845F9600C43C75 /* Argo.framework in Frameworks */,
+				DC209CD41C845FA300C43C75 /* KeychainAccess.framework in Frameworks */,
+				DC209CD61C845FA300C43C75 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,13 +245,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC582FAE1BE135C40017BE06 /* Argo.framework in Frameworks */,
+				DC209CE01C845FCC00C43C75 /* Nimble.framework in Frameworks */,
+				DC209CE11C845FCC00C43C75 /* OHHTTPStubs.framework in Frameworks */,
+				DC209CE21C845FCC00C43C75 /* Quick.framework in Frameworks */,
 				DC582F4D1BE1319F0017BE06 /* Heimdallr.framework in Frameworks */,
-				DC582FAF1BE135C40017BE06 /* KeychainAccess.framework in Frameworks */,
-				DC582FB11BE135C40017BE06 /* Nimble.framework in Frameworks */,
-				DC582FB21BE135C40017BE06 /* OHHTTPStubs.framework in Frameworks */,
-				DC582FB31BE135C40017BE06 /* Quick.framework in Frameworks */,
-				DC582FB01BE135C40017BE06 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,7 +256,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC582FDB1BE1453F0017BE06 /* ReactiveCocoa.framework in Frameworks */,
+				DC209CCF1C845F9700C43C75 /* Argo.framework in Frameworks */,
+				DC209CD71C845FA400C43C75 /* KeychainAccess.framework in Frameworks */,
+				DC209CD81C845FA400C43C75 /* ReactiveCocoa.framework in Frameworks */,
+				DC209CD91C845FA400C43C75 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,13 +267,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC582FDC1BE1455B0017BE06 /* Argo.framework in Frameworks */,
-				DC582FDD1BE1455B0017BE06 /* KeychainAccess.framework in Frameworks */,
-				DC582FDF1BE145660017BE06 /* Nimble.framework in Frameworks */,
-				DC582FE01BE145660017BE06 /* OHHTTPStubs.framework in Frameworks */,
-				DC582FE11BE145660017BE06 /* Quick.framework in Frameworks */,
+				DC209CE31C845FCD00C43C75 /* Nimble.framework in Frameworks */,
+				DC209CE41C845FCD00C43C75 /* OHHTTPStubs.framework in Frameworks */,
+				DC209CE51C845FCD00C43C75 /* Quick.framework in Frameworks */,
 				DC582FCA1BE13EB30017BE06 /* ReactiveHeimdallr.framework in Frameworks */,
-				DC582FDE1BE1455B0017BE06 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,7 +278,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC58300F1BE149E60017BE06 /* ReactiveCocoa.framework in Frameworks */,
+				DC209CD01C845F9800C43C75 /* Argo.framework in Frameworks */,
+				DC209CDA1C845FA400C43C75 /* KeychainAccess.framework in Frameworks */,
+				DC209CDB1C845FA400C43C75 /* ReactiveCocoa.framework in Frameworks */,
+				DC209CDC1C845FA400C43C75 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,24 +289,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC5830121BE14A0E0017BE06 /* Argo.framework in Frameworks */,
-				DC5830131BE14A0E0017BE06 /* KeychainAccess.framework in Frameworks */,
-				DC5830151BE14A160017BE06 /* Nimble.framework in Frameworks */,
-				DC5830161BE14A160017BE06 /* OHHTTPStubs.framework in Frameworks */,
-				DC5830171BE14A160017BE06 /* Quick.framework in Frameworks */,
+				DC209CE61C845FCE00C43C75 /* Nimble.framework in Frameworks */,
+				DC209CE71C845FCE00C43C75 /* OHHTTPStubs.framework in Frameworks */,
+				DC209CE81C845FCE00C43C75 /* Quick.framework in Frameworks */,
 				DC582FFF1BE148610017BE06 /* ReactiveHeimdallr.framework in Frameworks */,
-				DC5830141BE14A110017BE06 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DC336D671A93A76D002AE918 /* Frameworks */ = {
+		DC209CCC1C845F2000C43C75 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DC582F761BE134DA0017BE06 /* iOS */,
-				DC582F871BE134DA0017BE06 /* Mac */,
+				DC209CC51C845F1900C43C75 /* Argo.framework */,
+				DC209CC61C845F1900C43C75 /* KeychainAccess.framework */,
+				DC209CC71C845F1900C43C75 /* Nimble.framework */,
+				DC209CC81C845F1900C43C75 /* OHHTTPStubs.framework */,
+				DC209CC91C845F1900C43C75 /* Quick.framework */,
+				DC209CCA1C845F1900C43C75 /* ReactiveCocoa.framework */,
+				DC209CCB1C845F1900C43C75 /* Result.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -526,7 +421,7 @@
 			children = (
 				DC5220451BEA320B00F37F2A /* Heimdallr */,
 				DC52205A1BEA320B00F37F2A /* HeimdallrTests */,
-				DC336D671A93A76D002AE918 /* Frameworks */,
+				DC209CCC1C845F2000C43C75 /* Frameworks */,
 				DC545DC31A89F0F10051A575 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -544,84 +439,6 @@
 				DC582FFE1BE148610017BE06 /* ReactiveHeimdallrTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		DC582F761BE134DA0017BE06 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				DC582F9B1BE135440017BE06 /* Heimdallr */,
-				DC582F981BE135100017BE06 /* ReactiveHeimdallr */,
-				DC582F961BE134FB0017BE06 /* Private */,
-			);
-			name = iOS;
-			path = Carthage/Build/iOS;
-			sourceTree = "<group>";
-		};
-		DC582F871BE134DA0017BE06 /* Mac */ = {
-			isa = PBXGroup;
-			children = (
-				DC582F9A1BE1353C0017BE06 /* Heimdallr */,
-				DC582F991BE1352E0017BE06 /* ReactiveHeimdallr */,
-				DC582F971BE135020017BE06 /* Private */,
-			);
-			name = Mac;
-			path = Carthage/Build/Mac;
-			sourceTree = "<group>";
-		};
-		DC582F961BE134FB0017BE06 /* Private */ = {
-			isa = PBXGroup;
-			children = (
-				DC582F7D1BE134DA0017BE06 /* Nimble.framework */,
-				DC582F7F1BE134DA0017BE06 /* OHHTTPStubs.framework */,
-				DC582F811BE134DA0017BE06 /* Quick.framework */,
-			);
-			name = Private;
-			sourceTree = "<group>";
-		};
-		DC582F971BE135020017BE06 /* Private */ = {
-			isa = PBXGroup;
-			children = (
-				DC582F8C1BE134DA0017BE06 /* Nimble.framework */,
-				DC582F8E1BE134DA0017BE06 /* OHHTTPStubs.framework */,
-				DC582F901BE134DA0017BE06 /* Quick.framework */,
-			);
-			name = Private;
-			sourceTree = "<group>";
-		};
-		DC582F981BE135100017BE06 /* ReactiveHeimdallr */ = {
-			isa = PBXGroup;
-			children = (
-				DC582F831BE134DA0017BE06 /* ReactiveCocoa.framework */,
-			);
-			name = ReactiveHeimdallr;
-			sourceTree = "<group>";
-		};
-		DC582F991BE1352E0017BE06 /* ReactiveHeimdallr */ = {
-			isa = PBXGroup;
-			children = (
-				DC582F921BE134DA0017BE06 /* ReactiveCocoa.framework */,
-			);
-			name = ReactiveHeimdallr;
-			sourceTree = "<group>";
-		};
-		DC582F9A1BE1353C0017BE06 /* Heimdallr */ = {
-			isa = PBXGroup;
-			children = (
-				DC582F881BE134DA0017BE06 /* Argo.framework */,
-				DC582F8A1BE134DA0017BE06 /* KeychainAccess.framework */,
-				DC582F941BE134DA0017BE06 /* Result.framework */,
-			);
-			name = Heimdallr;
-			sourceTree = "<group>";
-		};
-		DC582F9B1BE135440017BE06 /* Heimdallr */ = {
-			isa = PBXGroup;
-			children = (
-				DC582F771BE134DA0017BE06 /* Argo.framework */,
-				DC582F7B1BE134DA0017BE06 /* KeychainAccess.framework */,
-				DC582F851BE134DA0017BE06 /* Result.framework */,
-			);
-			name = Heimdallr;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -687,7 +504,6 @@
 				DC545DC91A89F0F10051A575 /* Sources */,
 				DC545DCA1A89F0F10051A575 /* Frameworks */,
 				DC545DCB1A89F0F10051A575 /* Resources */,
-				DCD6C1491B17545B00BD66CB /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -724,7 +540,6 @@
 				DC582F481BE1319F0017BE06 /* Sources */,
 				DC582F491BE1319F0017BE06 /* Frameworks */,
 				DC582F4A1BE1319F0017BE06 /* Resources */,
-				DC582FB41BE135D80017BE06 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -761,7 +576,6 @@
 				DC582FC51BE13EB30017BE06 /* Sources */,
 				DC582FC61BE13EB30017BE06 /* Frameworks */,
 				DC582FC71BE13EB30017BE06 /* Resources */,
-				DC582FE21BE1456B0017BE06 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -798,7 +612,6 @@
 				DC582FFA1BE148610017BE06 /* Sources */,
 				DC582FFB1BE148610017BE06 /* Frameworks */,
 				DC582FFC1BE148610017BE06 /* Resources */,
-				DC5830181BE14A190017BE06 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -1198,10 +1011,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "Heimdallr/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1219,10 +1028,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "Heimdallr/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1236,10 +1041,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "HeimdallrTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
@@ -1251,10 +1052,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "HeimdallrTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
@@ -1271,10 +1068,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "Heimdallr/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1295,10 +1088,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "Heimdallr/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1315,10 +1104,6 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				INFOPLIST_FILE = "HeimdallrTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
@@ -1332,10 +1117,6 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				INFOPLIST_FILE = "HeimdallrTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
@@ -1352,10 +1133,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "Heimdallr/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1373,10 +1150,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "Heimdallr/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1390,10 +1163,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "HeimdallrTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
@@ -1405,10 +1174,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "HeimdallrTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
@@ -1425,10 +1190,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "Heimdallr/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1449,10 +1210,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "Heimdallr/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1469,10 +1226,6 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				INFOPLIST_FILE = "HeimdallrTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
@@ -1486,10 +1239,6 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				INFOPLIST_FILE = "HeimdallrTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
