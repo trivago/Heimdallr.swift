@@ -11,14 +11,10 @@
 		DC209CCE1C845F9600C43C75 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC51C845F1900C43C75 /* Argo.framework */; };
 		DC209CCF1C845F9700C43C75 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC51C845F1900C43C75 /* Argo.framework */; };
 		DC209CD01C845F9800C43C75 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC51C845F1900C43C75 /* Argo.framework */; };
-		DC209CD11C845FA100C43C75 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC61C845F1900C43C75 /* KeychainAccess.framework */; };
 		DC209CD31C845FA100C43C75 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CCB1C845F1900C43C75 /* Result.framework */; };
-		DC209CD41C845FA300C43C75 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC61C845F1900C43C75 /* KeychainAccess.framework */; };
 		DC209CD61C845FA300C43C75 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CCB1C845F1900C43C75 /* Result.framework */; };
-		DC209CD71C845FA400C43C75 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC61C845F1900C43C75 /* KeychainAccess.framework */; };
 		DC209CD81C845FA400C43C75 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CCA1C845F1900C43C75 /* ReactiveCocoa.framework */; };
 		DC209CD91C845FA400C43C75 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CCB1C845F1900C43C75 /* Result.framework */; };
-		DC209CDA1C845FA400C43C75 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC61C845F1900C43C75 /* KeychainAccess.framework */; };
 		DC209CDB1C845FA400C43C75 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CCA1C845F1900C43C75 /* ReactiveCocoa.framework */; };
 		DC209CDC1C845FA400C43C75 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CCB1C845F1900C43C75 /* Result.framework */; };
 		DC209CDD1C845FCB00C43C75 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC71C845F1900C43C75 /* Nimble.framework */; };
@@ -160,7 +156,6 @@
 
 /* Begin PBXFileReference section */
 		DC209CC51C845F1900C43C75 /* Argo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Argo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC209CC61C845F1900C43C75 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC209CC71C845F1900C43C75 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC209CC81C845F1900C43C75 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OHHTTPStubs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC209CC91C845F1900C43C75 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,7 +210,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC209CCD1C845F9500C43C75 /* Argo.framework in Frameworks */,
-				DC209CD11C845FA100C43C75 /* KeychainAccess.framework in Frameworks */,
 				DC209CD31C845FA100C43C75 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -236,7 +230,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC209CCE1C845F9600C43C75 /* Argo.framework in Frameworks */,
-				DC209CD41C845FA300C43C75 /* KeychainAccess.framework in Frameworks */,
 				DC209CD61C845FA300C43C75 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,7 +250,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC209CCF1C845F9700C43C75 /* Argo.framework in Frameworks */,
-				DC209CD71C845FA400C43C75 /* KeychainAccess.framework in Frameworks */,
 				DC209CD81C845FA400C43C75 /* ReactiveCocoa.framework in Frameworks */,
 				DC209CD91C845FA400C43C75 /* Result.framework in Frameworks */,
 			);
@@ -279,7 +271,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC209CD01C845F9800C43C75 /* Argo.framework in Frameworks */,
-				DC209CDA1C845FA400C43C75 /* KeychainAccess.framework in Frameworks */,
 				DC209CDB1C845FA400C43C75 /* ReactiveCocoa.framework in Frameworks */,
 				DC209CDC1C845FA400C43C75 /* Result.framework in Frameworks */,
 			);
@@ -303,7 +294,6 @@
 			isa = PBXGroup;
 			children = (
 				DC209CC51C845F1900C43C75 /* Argo.framework */,
-				DC209CC61C845F1900C43C75 /* KeychainAccess.framework */,
 				DC209CC71C845F1900C43C75 /* Nimble.framework */,
 				DC209CC81C845F1900C43C75 /* OHHTTPStubs.framework */,
 				DC209CC91C845F1900C43C75 /* Quick.framework */,

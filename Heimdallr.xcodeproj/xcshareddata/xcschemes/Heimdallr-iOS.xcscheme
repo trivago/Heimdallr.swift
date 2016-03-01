@@ -37,20 +37,6 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "140F195B1A49D79400B0016A"
-               BuildableName = "KeychainAccess.framework"
-               BlueprintName = "KeychainAccess"
-               ReferencedContainer = "container:Carthage/Checkouts/KeychainAccess/Lib/KeychainAccess.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "D454807C1A957361009D7229"
                BuildableName = "Result.framework"
                BlueprintName = "Result-iOS"

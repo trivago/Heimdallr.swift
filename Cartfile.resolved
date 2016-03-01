@@ -1,5 +1,4 @@
 github "thoughtbot/Argo" "v2.2.0"
-github "kishikawakatsumi/KeychainAccess" "v2.3.4"
 github "Quick/Nimble" "v3.1.0"
 github "AliSoftware/OHHTTPStubs" "4.7.1"
 github "Quick/Quick" "v0.9.1"

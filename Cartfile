@@ -1,7 +1,6 @@
 # Core
 github "antitypical/Result" ~> 1.0
 github "thoughtbot/Argo" ~> 2.2
-github "kishikawakatsumi/KeychainAccess" ~> 2.3
 
 # ReactiveCocoa
 github "ReactiveCocoa/ReactiveCocoa" ~> 4.0

@@ -23,9 +23,8 @@ Pod::Spec.new do |spec|
   spec.default_subspec = 'Core'
 
   spec.subspec 'Core' do |subspec|
-    subspec.dependency 'Result', '~> 1.0'
     subspec.dependency 'Argo', '~> 2.2'
-    subspec.dependency 'KeychainAccess', '~> 2.3'
+    subspec.dependency 'Result', '~> 1.0'
     subspec.framework = 'Foundation'
 
     subspec.source_files = 'Heimdallr/Core/*.swift'
