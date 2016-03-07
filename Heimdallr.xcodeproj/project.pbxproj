@@ -1142,6 +1142,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DC712A4C1C85AD77009860A5 /* iOS-Framework.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphonesimulator*]" = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				INFOPLIST_FILE = "Heimdallr/Supporting Files/Info.plist";
@@ -1154,6 +1156,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DC712A4C1C85AD77009860A5 /* iOS-Framework.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphonesimulator*]" = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				INFOPLIST_FILE = "Heimdallr/Supporting Files/Info.plist";
