@@ -1,4 +1,4 @@
 github "jspahrsummers/xcconfigs" ~> 0.9
 github "Quick/Quick" ~> 0.9
-github "Quick/Nimble" ~> 3.0
+github "Quick/Nimble" ~> 4.0
 github "AliSoftware/OHHTTPStubs" ~> 4.7
