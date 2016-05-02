@@ -121,6 +121,14 @@
 		DC582F4D1BE1319F0017BE06 /* Heimdallr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F431BE1319F0017BE06 /* Heimdallr.framework */; };
 		DC582FCA1BE13EB30017BE06 /* ReactiveHeimdallr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582FC01BE13EB20017BE06 /* ReactiveHeimdallr.framework */; };
 		DC582FFF1BE148610017BE06 /* ReactiveHeimdallr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582FF51BE148610017BE06 /* ReactiveHeimdallr.framework */; };
+		E258A1661CC6B66900649F5A /* OAuthAccessTokenDefaultParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258A1651CC6B66900649F5A /* OAuthAccessTokenDefaultParser.swift */; };
+		E258A1681CC6B8C500649F5A /* OAuthAccessTokenParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258A1671CC6B8C500649F5A /* OAuthAccessTokenParser.swift */; };
+		E258A1691CC6BC7B00649F5A /* OAuthAccessTokenParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258A1671CC6B8C500649F5A /* OAuthAccessTokenParser.swift */; };
+		E258A16A1CC6BC7C00649F5A /* OAuthAccessTokenParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258A1671CC6B8C500649F5A /* OAuthAccessTokenParser.swift */; };
+		E258A16B1CC6BC7E00649F5A /* OAuthAccessTokenParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258A1671CC6B8C500649F5A /* OAuthAccessTokenParser.swift */; };
+		E258A16C1CC6BC8600649F5A /* OAuthAccessTokenDefaultParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258A1651CC6B66900649F5A /* OAuthAccessTokenDefaultParser.swift */; };
+		E258A16D1CC6BC8700649F5A /* OAuthAccessTokenDefaultParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258A1651CC6B66900649F5A /* OAuthAccessTokenDefaultParser.swift */; };
+		E258A16E1CC6BC8800649F5A /* OAuthAccessTokenDefaultParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258A1651CC6B66900649F5A /* OAuthAccessTokenDefaultParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -227,6 +235,8 @@
 		DC712A5C1C85AD77009860A5 /* watchOS-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "watchOS-Base.xcconfig"; sourceTree = "<group>"; };
 		DC712A5D1C85AD77009860A5 /* watchOS-Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "watchOS-Framework.xcconfig"; sourceTree = "<group>"; };
 		DC712A5E1C85AD77009860A5 /* watchOS-StaticLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "watchOS-StaticLibrary.xcconfig"; sourceTree = "<group>"; };
+		E258A1651CC6B66900649F5A /* OAuthAccessTokenDefaultParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenDefaultParser.swift; sourceTree = "<group>"; };
+		E258A1671CC6B8C500649F5A /* OAuthAccessTokenParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -349,7 +359,9 @@
 				DC52204C1BEA320B00F37F2A /* NSDateExtensions.swift */,
 				DC52204D1BEA320B00F37F2A /* NSURLRequestExtensions.swift */,
 				DC52204E1BEA320B00F37F2A /* OAuthAccessToken.swift */,
+				E258A1651CC6B66900649F5A /* OAuthAccessTokenDefaultParser.swift */,
 				DC52204F1BEA320B00F37F2A /* OAuthAccessTokenKeychainStore.swift */,
+				E258A1671CC6B8C500649F5A /* OAuthAccessTokenParser.swift */,
 				DC5220501BEA320B00F37F2A /* OAuthAccessTokenStore.swift */,
 				DC5220511BEA320B00F37F2A /* OAuthAuthorizationGrant.swift */,
 				DC5220521BEA320B00F37F2A /* OAuthClientCredentials.swift */,
@@ -881,6 +893,8 @@
 				DC5220751BEA321300F37F2A /* OAuthAccessToken.swift in Sources */,
 				DC5220721BEA321300F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */,
 				DC52206F1BEA321300F37F2A /* HeimdallrHTTPClient.swift in Sources */,
+				E258A1691CC6BC7B00649F5A /* OAuthAccessTokenParser.swift in Sources */,
+				E258A16C1CC6BC8600649F5A /* OAuthAccessTokenDefaultParser.swift in Sources */,
 				DC5220781BEA321300F37F2A /* OAuthAuthorizationGrant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -913,7 +927,9 @@
 				DC52207D1BEA321500F37F2A /* HeimdallrHTTPClientNSURLSession.swift in Sources */,
 				DC5220821BEA321500F37F2A /* OAuthAccessToken.swift in Sources */,
 				DC52207F1BEA321500F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */,
+				E258A1681CC6B8C500649F5A /* OAuthAccessTokenParser.swift in Sources */,
 				DC52207C1BEA321500F37F2A /* HeimdallrHTTPClient.swift in Sources */,
+				E258A1661CC6B66900649F5A /* OAuthAccessTokenDefaultParser.swift in Sources */,
 				DC5220851BEA321500F37F2A /* OAuthAuthorizationGrant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -945,7 +961,9 @@
 				DC5220911BEA321500F37F2A /* OAuthAccessTokenStore.swift in Sources */,
 				DC52208A1BEA321500F37F2A /* HeimdallrHTTPClientNSURLSession.swift in Sources */,
 				DC52208F1BEA321500F37F2A /* OAuthAccessToken.swift in Sources */,
+				E258A16E1CC6BC8800649F5A /* OAuthAccessTokenDefaultParser.swift in Sources */,
 				DC52208C1BEA321500F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */,
+				E258A16B1CC6BC7E00649F5A /* OAuthAccessTokenParser.swift in Sources */,
 				DC5220891BEA321500F37F2A /* HeimdallrHTTPClient.swift in Sources */,
 				DC5220921BEA321500F37F2A /* OAuthAuthorizationGrant.swift in Sources */,
 				DC5220A21BEA321E00F37F2A /* Heimdallr+ReactiveCocoa.swift in Sources */,
@@ -974,7 +992,9 @@
 				DC52209E1BEA321600F37F2A /* OAuthAccessTokenStore.swift in Sources */,
 				DC5220971BEA321600F37F2A /* HeimdallrHTTPClientNSURLSession.swift in Sources */,
 				DC52209C1BEA321600F37F2A /* OAuthAccessToken.swift in Sources */,
+				E258A16D1CC6BC8700649F5A /* OAuthAccessTokenDefaultParser.swift in Sources */,
 				DC5220991BEA321600F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */,
+				E258A16A1CC6BC7C00649F5A /* OAuthAccessTokenParser.swift in Sources */,
 				DC5220961BEA321600F37F2A /* HeimdallrHTTPClient.swift in Sources */,
 				DC52209F1BEA321600F37F2A /* OAuthAuthorizationGrant.swift in Sources */,
 				DC5220A31BEA321F00F37F2A /* Heimdallr+ReactiveCocoa.swift in Sources */,

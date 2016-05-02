@@ -21,6 +21,50 @@ class OAuthAccessTokenMockStore: OAuthAccessTokenStore {
     }
 }
 
+let ParserErrorDomain = "ParserErrorDomain"
+
+class OAuthAccessTokenInterceptorParser: OAuthAccessTokenParser {
+    
+    let defaultParser = OAuthAccessTokenDefaultParser()
+    
+    var timesCalled = 0
+    
+    var shouldIntercept: Bool = false
+    var interceptToken: OAuthAccessToken?
+    var interceptError: NSError?
+    
+    func intercept(withToken token: OAuthAccessToken) {
+        shouldIntercept = true
+        interceptToken = token
+    }
+    
+    func intercept(withError error: NSError) {
+        shouldIntercept = true
+        interceptError = error
+    }
+    
+    func parse(data: NSData) -> Result<OAuthAccessToken, NSError> {
+        
+        timesCalled += 1
+        
+        if self.shouldIntercept {
+            if let accessToken = self.interceptToken {
+                return .Success(accessToken)
+            } else if let error = self.interceptError {
+                return .Failure(error)
+            } else {
+                fatalError("Missing intercept token or error")
+            }
+        } else {
+            return defaultParser.parse(data)
+        }
+    }
+    
+    var parseAccessTokenCalled: Bool {
+        return timesCalled > 0
+    }
+}
+
 class HeimdallResourceRequestMockAuthenticator: HeimdallResourceRequestAuthenticator {
     @objc func authenticateResourceRequest(request: NSURLRequest, accessToken: OAuthAccessToken) -> NSURLRequest {
         let mutableRequest = request.mutableCopy() as! NSMutableURLRequest
@@ -34,11 +78,13 @@ class HeimdallrSpec: QuickSpec {
 
     override func spec() {
         var accessTokenStore: OAuthAccessTokenMockStore!
+        var accessTokenParser: OAuthAccessTokenInterceptorParser!
         var heimdallr: Heimdallr!
 
         beforeEach {
             accessTokenStore = OAuthAccessTokenMockStore()
-            heimdallr = Heimdallr(tokenURL: NSURL(string: "http://rheinfabrik.de")!, accessTokenStore: accessTokenStore, resourceRequestAuthenticator: HeimdallResourceRequestMockAuthenticator())
+            accessTokenParser = OAuthAccessTokenInterceptorParser()
+            heimdallr = Heimdallr(tokenURL: NSURL(string: "http://rheinfabrik.de")!, accessTokenStore: accessTokenStore, accessTokenParser: accessTokenParser, resourceRequestAuthenticator: HeimdallResourceRequestMockAuthenticator())
         }
 
         describe("-init") {
@@ -102,6 +148,10 @@ class HeimdallrSpec: QuickSpec {
                     expect(result?.value).toNot(beNil())
                 }
 
+                it("attempts to parse the access token") {
+                    expect(accessTokenParser.parseAccessTokenCalled).to(beTrue())
+                }
+
                 it("sets the access token") {
                     expect(heimdallr.hasAccessToken).to(beTrue())
                 }
@@ -109,6 +159,49 @@ class HeimdallrSpec: QuickSpec {
                 it("stores the access token in the token store") {
                     expect(accessTokenStore.storeAccessTokenCalled).to(beTrue())
                 }
+            }
+            
+            context("with a valid response and a failing token parser") {
+                beforeEach {
+                    OHHTTPStubs.stubRequestsPassingTest({ request in
+                        return (request.URL!.absoluteString == "http://rheinfabrik.de")
+                        }, withStubResponse: { request in
+                            return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("authorize-valid", ofType: "json")!)!, statusCode: 200, headers: [ "Content-Type": "application/json" ])
+                    })
+                    
+                    let parseError = NSError(domain: ParserErrorDomain, code: HeimdallrErrorInvalidData, userInfo: nil)
+                    
+                    accessTokenParser.intercept(withError: parseError)
+                    
+                    waitUntil { done in
+                        heimdallr.requestAccessToken(username: "username", password: "password") { result = $0; done() }
+                    }
+                }
+                
+                afterEach {
+                    OHHTTPStubs.removeAllStubs()
+                }
+                
+                it("fails") {
+                    expect(result?.value).to(beNil())
+                }
+                
+                it("attempts to parse the access token") {
+                    expect(accessTokenParser.parseAccessTokenCalled).to(beTrue())
+                }
+                
+                it("fails with the correct error domain") {
+                    expect(result?.error?.domain).to(equal(HeimdallrErrorDomain))
+                }
+                
+                it("fails with the correct error code") {
+                    expect(result?.error?.code).to(equal(HeimdallrErrorInvalidData))
+                }
+                
+                it("does not set the access token") {
+                    expect(heimdallr.hasAccessToken).to(beFalse())
+                }
+                
             }
 
             context("with an error response") {
@@ -130,6 +223,10 @@ class HeimdallrSpec: QuickSpec {
 
                 it("fails") {
                     expect(result?.value).to(beNil())
+                }
+                
+                it("does not attempt to parse the access token") {
+                    expect(accessTokenParser.parseAccessTokenCalled).to(beFalse())
                 }
 
                 it("fails with the correct error domain") {
@@ -165,6 +262,10 @@ class HeimdallrSpec: QuickSpec {
                 it("fails") {
                     expect(result?.value).to(beNil())
                 }
+                
+                it("attempts to parse the access token") {
+                    expect(accessTokenParser.parseAccessTokenCalled).to(beTrue())
+                }
 
                 it("fails with the correct error domain") {
                     expect(result?.error?.domain).to(equal(HeimdallrErrorDomain))
@@ -198,6 +299,10 @@ class HeimdallrSpec: QuickSpec {
 
                 it("fails") {
                     expect(result?.value).to(beNil())
+                }
+                
+                it("attempts to parse the access token") {
+                    expect(accessTokenParser.parseAccessTokenCalled).to(beTrue())
                 }
 
                 it("fails with the correct error domain") {
@@ -233,6 +338,10 @@ class HeimdallrSpec: QuickSpec {
 
                 it("fails") {
                     expect(result?.value).to(beNil())
+                }
+                
+                it("attempts to parse the access token") {
+                    expect(accessTokenParser.parseAccessTokenCalled).to(beTrue())
                 }
 
                 it("fails with the correct error domain") {
@@ -276,6 +385,10 @@ class HeimdallrSpec: QuickSpec {
                 it("succeeds") {
                     expect(result?.value).toNot(beNil())
                 }
+                
+                it("attempts to parse the access token") {
+                    expect(accessTokenParser.parseAccessTokenCalled).to(beTrue())
+                }
 
                 it("sets the access token") {
                     expect(heimdallr.hasAccessToken).to(beTrue())
@@ -340,6 +453,10 @@ class HeimdallrSpec: QuickSpec {
                 it("fails") {
                     expect(result?.value).to(beNil())
                 }
+                
+                it("attempts to parse the access token") {
+                    expect(accessTokenParser.parseAccessTokenCalled).to(beTrue())
+                }
 
                 it("fails with the correct error domain") {
                     expect(result?.error?.domain).to(equal(HeimdallrErrorDomain))
@@ -374,6 +491,10 @@ class HeimdallrSpec: QuickSpec {
                 it("fails") {
                     expect(result?.value).to(beNil())
                 }
+                
+                it("attempts to parse the access token") {
+                    expect(accessTokenParser.parseAccessTokenCalled).to(beTrue())
+                }
 
                 it("fails with the correct error domain") {
                     expect(result?.error?.domain).to(equal(HeimdallrErrorDomain))
@@ -407,6 +528,10 @@ class HeimdallrSpec: QuickSpec {
 
                 it("fails") {
                     expect(result?.value).to(beNil())
+                }
+                
+                it("attempts to parse the access token") {
+                    expect(accessTokenParser.parseAccessTokenCalled).to(beTrue())
                 }
 
                 it("fails with the correct error domain") {
@@ -536,6 +661,10 @@ class HeimdallrSpec: QuickSpec {
                 afterEach {
                     OHHTTPStubs.removeAllStubs()
                 }
+                
+                it("attempts to parse the access token") {
+                    expect(accessTokenParser.parseAccessTokenCalled).to(beTrue())
+                }
 
                 context("when refreshing the access token succeeds") {
                     beforeEach {
@@ -553,6 +682,10 @@ class HeimdallrSpec: QuickSpec {
                     it("succeeds") {
                         expect(result?.value).toNot(beNil())
                     }
+                    
+                    it("attempts to parse the fresh token") {
+                        expect(accessTokenParser.timesCalled).to(equal(2))
+                    }
 
                     it("authenticates the request using the resource request authenticator") {
                         expect(result?.value?.valueForHTTPHeaderField("MockAuthorized")).to(equal("totally"))
@@ -566,7 +699,7 @@ class HeimdallrSpec: QuickSpec {
                         }, withStubResponse: { request in
                             return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("authorize-error", ofType: "json")!)!, statusCode: 400, headers: [ "Content-Type": "application/json" ])
                         })
-
+                        
                         waitUntil { done in
                             heimdallr.authenticateRequest(request) { result = $0; done() }
                         }
@@ -578,6 +711,10 @@ class HeimdallrSpec: QuickSpec {
 
                     it("fails") {
                         expect(result?.value).to(beNil())
+                    }
+                    
+                    it("does not attempt to parse the fresh token") {
+                        expect(accessTokenParser.timesCalled).to(equal(1))
                     }
 
                     it("fails with the correct error domain") {

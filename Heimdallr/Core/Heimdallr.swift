@@ -24,6 +24,7 @@ public let HeimdallrErrorNotAuthorized = 2
             accessTokenStore.storeAccessToken(newValue)
         }
     }
+    private let accessTokenParser: OAuthAccessTokenParser
     private let httpClient: HeimdallrHTTPClient
 
     /// The request authenticator that is used to authenticate requests.
@@ -47,6 +48,8 @@ public let HeimdallrErrorNotAuthorized = 2
     ///     encoded as parameter. Default: `nil` (unauthenticated client).
     /// - parameter accessTokenStore: The (persistent) access token store.
     ///     Default: `OAuthAccessTokenKeychainStore`.
+    /// - parameter accessTokenParser: The access token response parser.
+    ///     Default: `OAuthAccessTokenDefaultParser`.
     /// - parameter httpClient: The HTTP client that should be used for requesting
     ///     access tokens. Default: `HeimdallrHTTPClientNSURLSession`.
     /// - parameter resourceRequestAuthenticator: The request authenticator that is 
@@ -55,10 +58,11 @@ public let HeimdallrErrorNotAuthorized = 2
     ///
     /// - returns: A new client initialized with the given token endpoint URL,
     ///     credentials and access token store.
-    public init(tokenURL: NSURL, credentials: OAuthClientCredentials? = nil, accessTokenStore: OAuthAccessTokenStore = OAuthAccessTokenKeychainStore(), httpClient: HeimdallrHTTPClient = HeimdallrHTTPClientNSURLSession(), resourceRequestAuthenticator: HeimdallResourceRequestAuthenticator = HeimdallResourceRequestAuthenticatorHTTPAuthorizationHeader()) {
+    public init(tokenURL: NSURL, credentials: OAuthClientCredentials? = nil, accessTokenStore: OAuthAccessTokenStore = OAuthAccessTokenKeychainStore(), accessTokenParser: OAuthAccessTokenParser = OAuthAccessTokenDefaultParser(), httpClient: HeimdallrHTTPClient = HeimdallrHTTPClientNSURLSession(), resourceRequestAuthenticator: HeimdallResourceRequestAuthenticator = HeimdallResourceRequestAuthenticatorHTTPAuthorizationHeader()) {
         self.tokenURL = tokenURL
         self.credentials = credentials
         self.accessTokenStore = accessTokenStore
+        self.accessTokenParser = accessTokenParser
         self.httpClient = httpClient
         self.resourceRequestAuthenticator = resourceRequestAuthenticator
     }
@@ -137,7 +141,7 @@ public let HeimdallrErrorNotAuthorized = 2
             if let error = error {
                 completion(.Failure(error))
             } else if (response as! NSHTTPURLResponse).statusCode == 200 {
-                switch OAuthAccessToken.decode(data!) {
+                switch self.accessTokenParser.parse(data!) {
                 case let .Success(accessToken):
                     self.accessToken = accessToken
                     completion(.Success(accessToken))
