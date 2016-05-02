@@ -178,6 +178,18 @@ If the access token has already expired and a refresh token is available, Heimda
 
 By default, Heimdallr authenticates a request by setting the HTTP header field `Authorization`. This behavior can be changed by passing another resource request authenticator implementing `HeimdallrResourceRequestAuthenticator` to the initializer.
 
+## Development
+
+For local development, run the following commands:
+
+```bash
+git clone https://github.com/rheinfabrik/Heimdallr.swift.git
+cd Heimdallr.swift
+carthage bootstrap --no-build --use-submodules
+```
+
+Open `Heimdallr.xcworkspace` in Xcode and start implementing new features.
+
 ## About
 
 Heimdallr was built by [Rheinfabrik](http://www.rheinfabrik.de) 🏭
