@@ -133,6 +133,16 @@ var urlSession: NSURLSession!
 let httpClient = HeimdallrHTTPClientNSURLSession(urlSession: session)
 ```
 
+### OAuthAccessTokenParser
+
+You can provide your own parser to handle the access token response of the server. It can be useful for parsing additional parameters sent in the response that your application may need. The parser must implement the following `parse` method:
+
+```swift
+protocol OAuthAccessTokenParser {
+    func parse(data: NSData) -> Result<OAuthAccessToken, NSError>
+}
+```
+
 ### Heimdallr
 
 Heimdallr must be initialized with the token endpoint URL and can optionally be configured with client credentials, an access token store and an HTTP client:
@@ -143,8 +153,9 @@ var tokenURL: NSURL!
 let heimdallr = Heimdallr(tokenURL: tokenURL)
              // Heimdallr(tokenURL: tokenURL, credentials: credentials)
              // Heimdallr(tokenURL: tokenURL, credentials: credentials, accessTokenStore: accessTokenStore)
-             // Heimdallr(tokenURL: tokenURL, credentials: credentials, accessTokenStore: accessTokenStore, httpClient: httpClient)
-             // Heimdallr(tokenURL: tokenURL, credentials: credentials, accessTokenStore: accessTokenStore, httpClient: httpClient, resourceRequestAuthenticator: resourceRequestAuthenticator)
+             // Heimdallr(tokenURL: tokenURL, credentials: credentials, accessTokenStore: accessTokenStore, accessTokenParser: accessTokenParser)
+             // Heimdallr(tokenURL: tokenURL, credentials: credentials, accessTokenStore: accessTokenStore, accessTokenParser: accessTokenParser, httpClient: httpClient)
+             // Heimdallr(tokenURL: tokenURL, credentials: credentials, accessTokenStore: accessTokenStore, accessTokenParser: accessTokenParser, httpClient: httpClient, resourceRequestAuthenticator: resourceRequestAuthenticator)
 ```
 
 Whether the client's access token store currently holds an access token can be checked using the `hasAccessToken` property. *It's not checked whether the stored access token, if any, has already expired.*
