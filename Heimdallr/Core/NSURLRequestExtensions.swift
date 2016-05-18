@@ -138,7 +138,7 @@ public extension NSMutableURLRequest {
             while index != string.endIndex {
                 let startIndex = index
                 let endIndex = index.advancedBy(batchSize, limit: string.endIndex)
-                let range = Range(startIndex..<endIndex)
+                let range = startIndex..<endIndex
 
                 let substring = string.substringWithRange(range)
 
