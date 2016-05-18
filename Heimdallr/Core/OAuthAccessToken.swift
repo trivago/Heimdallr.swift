@@ -65,7 +65,7 @@ extension OAuthAccessToken: Decodable {
                         OAuthAccessToken(accessToken: accessToken, tokenType: tokenType, expiresAt: expiresAt, refreshToken: refreshToken)
                     }
                 }
-        }
+            }
     }
 
     public class func decode(json: JSON) -> Decoded<OAuthAccessToken> {

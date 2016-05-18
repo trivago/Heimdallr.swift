@@ -84,7 +84,7 @@ extension OAuthError: Decodable {
                 { uri in
                     OAuthError(code: code, description: description, uri: uri)
                 }
-        }
+            }
     }
 
     public class func decode(json: JSON) -> Decoded<OAuthError> {
