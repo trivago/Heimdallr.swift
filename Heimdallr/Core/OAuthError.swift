@@ -78,8 +78,13 @@ public extension OAuthError {
 }
 
 extension OAuthError: Decodable {
-    public class func create(code: OAuthErrorCode)(description: String?)(uri: String?) -> OAuthError {
-        return OAuthError(code: code, description: description, uri: uri)
+    public class func create(code: OAuthErrorCode) -> String? -> String? -> OAuthError {
+        return
+            { description in
+                { uri in
+                    OAuthError(code: code, description: description, uri: uri)
+                }
+            }
     }
 
     public class func decode(json: JSON) -> Decoded<OAuthError> {

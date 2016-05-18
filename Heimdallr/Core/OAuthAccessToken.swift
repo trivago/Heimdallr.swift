@@ -57,8 +57,15 @@ public func == (lhs: OAuthAccessToken, rhs: OAuthAccessToken) -> Bool {
 }
 
 extension OAuthAccessToken: Decodable {
-    public class func create(accessToken: String)(tokenType: String)(expiresAt: NSDate?)(refreshToken: String?) -> OAuthAccessToken {
-        return OAuthAccessToken(accessToken: accessToken, tokenType: tokenType, expiresAt: expiresAt, refreshToken: refreshToken)
+    public class func create(accessToken: String) -> String -> NSDate? -> String? -> OAuthAccessToken {
+        return
+            { tokenType in
+                { expiresAt in
+                    { refreshToken in
+                        OAuthAccessToken(accessToken: accessToken, tokenType: tokenType, expiresAt: expiresAt, refreshToken: refreshToken)
+                    }
+                }
+            }
     }
 
     public class func decode(json: JSON) -> Decoded<OAuthAccessToken> {
