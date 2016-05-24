@@ -670,6 +670,36 @@ class HeimdallrSpec: QuickSpec {
                     beforeEach {
                         OHHTTPStubs.stubRequestsPassingTest({ request in
                             return (request.URL!.absoluteString == "http://rheinfabrik.de")
+                            }, withStubResponse: { request in
+                                return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("request-valid-norefresh", ofType: "json")!)!, statusCode: 200, headers: [ "Content-Type": "application/json" ])
+                        })
+                        
+                        waitUntil { done in
+                            heimdallr.authenticateRequest(request) { result = $0; done() }
+                        }
+                    }
+                    
+                    it("succeeds") {
+                        expect(result?.value).toNot(beNil())
+                    }
+                    
+                    it("attempts to parse the fresh token") {
+                        expect(accessTokenParser.timesCalled).to(equal(2))
+                    }
+                    
+                    it("authenticates the request using the resource request authenticator") {
+                        expect(result?.value?.valueForHTTPHeaderField("MockAuthorized")).to(equal("totally"))
+                    }
+                    
+                    it("keeps the original refresh token") {
+                        expect(accessTokenStore.retrieveAccessToken()?.refreshToken).to(equal("ZmVhMThjYzUyZDM3MmIzNDcyMDMyMzc2MzhmYTg4YWM0MWYyYmQxZmFlMTE2Mzk0MWY5YTk1YWQ4ZDBmYzIxZA"))
+                    }
+                }
+                
+                context("when refreshing the access token succeeds and overrides the refresh token") {
+                    beforeEach {
+                        OHHTTPStubs.stubRequestsPassingTest({ request in
+                            return (request.URL!.absoluteString == "http://rheinfabrik.de")
                         }, withStubResponse: { request in
                             return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("request-valid", ofType: "json")!)!, statusCode: 200, headers: [ "Content-Type": "application/json" ])
                         })
@@ -689,6 +719,10 @@ class HeimdallrSpec: QuickSpec {
 
                     it("authenticates the request using the resource request authenticator") {
                         expect(result?.value?.valueForHTTPHeaderField("MockAuthorized")).to(equal("totally"))
+                    }
+                    
+                    it("overrides the refresh token") {
+                        expect(accessTokenStore.retrieveAccessToken()?.refreshToken).to(equal("Vs25754VHY5CSovX2GRgLCLbKKZk8BQl7vmAoRav2agcY75uz338NyassLQCM8MeF04clqvtBeXG5o2wiuiTay"))
                     }
                 }
 
