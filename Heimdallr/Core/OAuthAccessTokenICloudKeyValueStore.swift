@@ -37,10 +37,12 @@ import Foundation
             store.setDictionary(accessTokenDictionaryRepresentation, forKey: service)
         }
         
-        store.synchronize()
+        synchronize()
     }
     
     public func retrieveAccessToken() -> OAuthAccessToken? {
+        synchronize()
+        
         if let accessTokenDictionaryRepresentation = store.dictionaryForKey(service) {
             let accessToken = accessTokenDictionaryRepresentation["access_token"] as? String
             let tokenType = accessTokenDictionaryRepresentation["token_type"] as? String
@@ -59,5 +61,22 @@ import Foundation
         }
         
         return nil
+    }
+    
+    private func synchronize() -> Void {
+        #if DEBUG
+            let synchronized = store.synchronize()
+            
+            let userInfo = [
+                NSLocalizedDescriptionKey: NSLocalizedString("Could not initialize an iCloud Key Value Store", comment: ""),
+                NSLocalizedFailureReasonErrorKey: NSLocalizedString("Something went wrong in initializing an iCloud Key Value Store.", comment: "")
+            ]
+            
+            if !synchronized {
+                NSException(name: "OAuthAccessTokenICloudKeyValueStore", reason: NSLocalizedString("Make sure the app has registered to proper iCloud capabilities.", comment: ""), userInfo: userInfo).raise()
+            }
+        #else
+            store.synchronize()
+        #endif
     }
 }
