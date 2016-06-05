@@ -67,12 +67,12 @@ import Foundation
         #if DEBUG
             let synchronized = store.synchronize()
             
-            let userInfo = [
-                NSLocalizedDescriptionKey: NSLocalizedString("Could not initialize an iCloud Key Value Store", comment: ""),
-                NSLocalizedFailureReasonErrorKey: NSLocalizedString("Something went wrong in initializing an iCloud Key Value Store.", comment: "")
-            ]
-            
             if !synchronized {
+                let userInfo = [
+                    NSLocalizedDescriptionKey: NSLocalizedString("Could not initialize an iCloud Key Value Store", comment: ""),
+                    NSLocalizedFailureReasonErrorKey: NSLocalizedString("Something went wrong in initializing an iCloud Key Value Store.", comment: "")
+                ]
+                
                 NSException(name: "OAuthAccessTokenICloudKeyValueStore", reason: NSLocalizedString("Make sure the app has registered to proper iCloud capabilities.", comment: ""), userInfo: userInfo).raise()
             }
         #else
