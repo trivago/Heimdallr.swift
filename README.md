@@ -2,9 +2,9 @@
 
 Heimdallr is an [OAuth 2.0](https://tools.ietf.org/html/rfc6749) client specifically designed for easy usage. It currently supports the [resource owner password credentials grant](https://tools.ietf.org/html/rfc6749#section-4.3) flow, [refreshing an access token](https://tools.ietf.org/html/rfc6749#section-6), as well as [extension grants](https://tools.ietf.org/html/rfc6749#section-4.5).
 
-If you are an Android Developer, please take a look at the [Android version of Heimdallr](https://github.com/rheinfabrik/Heimdall.droid).
+If you are an Android Developer, please take a look at the [Android version of Heimdallr](https://github.com/trivago/Heimdall.droid).
 
-[![Build Status](https://circleci.com/gh/rheinfabrik/Heimdallr.swift.svg?style=shield&circle-token=06d0c39133fae3dd9b649c116776c7f882885f1f)](https://circleci.com/gh/rheinfabrik/Heimdallr)
+[![Build Status](https://circleci.com/gh/trivago/Heimdallr.swift.svg?style=shield&circle-token=06d0c39133fae3dd9b649c116776c7f882885f1f)](https://circleci.com/gh/trivago/Heimdallr)
 
 ## Example
 
@@ -59,7 +59,7 @@ Installation is possible via Carthage or CocoaPods, see below for either method:
 1. Add Heimdallr to your [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile):
 
   ```
-  github "rheinfabrik/Heimdallr.swift" ~> 3.2
+  github "trivago/Heimdallr.swift" ~> 3.2
   ```
 
 2. Run `carthage update` to fetch and build Heimdallr and its dependencies.
@@ -191,7 +191,7 @@ By default, Heimdallr authenticates a request by setting the HTTP header field `
 
 ## About
 
-Heimdallr was built by [Rheinfabrik](http://www.rheinfabrik.de) 🏭
+Heimdallr was built by [trivago](http://www.trivago.com) 🏭
 
 ## Credits
 
