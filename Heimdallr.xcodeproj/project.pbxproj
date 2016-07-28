@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DC209CCD1C845F9500C43C75 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC51C845F1900C43C75 /* Argo.framework */; };
-		DC209CCE1C845F9600C43C75 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC51C845F1900C43C75 /* Argo.framework */; };
-		DC209CCF1C845F9700C43C75 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC51C845F1900C43C75 /* Argo.framework */; };
-		DC209CD01C845F9800C43C75 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC51C845F1900C43C75 /* Argo.framework */; };
 		DC209CD31C845FA100C43C75 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CCB1C845F1900C43C75 /* Result.framework */; };
 		DC209CD61C845FA300C43C75 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CCB1C845F1900C43C75 /* Result.framework */; };
 		DC209CD81C845FA400C43C75 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CCA1C845F1900C43C75 /* ReactiveCocoa.framework */; };
@@ -244,7 +240,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC209CCD1C845F9500C43C75 /* Argo.framework in Frameworks */,
 				DC209CD31C845FA100C43C75 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,7 +259,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC209CCE1C845F9600C43C75 /* Argo.framework in Frameworks */,
 				DC209CD61C845FA300C43C75 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,7 +278,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC209CCF1C845F9700C43C75 /* Argo.framework in Frameworks */,
 				DC209CD81C845FA400C43C75 /* ReactiveCocoa.framework in Frameworks */,
 				DC209CD91C845FA400C43C75 /* Result.framework in Frameworks */,
 			);
@@ -305,7 +298,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC209CD01C845F9800C43C75 /* Argo.framework in Frameworks */,
 				DC209CDB1C845FA400C43C75 /* ReactiveCocoa.framework in Frameworks */,
 				DC209CDC1C845FA400C43C75 /* Result.framework in Frameworks */,
 			);
