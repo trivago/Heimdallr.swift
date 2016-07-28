@@ -155,10 +155,9 @@ public let HeimdallrErrorNotAuthorized = 2
                     completion(.Failure(error))
                 }
             } else {
-                switch OAuthError.decode(data!) {
-                case let .Success(error):
+                if let error = OAuthError.decode(data: data!) {
                     completion(.Failure(error.nsError))
-                default:
+                } else {
                     let userInfo = [
                         NSLocalizedDescriptionKey: NSLocalizedString("Could not authorize grant", comment: ""),
                         NSLocalizedFailureReasonErrorKey: String(format: NSLocalizedString("Expected error, got: %@.", comment: ""), NSString(data: data!, encoding: NSUTF8StringEncoding) ?? "nil")
