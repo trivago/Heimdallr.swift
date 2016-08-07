@@ -155,7 +155,7 @@ public let HeimdallrErrorNotAuthorized = 2
                     completion(.Failure(error))
                 }
             } else {
-                if let error = OAuthError.decode(data: data!) {
+                if let data = data, error = OAuthError.decode(data: data) {
                     completion(.Failure(error.nsError))
                 } else {
                     let userInfo = [
