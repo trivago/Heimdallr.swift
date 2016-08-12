@@ -5,9 +5,6 @@
       location = "container:Heimdallr.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Carthage/Checkouts/Argo/Argo.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:Carthage/Checkouts/Nimble/Nimble.xcodeproj">
    </FileRef>
    <FileRef

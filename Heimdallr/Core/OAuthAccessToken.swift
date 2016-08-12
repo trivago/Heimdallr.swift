@@ -1,4 +1,3 @@
-import Argo
 import Result
 
 /// An access token is used for authorizing requests to the resource endpoint.
@@ -56,34 +55,32 @@ public func == (lhs: OAuthAccessToken, rhs: OAuthAccessToken) -> Bool {
         && lhs.refreshToken == rhs.refreshToken
 }
 
-extension OAuthAccessToken: Decodable {
-    public class func create(accessToken: String) -> String -> NSDate? -> String? -> OAuthAccessToken {
-        return
-            { tokenType in
-                { expiresAt in
-                    { refreshToken in
-                        OAuthAccessToken(accessToken: accessToken, tokenType: tokenType, expiresAt: expiresAt, refreshToken: refreshToken)
-                    }
-                }
-            }
-    }
-
-    public class func decode(json: JSON) -> Decoded<OAuthAccessToken> {
-        func toNSDate(timeIntervalSinceNow: NSTimeInterval?) -> Decoded<NSDate?> {
-            return pure(timeIntervalSinceNow.map { timeIntervalSinceNow in
+extension OAuthAccessToken {
+    public class func decode(json: [String: AnyObject]) -> OAuthAccessToken? {
+        func toNSDate(timeIntervalSinceNow: NSTimeInterval?) -> NSDate? {
+            return timeIntervalSinceNow.map { timeIntervalSinceNow in
                 return NSDate(timeIntervalSinceNow: timeIntervalSinceNow)
-            } ?? .None)
+            }
         }
 
-        return create
-            <^> json <| "access_token"
-            <*> json <| "token_type"
-            <*> (json <|? "expires_in").flatMap(toNSDate)
-            <*> json <|? "refresh_token"
+        guard let accessToken = json["access_token"] as? String,
+        tokenType = json["token_type"] as? String else {
+            return nil
+        }
+
+        let expiresAt = (json["expires_in"] as? NSTimeInterval).flatMap(toNSDate)
+        let refreshToken = json["refresh_token"] as? String
+
+        return OAuthAccessToken(accessToken: accessToken, tokenType: tokenType,
+                                expiresAt: expiresAt, refreshToken: refreshToken)
     }
 
-    public class func decode(data: NSData) -> Decoded<OAuthAccessToken> {
-        let json: AnyObject? = try? NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
-        return Decoded<AnyObject>.fromOptional(json).flatMap(Argo.decode)
+    public class func decode(data data: NSData) -> OAuthAccessToken? {
+        guard let json = try? NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0)),
+            jsonDictionary = json as? [String: AnyObject] else {
+                return nil
+        }
+
+        return decode(jsonDictionary)
     }
 }

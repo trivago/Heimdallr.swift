@@ -1,6 +1,5 @@
 # Core
 github "antitypical/Result" ~> 2.0
-github "thoughtbot/Argo" ~> 3.0
 
 # ReactiveCocoa
 github "ReactiveCocoa/ReactiveCocoa" ~> 4.0
