@@ -40,7 +40,6 @@ public let HeimdallrErrorNotAuthorized = 2
     }
 
     private var refreshQueue = dispatch_queue_create("de.rheinfabrik.Heimdallr.refeshQueue", DISPATCH_QUEUE_SERIAL)
-    private let refreshSemaphore = dispatch_semaphore_create(1)
 
     /// Initializes a new client.
     ///
@@ -251,10 +250,10 @@ public let HeimdallrErrorNotAuthorized = 2
     }
 
     private func blockRefreshQueue() {
-        dispatch_semaphore_wait(refreshSemaphore, DISPATCH_TIME_FOREVER)
+        dispatch_suspend(refreshQueue)
     }
 
     private func releaseRefreshQueue() {
-        dispatch_semaphore_signal(refreshSemaphore)
+        dispatch_resume(refreshQueue)
     }
 }
