@@ -199,7 +199,7 @@ public let HeimdallrErrorNotAuthorized = 2
     /// - parameter request: An unauthenticated NSURLRequest.
     /// - parameter completion: A callback to invoke with the authenticated request.
     public func authenticateRequest(request: NSURLRequest, completion: Result<NSURLRequest, NSError> -> ()) {
-        dispatch_sync(refreshQueue) {
+        dispatch_async(refreshQueue) {
             self.blockRefreshQueue()
             print("started authentication")
             self.authenticateRequestConcurrently(request, completion: completion)
