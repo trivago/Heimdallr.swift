@@ -725,6 +725,34 @@ class HeimdallrSpec: QuickSpec {
                         expect(result?.error?.code).to(equal(OAuthErrorInvalidClient))
                     }
                 }
+
+                context("when issueing multiple requests at the same time") {
+                    it("only issues one refresh token call") {
+                        // To test this issue, we use the differing number of http requests
+                        // as a proxy for actual (private) function calls.
+                        var numberOfHTTPRequests = 0
+                        OHHTTPStubs.stubRequestsPassingTest({ request in
+                                numberOfHTTPRequests += 1
+                                return (request.URL!.absoluteString == "http://rheinfabrik.de")
+                            }, withStubResponse: { request in
+                                return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("request-valid", ofType: "json")!)!, statusCode: 200, headers: [ "Content-Type": "application/json" ])
+                        })
+
+                        waitUntil { done in
+                            var firstFinished = false
+                            heimdallr.authenticateRequest(request) {
+                                result = $0
+                                firstFinished ? done() : (firstFinished = true)
+                            }
+                            heimdallr.authenticateRequest(request) {
+                                result = $0
+                                firstFinished ? done() : (firstFinished = true)
+                            }
+                        }
+
+                        expect(numberOfHTTPRequests).to(equal(2))
+                    }
+                }
             }
         }
     }
