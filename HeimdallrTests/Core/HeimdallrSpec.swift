@@ -740,12 +740,12 @@ class HeimdallrSpec: QuickSpec {
 
                         waitUntil { done in
                             var firstFinished = false
-                            heimdallr.authenticateRequest(request) {
-                                result = $0
+                            heimdallr.authenticateRequest(request) { incomingResult in
+                                result = incomingResult
                                 firstFinished ? done() : (firstFinished = true)
                             }
-                            heimdallr.authenticateRequest(request) {
-                                result = $0
+                            heimdallr.authenticateRequest(request) { incomingResult in
+                                result = incomingResult
                                 firstFinished ? done() : (firstFinished = true)
                             }
                         }
