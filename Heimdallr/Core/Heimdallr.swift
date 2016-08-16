@@ -202,6 +202,7 @@ public let HeimdallrErrorNotAuthorized = 2
     public func authenticateRequest(request: NSURLRequest, completion: Result<NSURLRequest, NSError> -> ()) {
         dispatch_sync(refreshQueue) {
             self.blockRefreshQueue()
+            print("started authentication")
             self.authenticateRequestConcurrently(request, completion: completion)
         }
     }
@@ -250,10 +251,10 @@ public let HeimdallrErrorNotAuthorized = 2
     }
 
     private func blockRefreshQueue() {
-        dispatch_semaphore_wait(self.refreshSemaphore, DISPATCH_TIME_FOREVER)
+        dispatch_semaphore_wait(refreshSemaphore, DISPATCH_TIME_FOREVER)
     }
 
     private func releaseRefreshQueue() {
-        dispatch_semaphore_signal(self.refreshSemaphore)
+        dispatch_semaphore_signal(refreshSemaphore)
     }
 }
