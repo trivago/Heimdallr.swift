@@ -727,30 +727,30 @@ class HeimdallrSpec: QuickSpec {
                 }
 
                 context("when issueing multiple requests at the same time") {
-                    it("only issues one refresh token call") {
-                        // To test this issue, we use the differing number of http requests
-                        // as a proxy for actual (private) function calls.
-                        var numberOfHTTPRequests = 0
-                        OHHTTPStubs.stubRequestsPassingTest({ request in
-                                numberOfHTTPRequests += 1
-                                return (request.URL!.absoluteString == "http://rheinfabrik.de")
-                            }, withStubResponse: { request in
+                    it("only has the first one make network requests") {
+                        var firstAuthenticateRequestDone = false
+                        var madeNetworkRequestAfterFirstAuthenticateRequestDone = false
+                        OHHTTPStubs.stubRequestsPassingTest({ _ in
+                                if firstAuthenticateRequestDone {
+                                    madeNetworkRequestAfterFirstAuthenticateRequestDone = true
+                                }
+                                return true
+                            }, withStubResponse: { _ in
                                 return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("request-valid", ofType: "json")!)!, statusCode: 200, headers: [ "Content-Type": "application/json" ])
                         })
 
                         waitUntil { done in
                             var firstFinished = false
-                            heimdallr.authenticateRequest(request) { incomingResult in
-                                result = incomingResult
+                            heimdallr.authenticateRequest(request) { _ in
+                                firstAuthenticateRequestDone = true
                                 firstFinished ? done() : (firstFinished = true)
                             }
-                            heimdallr.authenticateRequest(request) { incomingResult in
-                                result = incomingResult
+                            heimdallr.authenticateRequest(request) { _ in
                                 firstFinished ? done() : (firstFinished = true)
                             }
                         }
 
-                        expect(numberOfHTTPRequests).to(equal(2))
+                        expect(madeNetworkRequestAfterFirstAuthenticateRequestDone).to(beFalse())
                     }
                 }
             }
