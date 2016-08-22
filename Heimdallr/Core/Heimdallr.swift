@@ -201,7 +201,6 @@ public let HeimdallrErrorNotAuthorized = 2
     public func authenticateRequest(request: NSURLRequest, completion: Result<NSURLRequest, NSError> -> ()) {
         dispatch_async(refreshQueue) {
             self.blockRefreshQueue()
-            print("started authentication")
             self.authenticateRequestConcurrently(request, completion: completion)
         }
     }
