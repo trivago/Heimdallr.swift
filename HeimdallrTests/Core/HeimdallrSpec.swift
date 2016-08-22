@@ -726,8 +726,8 @@ class HeimdallrSpec: QuickSpec {
                     }
                 }
 
-                context("when issueing multiple requests at the same time") {
-                    it("only has the first one make network requests") {
+                context("when authenticating multiple requests at the same time with an expired access token") {
+                    it("only the first one triggers a token refresh") {
                         var firstAuthenticateRequestDone = false
                         var madeNetworkRequestAfterFirstAuthenticateRequestDone = false
                         OHHTTPStubs.stubRequestsPassingTest({ _ in
