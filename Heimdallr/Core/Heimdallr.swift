@@ -210,9 +210,6 @@ public let HeimdallrErrorNotAuthorized = 2
             if accessToken.expiresAt != nil && accessToken.expiresAt < NSDate() {
                 if let refreshToken = accessToken.refreshToken {
                     requestAccessToken(grant: .RefreshToken(refreshToken)) { result in
-                        defer {
-                            self.releaseRequestQueue()
-                        }
                         completion(result.analysis(ifSuccess: { accessToken in
                             let authenticatedRequest = self.authenticateRequest(request, accessToken: accessToken)
                             return .Success(authenticatedRequest)
@@ -222,6 +219,7 @@ public let HeimdallrErrorNotAuthorized = 2
                             }
                             return .Failure(error)
                         }))
+                        self.releaseRequestQueue()
                     }
                 } else {
                     let userInfo = [
