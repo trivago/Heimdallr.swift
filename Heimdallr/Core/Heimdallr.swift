@@ -224,9 +224,6 @@ public let HeimdallrErrorNotAuthorized = 2
                         }))
                     }
                 } else {
-                    defer {
-                        self.releaseRequestQueue()
-                    }
                     let userInfo = [
                         NSLocalizedDescriptionKey: NSLocalizedString("Could not add authorization to request", comment: ""),
                         NSLocalizedFailureReasonErrorKey: NSLocalizedString("Access token expired, no refresh token available.", comment: "")
@@ -234,18 +231,14 @@ public let HeimdallrErrorNotAuthorized = 2
 
                     let error = NSError(domain: HeimdallrErrorDomain, code: HeimdallrErrorNotAuthorized, userInfo: userInfo)
                     completion(.Failure(error))
+                    releaseRequestQueue()
                 }
             } else {
-                defer {
-                    self.releaseRequestQueue()
-                }
                 let request = authenticateRequest(request, accessToken: accessToken)
                 completion(.Success(request))
+                releaseRequestQueue()
             }
         } else {
-            defer {
-                self.releaseRequestQueue()
-            }
             let userInfo = [
                 NSLocalizedDescriptionKey: NSLocalizedString("Could not add authorization to request", comment: ""),
                 NSLocalizedFailureReasonErrorKey: NSLocalizedString("Not authorized.", comment: "")
@@ -253,6 +246,7 @@ public let HeimdallrErrorNotAuthorized = 2
 
             let error = NSError(domain: HeimdallrErrorDomain, code: HeimdallrErrorNotAuthorized, userInfo: userInfo)
             completion(.Failure(error))
+            releaseRequestQueue()
         }
     }
 
