@@ -39,6 +39,8 @@ public let HeimdallrErrorNotAuthorized = 2
         return accessToken != nil
     }
 
+    private var requestQueue = dispatch_queue_create("com.trivago.Heimdallr.requestQueue", DISPATCH_QUEUE_SERIAL)
+
     /// Initializes a new client.
     ///
     /// - parameter tokenURL: The token endpoint URL.
@@ -192,9 +194,18 @@ public let HeimdallrErrorNotAuthorized = 2
     ///
     /// **Note:** The completion closure may be invoked on any thread.
     ///
+    /// **Note:** Calls to this function are automatically serialized
+    ///
     /// - parameter request: An unauthenticated NSURLRequest.
     /// - parameter completion: A callback to invoke with the authenticated request.
     public func authenticateRequest(request: NSURLRequest, completion: Result<NSURLRequest, NSError> -> ()) {
+        dispatch_async(requestQueue) {
+            self.blockRequestQueue()
+            self.authenticateRequestConcurrently(request, completion: completion)
+        }
+    }
+
+    private func authenticateRequestConcurrently(request: NSURLRequest, completion: Result<NSURLRequest, NSError> -> ()) {
         if let accessToken = accessToken {
             if accessToken.expiresAt != nil && accessToken.expiresAt < NSDate() {
                 if let refreshToken = accessToken.refreshToken {
@@ -208,6 +219,7 @@ public let HeimdallrErrorNotAuthorized = 2
                             }
                             return .Failure(error)
                         }))
+                        self.releaseRequestQueue()
                     }
                 } else {
                     let userInfo = [
@@ -217,10 +229,12 @@ public let HeimdallrErrorNotAuthorized = 2
 
                     let error = NSError(domain: HeimdallrErrorDomain, code: HeimdallrErrorNotAuthorized, userInfo: userInfo)
                     completion(.Failure(error))
+                    releaseRequestQueue()
                 }
             } else {
                 let request = authenticateRequest(request, accessToken: accessToken)
                 completion(.Success(request))
+                releaseRequestQueue()
             }
         } else {
             let userInfo = [
@@ -230,6 +244,15 @@ public let HeimdallrErrorNotAuthorized = 2
 
             let error = NSError(domain: HeimdallrErrorDomain, code: HeimdallrErrorNotAuthorized, userInfo: userInfo)
             completion(.Failure(error))
+            releaseRequestQueue()
         }
+    }
+
+    private func blockRequestQueue() {
+        dispatch_suspend(requestQueue)
+    }
+
+    private func releaseRequestQueue() {
+        dispatch_resume(requestQueue)
     }
 }

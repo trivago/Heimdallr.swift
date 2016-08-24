@@ -725,6 +725,34 @@ class HeimdallrSpec: QuickSpec {
                         expect(result?.error?.code).to(equal(OAuthErrorInvalidClient))
                     }
                 }
+
+                context("when authenticating multiple requests at the same time with an expired access token") {
+                    it("only the first one triggers a token refresh") {
+                        var firstAuthenticateRequestDone = false
+                        var madeNetworkRequestAfterFirstAuthenticateRequestDone = false
+                        OHHTTPStubs.stubRequestsPassingTest({ _ in
+                                if firstAuthenticateRequestDone {
+                                    madeNetworkRequestAfterFirstAuthenticateRequestDone = true
+                                }
+                                return true
+                            }, withStubResponse: { _ in
+                                return OHHTTPStubsResponse(data: NSData(contentsOfFile: self.bundle.pathForResource("request-valid", ofType: "json")!)!, statusCode: 200, headers: [ "Content-Type": "application/json" ])
+                        })
+
+                        waitUntil { done in
+                            var firstFinished = false
+                            heimdallr.authenticateRequest(request) { _ in
+                                firstAuthenticateRequestDone = true
+                                firstFinished ? done() : (firstFinished = true)
+                            }
+                            heimdallr.authenticateRequest(request) { _ in
+                                firstFinished ? done() : (firstFinished = true)
+                            }
+                        }
+
+                        expect(madeNetworkRequestAfterFirstAuthenticateRequestDone).to(beFalse())
+                    }
+                }
             }
         }
     }
