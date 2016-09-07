@@ -5,24 +5,24 @@ import Quick
 class HTTPAuthenticationSpec: QuickSpec {
     override func spec() {
         describe("<Equatable> ==") {
-            context("BasicAuthentication") {
+            context("basicAuthentication") {
                 it("returns true if usernames and passwords match") {
-                    let lhs: HTTPAuthentication = .BasicAuthentication(username: "username", password: "password")
-                    let rhs: HTTPAuthentication = .BasicAuthentication(username: "username", password: "password")
+                    let lhs: HTTPAuthentication = .basicAuthentication(username: "username", password: "password")
+                    let rhs: HTTPAuthentication = .basicAuthentication(username: "username", password: "password")
 
                     expect(lhs == rhs).to(beTrue())
                 }
 
                 it("returns false if usernames do not match") {
-                    let lhs: HTTPAuthentication = .BasicAuthentication(username: "usernamea", password: "password")
-                    let rhs: HTTPAuthentication = .BasicAuthentication(username: "usernameb", password: "password")
+                    let lhs: HTTPAuthentication = .basicAuthentication(username: "usernamea", password: "password")
+                    let rhs: HTTPAuthentication = .basicAuthentication(username: "usernameb", password: "password")
 
                     expect(lhs == rhs).to(beFalse())
                 }
 
                 it("returns false if password do not match") {
-                    let lhs: HTTPAuthentication = .BasicAuthentication(username: "username", password: "passworda")
-                    let rhs: HTTPAuthentication = .BasicAuthentication(username: "username", password: "passwordb")
+                    let lhs: HTTPAuthentication = .basicAuthentication(username: "username", password: "passworda")
+                    let rhs: HTTPAuthentication = .basicAuthentication(username: "username", password: "passwordb")
 
                     expect(lhs == rhs).to(beFalse())
                 }
@@ -30,22 +30,22 @@ class HTTPAuthenticationSpec: QuickSpec {
 
             context("Unknown") {
                 it("returns true if accessTokens and tokenTypes match") {
-                    let lhs: HTTPAuthentication = .AccessTokenAuthentication(OAuthAccessToken(accessToken: "accessToken", tokenType: "tokenType"))
-                    let rhs: HTTPAuthentication = .AccessTokenAuthentication(OAuthAccessToken(accessToken: "accessToken", tokenType: "tokenType"))
+                    let lhs: HTTPAuthentication = .accessTokenAuthentication(OAuthAccessToken(accessToken: "accessToken", tokenType: "tokenType"))
+                    let rhs: HTTPAuthentication = .accessTokenAuthentication(OAuthAccessToken(accessToken: "accessToken", tokenType: "tokenType"))
 
                     expect(lhs == rhs).to(beTrue())
                 }
 
                 it("returns false if accessTokens do not match") {
-                    let lhs: HTTPAuthentication = .AccessTokenAuthentication(OAuthAccessToken(accessToken: "accessTokena", tokenType: "tokenType"))
-                    let rhs: HTTPAuthentication = .AccessTokenAuthentication(OAuthAccessToken(accessToken: "accessTokenb", tokenType: "tokenType"))
+                    let lhs: HTTPAuthentication = .accessTokenAuthentication(OAuthAccessToken(accessToken: "accessTokena", tokenType: "tokenType"))
+                    let rhs: HTTPAuthentication = .accessTokenAuthentication(OAuthAccessToken(accessToken: "accessTokenb", tokenType: "tokenType"))
 
                     expect(lhs == rhs).to(beFalse())
                 }
 
                 it("returns false if tokenTypes do not match") {
-                    let lhs: HTTPAuthentication = .AccessTokenAuthentication(OAuthAccessToken(accessToken: "accessToken", tokenType: "tokenTypeb"))
-                    let rhs: HTTPAuthentication = .AccessTokenAuthentication(OAuthAccessToken(accessToken: "accessToken", tokenType: "tokenTypea"))
+                    let lhs: HTTPAuthentication = .accessTokenAuthentication(OAuthAccessToken(accessToken: "accessToken", tokenType: "tokenTypeb"))
+                    let rhs: HTTPAuthentication = .accessTokenAuthentication(OAuthAccessToken(accessToken: "accessToken", tokenType: "tokenTypea"))
 
                     expect(lhs == rhs).to(beFalse())
                 }
@@ -53,8 +53,8 @@ class HTTPAuthenticationSpec: QuickSpec {
 
             context("Mixed") {
                 it("returns false if authentication methods do not match") {
-                    let lhs: HTTPAuthentication = .BasicAuthentication(username: "username", password: "password")
-                    let rhs: HTTPAuthentication = .AccessTokenAuthentication(OAuthAccessToken(accessToken: "accessToken", tokenType: "tokenType"))
+                    let lhs: HTTPAuthentication = .basicAuthentication(username: "username", password: "password")
+                    let rhs: HTTPAuthentication = .accessTokenAuthentication(OAuthAccessToken(accessToken: "accessToken", tokenType: "tokenType"))
 
                     expect(lhs == rhs).to(beFalse())
                 }
@@ -63,12 +63,12 @@ class HTTPAuthenticationSpec: QuickSpec {
     }
 }
 
-class NSURLRequestExtensionsSpec: QuickSpec {
+class URLRequestExtensionsSpec: QuickSpec {
     override func spec() {
-        var request: NSMutableURLRequest!
+        var request: URLRequest!
 
         beforeEach {
-            request = NSMutableURLRequest()
+            request = URLRequest(url: URL(string: "https://accounts.example.com")!)
         }
 
         describe(".HTTPAuthorization") {
@@ -81,16 +81,6 @@ class NSURLRequestExtensionsSpec: QuickSpec {
 
                 expect(request.HTTPAuthorization).to(equal("Basic dXNlcm5hbWU6cGFzc3dvcmQ="))
             }
-        }
-    }
-}
-
-class NSMutableURLRequestExtensionsSpec: QuickSpec {
-    override func spec() {
-        var request: NSMutableURLRequest!
-
-        beforeEach {
-            request = NSMutableURLRequest()
         }
 
         describe("-setHTTPAuthorization") {
@@ -111,18 +101,18 @@ class NSMutableURLRequestExtensionsSpec: QuickSpec {
                 }
             }
 
-            context("when given .BasicAuthentication") {
+            context("when given .basicAuthentication") {
                 it("sets the Authorization header with encoded username and password") {
-                    let authentication: HTTPAuthentication = .BasicAuthentication(username: "username", password: "password")
+                    let authentication: HTTPAuthentication = .basicAuthentication(username: "username", password: "password")
                     request.setHTTPAuthorization(authentication)
 
                     expect(request.HTTPAuthorization).to(equal("Basic dXNlcm5hbWU6cGFzc3dvcmQ="))
                 }
             }
 
-            context("when given .AccessTokenAuthentication") {
+            context("when given .accessTokenAuthentication") {
                 it("sets the Authorization header with access token and token type") {
-                    let authentication: HTTPAuthentication = .AccessTokenAuthentication(OAuthAccessToken(accessToken: "accessToken", tokenType: "tokenType"))
+                    let authentication: HTTPAuthentication = .accessTokenAuthentication(OAuthAccessToken(accessToken: "accessToken", tokenType: "tokenType"))
                     request.setHTTPAuthorization(authentication)
 
                     expect(request.HTTPAuthorization).to(equal("tokenType accessToken"))
@@ -135,34 +125,34 @@ class NSMutableURLRequestExtensionsSpec: QuickSpec {
                 it("resets the body") {
                     request.setHTTPBody(parameters: nil)
 
-                    expect(request.HTTPBody).to(beNil())
+                    expect(request.httpBody).to(beNil())
                 }
             }
 
             context("when given parameters") {
                 it("sets the body with encoded parameters") {
                     let parameters: [String: AnyObject] = [
-                        "#key1": "%value1",
-                        "#key2": "%value2",
-                        "key3": "value3[]",
-                        "key4": ":&=;+!@#$()',*",
-                        "key5.": "value.5",
-                        "key6": "https://accounts.example.com/oauth/v2/foo/bar",
+                        "#key1": "%value1" as AnyObject,
+                        "#key2": "%value2" as AnyObject,
+                        "key3": "value3[]" as AnyObject,
+                        "key4": ":&=;+!@#$()',*" as AnyObject,
+                        "key5.": "value.5" as AnyObject,
+                        "key6": "https://accounts.example.com/oauth/v2/foo/bar" as AnyObject,
                         "key7": [
                             "one",
                             "two"
-                        ],
+                        ] as AnyObject,
                         "key8": [
                             "subkeyOne": "one",
                             "subkeyTwo": "two"
-                        ]
+                        ] as AnyObject
                     ]
 
                     request.setHTTPBody(parameters: parameters)
 
-                    let components = NSString(data: request.HTTPBody!, encoding: NSUTF8StringEncoding)?
-                        .componentsSeparatedByString("&")
-                        .sort { $0 < $1 }
+                    let components = NSString(data: request.httpBody!, encoding: String.Encoding.utf8.rawValue)?
+                        .components(separatedBy: "&")
+                        .sorted { $0 < $1 }
 
                     expect(components?[0]).to(equal("%23key1=%25value1"))
                     expect(components?[1]).to(equal("%23key2=%25value2"))

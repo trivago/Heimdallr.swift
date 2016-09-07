@@ -12,7 +12,7 @@ public let HeimdallrErrorNotAuthorized = 2
 /// The all-seeing and all-hearing guardian sentry of your application who
 /// stands on the rainbow bridge network to authorize relevant requests.
 @objc public class Heimdallr: NSObject {
-    public let tokenURL: NSURL
+    public let tokenURL: URL
     private let credentials: OAuthClientCredentials?
 
     private let accessTokenStore: OAuthAccessTokenStore
@@ -39,7 +39,7 @@ public let HeimdallrErrorNotAuthorized = 2
         return accessToken != nil
     }
 
-    private var requestQueue = dispatch_queue_create("com.trivago.Heimdallr.requestQueue", DISPATCH_QUEUE_SERIAL)
+    private var requestQueue = DispatchQueue(label: "com.trivago.Heimdallr.requestQueue", attributes: [])
 
     /// Initializes a new client.
     ///
@@ -60,7 +60,7 @@ public let HeimdallrErrorNotAuthorized = 2
     ///
     /// - returns: A new client initialized with the given token endpoint URL,
     ///     credentials and access token store.
-    public init(tokenURL: NSURL, credentials: OAuthClientCredentials? = nil, accessTokenStore: OAuthAccessTokenStore = OAuthAccessTokenKeychainStore(), accessTokenParser: OAuthAccessTokenParser = OAuthAccessTokenDefaultParser(), httpClient: HeimdallrHTTPClient = HeimdallrHTTPClientNSURLSession(), resourceRequestAuthenticator: HeimdallResourceRequestAuthenticator = HeimdallResourceRequestAuthenticatorHTTPAuthorizationHeader()) {
+    public init(tokenURL: URL, credentials: OAuthClientCredentials? = nil, accessTokenStore: OAuthAccessTokenStore = OAuthAccessTokenKeychainStore(), accessTokenParser: OAuthAccessTokenParser = OAuthAccessTokenDefaultParser(), httpClient: HeimdallrHTTPClient = HeimdallrHTTPClientNSURLSession(), resourceRequestAuthenticator: HeimdallResourceRequestAuthenticator = HeimdallResourceRequestAuthenticatorHTTPAuthorizationHeader()) {
         self.tokenURL = tokenURL
         self.credentials = credentials
         self.accessTokenStore = accessTokenStore
@@ -78,7 +78,7 @@ public let HeimdallrErrorNotAuthorized = 2
     /// **Note:** Sets the access token's expiration date to
     ///     1 January 1970, GMT.
     public func invalidateAccessToken() {
-        accessToken = accessToken?.copy(expiresAt: NSDate(timeIntervalSince1970: 0))
+        accessToken = accessToken?.copy(expiresAt: Date(timeIntervalSince1970: 0))
     }
 
     /// Clears the currently stored access token, if any.
@@ -96,8 +96,8 @@ public let HeimdallrErrorNotAuthorized = 2
     /// - parameter username: The resource owner's username.
     /// - parameter password: The resource owner's password.
     /// - parameter completion: A callback to invoke when the request completed.
-    public func requestAccessToken(username username: String, password: String, completion: Result<Void, NSError> -> ()) {
-        requestAccessToken(grant: .ResourceOwnerPasswordCredentials(username, password)) { result in
+    public func requestAccessToken(username: String, password: String, completion: @escaping (Result<Void, NSError>) -> ()) {
+        requestAccessToken(grant: .resourceOwnerPasswordCredentials(username, password)) { result in
             completion(result.map { _ in return })
         }
     }
@@ -109,8 +109,8 @@ public let HeimdallrErrorNotAuthorized = 2
     /// - parameter grantType: The grant type URI of the extension grant
     /// - parameter parameters: The required parameters for the external grant
     /// - parameter completion: A callback to invoke when the request completed.
-    public func requestAccessToken(grantType grantType: String, parameters: [String: String], completion: Result<Void, NSError> -> ()) {
-        requestAccessToken(grant: .Extension(grantType, parameters)) { result in
+    public func requestAccessToken(grantType: String, parameters: [String: String], completion: @escaping (Result<Void, NSError>) -> ()) {
+        requestAccessToken(grant: .extension(grantType, parameters)) { result in
             completion(result.map { _ in return })
         }
     }
@@ -123,50 +123,50 @@ public let HeimdallrErrorNotAuthorized = 2
     ///
     /// - parameter grant: The authorization grant (e.g., refresh).
     /// - parameter completion: A callback to invoke when the request completed.
-    private func requestAccessToken(grant grant: OAuthAuthorizationGrant, completion: Result<OAuthAccessToken, NSError> -> ()) {
-        let request = NSMutableURLRequest(URL: tokenURL)
+    private func requestAccessToken(grant: OAuthAuthorizationGrant, completion: @escaping (Result<OAuthAccessToken, NSError>) -> ()) {
+        var request = URLRequest(url: tokenURL)
 
         var parameters = grant.parameters
         if let credentials = credentials {
             if let secret = credentials.secret {
-                request.setHTTPAuthorization(.BasicAuthentication(username: credentials.id, password: secret))
+                request.setHTTPAuthorization(.basicAuthentication(username: credentials.id, password: secret))
             } else {
                 parameters["client_id"] = credentials.id
             }
         }
 
-        request.HTTPMethod = "POST"
+        request.httpMethod = "POST"
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        request.setHTTPBody(parameters: parameters)
+        request.setHTTPBody(parameters: parameters as [String: AnyObject])
 
         httpClient.sendRequest(request) { data, response, error in
             if let error = error {
-                completion(.Failure(error))
-            } else if (response as! NSHTTPURLResponse).statusCode == 200 {
+                completion(.failure(error as NSError))
+            } else if (response as! HTTPURLResponse).statusCode == 200 {
                 switch self.accessTokenParser.parse(data!) {
-                case let .Success(accessToken):
+                case let .success(accessToken):
                     self.accessToken = accessToken
-                    completion(.Success(accessToken))
+                    completion(.success(accessToken))
                 default:
                     let userInfo = [
                         NSLocalizedDescriptionKey: NSLocalizedString("Could not authorize grant", comment: ""),
-                        NSLocalizedFailureReasonErrorKey: String(format: NSLocalizedString("Expected access token, got: %@.", comment: ""), NSString(data: data!, encoding: NSUTF8StringEncoding) ?? "nil")
+                        NSLocalizedFailureReasonErrorKey: String(format: NSLocalizedString("Expected access token, got: %@.", comment: ""), NSString(data: data!, encoding: String.Encoding.utf8.rawValue) ?? "nil")
                     ]
 
                     let error = NSError(domain: HeimdallrErrorDomain, code: HeimdallrErrorInvalidData, userInfo: userInfo)
-                    completion(.Failure(error))
+                    completion(.failure(error))
                 }
             } else {
-                if let data = data, error = OAuthError.decode(data: data) {
-                    completion(.Failure(error.nsError))
+                if let data = data, let error = OAuthError.decode(data: data) {
+                    completion(.failure(error.nsError))
                 } else {
                     let userInfo = [
                         NSLocalizedDescriptionKey: NSLocalizedString("Could not authorize grant", comment: ""),
-                        NSLocalizedFailureReasonErrorKey: String(format: NSLocalizedString("Expected error, got: %@.", comment: ""), NSString(data: data!, encoding: NSUTF8StringEncoding) ?? "nil")
+                        NSLocalizedFailureReasonErrorKey: String(format: NSLocalizedString("Expected error, got: %@.", comment: ""), NSString(data: data!, encoding: String.Encoding.utf8.rawValue) ?? "nil")
                     ]
 
                     let error = NSError(domain: HeimdallrErrorDomain, code: HeimdallrErrorInvalidData, userInfo: userInfo)
-                    completion(.Failure(error))
+                    completion(.failure(error))
                 }
             }
         }
@@ -174,12 +174,12 @@ public let HeimdallrErrorNotAuthorized = 2
 
     /// Alters the given request by adding authentication with an access token.
     ///
-    /// - parameter request: An unauthenticated NSURLRequest.
+    /// - parameter request: An unauthenticated URLRequest.
     /// - parameter accessToken: The access token to be used for authentication.
     ///
     /// - returns: The given request authorized using the resource request 
     ///     authenticator.
-    private func authenticateRequest(request: NSURLRequest, accessToken: OAuthAccessToken) -> NSURLRequest {
+    private func authenticateRequest(_ request: URLRequest, accessToken: OAuthAccessToken) -> URLRequest {
         return self.resourceRequestAuthenticator.authenticateResourceRequest(request, accessToken: accessToken)
     }
 
@@ -196,28 +196,28 @@ public let HeimdallrErrorNotAuthorized = 2
     ///
     /// **Note:** Calls to this function are automatically serialized
     ///
-    /// - parameter request: An unauthenticated NSURLRequest.
+    /// - parameter request: An unauthenticated URLRequest.
     /// - parameter completion: A callback to invoke with the authenticated request.
-    public func authenticateRequest(request: NSURLRequest, completion: Result<NSURLRequest, NSError> -> ()) {
-        dispatch_async(requestQueue) {
+    public func authenticateRequest(_ request: URLRequest, completion: @escaping (Result<URLRequest, NSError>) -> ()) {
+        requestQueue.async {
             self.blockRequestQueue()
             self.authenticateRequestConcurrently(request, completion: completion)
         }
     }
 
-    private func authenticateRequestConcurrently(request: NSURLRequest, completion: Result<NSURLRequest, NSError> -> ()) {
+    private func authenticateRequestConcurrently(_ request: URLRequest, completion: @escaping (Result<URLRequest, NSError>) -> ()) {
         if let accessToken = accessToken {
-            if accessToken.expiresAt != nil && accessToken.expiresAt < NSDate() {
+            if let expiration = accessToken.expiresAt,  expiration < Date() {
                 if let refreshToken = accessToken.refreshToken {
-                    requestAccessToken(grant: .RefreshToken(refreshToken)) { result in
+                    requestAccessToken(grant: .refreshToken(refreshToken)) { result in
                         completion(result.analysis(ifSuccess: { accessToken in
                             let authenticatedRequest = self.authenticateRequest(request, accessToken: accessToken)
-                            return .Success(authenticatedRequest)
+                            return .success(authenticatedRequest)
                         }, ifFailure: { error in
                             if [ HeimdallrErrorDomain, OAuthErrorDomain ].contains(error.domain) {
                                 self.clearAccessToken()
                             }
-                            return .Failure(error)
+                            return .failure(error)
                         }))
                         self.releaseRequestQueue()
                     }
@@ -228,12 +228,12 @@ public let HeimdallrErrorNotAuthorized = 2
                     ]
 
                     let error = NSError(domain: HeimdallrErrorDomain, code: HeimdallrErrorNotAuthorized, userInfo: userInfo)
-                    completion(.Failure(error))
+                    completion(.failure(error))
                     releaseRequestQueue()
                 }
             } else {
                 let request = authenticateRequest(request, accessToken: accessToken)
-                completion(.Success(request))
+                completion(.success(request))
                 releaseRequestQueue()
             }
         } else {
@@ -243,16 +243,16 @@ public let HeimdallrErrorNotAuthorized = 2
             ]
 
             let error = NSError(domain: HeimdallrErrorDomain, code: HeimdallrErrorNotAuthorized, userInfo: userInfo)
-            completion(.Failure(error))
+            completion(.failure(error))
             releaseRequestQueue()
         }
     }
 
     private func blockRequestQueue() {
-        dispatch_suspend(requestQueue)
+        requestQueue.suspend()
     }
 
     private func releaseRequestQueue() {
-        dispatch_resume(requestQueue)
+        requestQueue.resume()
     }
 }

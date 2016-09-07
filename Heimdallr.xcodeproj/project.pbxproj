@@ -30,7 +30,6 @@
 		DC5220701BEA321300F37F2A /* HeimdallrHTTPClientNSURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220491BEA320B00F37F2A /* HeimdallrHTTPClientNSURLSession.swift */; };
 		DC5220711BEA321300F37F2A /* HeimdallrResourceRequestAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204A1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticator.swift */; };
 		DC5220721BEA321300F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204B1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift */; };
-		DC5220731BEA321300F37F2A /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204C1BEA320B00F37F2A /* NSDateExtensions.swift */; };
 		DC5220741BEA321300F37F2A /* NSURLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204D1BEA320B00F37F2A /* NSURLRequestExtensions.swift */; };
 		DC5220751BEA321300F37F2A /* OAuthAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204E1BEA320B00F37F2A /* OAuthAccessToken.swift */; };
 		DC5220761BEA321300F37F2A /* OAuthAccessTokenKeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204F1BEA320B00F37F2A /* OAuthAccessTokenKeychainStore.swift */; };
@@ -43,7 +42,6 @@
 		DC52207D1BEA321500F37F2A /* HeimdallrHTTPClientNSURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220491BEA320B00F37F2A /* HeimdallrHTTPClientNSURLSession.swift */; };
 		DC52207E1BEA321500F37F2A /* HeimdallrResourceRequestAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204A1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticator.swift */; };
 		DC52207F1BEA321500F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204B1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift */; };
-		DC5220801BEA321500F37F2A /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204C1BEA320B00F37F2A /* NSDateExtensions.swift */; };
 		DC5220811BEA321500F37F2A /* NSURLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204D1BEA320B00F37F2A /* NSURLRequestExtensions.swift */; };
 		DC5220821BEA321500F37F2A /* OAuthAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204E1BEA320B00F37F2A /* OAuthAccessToken.swift */; };
 		DC5220831BEA321500F37F2A /* OAuthAccessTokenKeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204F1BEA320B00F37F2A /* OAuthAccessTokenKeychainStore.swift */; };
@@ -56,7 +54,6 @@
 		DC52208A1BEA321500F37F2A /* HeimdallrHTTPClientNSURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220491BEA320B00F37F2A /* HeimdallrHTTPClientNSURLSession.swift */; };
 		DC52208B1BEA321500F37F2A /* HeimdallrResourceRequestAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204A1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticator.swift */; };
 		DC52208C1BEA321500F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204B1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift */; };
-		DC52208D1BEA321500F37F2A /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204C1BEA320B00F37F2A /* NSDateExtensions.swift */; };
 		DC52208E1BEA321500F37F2A /* NSURLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204D1BEA320B00F37F2A /* NSURLRequestExtensions.swift */; };
 		DC52208F1BEA321500F37F2A /* OAuthAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204E1BEA320B00F37F2A /* OAuthAccessToken.swift */; };
 		DC5220901BEA321500F37F2A /* OAuthAccessTokenKeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204F1BEA320B00F37F2A /* OAuthAccessTokenKeychainStore.swift */; };
@@ -69,7 +66,6 @@
 		DC5220971BEA321600F37F2A /* HeimdallrHTTPClientNSURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220491BEA320B00F37F2A /* HeimdallrHTTPClientNSURLSession.swift */; };
 		DC5220981BEA321600F37F2A /* HeimdallrResourceRequestAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204A1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticator.swift */; };
 		DC5220991BEA321600F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204B1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift */; };
-		DC52209A1BEA321600F37F2A /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204C1BEA320B00F37F2A /* NSDateExtensions.swift */; };
 		DC52209B1BEA321600F37F2A /* NSURLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204D1BEA320B00F37F2A /* NSURLRequestExtensions.swift */; };
 		DC52209C1BEA321600F37F2A /* OAuthAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204E1BEA320B00F37F2A /* OAuthAccessToken.swift */; };
 		DC52209D1BEA321600F37F2A /* OAuthAccessTokenKeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204F1BEA320B00F37F2A /* OAuthAccessTokenKeychainStore.swift */; };
@@ -101,13 +97,11 @@
 		DC5220C01BEA32A000F37F2A /* request-valid.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220B01BEA32A000F37F2A /* request-valid.json */; };
 		DC5220C11BEA32A900F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeaderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220611BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeaderSpec.swift */; };
 		DC5220C21BEA32A900F37F2A /* HeimdallrSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220621BEA320B00F37F2A /* HeimdallrSpec.swift */; };
-		DC5220C31BEA32A900F37F2A /* NSDateExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220631BEA320B00F37F2A /* NSDateExtensionsSpec.swift */; };
 		DC5220C41BEA32A900F37F2A /* NSURLRequestExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220641BEA320B00F37F2A /* NSURLRequestExtensionsSpec.swift */; };
 		DC5220C51BEA32A900F37F2A /* OAuthAccessTokenKeychainStoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220651BEA320B00F37F2A /* OAuthAccessTokenKeychainStoreSpec.swift */; };
 		DC5220C61BEA32A900F37F2A /* OAuthAccessTokenSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220661BEA320B00F37F2A /* OAuthAccessTokenSpec.swift */; };
 		DC5220C71BEA32AA00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeaderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220611BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeaderSpec.swift */; };
 		DC5220C81BEA32AA00F37F2A /* HeimdallrSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220621BEA320B00F37F2A /* HeimdallrSpec.swift */; };
-		DC5220C91BEA32AA00F37F2A /* NSDateExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220631BEA320B00F37F2A /* NSDateExtensionsSpec.swift */; };
 		DC5220CA1BEA32AA00F37F2A /* NSURLRequestExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220641BEA320B00F37F2A /* NSURLRequestExtensionsSpec.swift */; };
 		DC5220CB1BEA32AA00F37F2A /* OAuthAccessTokenKeychainStoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220651BEA320B00F37F2A /* OAuthAccessTokenKeychainStoreSpec.swift */; };
 		DC5220CC1BEA32AA00F37F2A /* OAuthAccessTokenSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220661BEA320B00F37F2A /* OAuthAccessTokenSpec.swift */; };
@@ -170,7 +164,6 @@
 		DC5220491BEA320B00F37F2A /* HeimdallrHTTPClientNSURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeimdallrHTTPClientNSURLSession.swift; sourceTree = "<group>"; };
 		DC52204A1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeimdallrResourceRequestAuthenticator.swift; sourceTree = "<group>"; };
 		DC52204B1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift; sourceTree = "<group>"; };
-		DC52204C1BEA320B00F37F2A /* NSDateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDateExtensions.swift; sourceTree = "<group>"; };
 		DC52204D1BEA320B00F37F2A /* NSURLRequestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSURLRequestExtensions.swift; sourceTree = "<group>"; };
 		DC52204E1BEA320B00F37F2A /* OAuthAccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthAccessToken.swift; sourceTree = "<group>"; };
 		DC52204F1BEA320B00F37F2A /* OAuthAccessTokenKeychainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenKeychainStore.swift; sourceTree = "<group>"; };
@@ -184,7 +177,6 @@
 		DC5220591BEA320B00F37F2A /* ReactiveHeimdallr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReactiveHeimdallr.h; sourceTree = "<group>"; };
 		DC5220611BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeaderSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeaderSpec.swift; sourceTree = "<group>"; };
 		DC5220621BEA320B00F37F2A /* HeimdallrSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeimdallrSpec.swift; sourceTree = "<group>"; };
-		DC5220631BEA320B00F37F2A /* NSDateExtensionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDateExtensionsSpec.swift; sourceTree = "<group>"; };
 		DC5220641BEA320B00F37F2A /* NSURLRequestExtensionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSURLRequestExtensionsSpec.swift; sourceTree = "<group>"; };
 		DC5220651BEA320B00F37F2A /* OAuthAccessTokenKeychainStoreSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenKeychainStoreSpec.swift; sourceTree = "<group>"; };
 		DC5220661BEA320B00F37F2A /* OAuthAccessTokenSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenSpec.swift; sourceTree = "<group>"; };
@@ -348,7 +340,6 @@
 				DC5220491BEA320B00F37F2A /* HeimdallrHTTPClientNSURLSession.swift */,
 				DC52204A1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticator.swift */,
 				DC52204B1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift */,
-				DC52204C1BEA320B00F37F2A /* NSDateExtensions.swift */,
 				DC52204D1BEA320B00F37F2A /* NSURLRequestExtensions.swift */,
 				DC52204E1BEA320B00F37F2A /* OAuthAccessToken.swift */,
 				E258A1651CC6B66900649F5A /* OAuthAccessTokenDefaultParser.swift */,
@@ -396,7 +387,6 @@
 				DC5220611BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeaderSpec.swift */,
 				DC5220621BEA320B00F37F2A /* HeimdallrSpec.swift */,
 				DC5220A81BEA32A000F37F2A /* JSON Responses */,
-				DC5220631BEA320B00F37F2A /* NSDateExtensionsSpec.swift */,
 				DC5220641BEA320B00F37F2A /* NSURLRequestExtensionsSpec.swift */,
 				DC5220651BEA320B00F37F2A /* OAuthAccessTokenKeychainStoreSpec.swift */,
 				DC5220661BEA320B00F37F2A /* OAuthAccessTokenSpec.swift */,
@@ -740,7 +730,7 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "B264 GmbH";
 				TargetAttributes = {
 					DC545DC11A89F0F10051A575 = {
@@ -750,6 +740,7 @@
 					DC545DCC1A89F0F10051A575 = {
 						CreatedOnToolsVersion = 6.1.1;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
 					};
 					DC582F421BE1319F0017BE06 = {
 						CreatedOnToolsVersion = 7.1;
@@ -882,7 +873,6 @@
 				DC52206E1BEA321300F37F2A /* Heimdallr.swift in Sources */,
 				DC52207A1BEA321300F37F2A /* OAuthError.swift in Sources */,
 				DC5220741BEA321300F37F2A /* NSURLRequestExtensions.swift in Sources */,
-				DC5220731BEA321300F37F2A /* NSDateExtensions.swift in Sources */,
 				DC5220791BEA321300F37F2A /* OAuthClientCredentials.swift in Sources */,
 				DC5220771BEA321300F37F2A /* OAuthAccessTokenStore.swift in Sources */,
 				DC5220701BEA321300F37F2A /* HeimdallrHTTPClientNSURLSession.swift in Sources */,
@@ -900,7 +890,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC5220C11BEA32A900F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeaderSpec.swift in Sources */,
-				DC5220C31BEA32A900F37F2A /* NSDateExtensionsSpec.swift in Sources */,
 				DC5220C61BEA32A900F37F2A /* OAuthAccessTokenSpec.swift in Sources */,
 				DC5220C41BEA32A900F37F2A /* NSURLRequestExtensionsSpec.swift in Sources */,
 				DC5220C51BEA32A900F37F2A /* OAuthAccessTokenKeychainStoreSpec.swift in Sources */,
@@ -917,7 +906,6 @@
 				DC52207B1BEA321500F37F2A /* Heimdallr.swift in Sources */,
 				DC5220871BEA321500F37F2A /* OAuthError.swift in Sources */,
 				DC5220811BEA321500F37F2A /* NSURLRequestExtensions.swift in Sources */,
-				DC5220801BEA321500F37F2A /* NSDateExtensions.swift in Sources */,
 				DC5220861BEA321500F37F2A /* OAuthClientCredentials.swift in Sources */,
 				DC5220841BEA321500F37F2A /* OAuthAccessTokenStore.swift in Sources */,
 				DC52207D1BEA321500F37F2A /* HeimdallrHTTPClientNSURLSession.swift in Sources */,
@@ -935,7 +923,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC5220C71BEA32AA00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeaderSpec.swift in Sources */,
-				DC5220C91BEA32AA00F37F2A /* NSDateExtensionsSpec.swift in Sources */,
 				DC5220CC1BEA32AA00F37F2A /* OAuthAccessTokenSpec.swift in Sources */,
 				DC5220CA1BEA32AA00F37F2A /* NSURLRequestExtensionsSpec.swift in Sources */,
 				DC5220CB1BEA32AA00F37F2A /* OAuthAccessTokenKeychainStoreSpec.swift in Sources */,
@@ -952,7 +939,6 @@
 				DC5220881BEA321500F37F2A /* Heimdallr.swift in Sources */,
 				DC5220941BEA321500F37F2A /* OAuthError.swift in Sources */,
 				DC52208E1BEA321500F37F2A /* NSURLRequestExtensions.swift in Sources */,
-				DC52208D1BEA321500F37F2A /* NSDateExtensions.swift in Sources */,
 				DC5220931BEA321500F37F2A /* OAuthClientCredentials.swift in Sources */,
 				DC5220911BEA321500F37F2A /* OAuthAccessTokenStore.swift in Sources */,
 				DC52208A1BEA321500F37F2A /* HeimdallrHTTPClientNSURLSession.swift in Sources */,
@@ -983,7 +969,6 @@
 				DC5220951BEA321600F37F2A /* Heimdallr.swift in Sources */,
 				DC5220A11BEA321600F37F2A /* OAuthError.swift in Sources */,
 				DC52209B1BEA321600F37F2A /* NSURLRequestExtensions.swift in Sources */,
-				DC52209A1BEA321600F37F2A /* NSDateExtensions.swift in Sources */,
 				DC5220A01BEA321600F37F2A /* OAuthClientCredentials.swift in Sources */,
 				DC52209E1BEA321600F37F2A /* OAuthAccessTokenStore.swift in Sources */,
 				DC5220971BEA321600F37F2A /* HeimdallrHTTPClientNSURLSession.swift in Sources */,
@@ -1035,6 +1020,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DC712A411C85AD77009860A5 /* Debug.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1052,6 +1039,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DC712A431C85AD77009860A5 /* Release.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				GCC_NO_COMMON_BLOCKS = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1069,12 +1058,13 @@
 			baseConfigurationReference = DC712A4C1C85AD77009860A5 /* iOS-Framework.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphonesimulator*]" = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				INFOPLIST_FILE = "Heimdallr/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1083,12 +1073,13 @@
 			baseConfigurationReference = DC712A4C1C85AD77009860A5 /* iOS-Framework.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphonesimulator*]" = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				INFOPLIST_FILE = "Heimdallr/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -1096,10 +1087,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DC712A4A1C85AD77009860A5 /* iOS-Application.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "HeimdallrTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = HeimdallrTests;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1107,10 +1099,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DC712A4A1C85AD77009860A5 /* iOS-Application.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "HeimdallrTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = HeimdallrTests;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -1167,6 +1160,7 @@
 			baseConfigurationReference = DC712A4C1C85AD77009860A5 /* iOS-Framework.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphonesimulator*]" = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1182,6 +1176,7 @@
 			baseConfigurationReference = DC712A4C1C85AD77009860A5 /* iOS-Framework.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphonesimulator*]" = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;

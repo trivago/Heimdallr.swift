@@ -6,7 +6,7 @@ class OAuthAccessTokenKeychainStoreSpec: QuickSpec {
     override func spec() {
         let accessToken = "01234567-89ab-cdef-0123-456789abcdef"
         let tokenType = "bearer"
-        let expiresAt = NSDate(timeIntervalSince1970: 0)
+        let expiresAt = Date(timeIntervalSince1970: 0)
         let refreshToken = "fedcba98-7654-3210-fedc-ba9876543210"
 
         var keychain = Keychain(service: "de.rheinfabrik.heimdallr.oauth.unit-tests")

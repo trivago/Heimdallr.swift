@@ -8,7 +8,7 @@ class OAuthAccessTokenSpec: QuickSpec {
         describe("-copy") {
             let accessToken = OAuthAccessToken(accessToken: "accessToken",
                                                  tokenType: "tokenType",
-                                                 expiresAt: NSDate(timeIntervalSince1970: 0),
+                                                 expiresAt: Date(timeIntervalSince1970: 0),
                                               refreshToken: "refreshToken")
 
             it("returns a copy of an access token") {
@@ -58,7 +58,7 @@ class OAuthAccessTokenSpec: QuickSpec {
             }
 
             context("when providing a new expiration date") {
-                let result = accessToken.copy(expiresAt: NSDate(timeIntervalSince1970: 1))
+                let result = accessToken.copy(expiresAt: Date(timeIntervalSince1970: 1))
 
                 it("sets the original access token on the new access token") {
                     expect(result.accessToken).to(equal(accessToken.accessToken))
@@ -69,7 +69,7 @@ class OAuthAccessTokenSpec: QuickSpec {
                 }
 
                 it("sets the provided expiration date on the new access token") {
-                    expect(result.expiresAt).to(equal(NSDate(timeIntervalSince1970: 1)))
+                    expect(result.expiresAt).to(equal(Date(timeIntervalSince1970: 1)))
                 }
 
                 it("sets the original refreh token on the new access token") {
@@ -121,8 +121,8 @@ class OAuthAccessTokenSpec: QuickSpec {
             }
 
             it("returns false if expiration times are not equal") {
-                let lhs = OAuthAccessToken(accessToken: "accessToken", tokenType: "tokenType", expiresAt: NSDate(timeIntervalSinceNow: 1))
-                let rhs = OAuthAccessToken(accessToken: "accessToken", tokenType: "tokenType", expiresAt: NSDate(timeIntervalSinceNow: -1))
+                let lhs = OAuthAccessToken(accessToken: "accessToken", tokenType: "tokenType", expiresAt: Date(timeIntervalSinceNow: 1))
+                let rhs = OAuthAccessToken(accessToken: "accessToken", tokenType: "tokenType", expiresAt: Date(timeIntervalSinceNow: -1))
 
                 expect(lhs == rhs).to(beFalse())
             }
@@ -139,8 +139,8 @@ class OAuthAccessTokenSpec: QuickSpec {
             context("without an expiration date") {
                 it("creates a valid access token") {
                     let accessToken = OAuthAccessToken.decode([
-                        "access_token": "accessToken",
-                        "token_type": "tokenType"
+                        "access_token": "accessToken" as AnyObject,
+                        "token_type": "tokenType" as AnyObject
                     ])
 
                     expect(accessToken).toNot(beNil())
