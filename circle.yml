@@ -45,7 +45,7 @@ test:
         CODE_SIGN_IDENTITY=
         PROVISIONING_PROFILE=
         -sdk iphonesimulator
-        -destination 'platform=iOS Simulator,OS=9.3,name=iPhone 6s'
+        -destination 'platform=iOS Simulator,OS=10.0,name=iPhone 6s'
         -workspace Heimdallr.xcworkspace
         -scheme ReactiveHeimdallr-iOS
         -configuration Debug
