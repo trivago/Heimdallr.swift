@@ -12,10 +12,10 @@ test:
       xcodebuild
         -sdk macosx
         -workspace Heimdallr.xcworkspace
-        -scheme Heimdallr-Mac
+        -scheme Heimdallr-macOS
         -configuration Debug
         clean test |
-      tee $CIRCLE_ARTIFACTS/xcode_raw_heimdallr_mac.log |
+      tee $CIRCLE_ARTIFACTS/xcode_raw_heimdallr_macos.log |
       xcpretty --color --report junit --output $CIRCLE_TEST_REPORTS/xcode/heimdallr-mac-results.xml
     - set -o pipefail &&
       xcodebuild
@@ -34,10 +34,10 @@ test:
       xcodebuild
         -sdk macosx
         -workspace Heimdallr.xcworkspace
-        -scheme ReactiveHeimdallr-Mac
+        -scheme ReactiveHeimdallr-macOS
         -configuration Debug
         clean test |
-      tee $CIRCLE_ARTIFACTS/xcode_raw_reactive_heimdallr_mac.log |
+      tee $CIRCLE_ARTIFACTS/xcode_raw_reactive_heimdallr_macos.log |
       xcpretty --color --report junit --output $CIRCLE_TEST_REPORTS/xcode/reactive-heimdallr-mac-results.xml
     - set -o pipefail &&
       xcodebuild

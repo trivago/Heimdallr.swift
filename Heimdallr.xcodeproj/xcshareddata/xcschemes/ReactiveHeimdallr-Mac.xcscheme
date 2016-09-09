@@ -58,7 +58,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DC582FF41BE148610017BE06"
                BuildableName = "ReactiveHeimdallr.framework"
-               BlueprintName = "ReactiveHeimdallr-Mac"
+               BlueprintName = "ReactiveHeimdallr-macOS"
                ReferencedContainer = "container:Heimdallr.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -118,7 +118,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DC582FFD1BE148610017BE06"
                BuildableName = "ReactiveHeimdallrTests.xctest"
-               BlueprintName = "ReactiveHeimdallr-MacTests"
+               BlueprintName = "ReactiveHeimdallr-macOSTests"
                ReferencedContainer = "container:Heimdallr.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -128,7 +128,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DC582FF41BE148610017BE06"
             BuildableName = "ReactiveHeimdallr.framework"
-            BlueprintName = "ReactiveHeimdallr-Mac"
+            BlueprintName = "ReactiveHeimdallr-macOS"
             ReferencedContainer = "container:Heimdallr.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -150,7 +150,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DC582FF41BE148610017BE06"
             BuildableName = "ReactiveHeimdallr.framework"
-            BlueprintName = "ReactiveHeimdallr-Mac"
+            BlueprintName = "ReactiveHeimdallr-macOS"
             ReferencedContainer = "container:Heimdallr.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -168,7 +168,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DC582FF41BE148610017BE06"
             BuildableName = "ReactiveHeimdallr.framework"
-            BlueprintName = "ReactiveHeimdallr-Mac"
+            BlueprintName = "ReactiveHeimdallr-macOS"
             ReferencedContainer = "container:Heimdallr.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

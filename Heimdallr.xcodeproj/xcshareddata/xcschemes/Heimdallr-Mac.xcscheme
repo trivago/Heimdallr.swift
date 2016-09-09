@@ -44,7 +44,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DC582F421BE1319F0017BE06"
                BuildableName = "Heimdallr.framework"
-               BlueprintName = "Heimdallr-Mac"
+               BlueprintName = "Heimdallr-macOS"
                ReferencedContainer = "container:Heimdallr.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -105,7 +105,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DC582F4B1BE1319F0017BE06"
                BuildableName = "HeimdallrTests.xctest"
-               BlueprintName = "Heimdallr-MacTests"
+               BlueprintName = "Heimdallr-macOSTests"
                ReferencedContainer = "container:Heimdallr.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -115,7 +115,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DC582F421BE1319F0017BE06"
             BuildableName = "Heimdallr.framework"
-            BlueprintName = "Heimdallr-Mac"
+            BlueprintName = "Heimdallr-macOS"
             ReferencedContainer = "container:Heimdallr.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -137,7 +137,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DC582F421BE1319F0017BE06"
             BuildableName = "Heimdallr.framework"
-            BlueprintName = "Heimdallr-Mac"
+            BlueprintName = "Heimdallr-macOS"
             ReferencedContainer = "container:Heimdallr.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -155,7 +155,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DC582F421BE1319F0017BE06"
             BuildableName = "Heimdallr.framework"
-            BlueprintName = "Heimdallr-Mac"
+            BlueprintName = "Heimdallr-macOS"
             ReferencedContainer = "container:Heimdallr.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
