@@ -1173,6 +1173,7 @@
 				INFOPLIST_FILE = "Heimdallr/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = ReactiveHeimdallr;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -1187,6 +1188,7 @@
 				INFOPLIST_FILE = "Heimdallr/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = ReactiveHeimdallr;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -1197,6 +1199,7 @@
 				INFOPLIST_FILE = "HeimdallrTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = ReactiveHeimdallrTests;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -1207,6 +1210,7 @@
 				INFOPLIST_FILE = "HeimdallrTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = ReactiveHeimdallrTests;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -1220,6 +1224,7 @@
 				INFOPLIST_FILE = "Heimdallr/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = ReactiveHeimdallr;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -1233,6 +1238,7 @@
 				INFOPLIST_FILE = "Heimdallr/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = ReactiveHeimdallr;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -1243,6 +1249,7 @@
 				INFOPLIST_FILE = "HeimdallrTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = ReactiveHeimdallrTests;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -1253,6 +1260,7 @@
 				INFOPLIST_FILE = "HeimdallrTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = ReactiveHeimdallrTests;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
