@@ -17,7 +17,7 @@ class OAuthAccessTokenKeychainStoreSpec: QuickSpec {
         }
         
         // Since there is a bug with writing to the keychain within the iOS10 simulator we had to
-        // disbale some test until the bug is fixed by apple. Radar: https://openradar.appspot.com/27844971
+        // disable some test until the bug is fixed by apple. Radar: https://openradar.appspot.com/27844971
         xdescribe("func storeAccessToken(accessToken: OAuthAccessToken?)") {
             let token = OAuthAccessToken(accessToken: accessToken, tokenType: tokenType, expiresAt: expiresAt, refreshToken: refreshToken)
 
