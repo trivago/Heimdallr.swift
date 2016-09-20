@@ -42,23 +42,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D04725E919E49ED7006002AA"
-               BuildableName = "ReactiveCocoa.framework"
-               BlueprintName = "ReactiveCocoa-Mac"
-               ReferencedContainer = "container:Carthage/Checkouts/ReactiveCocoa/ReactiveCocoa.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DC582FF41BE148610017BE06"
-               BuildableName = "ReactiveHeimdallr.framework"
-               BlueprintName = "ReactiveHeimdallr-Mac"
+               BlueprintIdentifier = "DC582F421BE1319F0017BE06"
+               BuildableName = "Heimdallr.framework"
+               BlueprintName = "Heimdallr-macOS"
                ReferencedContainer = "container:Heimdallr.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -110,15 +96,16 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DC582FFD1BE148610017BE06"
-               BuildableName = "ReactiveHeimdallrTests.xctest"
-               BlueprintName = "ReactiveHeimdallr-MacTests"
+               BlueprintIdentifier = "DC582F4B1BE1319F0017BE06"
+               BuildableName = "HeimdallrTests.xctest"
+               BlueprintName = "Heimdallr-macOSTests"
                ReferencedContainer = "container:Heimdallr.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -126,9 +113,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DC582FF41BE148610017BE06"
-            BuildableName = "ReactiveHeimdallr.framework"
-            BlueprintName = "ReactiveHeimdallr-Mac"
+            BlueprintIdentifier = "DC582F421BE1319F0017BE06"
+            BuildableName = "Heimdallr.framework"
+            BlueprintName = "Heimdallr-macOS"
             ReferencedContainer = "container:Heimdallr.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -148,9 +135,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DC582FF41BE148610017BE06"
-            BuildableName = "ReactiveHeimdallr.framework"
-            BlueprintName = "ReactiveHeimdallr-Mac"
+            BlueprintIdentifier = "DC582F421BE1319F0017BE06"
+            BuildableName = "Heimdallr.framework"
+            BlueprintName = "Heimdallr-macOS"
             ReferencedContainer = "container:Heimdallr.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -166,9 +153,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DC582FF41BE148610017BE06"
-            BuildableName = "ReactiveHeimdallr.framework"
-            BlueprintName = "ReactiveHeimdallr-Mac"
+            BlueprintIdentifier = "DC582F421BE1319F0017BE06"
+            BuildableName = "Heimdallr.framework"
+            BlueprintName = "Heimdallr-macOS"
             ReferencedContainer = "container:Heimdallr.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

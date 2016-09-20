@@ -624,9 +624,9 @@
 			productReference = DC545DCD1A89F0F10051A575 /* HeimdallrTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		DC582F421BE1319F0017BE06 /* Heimdallr-Mac */ = {
+		DC582F421BE1319F0017BE06 /* Heimdallr-macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DC582F541BE1319F0017BE06 /* Build configuration list for PBXNativeTarget "Heimdallr-Mac" */;
+			buildConfigurationList = DC582F541BE1319F0017BE06 /* Build configuration list for PBXNativeTarget "Heimdallr-macOS" */;
 			buildPhases = (
 				DC582F3E1BE1319F0017BE06 /* Sources */,
 				DC582F3F1BE1319F0017BE06 /* Frameworks */,
@@ -637,14 +637,14 @@
 			);
 			dependencies = (
 			);
-			name = "Heimdallr-Mac";
+			name = "Heimdallr-macOS";
 			productName = "Heimdallr-Mac";
 			productReference = DC582F431BE1319F0017BE06 /* Heimdallr.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		DC582F4B1BE1319F0017BE06 /* Heimdallr-MacTests */ = {
+		DC582F4B1BE1319F0017BE06 /* Heimdallr-macOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DC582F571BE1319F0017BE06 /* Build configuration list for PBXNativeTarget "Heimdallr-MacTests" */;
+			buildConfigurationList = DC582F571BE1319F0017BE06 /* Build configuration list for PBXNativeTarget "Heimdallr-macOSTests" */;
 			buildPhases = (
 				DC582F481BE1319F0017BE06 /* Sources */,
 				DC582F491BE1319F0017BE06 /* Frameworks */,
@@ -655,7 +655,7 @@
 			dependencies = (
 				DC582F4F1BE1319F0017BE06 /* PBXTargetDependency */,
 			);
-			name = "Heimdallr-MacTests";
+			name = "Heimdallr-macOSTests";
 			productName = "Heimdallr-MacTests";
 			productReference = DC582F4C1BE1319F0017BE06 /* HeimdallrTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -696,9 +696,9 @@
 			productReference = DC582FC91BE13EB30017BE06 /* ReactiveHeimdallrTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		DC582FF41BE148610017BE06 /* ReactiveHeimdallr-Mac */ = {
+		DC582FF41BE148610017BE06 /* ReactiveHeimdallr-macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DC5830061BE148610017BE06 /* Build configuration list for PBXNativeTarget "ReactiveHeimdallr-Mac" */;
+			buildConfigurationList = DC5830061BE148610017BE06 /* Build configuration list for PBXNativeTarget "ReactiveHeimdallr-macOS" */;
 			buildPhases = (
 				DC582FF01BE148610017BE06 /* Sources */,
 				DC582FF11BE148610017BE06 /* Frameworks */,
@@ -709,14 +709,14 @@
 			);
 			dependencies = (
 			);
-			name = "ReactiveHeimdallr-Mac";
+			name = "ReactiveHeimdallr-macOS";
 			productName = "ReactiveHeimdallr-Mac";
 			productReference = DC582FF51BE148610017BE06 /* ReactiveHeimdallr.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		DC582FFD1BE148610017BE06 /* ReactiveHeimdallr-MacTests */ = {
+		DC582FFD1BE148610017BE06 /* ReactiveHeimdallr-macOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DC5830091BE148610017BE06 /* Build configuration list for PBXNativeTarget "ReactiveHeimdallr-MacTests" */;
+			buildConfigurationList = DC5830091BE148610017BE06 /* Build configuration list for PBXNativeTarget "ReactiveHeimdallr-macOSTests" */;
 			buildPhases = (
 				DC582FFA1BE148610017BE06 /* Sources */,
 				DC582FFB1BE148610017BE06 /* Frameworks */,
@@ -727,7 +727,7 @@
 			dependencies = (
 				DC5830011BE148610017BE06 /* PBXTargetDependency */,
 			);
-			name = "ReactiveHeimdallr-MacTests";
+			name = "ReactiveHeimdallr-macOSTests";
 			productName = "ReactiveHeimdallr-MacTests";
 			productReference = DC582FFE1BE148610017BE06 /* ReactiveHeimdallrTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -745,15 +745,19 @@
 				TargetAttributes = {
 					DC545DC11A89F0F10051A575 = {
 						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 0800;
 					};
 					DC545DCC1A89F0F10051A575 = {
 						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 0800;
 					};
 					DC582F421BE1319F0017BE06 = {
 						CreatedOnToolsVersion = 7.1;
+						LastSwiftMigration = 0800;
 					};
 					DC582F4B1BE1319F0017BE06 = {
 						CreatedOnToolsVersion = 7.1;
+						LastSwiftMigration = 0800;
 					};
 					DC582FBF1BE13EB20017BE06 = {
 						CreatedOnToolsVersion = 7.1;
@@ -781,12 +785,12 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DC582F421BE1319F0017BE06 /* Heimdallr-Mac */,
-				DC582F4B1BE1319F0017BE06 /* Heimdallr-MacTests */,
+				DC582F421BE1319F0017BE06 /* Heimdallr-macOS */,
+				DC582F4B1BE1319F0017BE06 /* Heimdallr-macOSTests */,
 				DC545DC11A89F0F10051A575 /* Heimdallr-iOS */,
 				DC545DCC1A89F0F10051A575 /* Heimdallr-iOSTests */,
-				DC582FF41BE148610017BE06 /* ReactiveHeimdallr-Mac */,
-				DC582FFD1BE148610017BE06 /* ReactiveHeimdallr-MacTests */,
+				DC582FF41BE148610017BE06 /* ReactiveHeimdallr-macOS */,
+				DC582FFD1BE148610017BE06 /* ReactiveHeimdallr-macOSTests */,
 				DC582FBF1BE13EB20017BE06 /* ReactiveHeimdallr-iOS */,
 				DC582FC81BE13EB30017BE06 /* ReactiveHeimdallr-iOSTests */,
 			);
@@ -1011,7 +1015,7 @@
 		};
 		DC582F4F1BE1319F0017BE06 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DC582F421BE1319F0017BE06 /* Heimdallr-Mac */;
+			target = DC582F421BE1319F0017BE06 /* Heimdallr-macOS */;
 			targetProxy = DC582F4E1BE1319F0017BE06 /* PBXContainerItemProxy */;
 		};
 		DC582FCC1BE13EB30017BE06 /* PBXTargetDependency */ = {
@@ -1021,7 +1025,7 @@
 		};
 		DC5830011BE148610017BE06 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DC582FF41BE148610017BE06 /* ReactiveHeimdallr-Mac */;
+			target = DC582FF41BE148610017BE06 /* ReactiveHeimdallr-macOS */;
 			targetProxy = DC5830001BE148610017BE06 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1070,6 +1074,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				INFOPLIST_FILE = "Heimdallr/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -1083,6 +1088,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				INFOPLIST_FILE = "Heimdallr/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -1093,6 +1099,7 @@
 				INFOPLIST_FILE = "HeimdallrTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = HeimdallrTests;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -1103,6 +1110,7 @@
 				INFOPLIST_FILE = "HeimdallrTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = HeimdallrTests;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -1115,6 +1123,7 @@
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "Heimdallr/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -1127,6 +1136,7 @@
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "Heimdallr/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -1137,6 +1147,7 @@
 				INFOPLIST_FILE = "HeimdallrTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = HeimdallrTests;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -1147,6 +1158,7 @@
 				INFOPLIST_FILE = "HeimdallrTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = HeimdallrTests;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -1161,6 +1173,7 @@
 				INFOPLIST_FILE = "Heimdallr/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = ReactiveHeimdallr;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -1175,6 +1188,7 @@
 				INFOPLIST_FILE = "Heimdallr/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = ReactiveHeimdallr;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -1185,6 +1199,7 @@
 				INFOPLIST_FILE = "HeimdallrTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = ReactiveHeimdallrTests;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -1195,6 +1210,7 @@
 				INFOPLIST_FILE = "HeimdallrTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = ReactiveHeimdallrTests;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -1208,6 +1224,7 @@
 				INFOPLIST_FILE = "Heimdallr/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = ReactiveHeimdallr;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -1221,6 +1238,7 @@
 				INFOPLIST_FILE = "Heimdallr/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = ReactiveHeimdallr;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -1231,6 +1249,7 @@
 				INFOPLIST_FILE = "HeimdallrTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = ReactiveHeimdallrTests;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -1241,6 +1260,7 @@
 				INFOPLIST_FILE = "HeimdallrTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = ReactiveHeimdallrTests;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -1274,7 +1294,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DC582F541BE1319F0017BE06 /* Build configuration list for PBXNativeTarget "Heimdallr-Mac" */ = {
+		DC582F541BE1319F0017BE06 /* Build configuration list for PBXNativeTarget "Heimdallr-macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DC582F551BE1319F0017BE06 /* Debug */,
@@ -1283,7 +1303,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DC582F571BE1319F0017BE06 /* Build configuration list for PBXNativeTarget "Heimdallr-MacTests" */ = {
+		DC582F571BE1319F0017BE06 /* Build configuration list for PBXNativeTarget "Heimdallr-macOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DC582F581BE1319F0017BE06 /* Debug */,
@@ -1310,7 +1330,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DC5830061BE148610017BE06 /* Build configuration list for PBXNativeTarget "ReactiveHeimdallr-Mac" */ = {
+		DC5830061BE148610017BE06 /* Build configuration list for PBXNativeTarget "ReactiveHeimdallr-macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DC5830071BE148610017BE06 /* Debug */,
@@ -1319,7 +1339,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DC5830091BE148610017BE06 /* Build configuration list for PBXNativeTarget "ReactiveHeimdallr-MacTests" */ = {
+		DC5830091BE148610017BE06 /* Build configuration list for PBXNativeTarget "ReactiveHeimdallr-macOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DC58300A1BE148610017BE06 /* Debug */,
