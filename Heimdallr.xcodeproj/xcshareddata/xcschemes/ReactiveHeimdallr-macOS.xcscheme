@@ -14,20 +14,6 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F89335531A4CE83000B88685"
-               BuildableName = "Argo.framework"
-               BlueprintName = "Argo-Mac"
-               ReferencedContainer = "container:Carthage/Checkouts/Argo/Argo.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "D45480561A9572F5009D7229"
                BuildableName = "Result.framework"
                BlueprintName = "Result-Mac"
@@ -43,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D04725E919E49ED7006002AA"
-               BuildableName = "ReactiveCocoa.framework"
-               BlueprintName = "ReactiveCocoa-Mac"
-               ReferencedContainer = "container:Carthage/Checkouts/ReactiveCocoa/ReactiveCocoa.xcodeproj">
+               BuildableName = "ReactiveSwift.framework"
+               BlueprintName = "ReactiveSwift-macOS"
+               ReferencedContainer = "container:Carthage/Checkouts/ReactiveSwift/ReactiveSwift.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -100,7 +86,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DAEB6B8D1943873100289F44"
                BuildableName = "Quick.framework"
-               BlueprintName = "Quick-OSX"
+               BlueprintName = "Quick-macOS"
                ReferencedContainer = "container:Carthage/Checkouts/Quick/Quick.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

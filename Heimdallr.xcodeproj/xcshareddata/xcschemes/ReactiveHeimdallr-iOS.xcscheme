@@ -14,20 +14,6 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EAD9FACE19D0EAB50031E006"
-               BuildableName = "Argo.framework"
-               BlueprintName = "Argo-iOS"
-               ReferencedContainer = "container:Carthage/Checkouts/Argo/Argo.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "D454807C1A957361009D7229"
                BuildableName = "Result.framework"
                BlueprintName = "Result-iOS"
@@ -43,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D047260B19E49F82006002AA"
-               BuildableName = "ReactiveCocoa.framework"
-               BlueprintName = "ReactiveCocoa-iOS"
-               ReferencedContainer = "container:Carthage/Checkouts/ReactiveCocoa/ReactiveCocoa.xcodeproj">
+               BuildableName = "ReactiveSwift.framework"
+               BlueprintName = "ReactiveSwift-iOS"
+               ReferencedContainer = "container:Carthage/Checkouts/ReactiveSwift/ReactiveSwift.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
