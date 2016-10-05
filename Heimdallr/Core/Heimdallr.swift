@@ -11,7 +11,7 @@ public let HeimdallrErrorNotAuthorized = 2
 
 /// The all-seeing and all-hearing guardian sentry of your application who
 /// stands on the rainbow bridge network to authorize relevant requests.
-@objc public class Heimdallr: NSObject {
+@objc open class Heimdallr: NSObject {
     public let tokenURL: URL
     private let credentials: OAuthClientCredentials?
 
@@ -77,7 +77,7 @@ public let HeimdallrErrorNotAuthorized = 2
     ///
     /// **Note:** Sets the access token's expiration date to
     ///     1 January 1970, GMT.
-    public func invalidateAccessToken() {
+    open func invalidateAccessToken() {
         accessToken = accessToken?.copy(expiresAt: Date(timeIntervalSince1970: 0))
     }
 
@@ -85,7 +85,7 @@ public let HeimdallrErrorNotAuthorized = 2
     ///
     /// After calling this method the user needs to reauthenticate using 
     /// `requestAccessToken`.
-    public func clearAccessToken() {
+    open func clearAccessToken() {
         accessTokenStore.storeAccessToken(nil)
     }
 
@@ -96,7 +96,7 @@ public let HeimdallrErrorNotAuthorized = 2
     /// - parameter username: The resource owner's username.
     /// - parameter password: The resource owner's password.
     /// - parameter completion: A callback to invoke when the request completed.
-    public func requestAccessToken(username: String, password: String, completion: @escaping (Result<Void, NSError>) -> ()) {
+    open func requestAccessToken(username: String, password: String, completion: @escaping (Result<Void, NSError>) -> ()) {
         requestAccessToken(grant: .resourceOwnerPasswordCredentials(username, password)) { result in
             completion(result.map { _ in return })
         }
@@ -109,7 +109,7 @@ public let HeimdallrErrorNotAuthorized = 2
     /// - parameter grantType: The grant type URI of the extension grant
     /// - parameter parameters: The required parameters for the external grant
     /// - parameter completion: A callback to invoke when the request completed.
-    public func requestAccessToken(grantType: String, parameters: [String: String], completion: @escaping (Result<Void, NSError>) -> ()) {
+    open func requestAccessToken(grantType: String, parameters: [String: String], completion: @escaping (Result<Void, NSError>) -> ()) {
         requestAccessToken(grant: .extension(grantType, parameters)) { result in
             completion(result.map { _ in return })
         }
@@ -198,7 +198,7 @@ public let HeimdallrErrorNotAuthorized = 2
     ///
     /// - parameter request: An unauthenticated URLRequest.
     /// - parameter completion: A callback to invoke with the authenticated request.
-    public func authenticateRequest(_ request: URLRequest, completion: @escaping (Result<URLRequest, NSError>) -> ()) {
+    open func authenticateRequest(_ request: URLRequest, completion: @escaping (Result<URLRequest, NSError>) -> ()) {
         requestQueue.async {
             self.blockRequestQueue()
             self.authenticateRequestConcurrently(request, completion: completion)
