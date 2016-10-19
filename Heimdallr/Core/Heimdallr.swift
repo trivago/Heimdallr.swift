@@ -60,7 +60,7 @@ public let HeimdallrErrorNotAuthorized = 2
     ///
     /// - returns: A new client initialized with the given token endpoint URL,
     ///     credentials and access token store.
-    public init(tokenURL: NSURL, credentials: OAuthClientCredentials? = nil, accessTokenStore: OAuthAccessTokenStore = OAuthAccessTokenKeychainStore(), accessTokenParser: OAuthAccessTokenParser = OAuthAccessTokenDefaultParser(), httpClient: HeimdallrHTTPClient = HeimdallrHTTPClientNSURLSession(), resourceRequestAuthenticator: HeimdallResourceRequestAuthenticator = HeimdallResourceRequestAuthenticatorHTTPAuthorizationHeader()) {
+    @objc public init(tokenURL: NSURL, credentials: OAuthClientCredentials? = nil, accessTokenStore: OAuthAccessTokenStore = OAuthAccessTokenKeychainStore(), accessTokenParser: OAuthAccessTokenParser = OAuthAccessTokenDefaultParser(), httpClient: HeimdallrHTTPClient = HeimdallrHTTPClientNSURLSession(), resourceRequestAuthenticator: HeimdallResourceRequestAuthenticator = HeimdallResourceRequestAuthenticatorHTTPAuthorizationHeader()) {
         self.tokenURL = tokenURL
         self.credentials = credentials
         self.accessTokenStore = accessTokenStore
@@ -143,7 +143,8 @@ public let HeimdallrErrorNotAuthorized = 2
             if let error = error {
                 completion(.Failure(error))
             } else if (response as! NSHTTPURLResponse).statusCode == 200 {
-                switch self.accessTokenParser.parse(data!) {
+                let accessTokenResult = materialize { try self.accessTokenParser.parse(data!) }
+                switch accessTokenResult {
                 case let .Success(accessToken):
                     self.accessToken = accessToken
                     completion(.Success(accessToken))
