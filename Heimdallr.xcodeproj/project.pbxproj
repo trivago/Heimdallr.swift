@@ -125,6 +125,8 @@
 		E258A16C1CC6BC8600649F5A /* OAuthAccessTokenDefaultParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258A1651CC6B66900649F5A /* OAuthAccessTokenDefaultParser.swift */; };
 		E258A16D1CC6BC8700649F5A /* OAuthAccessTokenDefaultParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258A1651CC6B66900649F5A /* OAuthAccessTokenDefaultParser.swift */; };
 		E258A16E1CC6BC8800649F5A /* OAuthAccessTokenDefaultParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258A1651CC6B66900649F5A /* OAuthAccessTokenDefaultParser.swift */; };
+		E2A5A5031CF4D46A0087840B /* request-valid-norefresh.json in Resources */ = {isa = PBXBuildFile; fileRef = E2A5A5011CF4D4620087840B /* request-valid-norefresh.json */; };
+		E2A5A5041CF4D46B0087840B /* request-valid-norefresh.json in Resources */ = {isa = PBXBuildFile; fileRef = E2A5A5011CF4D4620087840B /* request-valid-norefresh.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -233,6 +235,7 @@
 		DC712A5E1C85AD77009860A5 /* watchOS-StaticLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "watchOS-StaticLibrary.xcconfig"; sourceTree = "<group>"; };
 		E258A1651CC6B66900649F5A /* OAuthAccessTokenDefaultParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenDefaultParser.swift; sourceTree = "<group>"; };
 		E258A1671CC6B8C500649F5A /* OAuthAccessTokenParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenParser.swift; sourceTree = "<group>"; };
+		E2A5A5011CF4D4620087840B /* request-valid-norefresh.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "request-valid-norefresh.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -430,6 +433,7 @@
 				DC5220AD1BEA32A000F37F2A /* authorize-valid.json */,
 				DC5220AE1BEA32A000F37F2A /* request-invalid-norefresh.json */,
 				DC5220AF1BEA32A000F37F2A /* request-invalid.json */,
+				E2A5A5011CF4D4620087840B /* request-valid-norefresh.json */,
 				DC5220B01BEA32A000F37F2A /* request-valid.json */,
 			);
 			path = "JSON Responses";
@@ -809,6 +813,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2A5A5041CF4D46B0087840B /* request-valid-norefresh.json in Resources */,
 				DC5220BF1BEA32A000F37F2A /* request-valid.json in Resources */,
 				DC5220B11BEA32A000F37F2A /* authorize-error.json in Resources */,
 				DC5220B71BEA32A000F37F2A /* authorize-invalid.json in Resources */,
@@ -831,6 +836,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2A5A5031CF4D46A0087840B /* request-valid-norefresh.json in Resources */,
 				DC5220C01BEA32A000F37F2A /* request-valid.json in Resources */,
 				DC5220B21BEA32A000F37F2A /* authorize-error.json in Resources */,
 				DC5220B81BEA32A000F37F2A /* authorize-invalid.json in Resources */,

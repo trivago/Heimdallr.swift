@@ -20,9 +20,6 @@ public let HeimdallrErrorNotAuthorized = 2
         get {
             return accessTokenStore.retrieveAccessToken()
         }
-        set {
-            accessTokenStore.storeAccessToken(newValue)
-        }
     }
     private let accessTokenParser: OAuthAccessTokenParser
     private let httpClient: HeimdallrHTTPClient
@@ -78,7 +75,7 @@ public let HeimdallrErrorNotAuthorized = 2
     /// **Note:** Sets the access token's expiration date to
     ///     1 January 1970, GMT.
     public func invalidateAccessToken() {
-        accessToken = accessToken?.copy(expiresAt: NSDate(timeIntervalSince1970: 0))
+        accessTokenStore.storeAccessToken(accessToken?.copy(expiresAt: NSDate(timeIntervalSince1970: 0)))
     }
 
     /// Clears the currently stored access token, if any.
@@ -146,8 +143,8 @@ public let HeimdallrErrorNotAuthorized = 2
                 let accessTokenResult = materialize { try self.accessTokenParser.parse(data!) }
                 switch accessTokenResult {
                 case let .Success(accessToken):
-                    self.accessToken = accessToken
-                    completion(.Success(accessToken))
+                    let updatedAccessToken = self.updateAccessToken(accessToken)
+                    completion(.Success(updatedAccessToken))
                 default:
                     let userInfo = [
                         NSLocalizedDescriptionKey: NSLocalizedString("Could not authorize grant", comment: ""),
@@ -171,6 +168,24 @@ public let HeimdallrErrorNotAuthorized = 2
                 }
             }
         }
+    }
+    
+    /// Updates the stored access token with a new one.
+    ///
+    /// - parameter accessToken: The new access token.
+    ///
+    /// - returns: The updated access token.
+    private func updateAccessToken(accessToken: OAuthAccessToken) -> OAuthAccessToken {
+        var updatedAccessToken = accessToken
+        
+        if accessToken.refreshToken == nil {
+            if let storedRefreshToken = self.accessToken?.refreshToken {
+                updatedAccessToken = accessToken.copy(refreshToken: storedRefreshToken)
+            }
+        }
+        
+        accessTokenStore.storeAccessToken(updatedAccessToken)
+        return updatedAccessToken
     }
 
     /// Alters the given request by adding authentication with an access token.
