@@ -5,6 +5,12 @@
       location = "container:Heimdallr.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:Carthage/Checkouts/ReactiveObjC/ReactiveObjC.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Carthage/Checkouts/ReactiveObjCBridge/ReactiveObjCBridge.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Carthage/Checkouts/ReactiveSwift/ReactiveSwift.xcodeproj">
    </FileRef>
    <FileRef

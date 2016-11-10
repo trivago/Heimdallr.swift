@@ -2,6 +2,7 @@ import Foundation
 import Nimble
 import Quick
 import ReactiveSwift
+import ReactiveObjC
 import ReactiveHeimdallr
 import Result
 
@@ -173,7 +174,6 @@ class ReactiveHeimdallrSpec: QuickSpec {
             }
         }
 
-        /*
         describe("-rac_requestAccessToken(username:password:)") {
             context("when the completion block sends a success result") {
                 beforeEach {
@@ -209,6 +209,9 @@ class ReactiveHeimdallrSpec: QuickSpec {
                     waitUntil { done in
                         let signal = heimdallr.rac_requestAccessToken(username: "foo", password: "bar")
                         signal.subscribeError { error in
+                            guard let error = error as? NSError else {
+                                return
+                            }
                             expect(error).to(equal(testError))
                             done()
                         }
@@ -253,6 +256,9 @@ class ReactiveHeimdallrSpec: QuickSpec {
                     waitUntil { done in
                         let signal = heimdallr.rac_requestAccessToken(grantType:"foo", parameters:["code": "bar"])
                         signal.subscribeError { error in
+                            guard let error = error as? NSError else {
+                                return
+                            }
                             expect(error).to(equal(testError))
                             done()
                         }
@@ -269,7 +275,7 @@ class ReactiveHeimdallrSpec: QuickSpec {
 
                 it("sends the result value") {
                     waitUntil { done in
-                        let signal = heimdallr.rac_authenticateRequest(URLRequest(URL: URL(string: "http://www.rheinfabrik.de/foobar")!))
+                        let signal = heimdallr.rac_authenticateRequest(request: NSURLRequest(url: URL(string: "http://www.rheinfabrik.de/foobar")!))
                         signal.subscribeNext { value in
                             expect(value as? URLRequest).to(equal(testRequest))
                             done()
@@ -279,7 +285,7 @@ class ReactiveHeimdallrSpec: QuickSpec {
 
                 it("completes") {
                     waitUntil { done in
-                        let signal = heimdallr.rac_authenticateRequest(URLRequest(URL: URL(string: "http://www.rheinfabrik.de/foobar")!))
+                        let signal = heimdallr.rac_authenticateRequest(request: NSURLRequest(url: URL(string: "http://www.rheinfabrik.de/foobar")!))
                         signal.subscribeCompleted {
                             done()
                         }
@@ -294,8 +300,11 @@ class ReactiveHeimdallrSpec: QuickSpec {
 
                 it("sends the error") {
                     waitUntil { done in
-                        let signal = heimdallr.rac_authenticateRequest(URLRequest(URL: URL(string: "http://www.rheinfabrik.de/foobar")!))
+                        let signal = heimdallr.rac_authenticateRequest(request: NSURLRequest(url: URL(string: "http://www.rheinfabrik.de/foobar")!))
                         signal.subscribeError { error in
+                            guard let error = error as? NSError else {
+                                return
+                            }
                             expect(error).to(equal(testError))
                             done()
                         }
@@ -303,6 +312,5 @@ class ReactiveHeimdallrSpec: QuickSpec {
                 }
             }
         }
- */
     }
 }

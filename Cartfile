@@ -3,3 +3,4 @@ github "antitypical/Result" ~> 3.0
 
 # ReactiveCocoa
 github "ReactiveCocoa/ReactiveSwift" "1.0.0-alpha.3"
+github "ReactiveCocoa/ReactiveObjCBridge" "aa9fb48e446f870723ffd3c64a49a9291ea99207"

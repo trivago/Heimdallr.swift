@@ -29,9 +29,37 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D04725E919E49ED7006002AA"
+               BuildableName = "ReactiveObjC.framework"
+               BlueprintName = "ReactiveObjC-macOS"
+               ReferencedContainer = "container:Carthage/Checkouts/ReactiveObjC/ReactiveObjC.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D04725E919E49ED7006002AA"
                BuildableName = "ReactiveSwift.framework"
                BlueprintName = "ReactiveSwift-macOS"
                ReferencedContainer = "container:Carthage/Checkouts/ReactiveSwift/ReactiveSwift.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D04725E919E49ED7006002AA"
+               BuildableName = "ReactiveObjCBridge.framework"
+               BlueprintName = "ReactiveObjCBridge-macOS"
+               ReferencedContainer = "container:Carthage/Checkouts/ReactiveObjCBridge/ReactiveObjCBridge.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
