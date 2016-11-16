@@ -1,16 +1,13 @@
 import Foundation
 import Result
 
-@objc
-public class OAuthAccessTokenDefaultParser: NSObject, OAuthAccessTokenParser {
-    public func parse(_ data: Data) -> Result<OAuthAccessToken, NSError> {
-        
-        if let token = OAuthAccessToken.decode(data: data) {
-            return .success(token)
-        } else {
-            let error = NSError(domain: HeimdallrErrorDomain, code: HeimdallrErrorInvalidData, userInfo: nil)
-            return .failure(error)
+@objc public class OAuthAccessTokenDefaultParser: NSObject, OAuthAccessTokenParser {
+    public func parse(data: Data) throws -> OAuthAccessToken {
+
+        guard let token = OAuthAccessToken.decode(data: data) else {
+            throw NSError(domain: HeimdallrErrorDomain, code: HeimdallrErrorInvalidData, userInfo: nil)
         }
+
+        return token
     }
 }
-

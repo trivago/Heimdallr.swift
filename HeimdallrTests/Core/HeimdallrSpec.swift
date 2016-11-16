@@ -43,20 +43,20 @@ class OAuthAccessTokenInterceptorParser: OAuthAccessTokenParser {
         interceptError = error
     }
     
-    func parse(_ data: Data) -> Result<OAuthAccessToken, NSError> {
+    @objc func parse(data: Data) throws -> OAuthAccessToken {
         
         timesCalled += 1
         
         if self.shouldIntercept {
             if let accessToken = self.interceptToken {
-                return .success(accessToken)
+                return accessToken
             } else if let error = self.interceptError {
-                return .failure(error)
+                throw error
             } else {
                 fatalError("Missing intercept token or error")
             }
         } else {
-            return defaultParser.parse(data)
+            return try defaultParser.parse(data: data)
         }
     }
     

@@ -60,7 +60,7 @@ public let HeimdallrErrorNotAuthorized = 2
     ///
     /// - returns: A new client initialized with the given token endpoint URL,
     ///     credentials and access token store.
-    public init(tokenURL: URL, credentials: OAuthClientCredentials? = nil, accessTokenStore: OAuthAccessTokenStore = OAuthAccessTokenKeychainStore(), accessTokenParser: OAuthAccessTokenParser = OAuthAccessTokenDefaultParser(), httpClient: HeimdallrHTTPClient = HeimdallrHTTPClientNSURLSession(), resourceRequestAuthenticator: HeimdallResourceRequestAuthenticator = HeimdallResourceRequestAuthenticatorHTTPAuthorizationHeader()) {
+    @objc public init(tokenURL: URL, credentials: OAuthClientCredentials? = nil, accessTokenStore: OAuthAccessTokenStore = OAuthAccessTokenKeychainStore(), accessTokenParser: OAuthAccessTokenParser = OAuthAccessTokenDefaultParser(), httpClient: HeimdallrHTTPClient = HeimdallrHTTPClientNSURLSession(), resourceRequestAuthenticator: HeimdallResourceRequestAuthenticator = HeimdallResourceRequestAuthenticatorHTTPAuthorizationHeader()) {
         self.tokenURL = tokenURL
         self.credentials = credentials
         self.accessTokenStore = accessTokenStore
@@ -143,11 +143,10 @@ public let HeimdallrErrorNotAuthorized = 2
             if let error = error {
                 completion(.failure(error as NSError))
             } else if (response as! HTTPURLResponse).statusCode == 200 {
-                switch self.accessTokenParser.parse(data!) {
-                case let .success(accessToken):
+                if let accessToken = try? self.accessTokenParser.parse(data: data!) {
                     self.accessToken = accessToken
                     completion(.success(accessToken))
-                default:
+                } else {
                     let userInfo = [
                         NSLocalizedDescriptionKey: NSLocalizedString("Could not authorize grant", comment: ""),
                         NSLocalizedFailureReasonErrorKey: String(format: NSLocalizedString("Expected access token, got: %@.", comment: ""), NSString(data: data!, encoding: String.Encoding.utf8.rawValue) ?? "nil")
