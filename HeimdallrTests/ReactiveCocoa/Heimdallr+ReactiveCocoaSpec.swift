@@ -180,16 +180,6 @@ class ReactiveHeimdallrSpec: QuickSpec {
                     heimdallr.authorizeSuccess = true
                 }
 
-                it("sends a RACUnit") {
-                    waitUntil { done in
-                        let signal = heimdallr.rac_requestAccessToken(username: "foo", password: "bar")
-                        signal.subscribeNext { value in
-                            expect(value is RACUnit).to(beTrue())
-                            done()
-                        }
-                    }
-                }
-
                 it("completes") {
                     waitUntil { done in
                         let signal = heimdallr.rac_requestAccessToken(username: "foo", password: "bar")
@@ -224,16 +214,6 @@ class ReactiveHeimdallrSpec: QuickSpec {
             context("when the completion block sends a success result") {
                 beforeEach {
                     heimdallr.authorizeSuccess = true
-                }
-
-                it("sends a RACUnit") {
-                    waitUntil { done in
-                        let signal = heimdallr.rac_requestAccessToken(grantType:"foo", parameters:["code": "bar"])
-                        signal.subscribeNext { value in
-                            expect(value is RACUnit).to(beTrue())
-                            done()
-                        }
-                    }
                 }
 
                 it("completes") {
