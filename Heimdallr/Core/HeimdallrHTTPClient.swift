@@ -7,5 +7,5 @@ public protocol HeimdallrHTTPClient {
     /// 
     /// - parameter request: The request to be sent.
     /// - parameter completion: A callback to invoke when the request completed.
-    func sendRequest(request: NSURLRequest, completion: (data: NSData?, response: NSURLResponse?, error: NSError?) -> ())
+    func sendRequest(_ request: URLRequest, completion: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> ())
 }

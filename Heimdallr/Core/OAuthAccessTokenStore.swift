@@ -8,7 +8,7 @@ public protocol OAuthAccessTokenStore {
     /// Given nil, it resets the currently stored access token, if any.
     ///
     /// - parameter accessToken: The access token to be stored.
-    func storeAccessToken(accessToken: OAuthAccessToken?)
+    func storeAccessToken(_ accessToken: OAuthAccessToken?)
 
     /// Retrieves the currently stored access token.
     ///

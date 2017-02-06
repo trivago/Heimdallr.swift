@@ -10,7 +10,7 @@ public class OAuthAccessToken: NSObject {
     public let tokenType: String
 
     /// The access token's expiration date.
-    public let expiresAt: NSDate?
+    public let expiresAt: Date?
 
     /// The refresh token.
     public let refreshToken: String?
@@ -24,7 +24,7 @@ public class OAuthAccessToken: NSObject {
     ///
     /// - returns: A new access token initialized with access token, type,
     ///     expiration date and refresh token.
-    public init(accessToken: String, tokenType: String, expiresAt: NSDate? = nil, refreshToken: String? = nil) {
+    public init(accessToken: String, tokenType: String, expiresAt: Date? = nil, refreshToken: String? = nil) {
         self.accessToken = accessToken
         self.tokenType = tokenType
         self.expiresAt = expiresAt
@@ -40,7 +40,7 @@ public class OAuthAccessToken: NSObject {
     ///
     /// - returns: A new access token with this access token's values for
     ///     properties where new ones are not provided.
-    public func copy(accessToken accessToken: String? = nil, tokenType: String? = nil, expiresAt: NSDate?? = nil, refreshToken: String?? = nil) -> OAuthAccessToken {
+    public func copy(accessToken: String? = nil, tokenType: String? = nil, expiresAt: Date?? = nil, refreshToken: String?? = nil) -> OAuthAccessToken {
         return OAuthAccessToken(accessToken: accessToken ?? self.accessToken,
                                   tokenType: tokenType ?? self.tokenType,
                                   expiresAt: expiresAt ?? self.expiresAt,
@@ -56,28 +56,28 @@ public func == (lhs: OAuthAccessToken, rhs: OAuthAccessToken) -> Bool {
 }
 
 extension OAuthAccessToken {
-    public class func decode(json: [String: AnyObject]) -> OAuthAccessToken? {
-        func toNSDate(timeIntervalSinceNow: NSTimeInterval?) -> NSDate? {
+    public class func decode(_ json: [String: AnyObject]) -> OAuthAccessToken? {
+        func toNSDate(_ timeIntervalSinceNow: TimeInterval?) -> Date? {
             return timeIntervalSinceNow.map { timeIntervalSinceNow in
-                return NSDate(timeIntervalSinceNow: timeIntervalSinceNow)
+                return Date(timeIntervalSinceNow: timeIntervalSinceNow)
             }
         }
 
         guard let accessToken = json["access_token"] as? String,
-        tokenType = json["token_type"] as? String else {
+            let tokenType = json["token_type"] as? String else {
             return nil
         }
 
-        let expiresAt = (json["expires_in"] as? NSTimeInterval).flatMap(toNSDate)
+        let expiresAt = (json["expires_in"] as? TimeInterval).flatMap(toNSDate)
         let refreshToken = json["refresh_token"] as? String
 
         return OAuthAccessToken(accessToken: accessToken, tokenType: tokenType,
                                 expiresAt: expiresAt, refreshToken: refreshToken)
     }
 
-    public class func decode(data data: NSData) -> OAuthAccessToken? {
-        guard let json = try? NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0)),
-            jsonDictionary = json as? [String: AnyObject] else {
+    public class func decode(data: Data) -> OAuthAccessToken? {
+        guard let json = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions(rawValue: 0)),
+            let jsonDictionary = json as? [String: AnyObject] else {
                 return nil
         }
 

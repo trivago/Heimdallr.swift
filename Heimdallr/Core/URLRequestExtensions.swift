@@ -7,26 +7,26 @@ public enum HTTPAuthentication: Equatable {
     ///
     /// - parameter username: The username.
     /// - parameter password: The password.
-    case BasicAuthentication(username: String, password: String)
+    case basicAuthentication(username: String, password: String)
 
     /// Access Token Authentication.
     ///
     /// - parameter _: The access token.
-    case AccessTokenAuthentication(OAuthAccessToken)
+    case accessTokenAuthentication(OAuthAccessToken)
 
     /// Returns the authentication encoded as `String` suitable for the HTTP
     /// `Authorization` header.
-    private var value: String? {
+    fileprivate var value: String? {
         switch self {
-        case .BasicAuthentication(let username, let password):
+        case .basicAuthentication(let username, let password):
             if let credentials = "\(username):\(password)"
-                .dataUsingEncoding(NSASCIIStringEncoding)?
-                .base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0)) {
+                .data(using: String.Encoding.ascii)?
+                .base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0)) {
                 return "Basic \(credentials)"
             } else {
                 return nil
             }
-        case .AccessTokenAuthentication(let accessToken):
+        case .accessTokenAuthentication(let accessToken):
             return "\(accessToken.tokenType) \(accessToken.accessToken)"
         }
     }
@@ -34,10 +34,10 @@ public enum HTTPAuthentication: Equatable {
 
 public func == (lhs: HTTPAuthentication, rhs: HTTPAuthentication) -> Bool {
     switch (lhs, rhs) {
-    case (.BasicAuthentication(let lusername, let lpassword), .BasicAuthentication(let rusername, let rpassword)):
+    case (.basicAuthentication(let lusername, let lpassword), .basicAuthentication(let rusername, let rpassword)):
         return lusername == rusername
             && lpassword == rpassword
-    case (.AccessTokenAuthentication(let laccessToken), .AccessTokenAuthentication(let raccessToken)):
+    case (.accessTokenAuthentication(let laccessToken), .accessTokenAuthentication(let raccessToken)):
         return laccessToken == raccessToken
     default:
         return false
@@ -46,20 +46,18 @@ public func == (lhs: HTTPAuthentication, rhs: HTTPAuthentication) -> Bool {
 
 private let HTTPRequestHeaderFieldAuthorization = "Authorization"
 
-public extension NSURLRequest {
+public extension URLRequest {
     /// Returns the HTTP `Authorization` header value or `nil` if not set.
     public var HTTPAuthorization: String? {
-        return self.valueForHTTPHeaderField(HTTPRequestHeaderFieldAuthorization)
+        return self.value(forHTTPHeaderField: HTTPRequestHeaderFieldAuthorization)
     }
-}
 
-public extension NSMutableURLRequest {
     /// Sets the HTTP `Authorization` header value.
     ///
     /// - parameter value: The value to be set or `nil`.
     ///
     /// TODO: Declarations in extensions cannot override yet.
-    public func setHTTPAuthorization(value: String?) {
+    public mutating func setHTTPAuthorization(_ value: String?) {
         self.setValue(value, forHTTPHeaderField: HTTPRequestHeaderFieldAuthorization)
     }
 
@@ -67,7 +65,7 @@ public extension NSMutableURLRequest {
     /// authentication.
     ///
     /// - parameter authentication: The HTTP authentication to be set.
-    public func setHTTPAuthorization(authentication: HTTPAuthentication) {
+    public mutating func setHTTPAuthorization(_ authentication: HTTPAuthentication) {
         self.setHTTPAuthorization(authentication.value)
     }
 
@@ -76,21 +74,21 @@ public extension NSMutableURLRequest {
     /// - parameter parameters: The parameters to be encoded or `nil`.
     ///
     /// TODO: Tests crash without named parameter.
-    public func setHTTPBody(parameters parameters: [String: AnyObject]?) {
+    public mutating func setHTTPBody(parameters: [String: AnyObject]?) {
         if let parameters = parameters {
             var components: [(String, String)] = []
             for (key, value) in parameters {
                 components += queryComponents(key, value)
             }
-            let bodyString = components.map { "\($0)=\($1)" }.joinWithSeparator("&" )
-            HTTPBody = bodyString.dataUsingEncoding(NSUTF8StringEncoding)
+            let bodyString = components.map { "\($0)=\($1)" }.joined(separator: "&" )
+            httpBody = bodyString.data(using: String.Encoding.utf8)
         } else {
-            HTTPBody = nil
+            httpBody = nil
         }
     }
 
     // Taken from https://github.com/Alamofire/Alamofire/blob/master/Source/ParameterEncoding.swift#L176
-    private func queryComponents(key: String, _ value: AnyObject) -> [(String, String)] {
+    private func queryComponents(_ key: String, _ value: AnyObject) -> [(String, String)] {
         var components: [(String, String)] = []
 
         if let dictionary = value as? [String: AnyObject] {
@@ -109,45 +107,13 @@ public extension NSMutableURLRequest {
     }
 
     // Taken from https://github.com/Alamofire/Alamofire/blob/master/Source/ParameterEncoding.swift#L210
-    private func escape(string: String) -> String {
+    private func escape(_ string: String) -> String {
         let generalDelimitersToEncode = ":#[]@" // does not include "?" or "/" due to RFC 3986 - Section 3.4
         let subDelimitersToEncode = "!$&'()*+,;="
 
-        let allowedCharacterSet = NSCharacterSet.URLQueryAllowedCharacterSet().mutableCopy() as! NSMutableCharacterSet
-        allowedCharacterSet.removeCharactersInString(generalDelimitersToEncode + subDelimitersToEncode)
+        var allowedCharacterSet = CharacterSet.urlQueryAllowed
+        allowedCharacterSet.remove(charactersIn: "\(generalDelimitersToEncode)\(subDelimitersToEncode)")
 
-        var escaped = ""
-
-        //==========================================================================================================
-        //
-        //  Batching is required for escaping due to an internal bug in iOS 8.1 and 8.2. Encoding more than a few
-        //  hundred Chinense characters causes various malloc error crashes. To avoid this issue until iOS 8 is no
-        //  longer supported, batching MUST be used for encoding. This introduces roughly a 20% overhead. For more
-        //  info, please refer to:
-        //
-        //      - https://github.com/Alamofire/Alamofire/issues/206
-        //
-        //==========================================================================================================
-
-        if #available(iOS 8.3, *) {
-            escaped = string.stringByAddingPercentEncodingWithAllowedCharacters(allowedCharacterSet) ?? string
-        } else {
-            let batchSize = 50
-            var index = string.startIndex
-
-            while index != string.endIndex {
-                let startIndex = index
-                let endIndex = index.advancedBy(batchSize, limit: string.endIndex)
-                let range = startIndex..<endIndex
-
-                let substring = string.substringWithRange(range)
-
-                escaped += substring.stringByAddingPercentEncodingWithAllowedCharacters(allowedCharacterSet) ?? substring
-
-                index = endIndex
-            }
-        }
-        
-        return escaped
+        return string.addingPercentEncoding(withAllowedCharacters: allowedCharacterSet) ?? string
     }
 }

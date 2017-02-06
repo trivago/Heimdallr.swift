@@ -11,6 +11,6 @@ public protocol HeimdallResourceRequestAuthenticator {
     ///     authenticating the request.
     ///
     /// - returns: The authenticated request.
-    func authenticateResourceRequest(request: NSURLRequest, accessToken: OAuthAccessToken) -> NSURLRequest
+    func authenticateResourceRequest(_ request: URLRequest, accessToken: OAuthAccessToken) -> URLRequest
 
 }

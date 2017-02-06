@@ -1,25 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0710"
+   LastUpgradeVersion = "0800"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "NO"
       buildImplicitDependencies = "NO">
       <BuildActionEntries>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F89335531A4CE83000B88685"
-               BuildableName = "Argo.framework"
-               BlueprintName = "Argo-Mac"
-               ReferencedContainer = "container:Carthage/Checkouts/Argo/Argo.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
@@ -43,9 +29,37 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D04725E919E49ED7006002AA"
-               BuildableName = "ReactiveCocoa.framework"
-               BlueprintName = "ReactiveCocoa-Mac"
-               ReferencedContainer = "container:Carthage/Checkouts/ReactiveCocoa/ReactiveCocoa.xcodeproj">
+               BuildableName = "ReactiveObjC.framework"
+               BlueprintName = "ReactiveObjC-macOS"
+               ReferencedContainer = "container:Carthage/Checkouts/ReactiveObjC/ReactiveObjC.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D04725E919E49ED7006002AA"
+               BuildableName = "ReactiveSwift.framework"
+               BlueprintName = "ReactiveSwift-macOS"
+               ReferencedContainer = "container:Carthage/Checkouts/ReactiveSwift/ReactiveSwift.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D04725E919E49ED7006002AA"
+               BuildableName = "ReactiveObjCBridge.framework"
+               BlueprintName = "ReactiveObjCBridge-macOS"
+               ReferencedContainer = "container:Carthage/Checkouts/ReactiveObjCBridge/ReactiveObjCBridge.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -72,7 +86,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1F925EAC195C0D6300ED456B"
                BuildableName = "Nimble.framework"
-               BlueprintName = "Nimble-OSX"
+               BlueprintName = "Nimble-macOS"
                ReferencedContainer = "container:Carthage/Checkouts/Nimble/Nimble.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -100,7 +114,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DAEB6B8D1943873100289F44"
                BuildableName = "Quick.framework"
-               BlueprintName = "Quick-OSX"
+               BlueprintName = "Quick-macOS"
                ReferencedContainer = "container:Carthage/Checkouts/Quick/Quick.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

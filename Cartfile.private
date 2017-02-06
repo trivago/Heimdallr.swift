@@ -1,4 +1,4 @@
-github "jspahrsummers/xcconfigs" ~> 0.9
-github "Quick/Quick" ~> 0.9
-github "Quick/Nimble" ~> 4.1
-github "AliSoftware/OHHTTPStubs" ~> 5.2.0
+github "jspahrsummers/xcconfigs" ~> 0.10
+github "Quick/Quick" ~> 0.10.0
+github "Quick/Nimble" ~> 5.1.1
+github "AliSoftware/OHHTTPStubs" "5.2.2-swift3"

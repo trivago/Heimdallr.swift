@@ -16,9 +16,9 @@ public class HeimdallResourceRequestAuthenticatorHTTPAuthorizationHeader: NSObje
     ///     authenticating the request.
     ///
     /// - returns: The authenticated request.
-    public func authenticateResourceRequest(request: NSURLRequest, accessToken: OAuthAccessToken) -> NSURLRequest {
-        let mutableRequest = request.mutableCopy() as! NSMutableURLRequest
-        mutableRequest.setHTTPAuthorization(.AccessTokenAuthentication(accessToken))
+    public func authenticateResourceRequest(_ request: URLRequest, accessToken: OAuthAccessToken) -> URLRequest {
+        var mutableRequest = request
+        mutableRequest.setHTTPAuthorization(.accessTokenAuthentication(accessToken))
         return mutableRequest
     }
 

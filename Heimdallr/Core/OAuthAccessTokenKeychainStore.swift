@@ -3,75 +3,75 @@ import Security
 internal struct Keychain {
     internal let service: String
 
-    private var defaultClassAndAttributes: [String: AnyObject] {
+    fileprivate var defaultClassAndAttributes: [String: AnyObject] {
         return [
-            String(kSecClass): String(kSecClassGenericPassword),
-            String(kSecAttrAccessible): String(kSecAttrAccessibleAfterFirstUnlock),
-            String(kSecAttrService): service
+            String(kSecClass): String(kSecClassGenericPassword) as AnyObject,
+            String(kSecAttrAccessible): String(kSecAttrAccessibleAfterFirstUnlock) as AnyObject,
+            String(kSecAttrService): service as AnyObject
         ]
     }
 
-    internal func dataForKey(key: String) -> NSData? {
+    internal func dataForKey(_ key: String) -> Data? {
         var attributes = defaultClassAndAttributes
-        attributes[String(kSecAttrAccount)] = key
+        attributes[String(kSecAttrAccount)] = key as AnyObject?
         attributes[String(kSecMatchLimit)] = kSecMatchLimitOne
-        attributes[String(kSecReturnData)] = true
+        attributes[String(kSecReturnData)] = true as AnyObject?
 
         var result: AnyObject?
-        let status = withUnsafeMutablePointer(&result) { pointer in
-            return SecItemCopyMatching(attributes, UnsafeMutablePointer(pointer))
+        let status = withUnsafeMutablePointer(to: &result) { pointer in
+            return SecItemCopyMatching(attributes as CFDictionary, UnsafeMutablePointer(pointer))
         }
 
         guard status == errSecSuccess else {
             return nil
         }
 
-        return result as? NSData
+        return result as? Data
     }
 
-    internal func valueForKey(key: String) -> String? {
+    internal func valueForKey(_ key: String) -> String? {
         return dataForKey(key).flatMap { data in
-            return NSString(data: data, encoding: NSUTF8StringEncoding) as? String
+            return NSString(data: data, encoding: String.Encoding.utf8.rawValue) as? String
         }
     }
 
-    internal func setData(data: NSData, forKey key: String) {
+    internal func setData(_ data: Data, forKey key: String) {
         var attributes = defaultClassAndAttributes
-        attributes[String(kSecAttrAccount)] = key
-        attributes[String(kSecValueData)] = data
-        SecItemAdd(attributes, nil)
+        attributes[String(kSecAttrAccount)] = key as AnyObject?
+        attributes[String(kSecValueData)] = data as AnyObject?
+        SecItemAdd(attributes as CFDictionary, nil)
     }
 
-    internal func setValue(value: String, forKey key: String) {
-        if let data = value.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
+    internal func setValue(_ value: String, forKey key: String) {
+        if let data = value.data(using: String.Encoding.utf8, allowLossyConversion: false) {
             setData(data, forKey: key)
         }
     }
 
-    internal func updateData(data: NSData, forKey key: String) {
+    internal func updateData(_ data: Data, forKey key: String) {
         var query = defaultClassAndAttributes
-        query[String(kSecAttrAccount)] = key
+        query[String(kSecAttrAccount)] = key as AnyObject?
 
         var attributesToUpdate = query
         attributesToUpdate[String(kSecClass)] = nil
-        attributesToUpdate[String(kSecValueData)] = data
+        attributesToUpdate[String(kSecValueData)] = data as AnyObject?
 
-        let status = SecItemUpdate(query, attributesToUpdate)
+        let status = SecItemUpdate(query as CFDictionary, attributesToUpdate as CFDictionary)
         if status == errSecItemNotFound || status == errSecNotAvailable {
             setData(data, forKey: key)
         }
     }
 
-    internal func updateValue(value: String, forKey key: String) {
-        if let data = value.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
+    internal func updateValue(_ value: String, forKey key: String) {
+        if let data = value.data(using: String.Encoding.utf8, allowLossyConversion: false) {
             updateData(data, forKey: key)
         }
     }
 
-    internal func removeValueForKey(key: String) {
+    internal func removeValueForKey(_ key: String) {
         var attributes = defaultClassAndAttributes
-        attributes[String(kSecAttrAccount)] = key
-        SecItemDelete(attributes)
+        attributes[String(kSecAttrAccount)] = key as AnyObject?
+        SecItemDelete(attributes as CFDictionary)
     }
 
     internal subscript(key: String) -> String? {
@@ -101,7 +101,7 @@ internal struct Keychain {
         keychain = Keychain(service: service)
     }
 
-    public func storeAccessToken(accessToken: OAuthAccessToken?) {
+    public func storeAccessToken(_ accessToken: OAuthAccessToken?) {
         keychain["access_token"] = accessToken?.accessToken
         keychain["token_type"] = accessToken?.tokenType
         keychain["expires_at"] = accessToken?.expiresAt?.timeIntervalSince1970.description
@@ -114,11 +114,11 @@ internal struct Keychain {
         let refreshToken = keychain["refresh_token"]
         let expiresAt = keychain["expires_at"].flatMap { description in
             return Double(description).flatMap { expiresAtInSeconds in
-                return NSDate(timeIntervalSince1970: expiresAtInSeconds)
+                return Date(timeIntervalSince1970: expiresAtInSeconds)
             }
         }
 
-        if let accessToken = accessToken, tokenType = tokenType {
+        if let accessToken = accessToken, let tokenType = tokenType {
             return OAuthAccessToken(accessToken: accessToken, tokenType: tokenType, expiresAt: expiresAt, refreshToken: refreshToken)
         }
 
