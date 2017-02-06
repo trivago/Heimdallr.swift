@@ -1,5 +1,5 @@
 github "Quick/Nimble" "v5.1.1"
-github "AliSoftware/OHHTTPStubs" "5.2.2-swift3"
+github "AliSoftware/OHHTTPStubs" "5.2.3-swift3"
 github "Quick/Quick" "v0.10.0"
 github "ReactiveCocoa/ReactiveObjC" "2.1.2"
 github "antitypical/Result" "3.1.0"
