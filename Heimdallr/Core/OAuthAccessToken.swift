@@ -57,7 +57,7 @@ public func == (lhs: OAuthAccessToken, rhs: OAuthAccessToken) -> Bool {
 
 extension OAuthAccessToken {
     public class func decode(_ json: [String: AnyObject]) -> OAuthAccessToken? {
-        func toNSDate(_ timeIntervalSinceNow: TimeInterval?) -> Date? {
+        func toDate(_ timeIntervalSinceNow: TimeInterval?) -> Date? {
             return timeIntervalSinceNow.map { timeIntervalSinceNow in
                 return Date(timeIntervalSinceNow: timeIntervalSinceNow)
             }
@@ -68,7 +68,7 @@ extension OAuthAccessToken {
             return nil
         }
 
-        let expiresAt = (json["expires_in"] as? TimeInterval).flatMap(toNSDate)
+        let expiresAt = (json["expires_in"] as? TimeInterval).flatMap(toDate)
         let refreshToken = json["refresh_token"] as? String
 
         return OAuthAccessToken(accessToken: accessToken, tokenType: tokenType,
