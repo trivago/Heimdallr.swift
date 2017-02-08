@@ -11,7 +11,7 @@ If you are an Android Developer, please take a look at the [Android version of H
 Before requesting an access token, the client must be configured appropriately:
 
 ```swift
-let tokenURL = NSURL(string: "http://example.com/oauth/v2/token")!
+let tokenURL = URL(string: "https://example.com/oauth/v2/token")!
 let heimdallr = Heimdallr(tokenURL: tokenURL)
 ```
 
@@ -20,30 +20,30 @@ On login, the resource owner's password credentials are used to request an acces
 ```swift
 heimdallr.requestAccessToken(username: "johndoe", password: "A3ddj3w") { result in
     switch result {
-    case .Success:
-        println("success")
-    case .Failure(let error):
-        println("failure: \(error.unbox.localizedDescription)")
+    case .success:
+        print("success")
+    case .failure(let error):
+        print("failure: \(error.localizedDescription)")
     }
 }
 ```
 
-Heimdallr automatically persists the access token. Afterwards, any `NSURLRequest` can be easily authenticated using the received access token:
+Heimdallr automatically persists the access token. Afterwards, any `URLRequest` can be easily authenticated using the received access token:
 
 ```swift
-var session: NSURLSession!
-var request: NSURLRequest!
+var session: URLSession!
+var request: URLRequest!
 
-heimdallr.authenticateRequest(request) { result
+heimdallr.authenticateRequest(request) { result in
     switch result {
-    case .Success(let request):
-        let task = session.dataTaskWithRequest(request.unbox) { data, response, error in
+    case .success(let request):
+        let task = session.dataTask(with: request) { data, response, error in
             // ...
         }
-
+        
         task.resume()
-    case .Failure(let error):
-        println("failure: \(error.unbox.localizedDescription)")
+    case .failure(let error):
+        print("failure: \(error.localizedDescription)")
     }
 }
 ```
@@ -121,16 +121,16 @@ An HTTP client that can be used by Heimdallr for requesting access tokens. It mu
 
 ```swift
 protocol HeimdallrHTTPClient {
-    func sendRequest(request: NSURLRequest, completion: (data: NSData!, response: NSURLResponse!, error: NSError?) -> ())
+    func sendRequest(request: URLRequest, completion: (data: Data!, response: URLResponse!, error: Error?) -> ())
 }
 ```
 
-For convenience, a default HTTP client named `HeimdallrHTTPClientNSURLSession` and based on `NSURLSession` is provided. It may be configured with an `NSURLSession`:
+For convenience, a default HTTP client named `HeimdallrHTTPClientURLSession` and based on `URLSession` is provided. It may be configured with an `URLSession`:
 
 ```swift
-var urlSession: NSURLSession!
+var urlSession: URLSession!
 
-let httpClient = HeimdallrHTTPClientNSURLSession(urlSession: session)
+let httpClient = HeimdallrHTTPClientURLSession(urlSession: session)
 ```
 
 ### OAuthAccessTokenParser
@@ -139,7 +139,7 @@ You can provide your own parser to handle the access token response of the serve
 
 ```swift
 protocol OAuthAccessTokenParser {
-    func parse(data: NSData) -> Result<OAuthAccessToken, NSError>
+    func parse(data: Data) -> Result<OAuthAccessToken, Error>
 }
 ```
 
@@ -148,7 +148,7 @@ protocol OAuthAccessTokenParser {
 Heimdallr must be initialized with the token endpoint URL and can optionally be configured with client credentials, an access token store and an HTTP client:
 
 ```swift
-var tokenURL: NSURL!
+var tokenURL: URL!
 
 let heimdallr = Heimdallr(tokenURL: tokenURL)
              // Heimdallr(tokenURL: tokenURL, credentials: credentials)
@@ -173,12 +173,12 @@ heimdallr.requestAccessToken(username: username, password: password) { result in
 
 *The `completion` closure may be invoked on any thread.*
 
-Once successfully authorized, any `NSURLRequest` can be easily altered to include authentication via the received access token:
+Once successfully authorized, any `URLRequest` can be easily altered to include authentication via the received access token:
 
 ```swift
-var request: NSURLRequest!
+var request: URLRequest!
 
-heimdallr.authenticateRequest(request) { result
+heimdallr.authenticateRequest(request) { result in
     // ...
 }
 ```
