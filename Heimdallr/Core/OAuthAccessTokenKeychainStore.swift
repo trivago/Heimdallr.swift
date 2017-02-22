@@ -7,7 +7,7 @@ internal struct Keychain {
         return [
             String(kSecClass): String(kSecClassGenericPassword) as AnyObject,
             String(kSecAttrAccessible): String(kSecAttrAccessibleAfterFirstUnlock) as AnyObject,
-            String(kSecAttrService): service as AnyObject
+            String(kSecAttrService): service as AnyObject,
         ]
     }
 

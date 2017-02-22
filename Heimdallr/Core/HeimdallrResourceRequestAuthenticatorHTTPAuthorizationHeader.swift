@@ -1,6 +1,6 @@
 import Foundation
 
-/// A `HeimdallResourceRequestAuthenticator` which uses the HTTP `Authorization` 
+/// A `HeimdallResourceRequestAuthenticator` which uses the HTTP `Authorization`
 /// Header to authorize a request.
 @objc
 public class HeimdallResourceRequestAuthenticatorHTTPAuthorizationHeader: NSObject, HeimdallResourceRequestAuthenticator {
@@ -21,5 +21,4 @@ public class HeimdallResourceRequestAuthenticatorHTTPAuthorizationHeader: NSObje
         mutableRequest.setHTTPAuthorization(.accessTokenAuthentication(accessToken))
         return mutableRequest
     }
-
 }

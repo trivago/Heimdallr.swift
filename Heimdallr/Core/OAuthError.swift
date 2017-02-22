@@ -90,7 +90,7 @@ extension OAuthError {
     public class func decode(data: Data) -> OAuthError? {
         guard let json: AnyObject? = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions(rawValue: 0)) as AnyObject?,
             let jsonDictionary = json as? [String: AnyObject] else {
-                return nil
+            return nil
         }
 
         return decode(jsonDictionary)

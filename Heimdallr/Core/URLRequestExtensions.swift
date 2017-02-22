@@ -80,7 +80,7 @@ public extension URLRequest {
             for (key, value) in parameters {
                 components += queryComponents(key, value)
             }
-            let bodyString = components.map { "\($0)=\($1)" }.joined(separator: "&" )
+            let bodyString = components.map { "\($0)=\($1)" }.joined(separator: "&")
             httpBody = bodyString.data(using: String.Encoding.utf8)
         } else {
             httpBody = nil

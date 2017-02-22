@@ -42,9 +42,9 @@ public class OAuthAccessToken: NSObject {
     ///     properties where new ones are not provided.
     public func copy(accessToken: String? = nil, tokenType: String? = nil, expiresAt: Date?? = nil, refreshToken: String?? = nil) -> OAuthAccessToken {
         return OAuthAccessToken(accessToken: accessToken ?? self.accessToken,
-                                  tokenType: tokenType ?? self.tokenType,
-                                  expiresAt: expiresAt ?? self.expiresAt,
-                               refreshToken: refreshToken ?? self.refreshToken)
+                                tokenType: tokenType ?? self.tokenType,
+                                expiresAt: expiresAt ?? self.expiresAt,
+                                refreshToken: refreshToken ?? self.refreshToken)
     }
 }
 
@@ -78,7 +78,7 @@ extension OAuthAccessToken {
     public class func decode(data: Data) -> OAuthAccessToken? {
         guard let json = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions(rawValue: 0)),
             let jsonDictionary = json as? [String: AnyObject] else {
-                return nil
+            return nil
         }
 
         return decode(jsonDictionary)

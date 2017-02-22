@@ -33,12 +33,12 @@ public enum OAuthAuthorizationGrant {
             return [
                 "grant_type": "password",
                 "username": username,
-                "password": password
+                "password": password,
             ]
         case .refreshToken(let refreshToken):
             return [
                 "grant_type": "refresh_token",
-                "refresh_token": refreshToken
+                "refresh_token": refreshToken,
             ]
         case .extension(let grantType, var parameters):
             parameters["grant_type"] = grantType
