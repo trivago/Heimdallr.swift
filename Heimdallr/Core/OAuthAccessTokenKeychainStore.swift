@@ -31,7 +31,7 @@ internal struct Keychain {
 
     internal func valueForKey(_ key: String) -> String? {
         return dataForKey(key).flatMap { data in
-            return NSString(data: data, encoding: String.Encoding.utf8.rawValue) as? String
+            return String(data: data, encoding: String.Encoding.utf8)
         }
     }
 

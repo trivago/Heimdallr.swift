@@ -150,7 +150,7 @@ class URLRequestExtensionsSpec: QuickSpec {
 
                     request.setHTTPBody(parameters: parameters)
 
-                    let components = NSString(data: request.httpBody!, encoding: String.Encoding.utf8.rawValue)?
+                    let components = String(data: request.httpBody!, encoding: String.Encoding.utf8)?
                         .components(separatedBy: "&")
                         .sorted { $0 < $1 }
 

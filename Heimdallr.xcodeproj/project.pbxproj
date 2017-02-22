@@ -27,7 +27,7 @@
 		DC209CE81C845FCE00C43C75 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC91C845F1900C43C75 /* Quick.framework */; };
 		DC52206E1BEA321300F37F2A /* Heimdallr.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220471BEA320B00F37F2A /* Heimdallr.swift */; };
 		DC52206F1BEA321300F37F2A /* HeimdallrHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220481BEA320B00F37F2A /* HeimdallrHTTPClient.swift */; };
-		DC5220701BEA321300F37F2A /* HeimdallrHTTPClientNSURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220491BEA320B00F37F2A /* HeimdallrHTTPClientNSURLSession.swift */; };
+		DC5220701BEA321300F37F2A /* HeimdallrHTTPClientURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220491BEA320B00F37F2A /* HeimdallrHTTPClientURLSession.swift */; };
 		DC5220711BEA321300F37F2A /* HeimdallrResourceRequestAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204A1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticator.swift */; };
 		DC5220721BEA321300F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204B1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift */; };
 		DC5220741BEA321300F37F2A /* URLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204D1BEA320B00F37F2A /* URLRequestExtensions.swift */; };
@@ -39,7 +39,7 @@
 		DC52207A1BEA321300F37F2A /* OAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220531BEA320B00F37F2A /* OAuthError.swift */; };
 		DC52207B1BEA321500F37F2A /* Heimdallr.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220471BEA320B00F37F2A /* Heimdallr.swift */; };
 		DC52207C1BEA321500F37F2A /* HeimdallrHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220481BEA320B00F37F2A /* HeimdallrHTTPClient.swift */; };
-		DC52207D1BEA321500F37F2A /* HeimdallrHTTPClientNSURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220491BEA320B00F37F2A /* HeimdallrHTTPClientNSURLSession.swift */; };
+		DC52207D1BEA321500F37F2A /* HeimdallrHTTPClientURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220491BEA320B00F37F2A /* HeimdallrHTTPClientURLSession.swift */; };
 		DC52207E1BEA321500F37F2A /* HeimdallrResourceRequestAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204A1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticator.swift */; };
 		DC52207F1BEA321500F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204B1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift */; };
 		DC5220811BEA321500F37F2A /* URLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204D1BEA320B00F37F2A /* URLRequestExtensions.swift */; };
@@ -51,7 +51,7 @@
 		DC5220871BEA321500F37F2A /* OAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220531BEA320B00F37F2A /* OAuthError.swift */; };
 		DC5220881BEA321500F37F2A /* Heimdallr.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220471BEA320B00F37F2A /* Heimdallr.swift */; };
 		DC5220891BEA321500F37F2A /* HeimdallrHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220481BEA320B00F37F2A /* HeimdallrHTTPClient.swift */; };
-		DC52208A1BEA321500F37F2A /* HeimdallrHTTPClientNSURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220491BEA320B00F37F2A /* HeimdallrHTTPClientNSURLSession.swift */; };
+		DC52208A1BEA321500F37F2A /* HeimdallrHTTPClientURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220491BEA320B00F37F2A /* HeimdallrHTTPClientURLSession.swift */; };
 		DC52208B1BEA321500F37F2A /* HeimdallrResourceRequestAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204A1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticator.swift */; };
 		DC52208C1BEA321500F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204B1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift */; };
 		DC52208E1BEA321500F37F2A /* URLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204D1BEA320B00F37F2A /* URLRequestExtensions.swift */; };
@@ -63,7 +63,7 @@
 		DC5220941BEA321500F37F2A /* OAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220531BEA320B00F37F2A /* OAuthError.swift */; };
 		DC5220951BEA321600F37F2A /* Heimdallr.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220471BEA320B00F37F2A /* Heimdallr.swift */; };
 		DC5220961BEA321600F37F2A /* HeimdallrHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220481BEA320B00F37F2A /* HeimdallrHTTPClient.swift */; };
-		DC5220971BEA321600F37F2A /* HeimdallrHTTPClientNSURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220491BEA320B00F37F2A /* HeimdallrHTTPClientNSURLSession.swift */; };
+		DC5220971BEA321600F37F2A /* HeimdallrHTTPClientURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220491BEA320B00F37F2A /* HeimdallrHTTPClientURLSession.swift */; };
 		DC5220981BEA321600F37F2A /* HeimdallrResourceRequestAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204A1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticator.swift */; };
 		DC5220991BEA321600F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204B1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift */; };
 		DC52209B1BEA321600F37F2A /* URLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204D1BEA320B00F37F2A /* URLRequestExtensions.swift */; };
@@ -163,7 +163,7 @@
 		DC209CCB1C845F1900C43C75 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Result.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC5220471BEA320B00F37F2A /* Heimdallr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heimdallr.swift; sourceTree = "<group>"; };
 		DC5220481BEA320B00F37F2A /* HeimdallrHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeimdallrHTTPClient.swift; sourceTree = "<group>"; };
-		DC5220491BEA320B00F37F2A /* HeimdallrHTTPClientNSURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeimdallrHTTPClientNSURLSession.swift; sourceTree = "<group>"; };
+		DC5220491BEA320B00F37F2A /* HeimdallrHTTPClientURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeimdallrHTTPClientURLSession.swift; sourceTree = "<group>"; };
 		DC52204A1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeimdallrResourceRequestAuthenticator.swift; sourceTree = "<group>"; };
 		DC52204B1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift; sourceTree = "<group>"; };
 		DC52204D1BEA320B00F37F2A /* URLRequestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestExtensions.swift; sourceTree = "<group>"; };
@@ -341,7 +341,7 @@
 			children = (
 				DC5220471BEA320B00F37F2A /* Heimdallr.swift */,
 				DC5220481BEA320B00F37F2A /* HeimdallrHTTPClient.swift */,
-				DC5220491BEA320B00F37F2A /* HeimdallrHTTPClientNSURLSession.swift */,
+				DC5220491BEA320B00F37F2A /* HeimdallrHTTPClientURLSession.swift */,
 				DC52204A1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticator.swift */,
 				DC52204B1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift */,
 				DC52204D1BEA320B00F37F2A /* URLRequestExtensions.swift */,
@@ -883,7 +883,7 @@
 				DC5220741BEA321300F37F2A /* URLRequestExtensions.swift in Sources */,
 				DC5220791BEA321300F37F2A /* OAuthClientCredentials.swift in Sources */,
 				DC5220771BEA321300F37F2A /* OAuthAccessTokenStore.swift in Sources */,
-				DC5220701BEA321300F37F2A /* HeimdallrHTTPClientNSURLSession.swift in Sources */,
+				DC5220701BEA321300F37F2A /* HeimdallrHTTPClientURLSession.swift in Sources */,
 				DC5220751BEA321300F37F2A /* OAuthAccessToken.swift in Sources */,
 				DC5220721BEA321300F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */,
 				DC52206F1BEA321300F37F2A /* HeimdallrHTTPClient.swift in Sources */,
@@ -916,7 +916,7 @@
 				DC5220811BEA321500F37F2A /* URLRequestExtensions.swift in Sources */,
 				DC5220861BEA321500F37F2A /* OAuthClientCredentials.swift in Sources */,
 				DC5220841BEA321500F37F2A /* OAuthAccessTokenStore.swift in Sources */,
-				DC52207D1BEA321500F37F2A /* HeimdallrHTTPClientNSURLSession.swift in Sources */,
+				DC52207D1BEA321500F37F2A /* HeimdallrHTTPClientURLSession.swift in Sources */,
 				DC5220821BEA321500F37F2A /* OAuthAccessToken.swift in Sources */,
 				DC52207F1BEA321500F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */,
 				E258A1681CC6B8C500649F5A /* OAuthAccessTokenParser.swift in Sources */,
@@ -949,7 +949,7 @@
 				DC52208E1BEA321500F37F2A /* URLRequestExtensions.swift in Sources */,
 				DC5220931BEA321500F37F2A /* OAuthClientCredentials.swift in Sources */,
 				DC5220911BEA321500F37F2A /* OAuthAccessTokenStore.swift in Sources */,
-				DC52208A1BEA321500F37F2A /* HeimdallrHTTPClientNSURLSession.swift in Sources */,
+				DC52208A1BEA321500F37F2A /* HeimdallrHTTPClientURLSession.swift in Sources */,
 				DC52208F1BEA321500F37F2A /* OAuthAccessToken.swift in Sources */,
 				E258A16E1CC6BC8800649F5A /* OAuthAccessTokenDefaultParser.swift in Sources */,
 				DC52208C1BEA321500F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */,
@@ -979,7 +979,7 @@
 				DC52209B1BEA321600F37F2A /* URLRequestExtensions.swift in Sources */,
 				DC5220A01BEA321600F37F2A /* OAuthClientCredentials.swift in Sources */,
 				DC52209E1BEA321600F37F2A /* OAuthAccessTokenStore.swift in Sources */,
-				DC5220971BEA321600F37F2A /* HeimdallrHTTPClientNSURLSession.swift in Sources */,
+				DC5220971BEA321600F37F2A /* HeimdallrHTTPClientURLSession.swift in Sources */,
 				DC52209C1BEA321600F37F2A /* OAuthAccessToken.swift in Sources */,
 				E258A16D1CC6BC8700649F5A /* OAuthAccessTokenDefaultParser.swift in Sources */,
 				DC5220991BEA321600F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */,

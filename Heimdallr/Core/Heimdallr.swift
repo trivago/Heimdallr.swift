@@ -53,14 +53,14 @@ public let HeimdallrErrorNotAuthorized = 2
     /// - parameter accessTokenParser: The access token response parser.
     ///     Default: `OAuthAccessTokenDefaultParser`.
     /// - parameter httpClient: The HTTP client that should be used for requesting
-    ///     access tokens. Default: `HeimdallrHTTPClientNSURLSession`.
+    ///     access tokens. Default: `HeimdallrHTTPClientURLSession`.
     /// - parameter resourceRequestAuthenticator: The request authenticator that is 
     ///     used to authenticate requests. Default: 
     ///     `HeimdallResourceRequestAuthenticatorHTTPAuthorizationHeader`.
     ///
     /// - returns: A new client initialized with the given token endpoint URL,
     ///     credentials and access token store.
-    @objc public init(tokenURL: URL, credentials: OAuthClientCredentials? = nil, accessTokenStore: OAuthAccessTokenStore = OAuthAccessTokenKeychainStore(), accessTokenParser: OAuthAccessTokenParser = OAuthAccessTokenDefaultParser(), httpClient: HeimdallrHTTPClient = HeimdallrHTTPClientNSURLSession(), resourceRequestAuthenticator: HeimdallResourceRequestAuthenticator = HeimdallResourceRequestAuthenticatorHTTPAuthorizationHeader()) {
+    @objc public init(tokenURL: URL, credentials: OAuthClientCredentials? = nil, accessTokenStore: OAuthAccessTokenStore = OAuthAccessTokenKeychainStore(), accessTokenParser: OAuthAccessTokenParser = OAuthAccessTokenDefaultParser(), httpClient: HeimdallrHTTPClient = HeimdallrHTTPClientURLSession(), resourceRequestAuthenticator: HeimdallResourceRequestAuthenticator = HeimdallResourceRequestAuthenticatorHTTPAuthorizationHeader()) {
         self.tokenURL = tokenURL
         self.credentials = credentials
         self.accessTokenStore = accessTokenStore

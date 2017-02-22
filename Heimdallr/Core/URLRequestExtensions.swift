@@ -21,7 +21,7 @@ public enum HTTPAuthentication: Equatable {
         case .basicAuthentication(let username, let password):
             if let credentials = "\(username):\(password)"
                 .data(using: String.Encoding.ascii)?
-                .base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0)) {
+                .base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0)) {
                 return "Basic \(credentials)"
             } else {
                 return nil
