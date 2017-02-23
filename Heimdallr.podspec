@@ -32,6 +32,7 @@ Pod::Spec.new do |spec|
   spec.subspec 'ReactiveCocoa' do |subspec|
     subspec.dependency 'Heimdallr/Core'
     subspec.dependency 'ReactiveSwift', '~> 1.0'
+    subspec.dependency 'ReactiveObjCBridge', '~> 1.0'
 
     subspec.source_files = 'Heimdallr/ReactiveCocoa/*.swift'
   end
