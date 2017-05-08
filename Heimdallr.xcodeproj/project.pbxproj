@@ -590,6 +590,7 @@
 				DC545DBE1A89F0F10051A575 /* Frameworks */,
 				DC545DBF1A89F0F10051A575 /* Headers */,
 				DC545DC01A89F0F10051A575 /* Resources */,
+				E8A3F08B1EC0A9780019B8D9 /* Run swiftformat */,
 			);
 			buildRules = (
 			);
@@ -870,6 +871,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E8A3F08B1EC0A9780019B8D9 /* Run swiftformat */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run swiftformat";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/bin/swiftformat\" \"${SRCROOT}/Heimdallr/\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DC545DBD1A89F0F10051A575 /* Sources */ = {
