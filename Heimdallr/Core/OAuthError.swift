@@ -42,7 +42,7 @@ public extension OAuthErrorCode {
 extension OAuthErrorCode {
     public static func decode(_ json: AnyObject?) -> OAuthErrorCode? {
         return json.flatMap { $0 as? String }.flatMap { code in
-            return OAuthErrorCode(rawValue: code)
+            OAuthErrorCode(rawValue: code)
         }
     }
 }

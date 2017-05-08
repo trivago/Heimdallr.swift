@@ -180,7 +180,7 @@ public let HeimdallrErrorNotAuthorized = 2
     /// - returns: The given request authorized using the resource request
     ///     authenticator.
     private func authenticateRequest(_ request: URLRequest, accessToken: OAuthAccessToken) -> URLRequest {
-        return self.resourceRequestAuthenticator.authenticateResourceRequest(request, accessToken: accessToken)
+        return resourceRequestAuthenticator.authenticateResourceRequest(request, accessToken: accessToken)
     }
 
     /// Alters the given request by adding authentication, if possible.

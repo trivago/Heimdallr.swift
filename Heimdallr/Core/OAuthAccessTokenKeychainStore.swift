@@ -31,7 +31,7 @@ internal struct Keychain {
 
     internal func valueForKey(_ key: String) -> String? {
         return dataForKey(key).flatMap { data in
-            return String(data: data, encoding: String.Encoding.utf8)
+            String(data: data, encoding: String.Encoding.utf8)
         }
     }
 
@@ -114,7 +114,7 @@ internal struct Keychain {
         let refreshToken = keychain["refresh_token"]
         let expiresAt = keychain["expires_at"].flatMap { description in
             return Double(description).flatMap { expiresAtInSeconds in
-                return Date(timeIntervalSince1970: expiresAtInSeconds)
+                Date(timeIntervalSince1970: expiresAtInSeconds)
             }
         }
 

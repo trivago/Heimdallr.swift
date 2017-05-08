@@ -18,7 +18,7 @@ public enum HTTPAuthentication: Equatable {
     /// `Authorization` header.
     fileprivate var value: String? {
         switch self {
-        case .basicAuthentication(let username, let password):
+        case let .basicAuthentication(username, password):
             if let credentials = "\(username):\(password)"
                 .data(using: String.Encoding.ascii)?
                 .base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0)) {
@@ -26,7 +26,7 @@ public enum HTTPAuthentication: Equatable {
             } else {
                 return nil
             }
-        case .accessTokenAuthentication(let accessToken):
+        case let .accessTokenAuthentication(accessToken):
             return "\(accessToken.tokenType) \(accessToken.accessToken)"
         }
     }
@@ -34,10 +34,10 @@ public enum HTTPAuthentication: Equatable {
 
 public func == (lhs: HTTPAuthentication, rhs: HTTPAuthentication) -> Bool {
     switch (lhs, rhs) {
-    case (.basicAuthentication(let lusername, let lpassword), .basicAuthentication(let rusername, let rpassword)):
+    case let (.basicAuthentication(lusername, lpassword), .basicAuthentication(rusername, rpassword)):
         return lusername == rusername
             && lpassword == rpassword
-    case (.accessTokenAuthentication(let laccessToken), .accessTokenAuthentication(let raccessToken)):
+    case let (.accessTokenAuthentication(laccessToken), .accessTokenAuthentication(raccessToken)):
         return laccessToken == raccessToken
     default:
         return false
@@ -49,7 +49,7 @@ private let HTTPRequestHeaderFieldAuthorization = "Authorization"
 public extension URLRequest {
     /// Returns the HTTP `Authorization` header value or `nil` if not set.
     public var HTTPAuthorization: String? {
-        return self.value(forHTTPHeaderField: HTTPRequestHeaderFieldAuthorization)
+        return value(forHTTPHeaderField: HTTPRequestHeaderFieldAuthorization)
     }
 
     /// Sets the HTTP `Authorization` header value.
@@ -58,7 +58,7 @@ public extension URLRequest {
     ///
     /// TODO: Declarations in extensions cannot override yet.
     public mutating func setHTTPAuthorization(_ value: String?) {
-        self.setValue(value, forHTTPHeaderField: HTTPRequestHeaderFieldAuthorization)
+        setValue(value, forHTTPHeaderField: HTTPRequestHeaderFieldAuthorization)
     }
 
     /// Sets the HTTP `Authorization` header value using the given HTTP
@@ -66,7 +66,7 @@ public extension URLRequest {
     ///
     /// - parameter authentication: The HTTP authentication to be set.
     public mutating func setHTTPAuthorization(_ authentication: HTTPAuthentication) {
-        self.setHTTPAuthorization(authentication.value)
+        setHTTPAuthorization(authentication.value)
     }
 
     /// Sets the HTTP body using the given paramters encoded as query string.
