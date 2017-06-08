@@ -29,13 +29,13 @@ public enum OAuthAuthorizationGrant {
     /// - `.Extension`: `grantType`, `parameters`
     public var parameters: [String: String] {
         switch self {
-        case .resourceOwnerPasswordCredentials(let username, let password):
+        case let .resourceOwnerPasswordCredentials(username, password):
             return [
                 "grant_type": "password",
                 "username": username,
                 "password": password,
             ]
-        case .refreshToken(let refreshToken):
+        case let .refreshToken(refreshToken):
             return [
                 "grant_type": "refresh_token",
                 "refresh_token": refreshToken,

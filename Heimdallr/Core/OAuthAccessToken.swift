@@ -59,7 +59,7 @@ extension OAuthAccessToken {
     public class func decode(_ json: [String: AnyObject]) -> OAuthAccessToken? {
         func toDate(_ timeIntervalSinceNow: TimeInterval?) -> Date? {
             return timeIntervalSinceNow.map { timeIntervalSinceNow in
-                return Date(timeIntervalSinceNow: timeIntervalSinceNow)
+                Date(timeIntervalSinceNow: timeIntervalSinceNow)
             }
         }
 

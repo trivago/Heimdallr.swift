@@ -13,13 +13,13 @@ extension Heimdallr {
     ///     completes when the request finishes successfully or sends an error
     ///     if the request finishes with an error.
     public func requestAccessToken(username: String, password: String) -> SignalProducer<Void, NSError> {
-        return SignalProducer { observer, disposable in
+        return SignalProducer { observer, _ in
             self.requestAccessToken(username: username, password: password) { result in
                 switch result {
                 case .success:
                     observer.send(value: ())
                     observer.sendCompleted()
-                case .failure(let error):
+                case let .failure(error):
                     observer.send(error: error)
                 }
             }
@@ -34,13 +34,13 @@ extension Heimdallr {
     ///     completes when the request finishes successfully or sends an error
     ///     if the request finishes with an error.
     public func requestAccessToken(grantType: String, parameters: [String: String]) -> SignalProducer<Void, NSError> {
-        return SignalProducer { observer, disposable in
+        return SignalProducer { observer, _ in
             self.requestAccessToken(grantType: grantType, parameters: parameters) { result in
                 switch result {
                 case .success:
                     observer.send(value: ())
                     observer.sendCompleted()
-                case .failure(let error):
+                case let .failure(error):
                     observer.send(error: error)
                 }
             }
@@ -60,13 +60,13 @@ extension Heimdallr {
     ///     sends the authenticated request on success or an error if the
     ///     request could not be authenticated.
     public func authenticateRequest(request: URLRequest) -> SignalProducer<URLRequest, NSError> {
-        return SignalProducer { observer, disposable in
+        return SignalProducer { observer, _ in
             self.authenticateRequest(request) { result in
                 switch result {
-                case .success(let value):
+                case let .success(value):
                     observer.send(value: value)
                     observer.sendCompleted()
-                case .failure(let error):
+                case let .failure(error):
                     observer.send(error: error)
                 }
             }
