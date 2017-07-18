@@ -1,6 +1,6 @@
 # Core
-github "antitypical/Result" ~> 3.1
+github "antitypical/Result" ~> 3.2.2
 
 # ReactiveCocoa
-github "ReactiveCocoa/ReactiveSwift" ~> 1.1.1
+github "ReactiveCocoa/ReactiveSwift" ~> 1.1.5
 github "ReactiveCocoa/ReactiveObjCBridge" ~> 1.0.2
