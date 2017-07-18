@@ -107,13 +107,24 @@ protocol OAuthAccessTokenStore {
 }
 ```
 
-Heimdallr ships with an already built-in persistent keychain-based access token store. The service is configurable:
+Heimdallr ships with two already built-in persistent access token store. 
+
+
+#### Keychain-based access token store
+
+The service is configurable:
 
 ```swift
 var service: String!
 
 let accessTokenStore = OAuthAccessTokenKeychainStore(service: service)
 ```
+
+#### iCloud Key Value-based access token store
+
+It stores values on the iCloud Key-Value Storage container for the current iCloud account.
+
+Before using this persistent access token store, please make sure your are app has been properly setup for __iCloud Key-Value Storage__ capability. More info [here](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW19).
 
 ### HeimdallrHTTPClient
 

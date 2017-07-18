@@ -119,6 +119,8 @@
 		E258A16C1CC6BC8600649F5A /* OAuthAccessTokenDefaultParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258A1651CC6B66900649F5A /* OAuthAccessTokenDefaultParser.swift */; };
 		E258A16D1CC6BC8700649F5A /* OAuthAccessTokenDefaultParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258A1651CC6B66900649F5A /* OAuthAccessTokenDefaultParser.swift */; };
 		E258A16E1CC6BC8800649F5A /* OAuthAccessTokenDefaultParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258A1651CC6B66900649F5A /* OAuthAccessTokenDefaultParser.swift */; };
+		E5E39D991D04C5CE00713AC9 /* OAuthAccessTokenICloudKeyValueStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E39D981D04C5CE00713AC9 /* OAuthAccessTokenICloudKeyValueStore.swift */; };
+		E5E39D9A1D04D09000713AC9 /* OAuthAccessTokenICloudKeyValueStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E39D981D04C5CE00713AC9 /* OAuthAccessTokenICloudKeyValueStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -227,6 +229,7 @@
 		DC712A5E1C85AD77009860A5 /* watchOS-StaticLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "watchOS-StaticLibrary.xcconfig"; sourceTree = "<group>"; };
 		E258A1651CC6B66900649F5A /* OAuthAccessTokenDefaultParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenDefaultParser.swift; sourceTree = "<group>"; };
 		E258A1671CC6B8C500649F5A /* OAuthAccessTokenParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenParser.swift; sourceTree = "<group>"; };
+		E5E39D981D04C5CE00713AC9 /* OAuthAccessTokenICloudKeyValueStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenICloudKeyValueStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -353,6 +356,7 @@
 				DC5220511BEA320B00F37F2A /* OAuthAuthorizationGrant.swift */,
 				DC5220521BEA320B00F37F2A /* OAuthClientCredentials.swift */,
 				DC5220531BEA320B00F37F2A /* OAuthError.swift */,
+				E5E39D981D04C5CE00713AC9 /* OAuthAccessTokenICloudKeyValueStore.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -904,6 +908,7 @@
 				DC5220701BEA321300F37F2A /* HeimdallrHTTPClientURLSession.swift in Sources */,
 				DC5220751BEA321300F37F2A /* OAuthAccessToken.swift in Sources */,
 				DC5220721BEA321300F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */,
+				E5E39D9A1D04D09000713AC9 /* OAuthAccessTokenICloudKeyValueStore.swift in Sources */,
 				DC52206F1BEA321300F37F2A /* HeimdallrHTTPClient.swift in Sources */,
 				E258A1691CC6BC7B00649F5A /* OAuthAccessTokenParser.swift in Sources */,
 				E258A16C1CC6BC8600649F5A /* OAuthAccessTokenDefaultParser.swift in Sources */,
@@ -937,6 +942,7 @@
 				DC52207D1BEA321500F37F2A /* HeimdallrHTTPClientURLSession.swift in Sources */,
 				DC5220821BEA321500F37F2A /* OAuthAccessToken.swift in Sources */,
 				DC52207F1BEA321500F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */,
+				E5E39D991D04C5CE00713AC9 /* OAuthAccessTokenICloudKeyValueStore.swift in Sources */,
 				E258A1681CC6B8C500649F5A /* OAuthAccessTokenParser.swift in Sources */,
 				DC52207C1BEA321500F37F2A /* HeimdallrHTTPClient.swift in Sources */,
 				E258A1661CC6B66900649F5A /* OAuthAccessTokenDefaultParser.swift in Sources */,
