@@ -116,7 +116,6 @@
 		DC5220551BEA320B00F37F2A /* Heimdallr+ReactiveCocoa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Heimdallr+ReactiveCocoa.swift"; sourceTree = "<group>"; };
 		DC5220571BEA320B00F37F2A /* Heimdallr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heimdallr.h; sourceTree = "<group>"; };
 		DC5220581BEA320B00F37F2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DC5220591BEA320B00F37F2A /* ReactiveHeimdallr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReactiveHeimdallr.h; sourceTree = "<group>"; };
 		DC5220611BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeaderSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeaderSpec.swift; sourceTree = "<group>"; };
 		DC5220621BEA320B00F37F2A /* HeimdallrSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeimdallrSpec.swift; sourceTree = "<group>"; };
 		DC5220641BEA320B00F37F2A /* URLRequestExtensionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestExtensionsSpec.swift; sourceTree = "<group>"; };
@@ -266,7 +265,6 @@
 			children = (
 				DC5220571BEA320B00F37F2A /* Heimdallr.h */,
 				DC5220581BEA320B00F37F2A /* Info.plist */,
-				DC5220591BEA320B00F37F2A /* ReactiveHeimdallr.h */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
