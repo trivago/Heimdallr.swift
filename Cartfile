@@ -1,5 +1,2 @@
 # Core
 github "antitypical/Result" ~> 3.2
-
-# ReactiveCocoa
-github "ReactiveCocoa/ReactiveSwift" ~> 2.0
