@@ -66,8 +66,6 @@ Installation is possible via Carthage or CocoaPods, see below for either method:
 
 3. [Make sure your application's target links against `Heimdallr.framework` and copies all relevant frameworks into its application bundle (iOS); or embeds the binaries of all relevant frameworks (Mac).](https://github.com/carthage/carthage#getting-started)
 
-Extensions for [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa) are provided as `ReactiveHeimdallr.framework`.
-
 ### CocoaPods
 
 1. Add Heimdallr to your [Podfile](https://guides.cocoapods.org/syntax/podfile.html):
@@ -77,9 +75,6 @@ Extensions for [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa) a
    ```
 
 2.  Run `pod install` to fetch and build Heimdallr and its dependencies.
-
-Extensions for [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa) are provided as `ReactiveCocoa` [subspec](https://guides.cocoapods.org/syntax/podfile.html#pod).
-
 ## Usage
 
 ### OAuthClientCredentials
