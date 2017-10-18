@@ -113,7 +113,6 @@
 		DC5220511BEA320B00F37F2A /* OAuthAuthorizationGrant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthAuthorizationGrant.swift; sourceTree = "<group>"; };
 		DC5220521BEA320B00F37F2A /* OAuthClientCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthClientCredentials.swift; sourceTree = "<group>"; };
 		DC5220531BEA320B00F37F2A /* OAuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthError.swift; sourceTree = "<group>"; };
-		DC5220551BEA320B00F37F2A /* Heimdallr+ReactiveCocoa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Heimdallr+ReactiveCocoa.swift"; sourceTree = "<group>"; };
 		DC5220571BEA320B00F37F2A /* Heimdallr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heimdallr.h; sourceTree = "<group>"; };
 		DC5220581BEA320B00F37F2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC5220611BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeaderSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeaderSpec.swift; sourceTree = "<group>"; };
@@ -121,7 +120,6 @@
 		DC5220641BEA320B00F37F2A /* URLRequestExtensionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestExtensionsSpec.swift; sourceTree = "<group>"; };
 		DC5220651BEA320B00F37F2A /* OAuthAccessTokenKeychainStoreSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenKeychainStoreSpec.swift; sourceTree = "<group>"; };
 		DC5220661BEA320B00F37F2A /* OAuthAccessTokenSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenSpec.swift; sourceTree = "<group>"; };
-		DC52206B1BEA320B00F37F2A /* Heimdallr+ReactiveCocoaSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Heimdallr+ReactiveCocoaSpec.swift"; sourceTree = "<group>"; };
 		DC52206D1BEA320B00F37F2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC5220A91BEA32A000F37F2A /* authorize-error.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "authorize-error.json"; sourceTree = "<group>"; };
 		DC5220AA1BEA32A000F37F2A /* authorize-invalid-token.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "authorize-invalid-token.json"; sourceTree = "<group>"; };
@@ -225,7 +223,6 @@
 			isa = PBXGroup;
 			children = (
 				DC5220461BEA320B00F37F2A /* Core */,
-				DC5220541BEA320B00F37F2A /* ReactiveCocoa */,
 				DC5220561BEA320B00F37F2A /* Supporting Files */,
 			);
 			path = Heimdallr;
@@ -252,14 +249,6 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
-		DC5220541BEA320B00F37F2A /* ReactiveCocoa */ = {
-			isa = PBXGroup;
-			children = (
-				DC5220551BEA320B00F37F2A /* Heimdallr+ReactiveCocoa.swift */,
-			);
-			path = ReactiveCocoa;
-			sourceTree = "<group>";
-		};
 		DC5220561BEA320B00F37F2A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,7 +262,6 @@
 			isa = PBXGroup;
 			children = (
 				DC52205B1BEA320B00F37F2A /* Core */,
-				DC52206A1BEA320B00F37F2A /* ReactiveCocoa */,
 				DC52206C1BEA320B00F37F2A /* Supporting Files */,
 			);
 			path = HeimdallrTests;
@@ -290,14 +278,6 @@
 				DC5220661BEA320B00F37F2A /* OAuthAccessTokenSpec.swift */,
 			);
 			path = Core;
-			sourceTree = "<group>";
-		};
-		DC52206A1BEA320B00F37F2A /* ReactiveCocoa */ = {
-			isa = PBXGroup;
-			children = (
-				DC52206B1BEA320B00F37F2A /* Heimdallr+ReactiveCocoaSpec.swift */,
-			);
-			path = ReactiveCocoa;
 			sourceTree = "<group>";
 		};
 		DC52206C1BEA320B00F37F2A /* Supporting Files */ = {
