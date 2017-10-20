@@ -7,24 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D44F76371DA52BDB002A4AC4 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44F76361DA52BDB002A4AC4 /* ReactiveSwift.framework */; };
-		D44F76391DA52BEA002A4AC4 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44F76381DA52BEA002A4AC4 /* ReactiveSwift.framework */; };
 		DC209CD31C845FA100C43C75 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CCB1C845F1900C43C75 /* Result.framework */; };
 		DC209CD61C845FA300C43C75 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CCB1C845F1900C43C75 /* Result.framework */; };
-		DC209CD91C845FA400C43C75 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CCB1C845F1900C43C75 /* Result.framework */; };
-		DC209CDC1C845FA400C43C75 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CCB1C845F1900C43C75 /* Result.framework */; };
 		DC209CDD1C845FCB00C43C75 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC71C845F1900C43C75 /* Nimble.framework */; };
 		DC209CDE1C845FCB00C43C75 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC81C845F1900C43C75 /* OHHTTPStubs.framework */; };
 		DC209CDF1C845FCB00C43C75 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC91C845F1900C43C75 /* Quick.framework */; };
 		DC209CE01C845FCC00C43C75 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC71C845F1900C43C75 /* Nimble.framework */; };
 		DC209CE11C845FCC00C43C75 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC81C845F1900C43C75 /* OHHTTPStubs.framework */; };
 		DC209CE21C845FCC00C43C75 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC91C845F1900C43C75 /* Quick.framework */; };
-		DC209CE31C845FCD00C43C75 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC71C845F1900C43C75 /* Nimble.framework */; };
-		DC209CE41C845FCD00C43C75 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC81C845F1900C43C75 /* OHHTTPStubs.framework */; };
-		DC209CE51C845FCD00C43C75 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC91C845F1900C43C75 /* Quick.framework */; };
-		DC209CE61C845FCE00C43C75 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC71C845F1900C43C75 /* Nimble.framework */; };
-		DC209CE71C845FCE00C43C75 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC81C845F1900C43C75 /* OHHTTPStubs.framework */; };
-		DC209CE81C845FCE00C43C75 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC91C845F1900C43C75 /* Quick.framework */; };
 		DC52206E1BEA321300F37F2A /* Heimdallr.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220471BEA320B00F37F2A /* Heimdallr.swift */; };
 		DC52206F1BEA321300F37F2A /* HeimdallrHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220481BEA320B00F37F2A /* HeimdallrHTTPClient.swift */; };
 		DC5220701BEA321300F37F2A /* HeimdallrHTTPClientURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220491BEA320B00F37F2A /* HeimdallrHTTPClientURLSession.swift */; };
@@ -49,34 +39,6 @@
 		DC5220851BEA321500F37F2A /* OAuthAuthorizationGrant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220511BEA320B00F37F2A /* OAuthAuthorizationGrant.swift */; };
 		DC5220861BEA321500F37F2A /* OAuthClientCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220521BEA320B00F37F2A /* OAuthClientCredentials.swift */; };
 		DC5220871BEA321500F37F2A /* OAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220531BEA320B00F37F2A /* OAuthError.swift */; };
-		DC5220881BEA321500F37F2A /* Heimdallr.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220471BEA320B00F37F2A /* Heimdallr.swift */; };
-		DC5220891BEA321500F37F2A /* HeimdallrHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220481BEA320B00F37F2A /* HeimdallrHTTPClient.swift */; };
-		DC52208A1BEA321500F37F2A /* HeimdallrHTTPClientURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220491BEA320B00F37F2A /* HeimdallrHTTPClientURLSession.swift */; };
-		DC52208B1BEA321500F37F2A /* HeimdallrResourceRequestAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204A1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticator.swift */; };
-		DC52208C1BEA321500F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204B1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift */; };
-		DC52208E1BEA321500F37F2A /* URLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204D1BEA320B00F37F2A /* URLRequestExtensions.swift */; };
-		DC52208F1BEA321500F37F2A /* OAuthAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204E1BEA320B00F37F2A /* OAuthAccessToken.swift */; };
-		DC5220901BEA321500F37F2A /* OAuthAccessTokenKeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204F1BEA320B00F37F2A /* OAuthAccessTokenKeychainStore.swift */; };
-		DC5220911BEA321500F37F2A /* OAuthAccessTokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220501BEA320B00F37F2A /* OAuthAccessTokenStore.swift */; };
-		DC5220921BEA321500F37F2A /* OAuthAuthorizationGrant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220511BEA320B00F37F2A /* OAuthAuthorizationGrant.swift */; };
-		DC5220931BEA321500F37F2A /* OAuthClientCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220521BEA320B00F37F2A /* OAuthClientCredentials.swift */; };
-		DC5220941BEA321500F37F2A /* OAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220531BEA320B00F37F2A /* OAuthError.swift */; };
-		DC5220951BEA321600F37F2A /* Heimdallr.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220471BEA320B00F37F2A /* Heimdallr.swift */; };
-		DC5220961BEA321600F37F2A /* HeimdallrHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220481BEA320B00F37F2A /* HeimdallrHTTPClient.swift */; };
-		DC5220971BEA321600F37F2A /* HeimdallrHTTPClientURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220491BEA320B00F37F2A /* HeimdallrHTTPClientURLSession.swift */; };
-		DC5220981BEA321600F37F2A /* HeimdallrResourceRequestAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204A1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticator.swift */; };
-		DC5220991BEA321600F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204B1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift */; };
-		DC52209B1BEA321600F37F2A /* URLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204D1BEA320B00F37F2A /* URLRequestExtensions.swift */; };
-		DC52209C1BEA321600F37F2A /* OAuthAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204E1BEA320B00F37F2A /* OAuthAccessToken.swift */; };
-		DC52209D1BEA321600F37F2A /* OAuthAccessTokenKeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52204F1BEA320B00F37F2A /* OAuthAccessTokenKeychainStore.swift */; };
-		DC52209E1BEA321600F37F2A /* OAuthAccessTokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220501BEA320B00F37F2A /* OAuthAccessTokenStore.swift */; };
-		DC52209F1BEA321600F37F2A /* OAuthAuthorizationGrant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220511BEA320B00F37F2A /* OAuthAuthorizationGrant.swift */; };
-		DC5220A01BEA321600F37F2A /* OAuthClientCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220521BEA320B00F37F2A /* OAuthClientCredentials.swift */; };
-		DC5220A11BEA321600F37F2A /* OAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220531BEA320B00F37F2A /* OAuthError.swift */; };
-		DC5220A21BEA321E00F37F2A /* Heimdallr+ReactiveCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220551BEA320B00F37F2A /* Heimdallr+ReactiveCocoa.swift */; };
-		DC5220A31BEA321F00F37F2A /* Heimdallr+ReactiveCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220551BEA320B00F37F2A /* Heimdallr+ReactiveCocoa.swift */; };
-		DC5220A41BEA322900F37F2A /* ReactiveHeimdallr.h in Headers */ = {isa = PBXBuildFile; fileRef = DC5220591BEA320B00F37F2A /* ReactiveHeimdallr.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DC5220A51BEA322A00F37F2A /* ReactiveHeimdallr.h in Headers */ = {isa = PBXBuildFile; fileRef = DC5220591BEA320B00F37F2A /* ReactiveHeimdallr.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC5220A61BEA323500F37F2A /* Heimdallr.h in Headers */ = {isa = PBXBuildFile; fileRef = DC5220571BEA320B00F37F2A /* Heimdallr.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC5220A71BEA323500F37F2A /* Heimdallr.h in Headers */ = {isa = PBXBuildFile; fileRef = DC5220571BEA320B00F37F2A /* Heimdallr.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC5220B11BEA32A000F37F2A /* authorize-error.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220A91BEA32A000F37F2A /* authorize-error.json */; };
@@ -105,20 +67,12 @@
 		DC5220CA1BEA32AA00F37F2A /* URLRequestExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220641BEA320B00F37F2A /* URLRequestExtensionsSpec.swift */; };
 		DC5220CB1BEA32AA00F37F2A /* OAuthAccessTokenKeychainStoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220651BEA320B00F37F2A /* OAuthAccessTokenKeychainStoreSpec.swift */; };
 		DC5220CC1BEA32AA00F37F2A /* OAuthAccessTokenSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220661BEA320B00F37F2A /* OAuthAccessTokenSpec.swift */; };
-		DC5220CD1BEA32AF00F37F2A /* Heimdallr+ReactiveCocoaSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52206B1BEA320B00F37F2A /* Heimdallr+ReactiveCocoaSpec.swift */; };
-		DC5220CE1BEA32AF00F37F2A /* Heimdallr+ReactiveCocoaSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52206B1BEA320B00F37F2A /* Heimdallr+ReactiveCocoaSpec.swift */; };
 		DC545DCE1A89F0F10051A575 /* Heimdallr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC545DC21A89F0F10051A575 /* Heimdallr.framework */; };
 		DC582F4D1BE1319F0017BE06 /* Heimdallr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F431BE1319F0017BE06 /* Heimdallr.framework */; };
-		DC582FCA1BE13EB30017BE06 /* ReactiveHeimdallr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582FC01BE13EB20017BE06 /* ReactiveHeimdallr.framework */; };
-		DC582FFF1BE148610017BE06 /* ReactiveHeimdallr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582FF51BE148610017BE06 /* ReactiveHeimdallr.framework */; };
 		E258A1661CC6B66900649F5A /* OAuthAccessTokenDefaultParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258A1651CC6B66900649F5A /* OAuthAccessTokenDefaultParser.swift */; };
 		E258A1681CC6B8C500649F5A /* OAuthAccessTokenParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258A1671CC6B8C500649F5A /* OAuthAccessTokenParser.swift */; };
 		E258A1691CC6BC7B00649F5A /* OAuthAccessTokenParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258A1671CC6B8C500649F5A /* OAuthAccessTokenParser.swift */; };
-		E258A16A1CC6BC7C00649F5A /* OAuthAccessTokenParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258A1671CC6B8C500649F5A /* OAuthAccessTokenParser.swift */; };
-		E258A16B1CC6BC7E00649F5A /* OAuthAccessTokenParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258A1671CC6B8C500649F5A /* OAuthAccessTokenParser.swift */; };
 		E258A16C1CC6BC8600649F5A /* OAuthAccessTokenDefaultParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258A1651CC6B66900649F5A /* OAuthAccessTokenDefaultParser.swift */; };
-		E258A16D1CC6BC8700649F5A /* OAuthAccessTokenDefaultParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258A1651CC6B66900649F5A /* OAuthAccessTokenDefaultParser.swift */; };
-		E258A16E1CC6BC8800649F5A /* OAuthAccessTokenDefaultParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258A1651CC6B66900649F5A /* OAuthAccessTokenDefaultParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,20 +89,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = DC582F421BE1319F0017BE06;
 			remoteInfo = "Heimdallr-Mac";
-		};
-		DC582FCB1BE13EB30017BE06 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DC545DB91A89F0F10051A575 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DC582FBF1BE13EB20017BE06;
-			remoteInfo = ReactiveHeimdallr;
-		};
-		DC5830001BE148610017BE06 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DC545DB91A89F0F10051A575 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DC582FF41BE148610017BE06;
-			remoteInfo = "ReactiveHeimdallr-Mac";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -173,16 +113,13 @@
 		DC5220511BEA320B00F37F2A /* OAuthAuthorizationGrant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthAuthorizationGrant.swift; sourceTree = "<group>"; };
 		DC5220521BEA320B00F37F2A /* OAuthClientCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthClientCredentials.swift; sourceTree = "<group>"; };
 		DC5220531BEA320B00F37F2A /* OAuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthError.swift; sourceTree = "<group>"; };
-		DC5220551BEA320B00F37F2A /* Heimdallr+ReactiveCocoa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Heimdallr+ReactiveCocoa.swift"; sourceTree = "<group>"; };
 		DC5220571BEA320B00F37F2A /* Heimdallr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heimdallr.h; sourceTree = "<group>"; };
 		DC5220581BEA320B00F37F2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DC5220591BEA320B00F37F2A /* ReactiveHeimdallr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReactiveHeimdallr.h; sourceTree = "<group>"; };
 		DC5220611BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeaderSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeaderSpec.swift; sourceTree = "<group>"; };
 		DC5220621BEA320B00F37F2A /* HeimdallrSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeimdallrSpec.swift; sourceTree = "<group>"; };
 		DC5220641BEA320B00F37F2A /* URLRequestExtensionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestExtensionsSpec.swift; sourceTree = "<group>"; };
 		DC5220651BEA320B00F37F2A /* OAuthAccessTokenKeychainStoreSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenKeychainStoreSpec.swift; sourceTree = "<group>"; };
 		DC5220661BEA320B00F37F2A /* OAuthAccessTokenSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenSpec.swift; sourceTree = "<group>"; };
-		DC52206B1BEA320B00F37F2A /* Heimdallr+ReactiveCocoaSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Heimdallr+ReactiveCocoaSpec.swift"; sourceTree = "<group>"; };
 		DC52206D1BEA320B00F37F2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC5220A91BEA32A000F37F2A /* authorize-error.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "authorize-error.json"; sourceTree = "<group>"; };
 		DC5220AA1BEA32A000F37F2A /* authorize-invalid-token.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "authorize-invalid-token.json"; sourceTree = "<group>"; };
@@ -196,10 +133,6 @@
 		DC545DCD1A89F0F10051A575 /* HeimdallrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeimdallrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC582F431BE1319F0017BE06 /* Heimdallr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Heimdallr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC582F4C1BE1319F0017BE06 /* HeimdallrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeimdallrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC582FC01BE13EB20017BE06 /* ReactiveHeimdallr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactiveHeimdallr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC582FC91BE13EB30017BE06 /* ReactiveHeimdallrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactiveHeimdallrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC582FF51BE148610017BE06 /* ReactiveHeimdallr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactiveHeimdallr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC582FFE1BE148610017BE06 /* ReactiveHeimdallrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactiveHeimdallrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC712A3F1C85AD77009860A5 /* Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
 		DC712A411C85AD77009860A5 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		DC712A421C85AD77009860A5 /* Profile.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Profile.xcconfig; sourceTree = "<group>"; };
@@ -268,46 +201,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DC582FBC1BE13EB20017BE06 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D44F76391DA52BEA002A4AC4 /* ReactiveSwift.framework in Frameworks */,
-				DC209CD91C845FA400C43C75 /* Result.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DC582FC61BE13EB30017BE06 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DC209CE31C845FCD00C43C75 /* Nimble.framework in Frameworks */,
-				DC209CE41C845FCD00C43C75 /* OHHTTPStubs.framework in Frameworks */,
-				DC209CE51C845FCD00C43C75 /* Quick.framework in Frameworks */,
-				DC582FCA1BE13EB30017BE06 /* ReactiveHeimdallr.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DC582FF11BE148610017BE06 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D44F76371DA52BDB002A4AC4 /* ReactiveSwift.framework in Frameworks */,
-				DC209CDC1C845FA400C43C75 /* Result.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DC582FFB1BE148610017BE06 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DC209CE61C845FCE00C43C75 /* Nimble.framework in Frameworks */,
-				DC209CE71C845FCE00C43C75 /* OHHTTPStubs.framework in Frameworks */,
-				DC209CE81C845FCE00C43C75 /* Quick.framework in Frameworks */,
-				DC582FFF1BE148610017BE06 /* ReactiveHeimdallr.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -329,16 +222,6 @@
 		DC5220451BEA320B00F37F2A /* Heimdallr */ = {
 			isa = PBXGroup;
 			children = (
-				DC5220461BEA320B00F37F2A /* Core */,
-				DC5220541BEA320B00F37F2A /* ReactiveCocoa */,
-				DC5220561BEA320B00F37F2A /* Supporting Files */,
-			);
-			path = Heimdallr;
-			sourceTree = "<group>";
-		};
-		DC5220461BEA320B00F37F2A /* Core */ = {
-			isa = PBXGroup;
-			children = (
 				DC5220471BEA320B00F37F2A /* Heimdallr.swift */,
 				DC5220481BEA320B00F37F2A /* HeimdallrHTTPClient.swift */,
 				DC5220491BEA320B00F37F2A /* HeimdallrHTTPClientURLSession.swift */,
@@ -353,16 +236,9 @@
 				DC5220511BEA320B00F37F2A /* OAuthAuthorizationGrant.swift */,
 				DC5220521BEA320B00F37F2A /* OAuthClientCredentials.swift */,
 				DC5220531BEA320B00F37F2A /* OAuthError.swift */,
+				DC5220561BEA320B00F37F2A /* Supporting Files */,
 			);
-			path = Core;
-			sourceTree = "<group>";
-		};
-		DC5220541BEA320B00F37F2A /* ReactiveCocoa */ = {
-			isa = PBXGroup;
-			children = (
-				DC5220551BEA320B00F37F2A /* Heimdallr+ReactiveCocoa.swift */,
-			);
-			path = ReactiveCocoa;
+			path = Heimdallr;
 			sourceTree = "<group>";
 		};
 		DC5220561BEA320B00F37F2A /* Supporting Files */ = {
@@ -370,22 +246,11 @@
 			children = (
 				DC5220571BEA320B00F37F2A /* Heimdallr.h */,
 				DC5220581BEA320B00F37F2A /* Info.plist */,
-				DC5220591BEA320B00F37F2A /* ReactiveHeimdallr.h */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		DC52205A1BEA320B00F37F2A /* HeimdallrTests */ = {
-			isa = PBXGroup;
-			children = (
-				DC52205B1BEA320B00F37F2A /* Core */,
-				DC52206A1BEA320B00F37F2A /* ReactiveCocoa */,
-				DC52206C1BEA320B00F37F2A /* Supporting Files */,
-			);
-			path = HeimdallrTests;
-			sourceTree = "<group>";
-		};
-		DC52205B1BEA320B00F37F2A /* Core */ = {
 			isa = PBXGroup;
 			children = (
 				DC5220611BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeaderSpec.swift */,
@@ -394,16 +259,9 @@
 				DC5220641BEA320B00F37F2A /* URLRequestExtensionsSpec.swift */,
 				DC5220651BEA320B00F37F2A /* OAuthAccessTokenKeychainStoreSpec.swift */,
 				DC5220661BEA320B00F37F2A /* OAuthAccessTokenSpec.swift */,
+				DC52206C1BEA320B00F37F2A /* Supporting Files */,
 			);
-			path = Core;
-			sourceTree = "<group>";
-		};
-		DC52206A1BEA320B00F37F2A /* ReactiveCocoa */ = {
-			isa = PBXGroup;
-			children = (
-				DC52206B1BEA320B00F37F2A /* Heimdallr+ReactiveCocoaSpec.swift */,
-			);
-			path = ReactiveCocoa;
+			path = HeimdallrTests;
 			sourceTree = "<group>";
 		};
 		DC52206C1BEA320B00F37F2A /* Supporting Files */ = {
@@ -447,10 +305,6 @@
 				DC545DCD1A89F0F10051A575 /* HeimdallrTests.xctest */,
 				DC582F431BE1319F0017BE06 /* Heimdallr.framework */,
 				DC582F4C1BE1319F0017BE06 /* HeimdallrTests.xctest */,
-				DC582FC01BE13EB20017BE06 /* ReactiveHeimdallr.framework */,
-				DC582FC91BE13EB30017BE06 /* ReactiveHeimdallrTests.xctest */,
-				DC582FF51BE148610017BE06 /* ReactiveHeimdallr.framework */,
-				DC582FFE1BE148610017BE06 /* ReactiveHeimdallrTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -563,22 +417,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DC582FBD1BE13EB20017BE06 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DC5220A41BEA322900F37F2A /* ReactiveHeimdallr.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DC582FF21BE148610017BE06 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DC5220A51BEA322A00F37F2A /* ReactiveHeimdallr.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -655,78 +493,6 @@
 			productReference = DC582F4C1BE1319F0017BE06 /* HeimdallrTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		DC582FBF1BE13EB20017BE06 /* ReactiveHeimdallr-iOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DC582FD51BE13EB30017BE06 /* Build configuration list for PBXNativeTarget "ReactiveHeimdallr-iOS" */;
-			buildPhases = (
-				DC582FBB1BE13EB20017BE06 /* Sources */,
-				DC582FBC1BE13EB20017BE06 /* Frameworks */,
-				DC582FBD1BE13EB20017BE06 /* Headers */,
-				DC582FBE1BE13EB20017BE06 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "ReactiveHeimdallr-iOS";
-			productName = ReactiveHeimdallr;
-			productReference = DC582FC01BE13EB20017BE06 /* ReactiveHeimdallr.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		DC582FC81BE13EB30017BE06 /* ReactiveHeimdallr-iOSTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DC582FD61BE13EB30017BE06 /* Build configuration list for PBXNativeTarget "ReactiveHeimdallr-iOSTests" */;
-			buildPhases = (
-				DC582FC51BE13EB30017BE06 /* Sources */,
-				DC582FC61BE13EB30017BE06 /* Frameworks */,
-				DC582FC71BE13EB30017BE06 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DC582FCC1BE13EB30017BE06 /* PBXTargetDependency */,
-			);
-			name = "ReactiveHeimdallr-iOSTests";
-			productName = ReactiveHeimdallrTests;
-			productReference = DC582FC91BE13EB30017BE06 /* ReactiveHeimdallrTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		DC582FF41BE148610017BE06 /* ReactiveHeimdallr-macOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DC5830061BE148610017BE06 /* Build configuration list for PBXNativeTarget "ReactiveHeimdallr-macOS" */;
-			buildPhases = (
-				DC582FF01BE148610017BE06 /* Sources */,
-				DC582FF11BE148610017BE06 /* Frameworks */,
-				DC582FF21BE148610017BE06 /* Headers */,
-				DC582FF31BE148610017BE06 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "ReactiveHeimdallr-macOS";
-			productName = "ReactiveHeimdallr-Mac";
-			productReference = DC582FF51BE148610017BE06 /* ReactiveHeimdallr.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		DC582FFD1BE148610017BE06 /* ReactiveHeimdallr-macOSTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DC5830091BE148610017BE06 /* Build configuration list for PBXNativeTarget "ReactiveHeimdallr-macOSTests" */;
-			buildPhases = (
-				DC582FFA1BE148610017BE06 /* Sources */,
-				DC582FFB1BE148610017BE06 /* Frameworks */,
-				DC582FFC1BE148610017BE06 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DC5830011BE148610017BE06 /* PBXTargetDependency */,
-			);
-			name = "ReactiveHeimdallr-macOSTests";
-			productName = "ReactiveHeimdallr-MacTests";
-			productReference = DC582FFE1BE148610017BE06 /* ReactiveHeimdallrTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -755,22 +521,6 @@
 						CreatedOnToolsVersion = 7.1;
 						LastSwiftMigration = 0800;
 					};
-					DC582FBF1BE13EB20017BE06 = {
-						CreatedOnToolsVersion = 7.1;
-						LastSwiftMigration = 0800;
-					};
-					DC582FC81BE13EB30017BE06 = {
-						CreatedOnToolsVersion = 7.1;
-						LastSwiftMigration = 0800;
-					};
-					DC582FF41BE148610017BE06 = {
-						CreatedOnToolsVersion = 7.1;
-						LastSwiftMigration = 0800;
-					};
-					DC582FFD1BE148610017BE06 = {
-						CreatedOnToolsVersion = 7.1;
-						LastSwiftMigration = 0800;
-					};
 				};
 			};
 			buildConfigurationList = DC545DBC1A89F0F10051A575 /* Build configuration list for PBXProject "Heimdallr" */;
@@ -789,10 +539,6 @@
 				DC582F4B1BE1319F0017BE06 /* Heimdallr-macOSTests */,
 				DC545DC11A89F0F10051A575 /* Heimdallr-iOS */,
 				DC545DCC1A89F0F10051A575 /* Heimdallr-iOSTests */,
-				DC582FF41BE148610017BE06 /* ReactiveHeimdallr-macOS */,
-				DC582FFD1BE148610017BE06 /* ReactiveHeimdallr-macOSTests */,
-				DC582FBF1BE13EB20017BE06 /* ReactiveHeimdallr-iOS */,
-				DC582FC81BE13EB30017BE06 /* ReactiveHeimdallr-iOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -839,34 +585,6 @@
 				DC5220B41BEA32A000F37F2A /* authorize-invalid-token.json in Resources */,
 				DC5220BE1BEA32A000F37F2A /* request-invalid.json in Resources */,
 				DC5220BA1BEA32A000F37F2A /* authorize-valid.json in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DC582FBE1BE13EB20017BE06 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DC582FC71BE13EB30017BE06 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DC582FF31BE148610017BE06 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DC582FFC1BE148610017BE06 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -956,66 +674,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DC582FBB1BE13EB20017BE06 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DC52208B1BEA321500F37F2A /* HeimdallrResourceRequestAuthenticator.swift in Sources */,
-				DC5220901BEA321500F37F2A /* OAuthAccessTokenKeychainStore.swift in Sources */,
-				DC5220881BEA321500F37F2A /* Heimdallr.swift in Sources */,
-				DC5220941BEA321500F37F2A /* OAuthError.swift in Sources */,
-				DC52208E1BEA321500F37F2A /* URLRequestExtensions.swift in Sources */,
-				DC5220931BEA321500F37F2A /* OAuthClientCredentials.swift in Sources */,
-				DC5220911BEA321500F37F2A /* OAuthAccessTokenStore.swift in Sources */,
-				DC52208A1BEA321500F37F2A /* HeimdallrHTTPClientURLSession.swift in Sources */,
-				DC52208F1BEA321500F37F2A /* OAuthAccessToken.swift in Sources */,
-				E258A16E1CC6BC8800649F5A /* OAuthAccessTokenDefaultParser.swift in Sources */,
-				DC52208C1BEA321500F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */,
-				E258A16B1CC6BC7E00649F5A /* OAuthAccessTokenParser.swift in Sources */,
-				DC5220891BEA321500F37F2A /* HeimdallrHTTPClient.swift in Sources */,
-				DC5220921BEA321500F37F2A /* OAuthAuthorizationGrant.swift in Sources */,
-				DC5220A21BEA321E00F37F2A /* Heimdallr+ReactiveCocoa.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DC582FC51BE13EB30017BE06 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DC5220CD1BEA32AF00F37F2A /* Heimdallr+ReactiveCocoaSpec.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DC582FF01BE148610017BE06 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DC5220981BEA321600F37F2A /* HeimdallrResourceRequestAuthenticator.swift in Sources */,
-				DC52209D1BEA321600F37F2A /* OAuthAccessTokenKeychainStore.swift in Sources */,
-				DC5220951BEA321600F37F2A /* Heimdallr.swift in Sources */,
-				DC5220A11BEA321600F37F2A /* OAuthError.swift in Sources */,
-				DC52209B1BEA321600F37F2A /* URLRequestExtensions.swift in Sources */,
-				DC5220A01BEA321600F37F2A /* OAuthClientCredentials.swift in Sources */,
-				DC52209E1BEA321600F37F2A /* OAuthAccessTokenStore.swift in Sources */,
-				DC5220971BEA321600F37F2A /* HeimdallrHTTPClientURLSession.swift in Sources */,
-				DC52209C1BEA321600F37F2A /* OAuthAccessToken.swift in Sources */,
-				E258A16D1CC6BC8700649F5A /* OAuthAccessTokenDefaultParser.swift in Sources */,
-				DC5220991BEA321600F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */,
-				E258A16A1CC6BC7C00649F5A /* OAuthAccessTokenParser.swift in Sources */,
-				DC5220961BEA321600F37F2A /* HeimdallrHTTPClient.swift in Sources */,
-				DC52209F1BEA321600F37F2A /* OAuthAuthorizationGrant.swift in Sources */,
-				DC5220A31BEA321F00F37F2A /* Heimdallr+ReactiveCocoa.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DC582FFA1BE148610017BE06 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DC5220CE1BEA32AF00F37F2A /* Heimdallr+ReactiveCocoaSpec.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1028,16 +686,6 @@
 			isa = PBXTargetDependency;
 			target = DC582F421BE1319F0017BE06 /* Heimdallr-macOS */;
 			targetProxy = DC582F4E1BE1319F0017BE06 /* PBXContainerItemProxy */;
-		};
-		DC582FCC1BE13EB30017BE06 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DC582FBF1BE13EB20017BE06 /* ReactiveHeimdallr-iOS */;
-			targetProxy = DC582FCB1BE13EB30017BE06 /* PBXContainerItemProxy */;
-		};
-		DC5830011BE148610017BE06 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DC582FF41BE148610017BE06 /* ReactiveHeimdallr-macOS */;
-			targetProxy = DC5830001BE148610017BE06 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1181,110 +829,6 @@
 			};
 			name = Release;
 		};
-		DC582FD11BE13EB30017BE06 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC712A4C1C85AD77009860A5 /* iOS-Framework.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphonesimulator*]" = "";
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				INFOPLIST_FILE = "Heimdallr/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = ReactiveHeimdallr;
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		DC582FD21BE13EB30017BE06 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC712A4C1C85AD77009860A5 /* iOS-Framework.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphonesimulator*]" = "";
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				INFOPLIST_FILE = "Heimdallr/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = ReactiveHeimdallr;
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
-		DC582FD31BE13EB30017BE06 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC712A4A1C85AD77009860A5 /* iOS-Application.xcconfig */;
-			buildSettings = {
-				INFOPLIST_FILE = "HeimdallrTests/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = ReactiveHeimdallrTests;
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		DC582FD41BE13EB30017BE06 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC712A4A1C85AD77009860A5 /* iOS-Application.xcconfig */;
-			buildSettings = {
-				INFOPLIST_FILE = "HeimdallrTests/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = ReactiveHeimdallrTests;
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
-		DC5830071BE148610017BE06 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC712A521C85AD77009860A5 /* Mac-Framework.xcconfig */;
-			buildSettings = {
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "Heimdallr/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = ReactiveHeimdallr;
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		DC5830081BE148610017BE06 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC712A521C85AD77009860A5 /* Mac-Framework.xcconfig */;
-			buildSettings = {
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "Heimdallr/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = ReactiveHeimdallr;
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
-		DC58300A1BE148610017BE06 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC712A4F1C85AD77009860A5 /* Mac-Application.xcconfig */;
-			buildSettings = {
-				INFOPLIST_FILE = "HeimdallrTests/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = ReactiveHeimdallrTests;
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		DC58300B1BE148610017BE06 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC712A4F1C85AD77009860A5 /* Mac-Application.xcconfig */;
-			buildSettings = {
-				INFOPLIST_FILE = "HeimdallrTests/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = ReactiveHeimdallrTests;
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1329,42 +873,6 @@
 			buildConfigurations = (
 				DC582F581BE1319F0017BE06 /* Debug */,
 				DC582F591BE1319F0017BE06 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DC582FD51BE13EB30017BE06 /* Build configuration list for PBXNativeTarget "ReactiveHeimdallr-iOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DC582FD11BE13EB30017BE06 /* Debug */,
-				DC582FD21BE13EB30017BE06 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DC582FD61BE13EB30017BE06 /* Build configuration list for PBXNativeTarget "ReactiveHeimdallr-iOSTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DC582FD31BE13EB30017BE06 /* Debug */,
-				DC582FD41BE13EB30017BE06 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DC5830061BE148610017BE06 /* Build configuration list for PBXNativeTarget "ReactiveHeimdallr-macOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DC5830071BE148610017BE06 /* Debug */,
-				DC5830081BE148610017BE06 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DC5830091BE148610017BE06 /* Build configuration list for PBXNativeTarget "ReactiveHeimdallr-macOSTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DC58300A1BE148610017BE06 /* Debug */,
-				DC58300B1BE148610017BE06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
