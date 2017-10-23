@@ -147,9 +147,8 @@ public let HeimdallrErrorNotAuthorized = 2
         if let credentials = credentials {
             if let secret = credentials.secret {
                 request.setHTTPAuthorization(.basicAuthentication(username: credentials.id, password: secret))
-            } else {
-                parameters["client_id"] = credentials.id
             }
+            parameters.merge(credentials.parameters, uniquingKeysWith: { $0.0 })
         }
 
         request.httpMethod = "POST"
