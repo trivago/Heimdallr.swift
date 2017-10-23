@@ -13,10 +13,10 @@ public let HeimdallrErrorNotAuthorized = 2
 /// stands on the rainbow bridge network to authorize relevant requests.
 @objc open class Heimdallr: NSObject {
     public let tokenURL: URL
-    private let credentials: OAuthClientCredentials?
+    let credentials: OAuthClientCredentials?
 
     private let accessTokenStore: OAuthAccessTokenStore
-    private var accessToken: OAuthAccessToken? {
+    private(set) public var accessToken: OAuthAccessToken? {
         get {
             return accessTokenStore.retrieveAccessToken()
         }
@@ -27,6 +27,8 @@ public let HeimdallrErrorNotAuthorized = 2
 
     private let accessTokenParser: OAuthAccessTokenParser
     private let httpClient: HeimdallrHTTPClient
+
+    var authorizationCodeHandler: Any?
 
     /// The request authenticator that is used to authenticate requests.
     public let resourceRequestAuthenticator: HeimdallResourceRequestAuthenticator
