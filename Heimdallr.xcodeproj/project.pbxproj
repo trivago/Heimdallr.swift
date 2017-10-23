@@ -73,6 +73,8 @@
 		E258A1681CC6B8C500649F5A /* OAuthAccessTokenParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258A1671CC6B8C500649F5A /* OAuthAccessTokenParser.swift */; };
 		E258A1691CC6BC7B00649F5A /* OAuthAccessTokenParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258A1671CC6B8C500649F5A /* OAuthAccessTokenParser.swift */; };
 		E258A16C1CC6BC8600649F5A /* OAuthAccessTokenDefaultParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258A1651CC6B66900649F5A /* OAuthAccessTokenDefaultParser.swift */; };
+		E8A755061F9DE1AF003391D5 /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A755051F9DE1AF003391D5 /* URLExtensions.swift */; };
+		E8A755071F9DE1DD003391D5 /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A755051F9DE1AF003391D5 /* URLExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,6 +162,7 @@
 		DC712A5E1C85AD77009860A5 /* watchOS-StaticLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "watchOS-StaticLibrary.xcconfig"; sourceTree = "<group>"; };
 		E258A1651CC6B66900649F5A /* OAuthAccessTokenDefaultParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenDefaultParser.swift; sourceTree = "<group>"; };
 		E258A1671CC6B8C500649F5A /* OAuthAccessTokenParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenParser.swift; sourceTree = "<group>"; };
+		E8A755051F9DE1AF003391D5 /* URLExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +230,7 @@
 				DC5220491BEA320B00F37F2A /* HeimdallrHTTPClientURLSession.swift */,
 				DC52204A1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticator.swift */,
 				DC52204B1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift */,
+				E8A755051F9DE1AF003391D5 /* URLExtensions.swift */,
 				DC52204D1BEA320B00F37F2A /* URLRequestExtensions.swift */,
 				DC52204E1BEA320B00F37F2A /* OAuthAccessToken.swift */,
 				E258A1651CC6B66900649F5A /* OAuthAccessTokenDefaultParser.swift */,
@@ -619,6 +623,7 @@
 				DC5220741BEA321300F37F2A /* URLRequestExtensions.swift in Sources */,
 				DC5220791BEA321300F37F2A /* OAuthClientCredentials.swift in Sources */,
 				DC5220771BEA321300F37F2A /* OAuthAccessTokenStore.swift in Sources */,
+				E8A755071F9DE1DD003391D5 /* URLExtensions.swift in Sources */,
 				DC5220701BEA321300F37F2A /* HeimdallrHTTPClientURLSession.swift in Sources */,
 				DC5220751BEA321300F37F2A /* OAuthAccessToken.swift in Sources */,
 				DC5220721BEA321300F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */,
@@ -652,6 +657,7 @@
 				DC5220811BEA321500F37F2A /* URLRequestExtensions.swift in Sources */,
 				DC5220861BEA321500F37F2A /* OAuthClientCredentials.swift in Sources */,
 				DC5220841BEA321500F37F2A /* OAuthAccessTokenStore.swift in Sources */,
+				E8A755061F9DE1AF003391D5 /* URLExtensions.swift in Sources */,
 				DC52207D1BEA321500F37F2A /* HeimdallrHTTPClientURLSession.swift in Sources */,
 				DC5220821BEA321500F37F2A /* OAuthAccessToken.swift in Sources */,
 				DC52207F1BEA321500F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift in Sources */,
@@ -699,7 +705,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
@@ -717,7 +723,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				GCC_NO_COMMON_BLOCKS = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
@@ -731,6 +737,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DC712A4C1C85AD77009860A5 /* iOS-Framework.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphonesimulator*]" = "";
@@ -746,6 +753,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DC712A4C1C85AD77009860A5 /* iOS-Framework.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphonesimulator*]" = "";
