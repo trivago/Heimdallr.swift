@@ -103,6 +103,20 @@ public let HeimdallrErrorNotAuthorized = 2
         }
     }
 
+    /// Requests an access token with the authorization code grant.
+    ///
+    /// **Note:** The completion closure may be invoked on any thread.
+    ///
+    /// - Parameters:
+    ///   - authorizationCode: The authorization code from the authorization server.
+    ///   - redirectURI: The redirect URI.
+    ///   - completion: A cllback to invoke when the request completed.
+    func requestAccessToken(authorizationCode: String, redirectURI: String, completion: @escaping (Result<Void, NSError>) -> Void) {
+        requestAccessToken(grant: .authorizationCode(code: authorizationCode, redirectURI: redirectURI)) { result in
+            completion(result.map { _ in return })
+        }
+    }
+
     /// Requests an access token with the given grant type URI and parameters
     ///
     /// **Note:** The completion closure may be invoked on any thread.
