@@ -232,14 +232,12 @@
 			isa = PBXGroup;
 			children = (
 				DC5220471BEA320B00F37F2A /* Heimdallr.swift */,
-				E83BFCB61F9E164C005CEE89 /* iOSHeimdallr.swift */,
 				E884C0381F9DEDAE000C4E16 /* AuthorizationCodeHandler.swift */,
 				DC5220481BEA320B00F37F2A /* HeimdallrHTTPClient.swift */,
 				DC5220491BEA320B00F37F2A /* HeimdallrHTTPClientURLSession.swift */,
 				DC52204A1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticator.swift */,
 				DC52204B1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeader.swift */,
-				E8A755051F9DE1AF003391D5 /* URLExtensions.swift */,
-				DC52204D1BEA320B00F37F2A /* URLRequestExtensions.swift */,
+				E83BFCB61F9E164C005CEE89 /* iOSHeimdallr.swift */,
 				DC52204E1BEA320B00F37F2A /* OAuthAccessToken.swift */,
 				E258A1651CC6B66900649F5A /* OAuthAccessTokenDefaultParser.swift */,
 				DC52204F1BEA320B00F37F2A /* OAuthAccessTokenKeychainStore.swift */,
@@ -250,6 +248,8 @@
 				DC5220531BEA320B00F37F2A /* OAuthError.swift */,
 				DC5220561BEA320B00F37F2A /* Supporting Files */,
 				E86885BD1FA0ACE9009CDE46 /* UIWindowExtension.swift */,
+				E8A755051F9DE1AF003391D5 /* URLExtensions.swift */,
+				DC52204D1BEA320B00F37F2A /* URLRequestExtensions.swift */,
 			);
 			path = Heimdallr;
 			sourceTree = "<group>";
