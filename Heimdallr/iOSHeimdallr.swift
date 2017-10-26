@@ -13,7 +13,6 @@ public extension Heimdallr {
     ///   - redirectURI: The redirect URI.
     ///   - scope: The authorization scope.
     ///   - completion: A cllback to invoke when the request completed.
-    public func requestAccessToken(authorizationCodeURL url: URL, redirectURI: String, scope: String, completion: @escaping (Result<Void, NSError>) -> Void) {
         var allParameters = credentials!.parameters
         allParameters["scope"] = scope
         allParameters["redirect_uri"] = redirectURI
@@ -25,6 +24,7 @@ public extension Heimdallr {
         let authorizationCodeHandler = AuthorizationCodeHandler()
         self.authorizationCodeHandler = authorizationCodeHandler
         authorizationCodeHandler.requestAuthorizationCode(url: urlComponents.url!) { [weak self] result in
+    public func requestAccessToken(authorizationCodeURL url: URL, redirectURI: String, scope: String, completion: @escaping (Result<OAuthAccessToken, NSError>) -> Void) {
             guard let strongSelf = self else {
                 completion(.failure(NSError(domain: "", code: 0, userInfo: nil)))
                 return

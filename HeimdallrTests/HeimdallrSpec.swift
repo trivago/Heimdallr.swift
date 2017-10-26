@@ -121,7 +121,7 @@ class HeimdallrSpec: QuickSpec {
         }
 
         describe("-requestAccessToken(username:password:completion:)") {
-            var result: Result<Void, NSError>?
+            var result: Result<OAuthAccessToken, NSError>?
 
             afterEach {
                 result = nil
@@ -365,7 +365,7 @@ class HeimdallrSpec: QuickSpec {
         }
 
         describe("-requestAccessToken(grantType:parameters:completion:)") {
-            var result: Result<Void, NSError>?
+            var result: Result<OAuthAccessToken, NSError>?
 
             afterEach {
                 result = nil
