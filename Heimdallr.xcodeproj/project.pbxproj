@@ -75,6 +75,7 @@
 		E258A16C1CC6BC8600649F5A /* OAuthAccessTokenDefaultParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258A1651CC6B66900649F5A /* OAuthAccessTokenDefaultParser.swift */; };
 		E83BFCB71F9E164C005CEE89 /* iOSHeimdallr.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83BFCB61F9E164C005CEE89 /* iOSHeimdallr.swift */; };
 		E884C03A1F9DEE1C000C4E16 /* AuthorizationCodeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E884C0381F9DEDAE000C4E16 /* AuthorizationCodeHandler.swift */; };
+		E86885BE1FA0ACE9009CDE46 /* UIWindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86885BD1FA0ACE9009CDE46 /* UIWindowExtension.swift */; };
 		E8A755061F9DE1AF003391D5 /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A755051F9DE1AF003391D5 /* URLExtensions.swift */; };
 		E8A755071F9DE1DD003391D5 /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A755051F9DE1AF003391D5 /* URLExtensions.swift */; };
 /* End PBXBuildFile section */
@@ -166,6 +167,7 @@
 		E258A1671CC6B8C500649F5A /* OAuthAccessTokenParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenParser.swift; sourceTree = "<group>"; };
 		E83BFCB61F9E164C005CEE89 /* iOSHeimdallr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSHeimdallr.swift; sourceTree = "<group>"; };
 		E884C0381F9DEDAE000C4E16 /* AuthorizationCodeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationCodeHandler.swift; sourceTree = "<group>"; };
+		E86885BD1FA0ACE9009CDE46 /* UIWindowExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindowExtension.swift; sourceTree = "<group>"; };
 		E8A755051F9DE1AF003391D5 /* URLExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -247,6 +249,7 @@
 				DC5220521BEA320B00F37F2A /* OAuthClientCredentials.swift */,
 				DC5220531BEA320B00F37F2A /* OAuthError.swift */,
 				DC5220561BEA320B00F37F2A /* Supporting Files */,
+				E86885BD1FA0ACE9009CDE46 /* UIWindowExtension.swift */,
 			);
 			path = Heimdallr;
 			sourceTree = "<group>";
