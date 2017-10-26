@@ -74,8 +74,8 @@
 		E258A1691CC6BC7B00649F5A /* OAuthAccessTokenParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258A1671CC6B8C500649F5A /* OAuthAccessTokenParser.swift */; };
 		E258A16C1CC6BC8600649F5A /* OAuthAccessTokenDefaultParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258A1651CC6B66900649F5A /* OAuthAccessTokenDefaultParser.swift */; };
 		E83BFCB71F9E164C005CEE89 /* iOSHeimdallr.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83BFCB61F9E164C005CEE89 /* iOSHeimdallr.swift */; };
-		E884C03A1F9DEE1C000C4E16 /* AuthorizationCodeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E884C0381F9DEDAE000C4E16 /* AuthorizationCodeHandler.swift */; };
 		E86885BE1FA0ACE9009CDE46 /* UIWindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86885BD1FA0ACE9009CDE46 /* UIWindowExtension.swift */; };
+		E884C03A1F9DEE1C000C4E16 /* OAuthAuthorizationCodeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E884C0381F9DEDAE000C4E16 /* OAuthAuthorizationCodeHandler.swift */; };
 		E8A755061F9DE1AF003391D5 /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A755051F9DE1AF003391D5 /* URLExtensions.swift */; };
 		E8A755071F9DE1DD003391D5 /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A755051F9DE1AF003391D5 /* URLExtensions.swift */; };
 /* End PBXBuildFile section */
@@ -166,8 +166,8 @@
 		E258A1651CC6B66900649F5A /* OAuthAccessTokenDefaultParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenDefaultParser.swift; sourceTree = "<group>"; };
 		E258A1671CC6B8C500649F5A /* OAuthAccessTokenParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccessTokenParser.swift; sourceTree = "<group>"; };
 		E83BFCB61F9E164C005CEE89 /* iOSHeimdallr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSHeimdallr.swift; sourceTree = "<group>"; };
-		E884C0381F9DEDAE000C4E16 /* AuthorizationCodeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationCodeHandler.swift; sourceTree = "<group>"; };
 		E86885BD1FA0ACE9009CDE46 /* UIWindowExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindowExtension.swift; sourceTree = "<group>"; };
+		E884C0381F9DEDAE000C4E16 /* OAuthAuthorizationCodeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthAuthorizationCodeHandler.swift; sourceTree = "<group>"; };
 		E8A755051F9DE1AF003391D5 /* URLExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -232,7 +232,6 @@
 			isa = PBXGroup;
 			children = (
 				DC5220471BEA320B00F37F2A /* Heimdallr.swift */,
-				E884C0381F9DEDAE000C4E16 /* AuthorizationCodeHandler.swift */,
 				DC5220481BEA320B00F37F2A /* HeimdallrHTTPClient.swift */,
 				DC5220491BEA320B00F37F2A /* HeimdallrHTTPClientURLSession.swift */,
 				DC52204A1BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticator.swift */,
@@ -243,6 +242,7 @@
 				DC52204F1BEA320B00F37F2A /* OAuthAccessTokenKeychainStore.swift */,
 				E258A1671CC6B8C500649F5A /* OAuthAccessTokenParser.swift */,
 				DC5220501BEA320B00F37F2A /* OAuthAccessTokenStore.swift */,
+				E884C0381F9DEDAE000C4E16 /* OAuthAuthorizationCodeHandler.swift */,
 				DC5220511BEA320B00F37F2A /* OAuthAuthorizationGrant.swift */,
 				DC5220521BEA320B00F37F2A /* OAuthClientCredentials.swift */,
 				DC5220531BEA320B00F37F2A /* OAuthError.swift */,
@@ -628,8 +628,8 @@
 				DC5220711BEA321300F37F2A /* HeimdallrResourceRequestAuthenticator.swift in Sources */,
 				DC5220761BEA321300F37F2A /* OAuthAccessTokenKeychainStore.swift in Sources */,
 				DC52206E1BEA321300F37F2A /* Heimdallr.swift in Sources */,
-				E884C03A1F9DEE1C000C4E16 /* AuthorizationCodeHandler.swift in Sources */,
 				E86885BE1FA0ACE9009CDE46 /* UIWindowExtension.swift in Sources */,
+				E884C03A1F9DEE1C000C4E16 /* OAuthAuthorizationCodeHandler.swift in Sources */,
 				DC52207A1BEA321300F37F2A /* OAuthError.swift in Sources */,
 				DC5220741BEA321300F37F2A /* URLRequestExtensions.swift in Sources */,
 				DC5220791BEA321300F37F2A /* OAuthClientCredentials.swift in Sources */,
