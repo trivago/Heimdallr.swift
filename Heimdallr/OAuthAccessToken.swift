@@ -7,7 +7,7 @@ public class OAuthAccessToken: NSObject {
     public let accessToken: String
 
     /// The acess token's type (e.g., Bearer).
-    public let tokenType: String
+    public let tokenType: String?
 
     /// The access token's expiration date.
     public let expiresAt: Date?
@@ -24,7 +24,7 @@ public class OAuthAccessToken: NSObject {
     ///
     /// - returns: A new access token initialized with access token, type,
     ///     expiration date and refresh token.
-    public init(accessToken: String, tokenType: String, expiresAt: Date? = nil, refreshToken: String? = nil) {
+    public init(accessToken: String, tokenType: String? = nil, expiresAt: Date? = nil, refreshToken: String? = nil) {
         self.accessToken = accessToken
         self.tokenType = tokenType
         self.expiresAt = expiresAt
