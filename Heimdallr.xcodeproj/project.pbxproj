@@ -629,6 +629,7 @@
 				DC5220761BEA321300F37F2A /* OAuthAccessTokenKeychainStore.swift in Sources */,
 				DC52206E1BEA321300F37F2A /* Heimdallr.swift in Sources */,
 				E884C03A1F9DEE1C000C4E16 /* AuthorizationCodeHandler.swift in Sources */,
+				E86885BE1FA0ACE9009CDE46 /* UIWindowExtension.swift in Sources */,
 				DC52207A1BEA321300F37F2A /* OAuthError.swift in Sources */,
 				DC5220741BEA321300F37F2A /* URLRequestExtensions.swift in Sources */,
 				DC5220791BEA321300F37F2A /* OAuthClientCredentials.swift in Sources */,
