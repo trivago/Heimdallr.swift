@@ -1,6 +1,9 @@
 /// See: The OAuth 2.0 Authorization Framework, 5.2 NSError Response
 ///      <https://tools.ietf.org/html/rfc6749#section-5.2>
 
+
+import Foundation
+
 public let OAuthErrorDomain = "OAuthErrorDomain"
 public let OAuthErrorInvalidRequest = 1
 public let OAuthErrorInvalidClient = 2

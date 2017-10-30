@@ -11,7 +11,7 @@ public let HeimdallrErrorNotAuthorized = 2
 
 /// The all-seeing and all-hearing guardian sentry of your application who
 /// stands on the rainbow bridge network to authorize relevant requests.
-@objc open class Heimdallr: NSObject {
+open class Heimdallr: NSObject {
     public let tokenURL: URL
     private let credentials: OAuthClientCredentials?
 

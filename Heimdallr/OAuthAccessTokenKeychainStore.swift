@@ -1,3 +1,4 @@
+import Foundation
 import Security
 
 internal struct Keychain {
@@ -90,7 +91,7 @@ internal struct Keychain {
 }
 
 /// A persistent keychain-based access token store.
-@objc public class OAuthAccessTokenKeychainStore: NSObject, OAuthAccessTokenStore {
+public class OAuthAccessTokenKeychainStore: NSObject, OAuthAccessTokenStore {
     private var keychain: Keychain
 
     /// Creates an instance initialized to the given keychain service.

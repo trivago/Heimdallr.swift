@@ -1,7 +1,6 @@
 import Foundation
 
 /// An HTTP client that uses URLSession.
-@objc
 public class HeimdallrHTTPClientURLSession: NSObject, HeimdallrHTTPClient {
 
     let urlSession: URLSession
