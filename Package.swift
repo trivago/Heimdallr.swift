@@ -13,12 +13,12 @@ let package = Package(
          .target(
             name: "Heimdallr",
             dependencies: ["Result"],
-			path: "Heimdallr",
+            path: "Heimdallr",
             exclude: [
                 "HeimdallrTests",
                 "script",
                 "Carthage",
-				"Heimdallr/Supporting Files",
+                "Heimdallr/Supporting Files",
                 "bin"]),
     ],
     swiftLanguageVersions: [3]
