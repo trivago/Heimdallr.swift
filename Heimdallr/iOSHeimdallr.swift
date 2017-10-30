@@ -13,8 +13,17 @@ public extension Heimdallr {
     ///   - redirectURI: The redirect URI.
     ///   - scope: The authorization scope.
     ///   - completion: A cllback to invoke when the request completed.
-    public func requestAccessToken(authorizationCodeURL url: URL, redirectURI: String, scope: String, completion: @escaping (Result<OAuthAccessToken, NSError>) -> Void) {
-        requestAuthorizationCode(authorizationCodeURL: url, redirectURI: redirectURI, scope: scope) { [weak self] result in
+    public func requestAccessToken(authorizationCodeURL url: URL,
+                                   redirectURI: String,
+                                   scope: String,
+                                   parameters: [String: String],
+                                   completion: @escaping (Result<OAuthAccessToken, NSError>) -> Void) {
+
+        requestAuthorizationCode(authorizationCodeURL: url,
+                                 redirectURI: redirectURI,
+                                 scope: scope,
+                                 parameters: parameters) { [weak self] result in
+
             guard let strongSelf = self else {
                 completion(.failure(NSError(domain: "", code: 0, userInfo: nil)))
                 return
@@ -36,8 +45,15 @@ public extension Heimdallr {
     ///   - redirectURI: The redirect URI.
     ///   - scope: The authorization scope.
     ///   - completion: A cllback to invoke when the request completed.
-    public func requestAccessToken(implicitAuthorizationURL url: URL, redirectURI: String, scope: String, completion: @escaping (Result<OAuthAccessToken, NSError>) -> Void) {
-        requestAccessToken(implicitAuthorizationURL: url, redirectURI: redirectURI, scope: scope, responseType: "token", completion: completion)
+    public func requestAccessToken(implicitAuthorizationURL url: URL,
+                                   redirectURI: String,
+                                   scope: String,
+                                   completion: @escaping (Result<OAuthAccessToken, NSError>) -> Void) {
+        requestAccessToken(implicitAuthorizationURL: url,
+                           redirectURI: redirectURI,
+                           scope: scope,
+                           responseType: "token",
+                           completion: completion)
     }
 
     /// Requests an authorization code.
@@ -47,8 +63,17 @@ public extension Heimdallr {
     ///   - redirectURI: The redirect URI.
     ///   - scope: The authorization scope.
     ///   - completion: A cllback to invoke when the request completed.
-    public func requestAuthorizationCode(authorizationCodeURL url: URL, redirectURI: String, scope: String, completion: @escaping (Result<String, NSError>) -> Void) {
-        requestAuthorizationCode(authorizationCodeURL: url, redirectURI: redirectURI, scope: scope, responseType: "code", completion: completion)
+    public func requestAuthorizationCode(authorizationCodeURL url: URL,
+                                         redirectURI: String,
+                                         scope: String,
+                                         parameters: [String: String],
+                                         completion: @escaping (Result<String, NSError>) -> Void) {
+        requestAuthorizationCode(authorizationCodeURL: url,
+                                 redirectURI: redirectURI,
+                                 scope: scope,
+                                 responseType: "code",
+                                 parameters: parameters,
+                                 completion: completion)
     }
 
     /// Handler for the redirect URI
@@ -60,7 +85,11 @@ public extension Heimdallr {
 
     // MARK: - Helper
 
-    private func requestAccessToken(implicitAuthorizationURL url: URL, redirectURI: String, scope: String, responseType: String, completion: @escaping (Result<OAuthAccessToken, NSError>) -> Void) {
+    private func requestAccessToken(implicitAuthorizationURL url: URL,
+                                    redirectURI: String,
+                                    scope: String,
+                                    responseType: String,
+                                    completion: @escaping (Result<OAuthAccessToken, NSError>) -> Void) {
         var allParameters = credentials!.parameters
         allParameters["scope"] = scope
         allParameters["redirect_uri"] = redirectURI
@@ -76,11 +105,19 @@ public extension Heimdallr {
         authorizationCodeHandler.requestAccessToken(url: urlComponents.url!, completion: completion)
     }
 
-    private func requestAuthorizationCode(authorizationCodeURL url: URL, redirectURI: String, scope: String, responseType: String, completion: @escaping (Result<String, NSError>) -> Void) {
+    private func requestAuthorizationCode(authorizationCodeURL url: URL,
+                                          redirectURI: String,
+                                          scope: String,
+                                          responseType: String,
+                                          parameters: [String: String],
+                                          completion: @escaping (Result<String, NSError>) -> Void) {
+
         var allParameters = credentials!.parameters
         allParameters["scope"] = scope
         allParameters["redirect_uri"] = redirectURI
         allParameters["response_type"] = responseType
+
+        allParameters.merge(parameters) { $0.0 }
 
         let queryItems = allParameters.map { URLQueryItem.init(name: $0, value: $1) }
         var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)!
