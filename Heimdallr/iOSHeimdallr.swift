@@ -2,6 +2,8 @@ import Foundation
 import Result
 import UIKit
 
+public typealias AuthorizationCodeCompletion = ((Result<String, NSError>) -> Void)
+
 public extension Heimdallr {
 
     /// Requests an access token with the authorization code grant.
@@ -67,7 +69,7 @@ public extension Heimdallr {
                                          redirectURI: String,
                                          scope: String,
                                          parameters: [String: String],
-                                         completion: @escaping (Result<String, NSError>) -> Void) {
+                                         completion: @escaping AuthorizationCodeCompletion) {
         requestAuthorizationCode(authorizationCodeURL: url,
                                  redirectURI: redirectURI,
                                  scope: scope,
@@ -110,7 +112,7 @@ public extension Heimdallr {
                                           scope: String,
                                           responseType: String,
                                           parameters: [String: String],
-                                          completion: @escaping (Result<String, NSError>) -> Void) {
+                                          completion: @escaping AuthorizationCodeCompletion) {
 
         var allParameters = credentials!.parameters
         allParameters["scope"] = scope

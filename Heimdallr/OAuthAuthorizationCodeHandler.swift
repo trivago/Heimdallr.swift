@@ -6,8 +6,6 @@ import Result
 /// The request could not be authorized (e.g., no refresh token available).
 public let HeimdallrErrorAuthorizationCanceled = 101
 
-private typealias AuthorizationCodeCompletion = ((Result<String, NSError>) -> Void)
-
 private enum CompletionType {
     case authorizationCode(AuthorizationCodeCompletion)
     case accessToken(AccessTokenCompletion)
@@ -80,7 +78,7 @@ class OAuthAuthorizationCodeHandler: NSObject {
     private var safariViewController: SFSafariViewController?
     private var completion: CompletionType = .none
 
-    func requestAuthorizationCode(url: URL, completion: @escaping (Result<String, NSError>) -> Void) {
+    func requestAuthorizationCode(url: URL, completion: @escaping AuthorizationCodeCompletion) {
         self.completion = .authorizationCode(completion)
 
         if #available(iOS 11.0, *) {
