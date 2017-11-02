@@ -17,7 +17,7 @@ public extension Heimdallr {
                                    redirectURI: String,
                                    scope: String,
                                    parameters: [String: String],
-                                   completion: @escaping (Result<OAuthAccessToken, NSError>) -> Void) {
+                                   completion: @escaping AccessTokenCompletion) {
 
         requestAuthorizationCode(authorizationCodeURL: url,
                                  redirectURI: redirectURI,
@@ -48,7 +48,7 @@ public extension Heimdallr {
     public func requestAccessToken(implicitAuthorizationURL url: URL,
                                    redirectURI: String,
                                    scope: String,
-                                   completion: @escaping (Result<OAuthAccessToken, NSError>) -> Void) {
+                                   completion: @escaping AccessTokenCompletion) {
         requestAccessToken(implicitAuthorizationURL: url,
                            redirectURI: redirectURI,
                            scope: scope,
@@ -89,7 +89,7 @@ public extension Heimdallr {
                                     redirectURI: String,
                                     scope: String,
                                     responseType: String,
-                                    completion: @escaping (Result<OAuthAccessToken, NSError>) -> Void) {
+                                    completion: @escaping AccessTokenCompletion) {
         var allParameters = credentials!.parameters
         allParameters["scope"] = scope
         allParameters["redirect_uri"] = redirectURI

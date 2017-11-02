@@ -7,7 +7,6 @@ import Result
 public let HeimdallrErrorAuthorizationCanceled = 101
 
 private typealias AuthorizationCodeCompletion = ((Result<String, NSError>) -> Void)
-private typealias AccessTokenCompletion = ((Result<OAuthAccessToken, NSError>) -> Void)
 
 private enum CompletionType {
     case authorizationCode(AuthorizationCodeCompletion)
