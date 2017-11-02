@@ -3,6 +3,9 @@ import UIKit
 import SafariServices
 import Result
 
+/// The request could not be authorized (e.g., no refresh token available).
+public let HeimdallrErrorAuthorizationCanceled = 101
+
 private typealias AuthorizationCodeCompletion = ((Result<String, NSError>) -> Void)
 private typealias AccessTokenCompletion = ((Result<OAuthAccessToken, NSError>) -> Void)
 
@@ -72,7 +75,7 @@ extension CompletionType {
 }
 
 @available(iOS 9.0, *)
-class OAuthAuthorizationCodeHandler {
+class OAuthAuthorizationCodeHandler: NSObject {
 
     private var authenticationSession: Any?
     private var safariViewController: SFSafariViewController?
@@ -139,5 +142,13 @@ class OAuthAuthorizationCodeHandler {
         parent?.present(safariViewController, animated: true, completion: nil)
 
         self.safariViewController = safariViewController
+        safariViewController.delegate = self
+    }
+}
+
+extension OAuthAuthorizationCodeHandler: SFSafariViewControllerDelegate {
+
+    func safariViewControllerDidFinish(_: SFSafariViewController) {
+        authCallback(url: nil, error: NSError(domain: HeimdallrErrorDomain, code: HeimdallrErrorAuthorizationCanceled, userInfo: nil))
     }
 }
