@@ -55,8 +55,15 @@ extension CompletionType {
     }
 }
 
+protocol OAuthAuthorizationCodeHandlerType {
+
+    func requestAuthorizationCode(url: URL, completion: @escaping AuthorizationCodeCompletion)
+    func requestAccessToken(url: URL, completion: @escaping (Result<OAuthAccessToken, NSError>) -> Void)
+    func authCallback(url: URL?, error: Error?)
+}
+
 @available(iOS 9.0, *)
-class OAuthAuthorizationCodeHandler: NSObject {
+class OAuthAuthorizationCodeHandler: NSObject, OAuthAuthorizationCodeHandlerType {
 
     private var authenticationSession: Any?
     private var safariViewController: SFSafariViewController?
