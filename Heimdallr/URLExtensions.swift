@@ -16,4 +16,20 @@ extension URL {
 
         return parameters
     }
+
+    var fragmentParameters: [String: String]? {
+        guard let fragment = fragment else { return nil }
+
+        var parameters: [String: String] = [:]
+        for fragmentValues in fragment.split(separator: "&") {
+            let fragmentValue = fragmentValues.split(separator: "=")
+
+            guard let key = fragmentValue.first,
+                let value = fragmentValue.last else { return nil }
+
+            parameters[String(key)] = String(value)
+        }
+
+        return parameters
+    }
 }

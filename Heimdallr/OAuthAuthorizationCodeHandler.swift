@@ -16,23 +16,7 @@ extension CompletionType {
 
     func oAuthAccessToken(fromURL url: URL) -> OAuthAccessToken? {
 
-        func fragmentParamters(fromURL url: URL) -> [String: String]? {
-            guard let fragment = url.fragment else { return nil }
-
-            var paramters: [String: String] = [:]
-            for fragmentValues in fragment.split(separator: "&") {
-                let fragmentValue = fragmentValues.split(separator: "=")
-
-                guard let key = fragmentValue.first,
-                    let value = fragmentValue.last else { return nil }
-
-                paramters[String(key)] = String(value)
-            }
-
-            return paramters
-        }
-
-        guard let paramters = fragmentParamters(fromURL: url),
+        guard let paramters = url.fragmentParameters,
             let token = paramters["access_token"] else { return nil }
 
         return OAuthAccessToken(accessToken: token)
