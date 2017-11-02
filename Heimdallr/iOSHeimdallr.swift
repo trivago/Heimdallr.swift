@@ -119,7 +119,7 @@ public extension Heimdallr {
                                           parameters: [String: String],
                                           completion: @escaping AuthorizationCodeCompletion) {
 
-        var allParameters = credentials!.parameters
+        var allParameters: [String: String] = credentials?.parameters ?? [:]
         allParameters["scope"] = scope
         allParameters["redirect_uri"] = redirectURI
         allParameters["response_type"] = responseType
