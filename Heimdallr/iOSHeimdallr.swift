@@ -82,10 +82,18 @@ public extension Heimdallr {
     ///
     /// - Parameter url: The redirect URI.
     public func appOpen(authorizationCodeURL url: URL) {
-        (authorizationCodeHandler as? OAuthAuthorizationCodeHandler)?.authCallback(url: url, error: nil)
+        authorizationCodeHandler.authCallback(url: url, error: nil)
     }
 
     // MARK: - Helper
+
+    private var authorizationCodeHandler: OAuthAuthorizationCodeHandler {
+        if _authorizationCodeHandler == nil {
+            _authorizationCodeHandler = OAuthAuthorizationCodeHandler()
+        }
+
+        return _authorizationCodeHandler as! OAuthAuthorizationCodeHandler
+    }
 
     private func requestAccessToken(implicitAuthorizationURL url: URL,
                                     redirectURI: String,
@@ -100,9 +108,6 @@ public extension Heimdallr {
         let queryItems = allParameters.map { URLQueryItem.init(name: $0, value: $1) }
         var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)!
         urlComponents.queryItems = queryItems
-
-        let authorizationCodeHandler = OAuthAuthorizationCodeHandler()
-        self.authorizationCodeHandler = authorizationCodeHandler
 
         authorizationCodeHandler.requestAccessToken(url: urlComponents.url!, completion: completion)
     }
@@ -124,9 +129,6 @@ public extension Heimdallr {
         let queryItems = allParameters.map { URLQueryItem.init(name: $0, value: $1) }
         var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)!
         urlComponents.queryItems = queryItems
-
-        let authorizationCodeHandler = OAuthAuthorizationCodeHandler()
-        self.authorizationCodeHandler = authorizationCodeHandler
 
         authorizationCodeHandler.requestAuthorizationCode(url: urlComponents.url!, completion: completion)
     }
