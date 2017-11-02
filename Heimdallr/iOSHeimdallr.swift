@@ -79,6 +79,8 @@ public extension Heimdallr {
     }
 
     /// Handler for the redirect URI
+    /// Needed for requesting authorization code without `SFAuthenticationSession`.
+    /// `SFAuthenticationSession` is available since iOS 11.0
     ///
     /// - Parameter url: The redirect URI.
     public func appOpen(authorizationCodeURL url: URL) {
