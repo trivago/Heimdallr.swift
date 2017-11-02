@@ -30,7 +30,9 @@ public let HeimdallrErrorNotAuthorized = 2
     private let accessTokenParser: OAuthAccessTokenParser
     private let httpClient: HeimdallrHTTPClient
 
-    var _authorizationCodeHandler: Any?
+    #if IOS
+        lazy var authorizationCodeHandler: OAuthAuthorizationCodeHandlerType = OAuthAuthorizationCodeHandler()
+    #endif
 
     /// The request authenticator that is used to authenticate requests.
     public let resourceRequestAuthenticator: HeimdallResourceRequestAuthenticator

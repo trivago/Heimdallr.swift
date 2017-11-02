@@ -87,14 +87,6 @@ public extension Heimdallr {
 
     // MARK: - Helper
 
-    private var authorizationCodeHandler: OAuthAuthorizationCodeHandler {
-        if _authorizationCodeHandler == nil {
-            _authorizationCodeHandler = OAuthAuthorizationCodeHandler()
-        }
-
-        return _authorizationCodeHandler as! OAuthAuthorizationCodeHandler
-    }
-
     private func requestAccessToken(implicitAuthorizationURL url: URL,
                                     redirectURI: String,
                                     scope: String,
