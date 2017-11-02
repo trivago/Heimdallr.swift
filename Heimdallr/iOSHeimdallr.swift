@@ -92,7 +92,7 @@ public extension Heimdallr {
                                     scope: String,
                                     responseType: String,
                                     completion: @escaping AccessTokenCompletion) {
-        var allParameters = credentials!.parameters
+        var allParameters: [String: String] = credentials?.parameters ?? [:]
         allParameters["scope"] = scope
         allParameters["redirect_uri"] = redirectURI
         allParameters["response_type"] = responseType
