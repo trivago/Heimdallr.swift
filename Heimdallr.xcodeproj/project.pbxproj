@@ -76,6 +76,7 @@
 		E83BFCB71F9E164C005CEE89 /* iOSHeimdallr.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83BFCB61F9E164C005CEE89 /* iOSHeimdallr.swift */; };
 		E86885BE1FA0ACE9009CDE46 /* UIWindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86885BD1FA0ACE9009CDE46 /* UIWindowExtension.swift */; };
 		E884C03A1F9DEE1C000C4E16 /* OAuthAuthorizationCodeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E884C0381F9DEDAE000C4E16 /* OAuthAuthorizationCodeHandler.swift */; };
+		E888AE431FAB790A0061E46F /* iOSHeimdallrSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E888AE411FAB788F0061E46F /* iOSHeimdallrSpec.swift */; };
 		E8A755061F9DE1AF003391D5 /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A755051F9DE1AF003391D5 /* URLExtensions.swift */; };
 		E8A755071F9DE1DD003391D5 /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A755051F9DE1AF003391D5 /* URLExtensions.swift */; };
 /* End PBXBuildFile section */
@@ -168,6 +169,7 @@
 		E83BFCB61F9E164C005CEE89 /* iOSHeimdallr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSHeimdallr.swift; sourceTree = "<group>"; };
 		E86885BD1FA0ACE9009CDE46 /* UIWindowExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindowExtension.swift; sourceTree = "<group>"; };
 		E884C0381F9DEDAE000C4E16 /* OAuthAuthorizationCodeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthAuthorizationCodeHandler.swift; sourceTree = "<group>"; };
+		E888AE411FAB788F0061E46F /* iOSHeimdallrSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSHeimdallrSpec.swift; sourceTree = "<group>"; };
 		E8A755051F9DE1AF003391D5 /* URLExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -268,6 +270,7 @@
 			children = (
 				DC5220611BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeaderSpec.swift */,
 				DC5220621BEA320B00F37F2A /* HeimdallrSpec.swift */,
+				E888AE411FAB788F0061E46F /* iOSHeimdallrSpec.swift */,
 				DC5220A81BEA32A000F37F2A /* JSON Responses */,
 				DC5220641BEA320B00F37F2A /* URLRequestExtensionsSpec.swift */,
 				DC5220651BEA320B00F37F2A /* OAuthAccessTokenKeychainStoreSpec.swift */,
@@ -653,6 +656,7 @@
 				DC5220C11BEA32A900F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeaderSpec.swift in Sources */,
 				DC5220C61BEA32A900F37F2A /* OAuthAccessTokenSpec.swift in Sources */,
 				DC5220C41BEA32A900F37F2A /* URLRequestExtensionsSpec.swift in Sources */,
+				E888AE431FAB790A0061E46F /* iOSHeimdallrSpec.swift in Sources */,
 				DC5220C51BEA32A900F37F2A /* OAuthAccessTokenKeychainStoreSpec.swift in Sources */,
 				DC5220C21BEA32A900F37F2A /* HeimdallrSpec.swift in Sources */,
 			);
