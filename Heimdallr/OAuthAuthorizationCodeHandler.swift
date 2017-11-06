@@ -110,6 +110,7 @@ class OAuthAuthorizationCodeHandler: NSObject, OAuthAuthorizationCodeHandlerType
         }
 
         completion.handle(url: url)
+        completion = .none
     }
 
     // MARK: Open WebView methods
