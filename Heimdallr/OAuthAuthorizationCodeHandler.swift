@@ -37,7 +37,6 @@ extension CompletionType {
             }
             completion(.success(oAuthAccessToken))
         case .none:
-            assertionFailure("Undefined state")
             break
         }
     }
