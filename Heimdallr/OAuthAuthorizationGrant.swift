@@ -14,6 +14,8 @@ public enum OAuthAuthorizationGrant {
     /// - parameter refreshToken: The refresh token.
     case refreshToken(String)
 
+    case authorizationCode(code: String, redirectURI: String)
+
     /// An extension grant
     ///
     /// - parameter grantType: The grant type URI of the extension grant
@@ -34,6 +36,12 @@ public enum OAuthAuthorizationGrant {
                 "grant_type": "password",
                 "username": username,
                 "password": password,
+            ]
+        case let .authorizationCode(code, redirectURI):
+            return [
+                "grant_type": "authorization_code",
+                "code": code,
+                "redirect_uri": redirectURI,
             ]
         case let .refreshToken(refreshToken):
             return [

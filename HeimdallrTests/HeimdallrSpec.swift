@@ -121,7 +121,7 @@ class HeimdallrSpec: QuickSpec {
         }
 
         describe("-requestAccessToken(username:password:completion:)") {
-            var result: Result<Void, NSError>?
+            var result: Result<OAuthAccessToken, NSError>?
 
             afterEach {
                 result = nil
@@ -363,9 +363,253 @@ class HeimdallrSpec: QuickSpec {
                 }
             }
         }
+        
+        describe("-requestAccessToken(authorizationCode:redirectURI:completion:)") {
+            var result: Result<OAuthAccessToken, NSError>?
+            
+            afterEach {
+                result = nil
+            }
+            
+            context("with a valid response") {
+                beforeEach {
+                    OHHTTPStubs.stubRequests(passingTest: { request in
+                        return (request.url!.absoluteString == "http://rheinfabrik.de")
+                    }, withStubResponse: { request in
+                        let data = try! Data(contentsOf: self.bundle.url(forResource: "authorize-valid", withExtension: "json")!)
+                        return OHHTTPStubsResponse(data: data, statusCode: 200, headers: [ "Content-Type": "application/json" ])
+                    })
+                    
+                    waitUntil { done in
+                        heimdallr.requestAccessToken(authorizationCode: "code", redirectURI: "redirectURI://") { result = $0; done() }
+                    }
+                }
+                
+                afterEach {
+                    OHHTTPStubs.removeAllStubs()
+                }
+                
+                it("succeeds") {
+                    expect(result?.value).toNot(beNil())
+                }
+                
+                it("attempts to parse the access token") {
+                    expect(accessTokenParser.parseAccessTokenCalled).to(beTrue())
+                }
+                
+                it("sets the access token") {
+                    expect(heimdallr.hasAccessToken).to(beTrue())
+                }
+                
+                it("stores the access token in the token store") {
+                    expect(accessTokenStore.storeAccessTokenCalled).to(beTrue())
+                }
+            }
+            
+            context("with a valid response and a failing token parser") {
+                beforeEach {
+                    OHHTTPStubs.stubRequests(passingTest: { request in
+                        return (request.url!.absoluteString == "http://rheinfabrik.de")
+                    }, withStubResponse: { request in
+                        let data = try! Data(contentsOf: self.bundle.url(forResource: "authorize-valid", withExtension: "json")!)
+                        return OHHTTPStubsResponse(data: data, statusCode: 200, headers: [ "Content-Type": "application/json" ])
+                    })
+                    
+                    let parseError = NSError(domain: ParserErrorDomain, code: HeimdallrErrorInvalidData, userInfo: nil)
+                    
+                    accessTokenParser.intercept(withError: parseError)
+                    
+                    waitUntil { done in
+                        heimdallr.requestAccessToken(authorizationCode: "code", redirectURI: "redirectURI://") { result = $0; done() }
+                    }
+                }
+                
+                afterEach {
+                    OHHTTPStubs.removeAllStubs()
+                }
+                
+                it("fails") {
+                    expect(result?.value).to(beNil())
+                }
+                
+                it("attempts to parse the access token") {
+                    expect(accessTokenParser.parseAccessTokenCalled).to(beTrue())
+                }
+                
+                it("fails with the correct error domain") {
+                    expect(result?.error?.domain).to(equal(HeimdallrErrorDomain))
+                }
+                
+                it("fails with the correct error code") {
+                    expect(result?.error?.code).to(equal(HeimdallrErrorInvalidData))
+                }
+                
+                it("does not set the access token") {
+                    expect(heimdallr.hasAccessToken).to(beFalse())
+                }
+                
+            }
+            
+            context("with an error response") {
+                beforeEach {
+                    OHHTTPStubs.stubRequests(passingTest: { request in
+                        return (request.url!.absoluteString == "http://rheinfabrik.de")
+                    }, withStubResponse: { request in
+                        let data = try! Data(contentsOf: self.bundle.url(forResource: "authorize-error", withExtension: "json")!)
+                        return OHHTTPStubsResponse(data: data, statusCode: 400, headers: nil)
+                    })
+                    
+                    waitUntil { done in
+                        heimdallr.requestAccessToken(authorizationCode: "code", redirectURI: "redirectURI://") { result = $0; done() }
+                    }
+                }
+                
+                afterEach {
+                    OHHTTPStubs.removeAllStubs()
+                }
+                
+                it("fails") {
+                    expect(result?.value).to(beNil())
+                }
+                
+                it("does not attempt to parse the access token") {
+                    expect(accessTokenParser.parseAccessTokenCalled).to(beFalse())
+                }
+                
+                it("fails with the correct error domain") {
+                    expect(result?.error?.domain).to(equal(OAuthErrorDomain))
+                }
+                
+                it("fails with the correct error code") {
+                    expect(result?.error?.code).to(equal(OAuthErrorInvalidClient))
+                }
+                
+                it("does not set the access token") {
+                    expect(heimdallr.hasAccessToken).to(beFalse())
+                }
+            }
+            
+            context("with an invalid response") {
+                beforeEach {
+                    OHHTTPStubs.stubRequests(passingTest: { request in
+                        return (request.url!.absoluteString == "http://rheinfabrik.de")
+                    }, withStubResponse: { request in
+                        let data = try! Data(contentsOf: self.bundle.url(forResource: "authorize-invalid", withExtension: "json")!)
+                        return OHHTTPStubsResponse(data: data, statusCode: 200, headers: [ "Content-Type": "application/json" ])
+                    })
+                    
+                    waitUntil { done in
+                        heimdallr.requestAccessToken(authorizationCode: "code", redirectURI: "redirectURI://") { result = $0; done() }
+                    }
+                }
+                
+                afterEach {
+                    OHHTTPStubs.removeAllStubs()
+                }
+                
+                it("fails") {
+                    expect(result?.value).to(beNil())
+                }
+                
+                it("attempts to parse the access token") {
+                    expect(accessTokenParser.parseAccessTokenCalled).to(beTrue())
+                }
+                
+                it("fails with the correct error domain") {
+                    expect(result?.error?.domain).to(equal(HeimdallrErrorDomain))
+                }
+                
+                it("fails with the correct error code") {
+                    expect(result?.error?.code).to(equal(HeimdallrErrorInvalidData))
+                }
+                
+                it("does not set the access token") {
+                    expect(heimdallr.hasAccessToken).to(beFalse())
+                }
+            }
+            
+            context("with an invalid response missing a token") {
+                beforeEach {
+                    OHHTTPStubs.stubRequests(passingTest: { request in
+                        return (request.url!.absoluteString == "http://rheinfabrik.de")
+                    }, withStubResponse: { request in
+                        let data = try! Data(contentsOf: self.bundle.url(forResource: "authorize-invalid-token", withExtension: "json")!)
+                        return OHHTTPStubsResponse(data: data, statusCode: 200, headers: [ "Content-Type": "application/json" ])
+                    })
+                    
+                    waitUntil { done in
+                        heimdallr.requestAccessToken(authorizationCode: "code", redirectURI: "redirectURI://") { result = $0; done() }
+                    }
+                }
+                
+                afterEach {
+                    OHHTTPStubs.removeAllStubs()
+                }
+                
+                it("fails") {
+                    expect(result?.value).to(beNil())
+                }
+                
+                it("attempts to parse the access token") {
+                    expect(accessTokenParser.parseAccessTokenCalled).to(beTrue())
+                }
+                
+                it("fails with the correct error domain") {
+                    expect(result?.error?.domain).to(equal(HeimdallrErrorDomain))
+                }
+                
+                it("fails with the correct error code") {
+                    expect(result?.error?.code).to(equal(HeimdallrErrorInvalidData))
+                }
+                
+                it("does not set the access token") {
+                    expect(heimdallr.hasAccessToken).to(beFalse())
+                }
+                
+            }
+            
+            context("with an invalid response missing a type") {
+                beforeEach {
+                    OHHTTPStubs.stubRequests(passingTest: { request in
+                        return (request.url!.absoluteString == "http://rheinfabrik.de")
+                    }, withStubResponse: { request in
+                        let data = try! Data(contentsOf: self.bundle.url(forResource: "authorize-invalid-type", withExtension: "json")!)
+                        return OHHTTPStubsResponse(data: data, statusCode: 200, headers: [ "Content-Type": "application/json" ])
+                    })
+                    
+                    waitUntil { done in
+                        heimdallr.requestAccessToken(authorizationCode: "code", redirectURI: "redirectURI://") { result = $0; done() }
+                    }
+                }
+                
+                afterEach {
+                    OHHTTPStubs.removeAllStubs()
+                }
+                
+                it("fails") {
+                    expect(result?.value).to(beNil())
+                }
+                
+                it("attempts to parse the access token") {
+                    expect(accessTokenParser.parseAccessTokenCalled).to(beTrue())
+                }
+                
+                it("fails with the correct error domain") {
+                    expect(result?.error?.domain).to(equal(HeimdallrErrorDomain))
+                }
+                
+                it("fails with the correct error code") {
+                    expect(result?.error?.code).to(equal(HeimdallrErrorInvalidData))
+                }
+                
+                it("does not set the access token") {
+                    expect(heimdallr.hasAccessToken).to(beFalse())
+                }
+            }
+        }
 
         describe("-requestAccessToken(grantType:parameters:completion:)") {
-            var result: Result<Void, NSError>?
+            var result: Result<OAuthAccessToken, NSError>?
 
             afterEach {
                 result = nil

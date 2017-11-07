@@ -7,13 +7,16 @@ public class OAuthAccessToken: NSObject {
     public let accessToken: String
 
     /// The acess token's type (e.g., Bearer).
-    public let tokenType: String
+    public let tokenType: String?
 
     /// The access token's expiration date.
     public let expiresAt: Date?
 
     /// The refresh token.
     public let refreshToken: String?
+
+    /// The complete payload
+    public let payload: [String: Any]?
 
     /// Initializes a new access token.
     ///
@@ -24,11 +27,12 @@ public class OAuthAccessToken: NSObject {
     ///
     /// - returns: A new access token initialized with access token, type,
     ///     expiration date and refresh token.
-    public init(accessToken: String, tokenType: String, expiresAt: Date? = nil, refreshToken: String? = nil) {
+    public init(accessToken: String, tokenType: String? = nil, expiresAt: Date? = nil, refreshToken: String? = nil, payload: [String: Any]? = nil) {
         self.accessToken = accessToken
         self.tokenType = tokenType
         self.expiresAt = expiresAt
         self.refreshToken = refreshToken
+        self.payload = payload
     }
 
     /// Copies the access token, using new values if provided.
@@ -71,8 +75,11 @@ extension OAuthAccessToken {
         let expiresAt = (json["expires_in"] as? TimeInterval).flatMap(toDate)
         let refreshToken = json["refresh_token"] as? String
 
-        return OAuthAccessToken(accessToken: accessToken, tokenType: tokenType,
-                                expiresAt: expiresAt, refreshToken: refreshToken)
+        return OAuthAccessToken(accessToken: accessToken,
+                                tokenType: tokenType,
+                                expiresAt: expiresAt,
+                                refreshToken: refreshToken,
+                                payload: json)
     }
 
     public class func decode(data: Data) -> OAuthAccessToken? {

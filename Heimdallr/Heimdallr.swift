@@ -1,6 +1,8 @@
 import Foundation
 import Result
 
+public typealias AccessTokenCompletion = ((Result<OAuthAccessToken, NSError>) -> Void)
+
 public let HeimdallrErrorDomain = "HeimdallrErrorDomain"
 
 /// The token endpoint responded with invalid data.
@@ -13,7 +15,7 @@ public let HeimdallrErrorNotAuthorized = 2
 /// stands on the rainbow bridge network to authorize relevant requests.
 @objc open class Heimdallr: NSObject {
     public let tokenURL: URL
-    private let credentials: OAuthClientCredentials?
+    let credentials: OAuthClientCredentials?
 
     private let accessTokenStore: OAuthAccessTokenStore
     private var accessToken: OAuthAccessToken? {
@@ -27,6 +29,10 @@ public let HeimdallrErrorNotAuthorized = 2
 
     private let accessTokenParser: OAuthAccessTokenParser
     private let httpClient: HeimdallrHTTPClient
+
+    #if IOS
+        lazy var authorizationCodeHandler: OAuthAuthorizationCodeHandlerType = OAuthAuthorizationCodeHandler()
+    #endif
 
     /// The request authenticator that is used to authenticate requests.
     public let resourceRequestAuthenticator: HeimdallResourceRequestAuthenticator
@@ -97,9 +103,23 @@ public let HeimdallrErrorNotAuthorized = 2
     /// - parameter username: The resource owner's username.
     /// - parameter password: The resource owner's password.
     /// - parameter completion: A callback to invoke when the request completed.
-    open func requestAccessToken(username: String, password: String, completion: @escaping (Result<Void, NSError>) -> Void) {
+    open func requestAccessToken(username: String, password: String, completion: @escaping AccessTokenCompletion) {
         requestAccessToken(grant: .resourceOwnerPasswordCredentials(username, password)) { result in
-            completion(result.map { _ in return })
+            completion(result)
+        }
+    }
+
+    /// Requests an access token with the authorization code grant.
+    ///
+    /// **Note:** The completion closure may be invoked on any thread.
+    ///
+    /// - Parameters:
+    ///   - authorizationCode: The authorization code from the authorization server.
+    ///   - redirectURI: The redirect URI.
+    ///   - completion: A callback to invoke when the request completed.
+    open func requestAccessToken(authorizationCode: String, redirectURI: String, completion: @escaping AccessTokenCompletion) {
+        requestAccessToken(grant: .authorizationCode(code: authorizationCode, redirectURI: redirectURI)) { result in
+            completion(result)
         }
     }
 
@@ -110,9 +130,9 @@ public let HeimdallrErrorNotAuthorized = 2
     /// - parameter grantType: The grant type URI of the extension grant
     /// - parameter parameters: The required parameters for the external grant
     /// - parameter completion: A callback to invoke when the request completed.
-    open func requestAccessToken(grantType: String, parameters: [String: String], completion: @escaping (Result<Void, NSError>) -> Void) {
+    open func requestAccessToken(grantType: String, parameters: [String: String], completion: @escaping AccessTokenCompletion) {
         requestAccessToken(grant: .extension(grantType, parameters)) { result in
-            completion(result.map { _ in return })
+            completion(result)
         }
     }
 
@@ -124,7 +144,7 @@ public let HeimdallrErrorNotAuthorized = 2
     ///
     /// - parameter grant: The authorization grant (e.g., refresh).
     /// - parameter completion: A callback to invoke when the request completed.
-    private func requestAccessToken(grant: OAuthAuthorizationGrant, completion: @escaping (Result<OAuthAccessToken, NSError>) -> Void) {
+    private func requestAccessToken(grant: OAuthAuthorizationGrant, completion: @escaping AccessTokenCompletion) {
         var request = URLRequest(url: tokenURL)
 
         var parameters = grant.parameters
