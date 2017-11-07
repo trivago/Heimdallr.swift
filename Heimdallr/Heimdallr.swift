@@ -116,7 +116,7 @@ public let HeimdallrErrorNotAuthorized = 2
     /// - Parameters:
     ///   - authorizationCode: The authorization code from the authorization server.
     ///   - redirectURI: The redirect URI.
-    ///   - completion: A cllback to invoke when the request completed.
+    ///   - completion: A callback to invoke when the request completed.
     open func requestAccessToken(authorizationCode: String, redirectURI: String, completion: @escaping AccessTokenCompletion) {
         requestAccessToken(grant: .authorizationCode(code: authorizationCode, redirectURI: redirectURI)) { result in
             completion(result)

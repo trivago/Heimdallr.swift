@@ -14,7 +14,7 @@ public extension Heimdallr {
     ///   - url: The authorization code link.
     ///   - redirectURI: The redirect URI.
     ///   - scope: The authorization scope.
-    ///   - completion: A cllback to invoke when the request completed.
+    ///   - completion: A callback to invoke when the request completed.
     public func requestAccessToken(authorizationCodeURL url: URL,
                                    redirectURI: String,
                                    scope: String,
@@ -46,7 +46,7 @@ public extension Heimdallr {
     ///   - authorizationCodeURL: The authorization code link.
     ///   - redirectURI: The redirect URI.
     ///   - scope: The authorization scope.
-    ///   - completion: A cllback to invoke when the request completed.
+    ///   - completion: A callback to invoke when the request completed.
     public func requestAccessToken(implicitAuthorizationURL url: URL,
                                    redirectURI: String,
                                    scope: String,
@@ -64,7 +64,7 @@ public extension Heimdallr {
     ///   - authorizationCodeURL: The authorization code link.
     ///   - redirectURI: The redirect URI.
     ///   - scope: The authorization scope.
-    ///   - completion: A cllback to invoke when the request completed.
+    ///   - completion: A callback to invoke when the request completed.
     public func requestAuthorizationCode(authorizationCodeURL url: URL,
                                          redirectURI: String,
                                          scope: String,
