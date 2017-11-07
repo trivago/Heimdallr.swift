@@ -47,7 +47,7 @@ class iOSHeimdallrSpec: QuickSpec {
                     })
                 }
                 
-                it("build the right request URL") {
+                it("builds the right request URL") {
                     expect(authorizationCodeHandlerMock.requestAuthorizationCodeURL) == URL(string: "http://trivago.com?response_type=code&scope=scope&redirect_uri=http://trivago.com&test=abc123")!
                 }
             }
@@ -63,7 +63,7 @@ class iOSHeimdallrSpec: QuickSpec {
                     })
                 }
                 
-                it("build the right request URL") {
+                it("builds the right request URL") {
                     expect(authorizationCodeHandlerMock.requestAccessTokenURL) == URL(string: "http://trivago.com?scope=scope&redirect_uri=http://trivago.com&response_type=token")!
                 }
             }
@@ -80,7 +80,7 @@ class iOSHeimdallrSpec: QuickSpec {
                     })
                 }
                 
-                it("build the right request URL") {
+                it("builds the right request URL") {
                     expect(authorizationCodeHandlerMock.requestAuthorizationCodeURL) == URL(string: "http://trivago.com?response_type=code&scope=scope&redirect_uri=http://trivago.com&test=abc123")!
                 }
             }
