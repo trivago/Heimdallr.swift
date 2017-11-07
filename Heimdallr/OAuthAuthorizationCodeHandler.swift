@@ -121,7 +121,9 @@ class OAuthAuthorizationCodeHandler: NSObject, OAuthAuthorizationCodeHandlerType
             self?.authCallback(url: url, error: error)
         }
         authenticationSession = session
+        DispatchQueue.main.async {
         session.start()
+        }
     }
 
     private func requestLegacy(url: URL) {
@@ -131,7 +133,9 @@ class OAuthAuthorizationCodeHandler: NSObject, OAuthAuthorizationCodeHandlerType
         self.safariViewController = safariViewController
 
         let parent = UIApplication.shared.keyWindow?.topMostViewController
-        parent?.present(safariViewController, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            parent?.present(safariViewController, animated: true, completion: nil)
+        }
     }
 }
 
