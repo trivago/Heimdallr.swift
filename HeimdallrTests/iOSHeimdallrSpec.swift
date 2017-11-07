@@ -23,7 +23,7 @@ class iOSHeimdallrSpec: QuickSpec {
     
     override func spec() {
         
-        fdescribe("iOSHeimdallr") {
+        describe("iOSHeimdallr") {
             
             var sut: Heimdallr!
             var authorizationCodeHandlerMock: OAuthAuthorizationCodeHandlerMock!
