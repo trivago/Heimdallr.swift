@@ -126,11 +126,12 @@ class OAuthAuthorizationCodeHandler: NSObject, OAuthAuthorizationCodeHandlerType
 
     private func requestLegacy(url: URL) {
         let safariViewController = SFSafariViewController(url: url)
+        safariViewController.modalPresentationStyle = .overFullScreen
+        safariViewController.delegate = self
+        self.safariViewController = safariViewController
+
         let parent = UIApplication.shared.keyWindow?.topMostViewController
         parent?.present(safariViewController, animated: true, completion: nil)
-
-        self.safariViewController = safariViewController
-        safariViewController.delegate = self
     }
 }
 
