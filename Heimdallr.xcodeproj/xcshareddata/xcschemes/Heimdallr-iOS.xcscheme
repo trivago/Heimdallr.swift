@@ -39,7 +39,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DC545DC11A89F0F10051A575"
                BuildableName = "Heimdallr.framework"
-               BlueprintName = "Heimdallr-iOS"
+               BlueprintName = "HeimdallrLegacy-iOS"
                ReferencedContainer = "container:Heimdallr.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -124,7 +124,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DC545DC11A89F0F10051A575"
             BuildableName = "Heimdallr.framework"
-            BlueprintName = "Heimdallr-iOS"
+            BlueprintName = "HeimdallrLegacy-iOS"
             ReferencedContainer = "container:Heimdallr.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -146,7 +146,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DC545DC11A89F0F10051A575"
             BuildableName = "Heimdallr.framework"
-            BlueprintName = "Heimdallr-iOS"
+            BlueprintName = "HeimdallrLegacy-iOS"
             ReferencedContainer = "container:Heimdallr.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -164,7 +164,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DC545DC11A89F0F10051A575"
             BuildableName = "Heimdallr.framework"
-            BlueprintName = "Heimdallr-iOS"
+            BlueprintName = "HeimdallrLegacy-iOS"
             ReferencedContainer = "container:Heimdallr.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

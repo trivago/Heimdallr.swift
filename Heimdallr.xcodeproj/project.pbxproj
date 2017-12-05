@@ -77,8 +77,8 @@
 		DC5220A31BEA321F00F37F2A /* Heimdallr+ReactiveCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220551BEA320B00F37F2A /* Heimdallr+ReactiveCocoa.swift */; };
 		DC5220A41BEA322900F37F2A /* ReactiveHeimdallr.h in Headers */ = {isa = PBXBuildFile; fileRef = DC5220591BEA320B00F37F2A /* ReactiveHeimdallr.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC5220A51BEA322A00F37F2A /* ReactiveHeimdallr.h in Headers */ = {isa = PBXBuildFile; fileRef = DC5220591BEA320B00F37F2A /* ReactiveHeimdallr.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DC5220A61BEA323500F37F2A /* Heimdallr.h in Headers */ = {isa = PBXBuildFile; fileRef = DC5220571BEA320B00F37F2A /* Heimdallr.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DC5220A71BEA323500F37F2A /* Heimdallr.h in Headers */ = {isa = PBXBuildFile; fileRef = DC5220571BEA320B00F37F2A /* Heimdallr.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC5220A61BEA323500F37F2A /* HeimdallrLegacy.h in Headers */ = {isa = PBXBuildFile; fileRef = DC5220571BEA320B00F37F2A /* HeimdallrLegacy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC5220A71BEA323500F37F2A /* HeimdallrLegacy.h in Headers */ = {isa = PBXBuildFile; fileRef = DC5220571BEA320B00F37F2A /* HeimdallrLegacy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC5220B11BEA32A000F37F2A /* authorize-error.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220A91BEA32A000F37F2A /* authorize-error.json */; };
 		DC5220B21BEA32A000F37F2A /* authorize-error.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220A91BEA32A000F37F2A /* authorize-error.json */; };
 		DC5220B31BEA32A000F37F2A /* authorize-invalid-token.json in Resources */ = {isa = PBXBuildFile; fileRef = DC5220AA1BEA32A000F37F2A /* authorize-invalid-token.json */; };
@@ -174,7 +174,7 @@
 		DC5220521BEA320B00F37F2A /* OAuthClientCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthClientCredentials.swift; sourceTree = "<group>"; };
 		DC5220531BEA320B00F37F2A /* OAuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthError.swift; sourceTree = "<group>"; };
 		DC5220551BEA320B00F37F2A /* Heimdallr+ReactiveCocoa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Heimdallr+ReactiveCocoa.swift"; sourceTree = "<group>"; };
-		DC5220571BEA320B00F37F2A /* Heimdallr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heimdallr.h; sourceTree = "<group>"; };
+		DC5220571BEA320B00F37F2A /* HeimdallrLegacy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeimdallrLegacy.h; sourceTree = "<group>"; };
 		DC5220581BEA320B00F37F2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC5220591BEA320B00F37F2A /* ReactiveHeimdallr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReactiveHeimdallr.h; sourceTree = "<group>"; };
 		DC5220611BEA320B00F37F2A /* HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeaderSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeimdallrResourceRequestAuthenticatorHTTPAuthorizationHeaderSpec.swift; sourceTree = "<group>"; };
@@ -368,7 +368,7 @@
 		DC5220561BEA320B00F37F2A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				DC5220571BEA320B00F37F2A /* Heimdallr.h */,
+				DC5220571BEA320B00F37F2A /* HeimdallrLegacy.h */,
 				DC5220581BEA320B00F37F2A /* Info.plist */,
 				DC5220591BEA320B00F37F2A /* ReactiveHeimdallr.h */,
 			);
@@ -551,7 +551,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC5220A61BEA323500F37F2A /* Heimdallr.h in Headers */,
+				DC5220A61BEA323500F37F2A /* HeimdallrLegacy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,7 +559,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC5220A71BEA323500F37F2A /* Heimdallr.h in Headers */,
+				DC5220A71BEA323500F37F2A /* HeimdallrLegacy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,9 +582,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		DC545DC11A89F0F10051A575 /* Heimdallr-iOS */ = {
+		DC545DC11A89F0F10051A575 /* HeimdallrLegacy-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DC545DD81A89F0F10051A575 /* Build configuration list for PBXNativeTarget "Heimdallr-iOS" */;
+			buildConfigurationList = DC545DD81A89F0F10051A575 /* Build configuration list for PBXNativeTarget "HeimdallrLegacy-iOS" */;
 			buildPhases = (
 				DC545DBD1A89F0F10051A575 /* Sources */,
 				DC545DBE1A89F0F10051A575 /* Frameworks */,
@@ -596,7 +596,7 @@
 			);
 			dependencies = (
 			);
-			name = "Heimdallr-iOS";
+			name = "HeimdallrLegacy-iOS";
 			productName = "oauth-swift";
 			productReference = DC545DC21A89F0F10051A575 /* Heimdallr.framework */;
 			productType = "com.apple.product-type.framework";
@@ -787,7 +787,7 @@
 			targets = (
 				DC582F421BE1319F0017BE06 /* Heimdallr-macOS */,
 				DC582F4B1BE1319F0017BE06 /* Heimdallr-macOSTests */,
-				DC545DC11A89F0F10051A575 /* Heimdallr-iOS */,
+				DC545DC11A89F0F10051A575 /* HeimdallrLegacy-iOS */,
 				DC545DCC1A89F0F10051A575 /* Heimdallr-iOSTests */,
 				DC582FF41BE148610017BE06 /* ReactiveHeimdallr-macOS */,
 				DC582FFD1BE148610017BE06 /* ReactiveHeimdallr-macOSTests */,
@@ -1021,7 +1021,7 @@
 /* Begin PBXTargetDependency section */
 		DC545DD01A89F0F10051A575 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DC545DC11A89F0F10051A575 /* Heimdallr-iOS */;
+			target = DC545DC11A89F0F10051A575 /* HeimdallrLegacy-iOS */;
 			targetProxy = DC545DCF1A89F0F10051A575 /* PBXContainerItemProxy */;
 		};
 		DC582F4F1BE1319F0017BE06 /* PBXTargetDependency */ = {
@@ -1297,7 +1297,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DC545DD81A89F0F10051A575 /* Build configuration list for PBXNativeTarget "Heimdallr-iOS" */ = {
+		DC545DD81A89F0F10051A575 /* Build configuration list for PBXNativeTarget "HeimdallrLegacy-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DC545DD91A89F0F10051A575 /* Debug */,

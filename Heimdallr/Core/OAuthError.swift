@@ -1,3 +1,4 @@
+import Foundation
 /// See: The OAuth 2.0 Authorization Framework, 5.2 NSError Response
 ///      <https://tools.ietf.org/html/rfc6749#section-5.2>
 
