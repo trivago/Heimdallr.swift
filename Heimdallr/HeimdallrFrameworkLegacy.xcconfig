@@ -1,0 +1,3 @@
+#include "iOS-Framework.xcconfig"
+
+PRODUCT_NAME = HeimdallrLegacy

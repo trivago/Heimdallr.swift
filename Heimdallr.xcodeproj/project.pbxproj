@@ -107,7 +107,7 @@
 		DC5220CC1BEA32AA00F37F2A /* OAuthAccessTokenSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5220661BEA320B00F37F2A /* OAuthAccessTokenSpec.swift */; };
 		DC5220CD1BEA32AF00F37F2A /* Heimdallr+ReactiveCocoaSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52206B1BEA320B00F37F2A /* Heimdallr+ReactiveCocoaSpec.swift */; };
 		DC5220CE1BEA32AF00F37F2A /* Heimdallr+ReactiveCocoaSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC52206B1BEA320B00F37F2A /* Heimdallr+ReactiveCocoaSpec.swift */; };
-		DC545DCE1A89F0F10051A575 /* Heimdallr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC545DC21A89F0F10051A575 /* Heimdallr.framework */; };
+		DC545DCE1A89F0F10051A575 /* HeimdallrLegacy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC545DC21A89F0F10051A575 /* HeimdallrLegacy.framework */; };
 		DC582F4D1BE1319F0017BE06 /* Heimdallr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582F431BE1319F0017BE06 /* Heimdallr.framework */; };
 		DC582FCA1BE13EB30017BE06 /* ReactiveHeimdallr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582FC01BE13EB20017BE06 /* ReactiveHeimdallr.framework */; };
 		DC582FFF1BE148610017BE06 /* ReactiveHeimdallr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC582FF51BE148610017BE06 /* ReactiveHeimdallr.framework */; };
@@ -153,6 +153,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		29223D1D1FD6DD7400F5AC1B /* HeimdallrFrameworkLegacy.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = HeimdallrFrameworkLegacy.xcconfig; sourceTree = "<group>"; };
 		D44F76361DA52BDB002A4AC4 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Checkouts/ReactiveSwift/build/Debug/ReactiveSwift.framework; sourceTree = "<group>"; };
 		D44F76381DA52BEA002A4AC4 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = "../../Library/Developer/Xcode/DerivedData/Heimdallr-fdtctotgikuwtugzxtbbivybhrkn/Build/Products/Debug-iphonesimulator/ReactiveSwift.framework"; sourceTree = "<group>"; };
 		DC209CC51C845F1900C43C75 /* Argo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Argo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,7 +193,7 @@
 		DC5220AE1BEA32A000F37F2A /* request-invalid-norefresh.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "request-invalid-norefresh.json"; sourceTree = "<group>"; };
 		DC5220AF1BEA32A000F37F2A /* request-invalid.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "request-invalid.json"; sourceTree = "<group>"; };
 		DC5220B01BEA32A000F37F2A /* request-valid.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "request-valid.json"; sourceTree = "<group>"; };
-		DC545DC21A89F0F10051A575 /* Heimdallr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Heimdallr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC545DC21A89F0F10051A575 /* HeimdallrLegacy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HeimdallrLegacy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC545DCD1A89F0F10051A575 /* HeimdallrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeimdallrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC582F431BE1319F0017BE06 /* Heimdallr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Heimdallr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC582F4C1BE1319F0017BE06 /* HeimdallrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeimdallrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -245,7 +246,7 @@
 				DC209CDD1C845FCB00C43C75 /* Nimble.framework in Frameworks */,
 				DC209CDE1C845FCB00C43C75 /* OHHTTPStubs.framework in Frameworks */,
 				DC209CDF1C845FCB00C43C75 /* Quick.framework in Frameworks */,
-				DC545DCE1A89F0F10051A575 /* Heimdallr.framework in Frameworks */,
+				DC545DCE1A89F0F10051A575 /* HeimdallrLegacy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +333,7 @@
 				DC5220461BEA320B00F37F2A /* Core */,
 				DC5220541BEA320B00F37F2A /* ReactiveCocoa */,
 				DC5220561BEA320B00F37F2A /* Supporting Files */,
+				29223D1D1FD6DD7400F5AC1B /* HeimdallrFrameworkLegacy.xcconfig */,
 			);
 			path = Heimdallr;
 			sourceTree = "<group>";
@@ -443,7 +445,7 @@
 		DC545DC31A89F0F10051A575 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DC545DC21A89F0F10051A575 /* Heimdallr.framework */,
+				DC545DC21A89F0F10051A575 /* HeimdallrLegacy.framework */,
 				DC545DCD1A89F0F10051A575 /* HeimdallrTests.xctest */,
 				DC582F431BE1319F0017BE06 /* Heimdallr.framework */,
 				DC582F4C1BE1319F0017BE06 /* HeimdallrTests.xctest */,
@@ -598,7 +600,7 @@
 			);
 			name = "Heimdallr-iOS";
 			productName = "oauth-swift";
-			productReference = DC545DC21A89F0F10051A575 /* Heimdallr.framework */;
+			productReference = DC545DC21A89F0F10051A575 /* HeimdallrLegacy.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		DC545DCC1A89F0F10051A575 /* Heimdallr-iOSTests */ = {
@@ -1081,7 +1083,7 @@
 		};
 		DC545DD91A89F0F10051A575 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC712A4C1C85AD77009860A5 /* iOS-Framework.xcconfig */;
+			baseConfigurationReference = 29223D1D1FD6DD7400F5AC1B /* HeimdallrFrameworkLegacy.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1096,7 +1098,7 @@
 		};
 		DC545DDA1A89F0F10051A575 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC712A4C1C85AD77009860A5 /* iOS-Framework.xcconfig */;
+			baseConfigurationReference = 29223D1D1FD6DD7400F5AC1B /* HeimdallrFrameworkLegacy.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1183,7 +1185,7 @@
 		};
 		DC582FD11BE13EB30017BE06 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC712A4C1C85AD77009860A5 /* iOS-Framework.xcconfig */;
+			baseConfigurationReference = 29223D1D1FD6DD7400F5AC1B /* HeimdallrFrameworkLegacy.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1199,7 +1201,7 @@
 		};
 		DC582FD21BE13EB30017BE06 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC712A4C1C85AD77009860A5 /* iOS-Framework.xcconfig */;
+			baseConfigurationReference = 29223D1D1FD6DD7400F5AC1B /* HeimdallrFrameworkLegacy.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
