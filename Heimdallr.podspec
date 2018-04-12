@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = 'Heimdallr'
-  spec.version = '3.6.0'
+  spec.version = '3.6.1'
   spec.authors = {
     'trivago' => 'info@trivago.de'
   }
@@ -27,13 +27,5 @@ Pod::Spec.new do |spec|
     subspec.framework = 'Foundation'
 
     subspec.source_files = 'Heimdallr/Core/*.swift'
-  end
-
-  spec.subspec 'ReactiveCocoa' do |subspec|
-    subspec.dependency 'Heimdallr/Core'
-    subspec.dependency 'ReactiveSwift', '~> 1.0'
-    subspec.dependency 'ReactiveObjCBridge', '~> 1.0'
-
-    subspec.source_files = 'Heimdallr/ReactiveCocoa/*.swift'
   end
 end

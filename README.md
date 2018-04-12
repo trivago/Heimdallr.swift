@@ -59,27 +59,22 @@ Installation is possible via Carthage or CocoaPods, see below for either method:
 1. Add Heimdallr to your [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile):
 
   ```
-  github "trivago/Heimdallr.swift" ~> 3.6
+  github "trivago/Heimdallr.swift" ~> 3.6.1
   ```
 
 2. Run `carthage update` to fetch and build Heimdallr and its dependencies.
 
 3. [Make sure your application's target links against `Heimdallr.framework` and copies all relevant frameworks into its application bundle (iOS); or embeds the binaries of all relevant frameworks (Mac).](https://github.com/carthage/carthage#getting-started)
 
-Extensions for [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa) are provided as `ReactiveHeimdallr.framework`.
-
 ### CocoaPods
 
 1. Add Heimdallr to your [Podfile](https://guides.cocoapods.org/syntax/podfile.html):
 
    ```ruby
-   pod 'Heimdallr', '~> 3.6'
+   pod 'Heimdallr', '~> 3.6.1'
    ```
 
 2.  Run `pod install` to fetch and build Heimdallr and its dependencies.
-
-Extensions for [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa) are provided as `ReactiveCocoa` [subspec](https://guides.cocoapods.org/syntax/podfile.html#pod).
-
 ## Usage
 
 ### OAuthClientCredentials

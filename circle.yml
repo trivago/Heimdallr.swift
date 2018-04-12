@@ -30,25 +30,3 @@ test:
         clean test |
       tee $CIRCLE_ARTIFACTS/xcode_raw_heimdallr_ios.log |
       xcpretty --color --report junit --output $CIRCLE_TEST_REPORTS/xcode/heimdallr-ios-results.xml
-    - set -o pipefail &&
-      xcodebuild
-        -sdk macosx
-        -workspace Heimdallr.xcworkspace
-        -scheme ReactiveHeimdallr-macOS
-        -configuration Debug
-        clean test |
-      tee $CIRCLE_ARTIFACTS/xcode_raw_reactive_heimdallr_macos.log |
-      xcpretty --color --report junit --output $CIRCLE_TEST_REPORTS/xcode/reactive-heimdallr-mac-results.xml
-    - set -o pipefail &&
-      xcodebuild
-        CODE_SIGNING_REQUIRED=NO
-        CODE_SIGN_IDENTITY=
-        PROVISIONING_PROFILE=
-        -sdk iphonesimulator
-        -destination 'platform=iOS Simulator,OS=10.2,name=iPhone 7'
-        -workspace Heimdallr.xcworkspace
-        -scheme ReactiveHeimdallr-iOS
-        -configuration Debug
-        clean test |
-      tee $CIRCLE_ARTIFACTS/xcode_raw_reactive_heimdallr_ios.log |
-      xcpretty --color --report junit --output $CIRCLE_TEST_REPORTS/xcode/reactive-heimdallr-ios-results.xml
