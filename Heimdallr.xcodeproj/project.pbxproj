@@ -93,6 +93,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4589DE79226B996D00A03FFA /* macOS-Application.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "macOS-Application.xcconfig"; sourceTree = "<group>"; };
+		4589DE7A226B996D00A03FFA /* macOS-Framework.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "macOS-Framework.xcconfig"; sourceTree = "<group>"; };
+		4589DE7B226B996D00A03FFA /* macOS-StaticLibrary.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "macOS-StaticLibrary.xcconfig"; sourceTree = "<group>"; };
+		4589DE7C226B996D00A03FFA /* macOS-Base.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "macOS-Base.xcconfig"; sourceTree = "<group>"; };
+		4589DE7D226B996D00A03FFA /* macOS-XCTest.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "macOS-XCTest.xcconfig"; sourceTree = "<group>"; };
+		4589DE7E226B996D00A03FFA /* macOS-DynamicLibrary.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "macOS-DynamicLibrary.xcconfig"; sourceTree = "<group>"; };
+		4589DE80226B996D00A03FFA /* Mac-XCTest.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Mac-XCTest.xcconfig"; sourceTree = "<group>"; };
+		4589DE81226B996D00A03FFA /* Mac-StaticLibrary.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Mac-StaticLibrary.xcconfig"; sourceTree = "<group>"; };
+		4589DE82226B996D00A03FFA /* Mac-Framework.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Mac-Framework.xcconfig"; sourceTree = "<group>"; };
+		4589DE83226B996D00A03FFA /* Mac-Base.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Mac-Base.xcconfig"; sourceTree = "<group>"; };
+		4589DE84226B996D00A03FFA /* Mac-Application.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Mac-Application.xcconfig"; sourceTree = "<group>"; };
+		4589DE85226B996D00A03FFA /* Mac-DynamicLibrary.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Mac-DynamicLibrary.xcconfig"; sourceTree = "<group>"; };
 		D44F76361DA52BDB002A4AC4 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Checkouts/ReactiveSwift/build/Debug/ReactiveSwift.framework; sourceTree = "<group>"; };
 		D44F76381DA52BEA002A4AC4 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = "../../Library/Developer/Xcode/DerivedData/Heimdallr-fdtctotgikuwtugzxtbbivybhrkn/Build/Products/Debug-iphonesimulator/ReactiveSwift.framework"; sourceTree = "<group>"; };
 		DC209CC51C845F1900C43C75 /* Argo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Argo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,11 +157,6 @@
 		DC712A4B1C85AD77009860A5 /* iOS-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS-Base.xcconfig"; sourceTree = "<group>"; };
 		DC712A4C1C85AD77009860A5 /* iOS-Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS-Framework.xcconfig"; sourceTree = "<group>"; };
 		DC712A4D1C85AD77009860A5 /* iOS-StaticLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS-StaticLibrary.xcconfig"; sourceTree = "<group>"; };
-		DC712A4F1C85AD77009860A5 /* Mac-Application.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Mac-Application.xcconfig"; sourceTree = "<group>"; };
-		DC712A501C85AD77009860A5 /* Mac-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Mac-Base.xcconfig"; sourceTree = "<group>"; };
-		DC712A511C85AD77009860A5 /* Mac-DynamicLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Mac-DynamicLibrary.xcconfig"; sourceTree = "<group>"; };
-		DC712A521C85AD77009860A5 /* Mac-Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Mac-Framework.xcconfig"; sourceTree = "<group>"; };
-		DC712A531C85AD77009860A5 /* Mac-StaticLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Mac-StaticLibrary.xcconfig"; sourceTree = "<group>"; };
 		DC712A561C85AD77009860A5 /* tvOS-Application.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "tvOS-Application.xcconfig"; sourceTree = "<group>"; };
 		DC712A571C85AD77009860A5 /* tvOS-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "tvOS-Base.xcconfig"; sourceTree = "<group>"; };
 		DC712A581C85AD77009860A5 /* tvOS-Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "tvOS-Framework.xcconfig"; sourceTree = "<group>"; };
@@ -204,6 +211,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4589DE78226B996D00A03FFA /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				4589DE79226B996D00A03FFA /* macOS-Application.xcconfig */,
+				4589DE7A226B996D00A03FFA /* macOS-Framework.xcconfig */,
+				4589DE7B226B996D00A03FFA /* macOS-StaticLibrary.xcconfig */,
+				4589DE7C226B996D00A03FFA /* macOS-Base.xcconfig */,
+				4589DE7D226B996D00A03FFA /* macOS-XCTest.xcconfig */,
+				4589DE7E226B996D00A03FFA /* macOS-DynamicLibrary.xcconfig */,
+			);
+			name = macOS;
+			path = Carthage/Checkouts/xcconfigs/macOS;
+			sourceTree = SOURCE_ROOT;
+		};
+		4589DE7F226B996D00A03FFA /* Mac OS X */ = {
+			isa = PBXGroup;
+			children = (
+				4589DE80226B996D00A03FFA /* Mac-XCTest.xcconfig */,
+				4589DE81226B996D00A03FFA /* Mac-StaticLibrary.xcconfig */,
+				4589DE82226B996D00A03FFA /* Mac-Framework.xcconfig */,
+				4589DE83226B996D00A03FFA /* Mac-Base.xcconfig */,
+				4589DE84226B996D00A03FFA /* Mac-Application.xcconfig */,
+				4589DE85226B996D00A03FFA /* Mac-DynamicLibrary.xcconfig */,
+			);
+			name = "Mac OS X";
+			path = "Carthage/Checkouts/xcconfigs/Mac OS X";
+			sourceTree = SOURCE_ROOT;
+		};
 		DC209CCC1C845F2000C43C75 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,7 +349,8 @@
 			children = (
 				DC712A3E1C85AD77009860A5 /* Base */,
 				DC712A491C85AD77009860A5 /* iOS */,
-				DC712A4E1C85AD77009860A5 /* Mac OS X */,
+				4589DE7F226B996D00A03FFA /* Mac OS X */,
+				4589DE78226B996D00A03FFA /* macOS */,
 				DC712A551C85AD77009860A5 /* tvOS */,
 				DC712A5A1C85AD77009860A5 /* watchOS */,
 			);
@@ -362,18 +398,6 @@
 				DC712A4D1C85AD77009860A5 /* iOS-StaticLibrary.xcconfig */,
 			);
 			path = iOS;
-			sourceTree = "<group>";
-		};
-		DC712A4E1C85AD77009860A5 /* Mac OS X */ = {
-			isa = PBXGroup;
-			children = (
-				DC712A4F1C85AD77009860A5 /* Mac-Application.xcconfig */,
-				DC712A501C85AD77009860A5 /* Mac-Base.xcconfig */,
-				DC712A511C85AD77009860A5 /* Mac-DynamicLibrary.xcconfig */,
-				DC712A521C85AD77009860A5 /* Mac-Framework.xcconfig */,
-				DC712A531C85AD77009860A5 /* Mac-StaticLibrary.xcconfig */,
-			);
-			path = "Mac OS X";
 			sourceTree = "<group>";
 		};
 		DC712A551C85AD77009860A5 /* tvOS */ = {
@@ -506,11 +530,11 @@
 				TargetAttributes = {
 					DC545DC11A89F0F10051A575 = {
 						CreatedOnToolsVersion = 6.1.1;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 					};
 					DC545DCC1A89F0F10051A575 = {
 						CreatedOnToolsVersion = 6.1.1;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 					DC582F421BE1319F0017BE06 = {
@@ -528,6 +552,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = DC545DB81A89F0F10051A575;
@@ -700,7 +725,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -718,7 +743,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GCC_NO_COMMON_BLOCKS = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -738,8 +763,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				INFOPLIST_FILE = "Heimdallr/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -754,8 +778,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				INFOPLIST_FILE = "Heimdallr/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -767,8 +790,7 @@
 				INFOPLIST_FILE = "HeimdallrTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = HeimdallrTests;
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -780,56 +802,55 @@
 				INFOPLIST_FILE = "HeimdallrTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = HeimdallrTests;
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
 		DC582F551BE1319F0017BE06 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC712A521C85AD77009860A5 /* Mac-Framework.xcconfig */;
 			buildSettings = {
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "Heimdallr/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				SWIFT_VERSION = 4.2;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		DC582F561BE1319F0017BE06 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC712A521C85AD77009860A5 /* Mac-Framework.xcconfig */;
 			buildSettings = {
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "Heimdallr/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				SWIFT_VERSION = 4.2;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
 		DC582F581BE1319F0017BE06 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC712A4F1C85AD77009860A5 /* Mac-Application.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "HeimdallrTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = HeimdallrTests;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		DC582F591BE1319F0017BE06 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC712A4F1C85AD77009860A5 /* Mac-Application.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "HeimdallrTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = HeimdallrTests;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
