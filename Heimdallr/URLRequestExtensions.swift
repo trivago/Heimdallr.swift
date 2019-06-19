@@ -48,7 +48,7 @@ private let HTTPRequestHeaderFieldAuthorization = "Authorization"
 
 public extension URLRequest {
     /// Returns the HTTP `Authorization` header value or `nil` if not set.
-    public var HTTPAuthorization: String? {
+    var HTTPAuthorization: String? {
         return value(forHTTPHeaderField: HTTPRequestHeaderFieldAuthorization)
     }
 
@@ -57,7 +57,7 @@ public extension URLRequest {
     /// - parameter value: The value to be set or `nil`.
     ///
     /// TODO: Declarations in extensions cannot override yet.
-    public mutating func setHTTPAuthorization(_ value: String?) {
+    mutating func setHTTPAuthorization(_ value: String?) {
         setValue(value, forHTTPHeaderField: HTTPRequestHeaderFieldAuthorization)
     }
 
@@ -65,7 +65,7 @@ public extension URLRequest {
     /// authentication.
     ///
     /// - parameter authentication: The HTTP authentication to be set.
-    public mutating func setHTTPAuthorization(_ authentication: HTTPAuthentication) {
+    mutating func setHTTPAuthorization(_ authentication: HTTPAuthentication) {
         setHTTPAuthorization(authentication.value)
     }
 
@@ -74,7 +74,7 @@ public extension URLRequest {
     /// - parameter parameters: The parameters to be encoded or `nil`.
     ///
     /// TODO: Tests crash without named parameter.
-    public mutating func setHTTPBody(parameters: [String: AnyObject]?) {
+    mutating func setHTTPBody(parameters: [String: AnyObject]?) {
         if let parameters = parameters {
             var components: [(String, String)] = []
             for (key, value) in parameters {
