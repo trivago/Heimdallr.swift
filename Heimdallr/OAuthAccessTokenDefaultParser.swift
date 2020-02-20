@@ -1,5 +1,4 @@
 import Foundation
-import Result
 
 @objc public class OAuthAccessTokenDefaultParser: NSObject, OAuthAccessTokenParser {
     public func parse(data: Data) throws -> OAuthAccessToken {
