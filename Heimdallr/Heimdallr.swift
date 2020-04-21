@@ -1,5 +1,4 @@
 import Foundation
-import Result
 
 public let HeimdallrErrorDomain = "HeimdallrErrorDomain"
 
@@ -210,15 +209,14 @@ public let HeimdallrErrorNotAuthorized = 2
             if let expiration = accessToken.expiresAt, expiration < Date() {
                 if let refreshToken = accessToken.refreshToken {
                     requestAccessToken(grant: .refreshToken(refreshToken)) { result in
-                        completion(result.analysis(ifSuccess: { accessToken in
-                            let authenticatedRequest = self.authenticateRequest(request, accessToken: accessToken)
-                            return .success(authenticatedRequest)
-                            }, ifFailure: { error in
-                                if [HeimdallrErrorDomain, OAuthErrorDomain].contains(error.domain) {
-                                    self.clearAccessToken()
-                                }
-                                return .failure(error)
-                        }))
+                        completion(result.map { accessToken in
+                            self.authenticateRequest(request, accessToken: accessToken)
+                        }.mapError { error in
+                            if [HeimdallrErrorDomain, OAuthErrorDomain].contains(error.domain) {
+                                self.clearAccessToken()
+                            }
+                            return error
+                        })
                         self.releaseRequestQueue()
                     }
                 } else {

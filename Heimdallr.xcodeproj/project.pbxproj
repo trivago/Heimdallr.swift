@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DC209CD31C845FA100C43C75 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CCB1C845F1900C43C75 /* Result.framework */; };
-		DC209CD61C845FA300C43C75 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CCB1C845F1900C43C75 /* Result.framework */; };
 		DC209CDD1C845FCB00C43C75 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC71C845F1900C43C75 /* Nimble.framework */; };
 		DC209CDE1C845FCB00C43C75 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC81C845F1900C43C75 /* OHHTTPStubs.framework */; };
 		DC209CDF1C845FCB00C43C75 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC209CC91C845F1900C43C75 /* Quick.framework */; };
@@ -174,7 +172,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC209CD31C845FA100C43C75 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,7 +190,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC209CD61C845FA300C43C75 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

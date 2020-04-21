@@ -19,11 +19,11 @@ Pod::Spec.new do |spec|
 
   spec.ios.deployment_target = '9.0'
   spec.osx.deployment_target = '10.10'
-
+  spec.swift_version = '5.0'
+  
   spec.default_subspec = 'Core'
 
   spec.subspec 'Core' do |subspec|
-    subspec.dependency 'Result', '~> 4.1.0'
     subspec.framework = 'Foundation'
 
     subspec.source_files = 'Heimdallr/*.swift'

@@ -2,7 +2,6 @@ import Heimdallr
 import Nimble
 import OHHTTPStubs
 import Quick
-import Result
 
 class OAuthAccessTokenMockStore: OAuthAccessTokenStore {
     var storeAccessTokenCalled: Bool = false
@@ -146,7 +145,7 @@ class HeimdallrSpec: QuickSpec {
                 }
 
                 it("succeeds") {
-                    expect(result?.value).toNot(beNil())
+                    expect(try? result?.get()).toNot(beNil())
                 }
 
                 it("attempts to parse the access token") {
@@ -185,25 +184,30 @@ class HeimdallrSpec: QuickSpec {
                 }
                 
                 it("fails") {
-                    expect(result?.value).to(beNil())
+                    expect(try? result?.get()).to(beNil())
                 }
                 
                 it("attempts to parse the access token") {
                     expect(accessTokenParser.parseAccessTokenCalled).to(beTrue())
                 }
                 
-                it("fails with the correct error domain") {
-                    expect(result?.error?.domain).to(equal(HeimdallrErrorDomain))
-                }
-                
-                it("fails with the correct error code") {
-                    expect(result?.error?.code).to(equal(HeimdallrErrorInvalidData))
+                switch result {
+                case .failure(let error):
+                    it("fails with the correct error domain") {
+                        expect(error.domain).to(equal(HeimdallrErrorDomain))
+                    }
+                    
+                    it("fails with the correct error code") {
+                        expect(error.code).to(equal(HeimdallrErrorInvalidData))
+                    }
+                    
+                default:
+                    break
                 }
                 
                 it("does not set the access token") {
                     expect(heimdallr.hasAccessToken).to(beFalse())
                 }
-                
             }
 
             context("with an error response") {
@@ -225,19 +229,26 @@ class HeimdallrSpec: QuickSpec {
                 }
 
                 it("fails") {
-                    expect(result?.value).to(beNil())
+                    expect(try? result?.get()).to(beNil())
                 }
                 
                 it("does not attempt to parse the access token") {
                     expect(accessTokenParser.parseAccessTokenCalled).to(beFalse())
                 }
 
-                it("fails with the correct error domain") {
-                    expect(result?.error?.domain).to(equal(OAuthErrorDomain))
-                }
+                
+                switch result {
+                case .failure(let error):
+                    it("fails with the correct error domain") {
+                        expect(error.domain).to(equal(OAuthErrorDomain))
+                    }
 
-                it("fails with the correct error code") {
-                    expect(result?.error?.code).to(equal(OAuthErrorInvalidClient))
+                    it("fails with the correct error code") {
+                        expect(error.code).to(equal(OAuthErrorInvalidClient))
+                    }
+                    
+                default:
+                    break
                 }
 
                 it("does not set the access token") {
@@ -264,19 +275,25 @@ class HeimdallrSpec: QuickSpec {
                 }
 
                 it("fails") {
-                    expect(result?.value).to(beNil())
+                    expect(try? result?.get()).to(beNil())
                 }
                 
                 it("attempts to parse the access token") {
                     expect(accessTokenParser.parseAccessTokenCalled).to(beTrue())
                 }
 
-                it("fails with the correct error domain") {
-                    expect(result?.error?.domain).to(equal(HeimdallrErrorDomain))
-                }
+                switch result {
+                case .failure(let error):
+                    it("fails with the correct error domain") {
+                        expect(error.domain).to(equal(HeimdallrErrorDomain))
+                    }
 
-                it("fails with the correct error code") {
-                    expect(result?.error?.code).to(equal(HeimdallrErrorInvalidData))
+                    it("fails with the correct error code") {
+                        expect(error.code).to(equal(HeimdallrErrorInvalidData))
+                    }
+                    
+                default:
+                    break
                 }
 
                 it("does not set the access token") {
@@ -303,19 +320,25 @@ class HeimdallrSpec: QuickSpec {
                 }
 
                 it("fails") {
-                    expect(result?.value).to(beNil())
+                    expect(try? result?.get()).to(beNil())
                 }
                 
                 it("attempts to parse the access token") {
                     expect(accessTokenParser.parseAccessTokenCalled).to(beTrue())
                 }
 
-                it("fails with the correct error domain") {
-                    expect(result?.error?.domain).to(equal(HeimdallrErrorDomain))
-                }
-
-                it("fails with the correct error code") {
-                    expect(result?.error?.code).to(equal(HeimdallrErrorInvalidData))
+                switch result {
+                case .failure(let error):
+                    it("fails with the correct error domain") {
+                        expect(error.domain).to(equal(HeimdallrErrorDomain))
+                    }
+                    
+                    it("fails with the correct error code") {
+                        expect(error.code).to(equal(HeimdallrErrorInvalidData))
+                    }
+                    
+                default:
+                    break
                 }
 
                 it("does not set the access token") {
@@ -343,19 +366,25 @@ class HeimdallrSpec: QuickSpec {
                 }
 
                 it("fails") {
-                    expect(result?.value).to(beNil())
+                    expect(try? result?.get()).to(beNil())
                 }
                 
                 it("attempts to parse the access token") {
                     expect(accessTokenParser.parseAccessTokenCalled).to(beTrue())
                 }
 
-                it("fails with the correct error domain") {
-                    expect(result?.error?.domain).to(equal(HeimdallrErrorDomain))
-                }
-
-                it("fails with the correct error code") {
-                    expect(result?.error?.code).to(equal(HeimdallrErrorInvalidData))
+                switch result {
+                case .failure(let error):
+                    it("fails with the correct error domain") {
+                        expect(error.domain).to(equal(HeimdallrErrorDomain))
+                    }
+                    
+                    it("fails with the correct error code") {
+                        expect(error.code).to(equal(HeimdallrErrorInvalidData))
+                    }
+                    
+                default:
+                    break
                 }
 
                 it("does not set the access token") {
@@ -390,7 +419,7 @@ class HeimdallrSpec: QuickSpec {
                 }
 
                 it("succeeds") {
-                    expect(result?.value).toNot(beNil())
+                    expect(try? result?.get()).toNot(beNil())
                 }
                 
                 it("attempts to parse the access token") {
@@ -425,15 +454,21 @@ class HeimdallrSpec: QuickSpec {
                 }
 
                 it("fails") {
-                    expect(result?.value).to(beNil())
+                    expect(try? result?.get()).to(beNil())
                 }
 
-                it("fails with the correct error domain") {
-                    expect(result?.error?.domain).to(equal(OAuthErrorDomain))
-                }
+                switch result {
+                case .failure(let error):
+                    it("fails with the correct error domain") {
+                        expect(error.domain).to(equal(OAuthErrorDomain))
+                    }
 
-                it("fails with the correct error code") {
-                    expect(result?.error?.code).to(equal(OAuthErrorInvalidClient))
+                    it("fails with the correct error code") {
+                        expect(error.code).to(equal(OAuthErrorInvalidClient))
+                    }
+                    
+                default:
+                    break
                 }
 
                 it("does not set the access token") {
@@ -460,19 +495,25 @@ class HeimdallrSpec: QuickSpec {
                 }
 
                 it("fails") {
-                    expect(result?.value).to(beNil())
+                    expect(try? result?.get()).to(beNil())
                 }
                 
                 it("attempts to parse the access token") {
                     expect(accessTokenParser.parseAccessTokenCalled).to(beTrue())
                 }
 
-                it("fails with the correct error domain") {
-                    expect(result?.error?.domain).to(equal(HeimdallrErrorDomain))
-                }
+                switch result {
+                case .failure(let error):
+                    it("fails with the correct error domain") {
+                        expect(error.domain).to(equal(HeimdallrErrorDomain))
+                    }
 
-                it("fails with the correct error code") {
-                    expect(result?.error?.code).to(equal(HeimdallrErrorInvalidData))
+                    it("fails with the correct error code") {
+                        expect(error.code).to(equal(HeimdallrErrorInvalidData))
+                    }
+                    
+                default:
+                    break
                 }
 
                 it("does not set the access token") {
@@ -499,19 +540,25 @@ class HeimdallrSpec: QuickSpec {
                 }
 
                 it("fails") {
-                    expect(result?.value).to(beNil())
+                    expect(try? result?.get()).to(beNil())
                 }
                 
                 it("attempts to parse the access token") {
                     expect(accessTokenParser.parseAccessTokenCalled).to(beTrue())
                 }
 
-                it("fails with the correct error domain") {
-                    expect(result?.error?.domain).to(equal(HeimdallrErrorDomain))
-                }
+                switch result {
+                case .failure(let error):
+                    it("fails with the correct error domain") {
+                        expect(error.domain).to(equal(HeimdallrErrorDomain))
+                    }
 
-                it("fails with the correct error code") {
-                    expect(result?.error?.code).to(equal(HeimdallrErrorInvalidData))
+                    it("fails with the correct error code") {
+                        expect(error.code).to(equal(HeimdallrErrorInvalidData))
+                    }
+                    
+                default:
+                    break
                 }
 
                 it("does not set the access token") {
@@ -538,19 +585,25 @@ class HeimdallrSpec: QuickSpec {
                 }
 
                 it("fails") {
-                    expect(result?.value).to(beNil())
+                    expect(try? result?.get()).to(beNil())
                 }
                 
                 it("attempts to parse the access token") {
                     expect(accessTokenParser.parseAccessTokenCalled).to(beTrue())
                 }
+                
+                switch result {
+                case .failure(let error):
+                    it("fails with the correct error domain") {
+                        expect(error.domain).to(equal(HeimdallrErrorDomain))
+                    }
 
-                it("fails with the correct error domain") {
-                    expect(result?.error?.domain).to(equal(HeimdallrErrorDomain))
-                }
-
-                it("fails with the correct error code") {
-                    expect(result?.error?.code).to(equal(HeimdallrErrorInvalidData))
+                    it("fails with the correct error code") {
+                        expect(error.code).to(equal(HeimdallrErrorInvalidData))
+                    }
+                    
+                default:
+                    break
                 }
 
                 it("does not set the access token") {
@@ -575,15 +628,21 @@ class HeimdallrSpec: QuickSpec {
                 }
 
                 it("fails") {
-                    expect(result?.value).to(beNil())
+                    expect(try? result?.get()).to(beNil())
                 }
 
-                it("fails with the correct error domain") {
-                    expect(result?.error?.domain).to(equal(HeimdallrErrorDomain))
-                }
+                switch result {
+                case .failure(let error):
+                    it("fails with the correct error domain") {
+                        expect(error.domain).to(equal(HeimdallrErrorDomain))
+                    }
 
-                it("fails with the correct error code") {
-                    expect(result?.error?.code).to(equal(HeimdallrErrorNotAuthorized))
+                    it("fails with the correct error code") {
+                        expect(error.code).to(equal(HeimdallrErrorNotAuthorized))
+                    }
+                    
+                default:
+                    break
                 }
             }
 
@@ -610,11 +669,11 @@ class HeimdallrSpec: QuickSpec {
                 }
 
                 it("succeeds") {
-                    expect(result?.value).toNot(beNil())
+                    expect(try? result?.get()).toNot(beNil())
                 }
 
                 it("authenticates the request using the resource request authenticator") {
-                    expect(result?.value?.value(forHTTPHeaderField: "MockAuthorized")).to(equal("totally"))
+                    expect((try? result?.get())?.value(forHTTPHeaderField: "MockAuthorized")).to(equal("totally"))
                 }
 
             }
@@ -642,17 +701,22 @@ class HeimdallrSpec: QuickSpec {
                 }
 
                 it("fails") {
-                    expect(result?.value).to(beNil())
+                    expect(try? result?.get()).to(beNil())
                 }
 
-                it("fails with the correct error domain") {
-                    expect(result?.error?.domain).to(equal(HeimdallrErrorDomain))
-                }
+                switch result {
+                case .failure(let error):
+                    it("fails with the correct error domain") {
+                        expect(error.domain).to(equal(HeimdallrErrorDomain))
+                    }
 
-                it("fails with the correct error code") {
-                    expect(result?.error?.code).to(equal(HeimdallrErrorNotAuthorized))
+                    it("fails with the correct error code") {
+                        expect(error.code).to(equal(HeimdallrErrorNotAuthorized))
+                    }
+                    
+                default:
+                    break
                 }
-
             }
 
             context("when authorized with an expired access token and a valid refresh token") {
@@ -695,7 +759,7 @@ class HeimdallrSpec: QuickSpec {
                     }
 
                     it("succeeds") {
-                        expect(result?.value).toNot(beNil())
+                        expect(try? result?.get()).toNot(beNil())
                     }
                     
                     it("attempts to parse the fresh token") {
@@ -703,7 +767,7 @@ class HeimdallrSpec: QuickSpec {
                     }
 
                     it("authenticates the request using the resource request authenticator") {
-                        expect(result?.value?.value(forHTTPHeaderField: "MockAuthorized")).to(equal("totally"))
+                        expect((try? result?.get())?.value(forHTTPHeaderField: "MockAuthorized")).to(equal("totally"))
                     }
                 }
 
@@ -726,19 +790,25 @@ class HeimdallrSpec: QuickSpec {
                     }
 
                     it("fails") {
-                        expect(result?.value).to(beNil())
+                        expect(try? result?.get()).to(beNil())
                     }
                     
                     it("does not attempt to parse the fresh token") {
                         expect(accessTokenParser.timesCalled).to(equal(1))
                     }
 
-                    it("fails with the correct error domain") {
-                        expect(result?.error?.domain).to(equal(OAuthErrorDomain))
-                    }
+                    switch result {
+                    case .failure(let error):
+                        it("fails with the correct error domain") {
+                            expect(error.domain).to(equal(OAuthErrorDomain))
+                        }
 
-                    it("fails with the correct error code") {
-                        expect(result?.error?.code).to(equal(OAuthErrorInvalidClient))
+                        it("fails with the correct error code") {
+                            expect(error.code).to(equal(OAuthErrorInvalidClient))
+                        }
+                        
+                    default:
+                        break
                     }
                 }
 
