@@ -2,7 +2,6 @@ import Heimdallr
 import Nimble
 import OHHTTPStubs
 import Quick
-import Result
 
 class OAuthAccessTokenMockStore: OAuthAccessTokenStore {
     var storeAccessTokenCalled: Bool = false
