@@ -28,3 +28,6 @@ xcuserdata
 
 # Carthage
 Carthage/
+
+# Swift Package Manager
+.swiftpm
