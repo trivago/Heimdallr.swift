@@ -1,0 +1,42 @@
+defaults: &defaults
+    macos:
+        xcode: 12.4.0
+
+version: 2.1
+
+jobs:
+    Test for iOS:
+        <<: *defaults
+        steps:
+        - checkout
+        - run:
+            name: Run Tests
+            command: xcodebuild test \ 
+                -workspace .swiftpm/xcode/package.xcworkspace \
+                -scheme Heimdallr \
+                -sdk iphonesimulator \
+                -destination "platform=iOS Simulator,OS=14.4,name=iPhone 12" \
+                -configuration Debug |
+                xcpretty
+
+    Test for macOS:
+        <<: *defaults
+        steps:
+        - checkout
+        - run:
+            name: Run Tests
+            command: xcodebuild test \
+                -workspace .swiftpm/xcode/package.xcworkspace \
+                -scheme Heimdallr \
+                -sdk macosx \
+                -destination "platform=macos,name=My Mac" \
+                -configuration Debug |
+                xcpretty
+
+workflows:
+    version: 2
+
+    Build and Test:
+        jobs:
+            - Test for iOS
+            - Test for macOS
