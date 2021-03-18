@@ -4,6 +4,7 @@
 ## Build generated
 build/
 DerivedData
+.build
 
 ## Various settings
 *.pbxuser
@@ -28,6 +29,3 @@ xcuserdata
 
 # Carthage
 Carthage/
-
-# Swift Package Manager
-.swiftpm
