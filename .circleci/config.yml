@@ -11,13 +11,12 @@ jobs:
         - checkout
         - run:
             name: Run Tests
-            command: xcodebuild test \ 
-                -workspace .swiftpm/xcode/package.xcworkspace \
+            command: xcodebuild test \
+                -workspace ../.swiftpm/xcode/package.xcworkspace \
                 -scheme Heimdallr \
                 -sdk iphonesimulator \
                 -destination "platform=iOS Simulator,OS=14.4,name=iPhone 12" \
-                -configuration Debug |
-                xcpretty
+                -configuration Debug
 
     Test for macOS:
         <<: *defaults
@@ -26,12 +25,11 @@ jobs:
         - run:
             name: Run Tests
             command: xcodebuild test \
-                -workspace .swiftpm/xcode/package.xcworkspace \
+                -workspace ../.swiftpm/xcode/package.xcworkspace \
                 -scheme Heimdallr \
                 -sdk macosx \
                 -destination "platform=macos,name=My Mac" \
-                -configuration Debug |
-                xcpretty
+                -configuration Debug
 
 workflows:
     version: 2
