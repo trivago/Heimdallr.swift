@@ -4,7 +4,7 @@ Heimdallr is an [OAuth 2.0](https://tools.ietf.org/html/rfc6749) client specific
 
 If you are an Android Developer, please take a look at the [Android version of Heimdallr](https://github.com/trivago/Heimdall.droid).
 
-[![Build Status](https://circleci.com/gh/trivago/Heimdallr.swift.svg?style=shield&circle-token=06d0c39133fae3dd9b649c116776c7f882885f1f)](https://circleci.com/gh/trivago/Heimdallr)
+[![Build Status](https://github.com/trivago/Heimdallr.swift/actions/workflows/heimdallr.yml/badge.svg)](https://github.com/trivago/Heimdallr.swift/actions/workflows/heimdallr.yml)
 
 ## Example
 
@@ -50,7 +50,18 @@ heimdallr.authenticateRequest(request) { result in
 
 ## Installation
 
-Installation is possible via Carthage or CocoaPods, see below for either method:
+Installation is possible via Swift Package Manager, Carthage, or CocoaPods, see below for either method:
+
+### Swift Package Manager
+
+In Xcode:
+1. Navigate to `File -> Swift Packages -> Add Package Dependency` to add the Swift package.
+
+2. Paste the repository URL into the search box `https://github.com/trivago/Heimdallr.swift.git`.
+
+3. Select the version, branch, or commit to install.
+
+4. Select the product and the target to attach it to.
 
 ### Carthage
 
@@ -58,9 +69,9 @@ Installation is possible via Carthage or CocoaPods, see below for either method:
 
 1. Add Heimdallr to your [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile):
 
-  ```
-  github "trivago/Heimdallr.swift" ~> 3.6.1
-  ```
+   ```
+   github "trivago/Heimdallr.swift" ~> 3.6.1
+   ```
 
 2. Run `carthage update` to fetch and build Heimdallr and its dependencies.
 
