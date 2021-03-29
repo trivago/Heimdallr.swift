@@ -4,6 +4,8 @@ Heimdallr is an [OAuth 2.0](https://tools.ietf.org/html/rfc6749) client specific
 
 If you are an Android Developer, please take a look at the [Android version of Heimdallr](https://github.com/trivago/Heimdall.droid).
 
+[![Build Status](https://circleci.com/gh/trivago/Heimdallr.swift.svg?style=shield&circle-token=06d0c39133fae3dd9b649c116776c7f882885f1f)](https://circleci.com/gh/trivago/Heimdallr)
+
 [![Build Status](https://github.com/trivago/Heimdallr.swift/actions/workflows/heimdallr.yml/badge.svg)](https://github.com/trivago/Heimdallr.swift/actions/workflows/heimdallr.yml)
 
 ## Example
