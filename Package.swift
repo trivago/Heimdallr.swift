@@ -25,14 +25,7 @@ let package = Package(
                 "OHHTTPStubs",
             ],
             resources: [
-                .process("./Resources/authorize-error.json"),
-                .process("./Resources/authorize-invalid-token.json"),
-                .process("./Resources/authorize-invalid-type.json"),
-                .process("./Resources/authorize-invalid.json"),
-                .process("./Resources/authorize-valid.json"),
-                .process("./Resources/request-invalid-norefresh.json"),
-                .process("./Resources/request-invalid.json"),
-                .process("./Resources/request-valid.json"),
+                .process("./Resources/"),
             ]
         ),
     ],
