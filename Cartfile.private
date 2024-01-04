@@ -1,8 +1,0 @@
-github "jspahrsummers/xcconfigs" ~> 1.0
-github "AliSoftware/OHHTTPStubs" ~> 7.0
-
-# Specifications
-github "Quick/Quick" ~> 2.1.0
-
-# Matchers
-github "Quick/Nimble" ~> 8.0.1

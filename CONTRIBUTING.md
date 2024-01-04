@@ -1,9 +1,7 @@
 You're interested in contributing to this project, that's awesome!
 
+The Xcode project is only included to support Carthage. You can still edit the files from the included Xcode project, but it does not include the tests, so it is recommended to open the root folder directly in Xcode so that it can recognize it as a Swift Package and allow running the tests.
+
 ## Dependencies
 
-We are using [Carthage](https://github.com/Carthage/Carthage) to manage dependencies without relying on it at build-time by integrating dependencies as Git Submodules. If you want to update a dependency, please change the corresponding `Cartfile` and run:
-
-```sh
-carthage update --use-submodules --no-build <dependency>
-```
+There is only one dependency in the project, which is [OHHTTPStubs](https://github.com/AliSoftware/OHHTTPStubs). This is only used for testing.
